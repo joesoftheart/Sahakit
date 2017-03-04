@@ -199,7 +199,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <div class="col-md-12">
                                     <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
                                         <div class=" text-center">
-                                            <h1><?= $row['c_name'] ?></h1>
+                                            <h1><?= $row['company_name'] ?></h1>
                                             <input type="hidden" name="cid" value="<?= $row['cid'] ?>">
                                             <input type="hidden" name="sid" value="<?= $row3['sid'] ?>">
                                             <input type="hidden" name="rank" value="<?= $row['rank'] ?>">

@@ -20,7 +20,7 @@ include '../php/config.php';
     <script src="../script/script_teacher.js"></script>
 
 </head>
-<body background="../img/Pieces_of_Paper.png" >
+<body >
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -44,6 +44,7 @@ include '../php/config.php';
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
+                <li><a href="admin_newcompany.php">เช็คบริษัทใหม่</a> </li>
                 <li><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
                 <li><a href="admin_teacher.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
                 <li><a href="admin_company.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>

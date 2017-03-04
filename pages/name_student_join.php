@@ -102,28 +102,23 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <li><a href="#">รายชื่อนักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
+                    <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
                             <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-                            <li><a href="evaluation_for_company.php">แบบประเมิน</a> </li>
+                            <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
                         </ul>
                     </li>
-                    <li><a href="progress.php"><i class="fa fa-list-alt"></i> ตรวจสอบความก้าวหน้า</a></li>
-                    <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
+                    <li><a href="progress.php"><i class="fa fa-list-alt"></i> ตรวจสอบรายงาน</a></li>
+
+                    <li><a href="evaluation_for_company.php">แบบประเมิน</a> </li>
                 </ul>
             </div>
     </nav>
     <div id="page-wrapper">
-        <div class="container-fluid">
-            <h3 class="page-header">
-                <?= $c_name ?>
-            </h3>
-        </div>
-
         <div class="row">
-            <div class="col-md-10" >
-                <div class="panel panel-red">
+            <div class="col-md-12" >
+                <div class="panel panel-red" style="margin-top: 5%">
                     <div class="panel-heading">
                         รายชื่อ " นักศึกษา " ที่สมัครฝึกงาน
                     </div>
@@ -133,30 +128,29 @@ include '../php/config.php';
                                 <div class="table table-responsive">
                                     <table class="table table table-hover ">
                                         <tr>
-                                            <th width="9%">ลำดับ</th>
-                                            <th width="18%">ชื่อนักศึกษา</th>
-                                            <th width="15%">ตำแหน่ง</th>
-                                            <th width="15%">ข้อมูลส่วนตัว</th>
-                                            <th width="15%">ดู เรซูเม่</th>
-                                            <th width="20%">สมัครมาวันที่</th>
-                                            <th>สถานะ</th>
-                                            <th>ยอมรับ</th>
+                                            <th class="text-center">ลำดับ</th>
+                                            <th class="text-center">ชื่อนักศึกษา</th>
+                                            <th class="text-center">ตำแหน่ง</th>
+                                            <th class="text-center">ข้อมูลส่วนตัว</th>
+                                            <th class="text-center">ดู เรซูเม่</th>
+                                            <th class="text-center">สมัครมาวันที่</th>
+                                            <th class="text-center">ยอมรับ</th>
                                         </tr>
                                         <?php  for ($i=1; $row = mysqli_fetch_array($QUERY); $i++) { ?>
                                             <tr>
-                                                <td><?= $i; ?></td>
-                                                <td><?= $row['fn_st'] ?> <?= $row['ln_st'] ?></td>
-                                                <td><?= $row['rank'] ?></td>
-                                                <td><a href="#" data-toggle="modal"
+                                                <td class="text-center"><?= $i; ?></td>
+                                                <td class="text-center"><?= $row['fn_st'] ?> <?= $row['ln_st'] ?></td>
+                                                <td class="text-center"><?= $row['rank'] ?></td>
+                                                <td class="text-center"><a href="#" data-toggle="modal"
                                                        data-target="#myModal<?= $row['sid'] ?>">ดูประวัติส่วนตัว</a>
                                                 </td>
-                                                <td > <a href="../myfile/resume/student/<?= $objResult["resume_upload"]; ?>" download  >
+                                                <td class="text-center"> <a href="../myfile/resume/student/<?= $objResult["resume_upload"]; ?>" download  >
                                                         <?= $objResult["resume_upload"]; ?></a>
                                                     </td>
 
-                                                <td><?= $row['dmt'] ?></td>
-                                                <td  style="color: red">รอตรวจสอบ</td>
-                                                <td>
+                                                <td class="text-center"><?= $row['dmt'] ?></td>
+
+                                                <td class="text-center">
                                                     <?php if ($row['status_work'] == 0) {?>
                                                     <button class="btn btn-outline btn-success"
                                                             onclick="update('<?= $row['rwid'] ?>')">อนุมัติ</button>
@@ -176,7 +170,7 @@ include '../php/config.php';
 
 
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="panel panel-danger">
                     <div class="panel-heading">
                         รายชื่อ " นักศึกษา " รอการอนุมัติ

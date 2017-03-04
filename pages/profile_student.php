@@ -68,9 +68,10 @@ include '../php/config.php';
             <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $fn_st ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
                     <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>

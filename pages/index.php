@@ -144,7 +144,7 @@ include '../php/config.php';
         </div>
     </nav>
     <?php
-    $sql1 = "SELECT *  FROM news WHERE  id >(SELECT max(id) FROM news)-3";
+    $sql1 = "SELECT *  FROM news WHERE  id >(SELECT max(id) FROM news)-2";
     $query1 = mysqli_query($link, $sql1);
     ?>
     <div id="page-wrapper">

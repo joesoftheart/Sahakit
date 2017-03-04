@@ -48,9 +48,11 @@ include '../php/config.php';
             <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $c_name ?> <b class="caret"></b> </a>
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
+                        class="fa fa-user"></i>  <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
                     <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
@@ -66,7 +68,7 @@ include '../php/config.php';
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
                             <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
@@ -74,7 +76,7 @@ include '../php/config.php';
                             <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
                         </ul>
                     </li>
-                    <?php $ss = $result['c_status_join']; if ($ss == 1) {?>
+                    <?php $check = $result['c_status_join']; if ($check == 1) {?>
                     <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
                         </a>
                         <ul class="nav nav-second-level">
@@ -83,11 +85,12 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <li><a href="#">รายชื่อนักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
+                    <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
                             <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-                            <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a> </li>
+
+                            <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
@@ -96,24 +99,25 @@ include '../php/config.php';
                             <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                         </ul>
                     </li>
-                    <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
+                        <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a> </li>
                     <?php }else{ ?>
 
                    <?php } ?>
                 </ul>
             </div>
-    </nav><input class="btn ">
+    </nav>
     <div id="page-wrapper">
         <div class="container-fluid">
-            <?php if ($ss == 0){ ?>
-            <h3 class="page-header text-center"><font color="red">*** กรุณารอให้ทางสาขาวิชาทำการยืนยันขั้นสุดท้ายก่อน ครับ ***</font></h3>
+            <?php if ($check == 0){ ?>
+            <h3 class="page-header text-center"><font color="red">*** กรุณารอให้ทางแอดมินยืนยันก่อน ครับ ***</font></h3>
                 <?php } else { ?>
 
                 <?php } ?>
 
 
         </div>
-
+</div>
+    </div>
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="../vendor/metisMenu/metisMenu.min.js"></script>
