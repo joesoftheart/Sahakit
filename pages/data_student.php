@@ -83,16 +83,16 @@ $msql = "SELECT * FROM register_work";
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-danger">
+                    <div class="panel panel-danger" style="margin-top: 5%">
                         <div class="panel-body">
                             <div class="row"
                             ">
                             <div class="col-md-12">
-                                <table width="100%" class="table table-striped table-hover"
+                                <table width="100%" class="table table-striped table-hover table-responsive"
                                        id="dataTables-example">
                                     <thead>
                                     <tr align="center">
-                                        <th class="text-center">ลำดับ</th>
+                                        <th class="text-center">รหัสนักศึกษา</th>
                                         <th class="text-center">ชื่อนักศึกษา</th>
                                         <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                         <th class="text-center">สถานที่ตั้งบริษัท</th>
@@ -114,7 +114,7 @@ $msql = "SELECT * FROM register_work";
                                     for ($i = 1; $row_register = mysqli_fetch_array($query_regiswork); $i++) { ?>
                                         <tbody>
                                         <tr>
-                                            <td class="text-center"><?= $i ?></td>
+                                            <td class="text-center"><?= $row_register['number_id'] ?></td>
                                             <td class="text-center"><?= $row_register['fn_st'] ?> <?= $row_register['ln_st'] ?></td>
                                             <td class="text-center"><?= $row_register['rank'] ?></td>
                                             <td class="text-center"><?= $row_register['c_address'] ?></td>
@@ -124,7 +124,7 @@ $msql = "SELECT * FROM register_work";
                                                     <img
                                                         src="../img/png2/notepad-8.png" width="30px"
                                                         height="30px"></a></td>
-                                            <td class="text-center"><a href="#"><img src="../img/png/notebook-4.png"
+                                            <td class="text-center"><a href="evaluation_tea.php"><img src="../img/png/notebook-4.png"
                                                                                      width="30px" height="30px"></a>
                                             </td>
                                             <td class="text-center"><a
@@ -187,8 +187,8 @@ $msql = "SELECT * FROM register_work";
                                            id="dataTables-example">
                                         <tr>
                                             <th>ลำดับ</th>
-                                            <th>ชื่อนักศึกษา</th>
                                             <th>รหัสนักศึกษา</th>
+                                            <th>ชื่อนักศึกษา</th>
                                             <th>status</th>
                                             <th>เพิ่ม</th>
                                         </tr>
@@ -197,8 +197,8 @@ $msql = "SELECT * FROM register_work";
                                         for ($j = 1; $row_1 = mysqli_fetch_array($query_1); $j++) { ?>
                                             <tr>
                                                 <td> <?= $j; ?></td>
-                                                <td><?= $row_1['fn_st'] ?> <?= $row_1['ln_st'] ?></td>
                                                 <td><?php echo $row_1['number_id'] ?></td>
+                                                <td><?= $row_1['fn_st'] ?> <?= $row_1['ln_st'] ?></td>
                                                 <td><?= $row_1['status'] ?></td>
                                                 <td>
                                                     <a href="add_techer_to_student.php?idtecher=<?= $row['tid'] ?>.<?= $row_1['sid'] ?>">

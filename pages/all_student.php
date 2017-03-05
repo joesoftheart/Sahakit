@@ -95,7 +95,7 @@ $check = mysqli_fetch_array($query1);
             <div class="panel panel-yellow">
                 <div class="panel-body">
                     <div class="col-md-12 table-responsive" >
-                        <table class="table table-hover table-bordered ">
+                        <table class="table table-hover">
                             <tr>
                                 <th class="text-center">ลำดับ</th>
                                 <th class="text-center">รูปประจำตัว</th>
@@ -116,7 +116,7 @@ $check = mysqli_fetch_array($query1);
                             <?php  }   for($i=1;$result = mysqli_fetch_array($query);$i++) {?>
                                 <tr>
                                     <td class="text-center"> <?= $i ?></td>
-                                    <td class="text-center"> <img src="../uploads/student/<?=$result['filetoload']?>" width="50px" height="50px" /> </td>
+                                    <td class="text-center"> <img id="myImg" src="../uploads/student/<?=$result['filetoload']?>"  width="50px" height="50px" /> </td>
                                     <td class="text-center"><?= $result['number_id'] ?></td>
                                     <td class="text-center"><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
                                     <td class="text-center"><?= $result['telaphone'] ?></td>
@@ -125,6 +125,13 @@ $check = mysqli_fetch_array($query1);
                                     <td><?= $result['c_address'] ?></td>
 
                                 </tr>
+
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01">
+                                    <div id="caption"></div>
+                                </div>
                             <?php } ?>
 
                         </table>
@@ -135,6 +142,29 @@ $check = mysqli_fetch_array($query1);
         </div>
     </div>
 </div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById('myImg');
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
 
 
 <script src="../vendor/jquery/jquery.min.js"></script>

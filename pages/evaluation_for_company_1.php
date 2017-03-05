@@ -1,24 +1,25 @@
-<?php
-session_start();
-
+<?php session_start();
 include '../php/config.php';
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
+
+    <link rel="shortcut icon" href="../img/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>สหกิจศึกษา</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <?php
     $status = null;
@@ -29,9 +30,15 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql3 = "SELECT * FROM company WHERE c_status_join = 1";
-        $qquery = mysqli_query($link,$sql3);
-        $result = mysqli_fetch_array($qquery);
+        $sql = "SELECT * FROM register_work ,company , student 
+                  WHERE register_work.cid = company.cid
+                    AND register_work.sid = student.sid ";
+        $query = mysqli_query($link, $sql);
+
+
+        $mysql = "SELECT * FROM company WHERE cid = $cid";
+        $Query = mysqli_query($link, $mysql);
+        $result = mysqli_fetch_array($Query);
     }
     ?>
 </head>
@@ -52,7 +59,7 @@ include '../php/config.php';
             <li class="dropdown">
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
-                        class="fa fa-user"></i>  <b class="caret"></b> </a>
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
                     <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
@@ -76,7 +83,6 @@ include '../php/config.php';
                             <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
                         </ul>
                     </li>
-                    <?php $check = $result['c_status_join']; if ($check == 1) {?>
                     <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
                         </a>
                         <ul class="nav nav-second-level">
@@ -95,35 +101,54 @@ include '../php/config.php';
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
-                            <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                            <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a></li>
+                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
                         </ul>
                     </li>
-                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
-                    <?php }else{ ?>
-
-                   <?php } ?>
+                    <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a></li>
                 </ul>
             </div>
     </nav>
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <?php if ($check == 0){ ?>
-            <h3 class="page-header text-center"><font color="red">*** กรุณารอให้ทางแอดมินยืนยันก่อน ครับ ***</font></h3>
-                <?php } else { ?>
-
-                <?php } ?>
-
-
-        </div>
 </div>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 5%">
+            <div class="panel panel-yellow">
+                <div class="panel-body">
+                    <div class="col-md-12 table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>รูปประจำตัว</th>
+                                <th>รหัสนักศึกษา</th>
+                                <th>ชื่อนักศึกษา</th>
+                                <th class="right"></th>
+                            </tr>
+                            <?php for ($i = 1; $result = mysqli_fetch_array($query); $i++) { ?>
+                                <tr>
+                                    <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
+                                             height="50px"/></td>
+                                    <td><?= $result['number_id'] ?></td>
+                                    <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
+                                    <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
+                                           class="btn btn-success">ประเมิน</a></td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-        <script src="../vendor/raphael/raphael.min.js"></script>
-        <script src="../vendor/morrisjs/morris.min.js"></script>
-        <script src="../data/morris-data.js"></script>
-        <script src="../dist/js/sb-admin-2.js"></script>
+</div>
+
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+<script src="../vendor/raphael/raphael.min.js"></script>
+<script src="../vendor/morrisjs/morris.min.js"></script>
+<script src="../data/morris-data.js"></script>
+<script src="../dist/js/sb-admin-2.js"></script>
+
 </body>
 </html>

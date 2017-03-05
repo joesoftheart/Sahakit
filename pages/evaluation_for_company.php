@@ -1,5 +1,8 @@
 <?php session_start();
 include '../php/config.php';
+date_default_timezone_set('Asia/Bangkok');
+include_once('../vendor/Thaidate/Thaidate.php');
+include_once('../vendor/Thaidate/thaidate-functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -209,15 +212,26 @@ include '../php/config.php';
             overflow: hidden;
         }
     </style>
-    <?php
+
+        <?php
     $status = null;
 
 
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
-        $company_name = $_SESSION['company_name'];
+        $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
+        $sid = $_REQUEST['sid'];
 
+
+        $sql = "SELECT * FROM register_work ,company,student
+                          WHERE register_work.cid = $cid
+                          AND register_work.sid = $sid";
+
+        $query_work = mysqli_query($link , $sql);
+$row_work = mysqli_fetch_array($query_work);
+
+    echo print_r($query_work);
 
     }
     ?>
@@ -235,9 +249,11 @@ include '../php/config.php';
             <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $company_name ?> <b class="caret"></b> </a>
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
                     <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
@@ -248,13 +264,12 @@ include '../php/config.php';
                 </ul>
             </li>
         </ul>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
                             <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
@@ -269,19 +284,25 @@ include '../php/config.php';
                             <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">รายชื่อนักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
+
+                    <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
                             <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-                            <li><a href="evaluation_for_company.php">แบบประเมิน</a></li>
+
+                            <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
                         </ul>
                     </li>
-                    <li><a href="progress.php"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a></li>
-                    <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
+                    <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a></li>
+                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a></li>
+
                 </ul>
             </div>
-        </div>
-
     </nav>
 </div>
 <div id="page-wrapper">
@@ -309,19 +330,21 @@ include '../php/config.php';
                     <br><br> <br>
 
                     <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
-                    ชื่อ - สกุล (นักศึกษา) <input type="text" data-onload="set_size($(this),300)"
-                                                  style="margin-top: 5px;">
-                    รหัสนักศึกษา <input type="text" data-onload="set_size($(this),200)" style="margin-top: 5px;">
+                    ชื่อ - สกุล (นักศึกษา) <input type="text" name="fn_st" data-onload="set_size($(this),150)"
+                                                  value="<?= $row_work['fn_st'] ?>" readonly="readonly" style="margin-top: 5px;"><input type="text" name="ln_st" data-onload="set_size($(this),150)"
+                                                                                                                    value="<?= $row_work['ln_st'] ?>" readonly="readonly" style="margin-top: 5px;">
+                    รหัสนักศึกษา <input type="text" name="number_id" value="<?= $row_work['number_id'] ?>" readonly="readonly" data-onload="set_size($(this),200)"
+                                        style="margin-top: 5px;">
                     <br>
-                    สาขาวิชา <input type="text" data-onload="set_size($(this),300)" style="margin-top: 5px;"> คณะ
-                    <input type="text" data-onload="set_size($(this),305)" style="margin-top: 5px;"> <br>
-                    ชื่อสถานประกอบการ <input type="text" data-onload="set_size($(this),325)"
+                    สาขาวิชา <input type="text" value="วิทยาการคอมพิวเตอร์" data-onload="set_size($(this),300)" readonly="readonly" style="margin-top: 5px;"> คณะ
+                    <input type="text" value="วิทยาศาสตร์และเทคโนโลยี" data-onload="set_size($(this),305)"  readonly="readonly" style="margin-top: 5px;"> <br>
+                    ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>" readonly="readonly" data-onload="set_size($(this),325)"
                                              style="margin-top: 5px;"> จังหวัด <input type="text"
                                                                                       data-onload="set_size($(this),200)"
                                                                                       style="margin-top: 5px;"> <br>
-                    ชื่อ - นามสกุลผู้ประเมิน <input type="text" data-onload="set_size($(this),300)"
+                    ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" data-onload="set_size($(this),300)"
                                                     style="margin-top: 5px;"> ตำแหน่ง <input type="text"
-                                                                                             data-onload="set_size($(this),200)"
+                                                                                           name="rank_leader"  data-onload="set_size($(this),200)"
                                                                                              style="margin-top: 5px;">
                     <br><br>
 
@@ -339,7 +362,7 @@ include '../php/config.php';
                                 ปริมาณงานที่ปฏิบัติสำเร็จตามหน้าที่หรือตามที่ได้รับมอบหมายภายในระยะเวลาที่ <br>
                                 &nbsp; &nbsp;&nbsp; &nbsp; กำหนดและเทียบกับนักศึกษาทั่ว ๆ ไป
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -350,7 +373,7 @@ include '../php/config.php';
                                 &nbsp; &nbsp;&nbsp; &nbsp; ปัญหา ติดตามมา งานไม่ค้างคา
                                 ทำงานเสร็จทันเวลาหรือก่อนเวลาที่กำหนด
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -376,7 +399,7 @@ include '../php/config.php';
                                 นักศึกษามีความรู้ทางวิชาการเพียงพอที่จะทำงานตามที่ได้รับมอบหมาย <br>
                                 &nbsp; &nbsp;&nbsp; &nbsp; (ในระดับที่นักศึกษาจะปฏิบัติได้)
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no3" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -387,7 +410,7 @@ include '../php/config.php';
                                 ตลอดจนการนำ <br>
                                 &nbsp;&nbsp;&nbsp; ความรู้ไปประยุกต์ใช้งาน
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no4" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -395,7 +418,7 @@ include '../php/config.php';
                             <td><b> &nbsp;5. ความรู้ความชำนาญในการปฏิบัติงาน (Practical Ability)</b><br>
                                 &nbsp; &nbsp; เช่น การปฏิบัติงานในภาคสนาม ในห้องปฏิบัติการ
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no5" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -407,7 +430,7 @@ include '../php/config.php';
                                 สามารถไว้วางใจให้ตัดสินใจได้ด้วยตนเอง
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no6" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -416,7 +439,7 @@ include '../php/config.php';
                                 &nbsp; &nbsp; สามารถจัดการและวางแผนการทำงานให้เสร็จตามเป้าหมาย
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no7" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -429,7 +452,7 @@ include '../php/config.php';
                                 รู้จักชี้แจงผลการปฏิบัติงานและข้อขัดข้องให้ทราบ
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no8" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -441,7 +464,7 @@ include '../php/config.php';
                                 &nbsp;&nbsp;&nbsp;ชาวต่างชาติหรือที่ใช้ภาษาต่างประเทศในการติดต่อสื่อสาร)
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no9" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -452,7 +475,7 @@ include '../php/config.php';
                                 ที่มอบหมายได้อย่าง <br>
                                 &nbsp; &nbsp; เหมาะสมหรือตำแหน่งงานนี้เหมาะสมกับนักศึกษาคนนี้หรือไม่เพียงใด
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no10" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -478,7 +501,7 @@ include '../php/config.php';
                                 สามารถไว้วางใจได้และรับผิดชอบงานที่มากกว่างาน <br>
                                 &nbsp; &nbsp; ประจำ สามารถไว้วางใจได้แทบทุกสถานการณ์หรือในสถานการณ์ปกติเท่านั้น
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no11" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -499,7 +522,7 @@ include '../php/config.php';
                                 &nbsp; &nbsp; จะทำงานได้สำเร็จ ความมานะบากบั่น ไม่ย่อท้อต่ออุปสรรคและปัญหา <br>
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no12" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -512,7 +535,7 @@ include '../php/config.php';
                                 ไม่ปล่อยเวลาว่างให้ล่วงเลยไป <br>
                                 &nbsp; &nbsp; โดยเปล่าประโยชน์
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no13" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -524,7 +547,7 @@ include '../php/config.php';
                                 ข้อเสนอแนะและวิจารณ์
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no14" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -545,7 +568,7 @@ include '../php/config.php';
                                 ความอ่อนน้อมถ่อมตน<br>
                                 &nbsp; &nbsp; การแต่งกาย กิริยาวาจา การตรงต่อเวลา และอื่น ๆ
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no15" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -555,7 +578,7 @@ include '../php/config.php';
                                 เป็นที่รักใคร่ <br>
                                 &nbsp; &nbsp; ชอบพอของเพื่อนร่วมงาน เป็นผู้ที่ช่วยก่อให้เกิดความร่วมมือประสานงาน
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no16" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -570,7 +593,7 @@ include '../php/config.php';
                                 ปฏิบัติตามกฎการรักษาความปลอดภัยใน <br>
                                 &nbsp; &nbsp; โรงงาน การควบคุมคุณภาพ 5 ส และอื่น ๆ)
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no17" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -580,7 +603,7 @@ include '../php/config.php';
                                 เอื้อเฟื้อช่วยเหลือผู้อื่น <br>
 
                             </td>
-                            <td class="text-center"><textarea data-onload="set_size($(this),100)"
+                            <td class="text-center"><textarea name="no18" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
                                                               rows="1"></textarea></td>
                         </tr>
@@ -603,10 +626,10 @@ include '../php/config.php';
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="text-center">  <textarea data-onload="set_size($(this),350)"
+                            <td class="text-center">  <textarea name="no19_1" data-onload="set_size($(this),350)"
                                                                 style="margin-top: 5px;"
                                                                 rows="3"></textarea></td>
-                            <td class="text-center"> <textarea data-onload="set_size($(this),350)"
+                            <td class="text-center"> <textarea name="no19_2" data-onload="set_size($(this),350)"
                                                                style="margin-top: 5px;"
                                                                rows="3"></textarea></td>
                         </tr>
@@ -618,28 +641,28 @@ include '../php/config.php';
                         หากนักศึกษาผู้นี้สำเร็จการศึกษาแล้ว ท่านจะรับเข้าทำงานในสถานประกอบการนี้หรือไม่
                         (หากมีโอกาสเลือก)
                         Once this student graduates, will you be interested to offer him/her a job?</b> <br>
-                    (&nbsp; <input type="radio" name="yes" value="yes"> &nbsp;) รับ / yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    (&nbsp; <input type="radio" name="yes" value="notsure"> &nbsp;)ไม่แน่ใจ / Not sure &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ( &nbsp;<input type="radio" name="yes" value="no"> &nbsp;)ไม่รับ / No
+                    (&nbsp; <input type="radio" name="get_work" value="yes"> &nbsp;) รับ / yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    (&nbsp; <input type="radio" name="get_work" value="notsure"> &nbsp;)ไม่แน่ใจ / Not sure &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ( &nbsp;<input type="radio" name="get_work" value="no"> &nbsp;)ไม่รับ / No
 
                     <br><br>
                     <b> 20. ข้อคิดเห็นเพิ่มเติม / Other comments</b> <br>
-                    <textarea data-onload="set_size($(this),600)" style="margin-top: 5px;"
+                    <textarea name="comment" data-onload="set_size($(this),600)" style="margin-top: 5px;"
                               rows="5"></textarea>
                     <br><br><br>
                     <p align="right">
-                        ลงชื่อ / Evaluator ‘s Signature <input type="text" data-onload="set_size($(this),150)"
+                        ลงชื่อ / Evaluator ‘s Signature <input type="text"  name="evaluator" data-onload="set_size($(this),150)"
                                                                style="margin-top: 5px;"> พนักงานที่ปรึกษา <br></p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     (<input type="text" data-onload="set_size($(this),150)" style="margin-top: 5px;">)
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;
-                    <input type="text" data-onload="set_size($(this),25)"
-                           style="margin-top: 5px;">/<input type="text" data-onload="set_size($(this),60)"
-                                                            style="margin-top: 5px;">/<input type="text"
-                                                                                             data-onload="set_size($(this),40)"
-                                                                                             style="margin-top: 5px;">
+
+
+                    <input type="text" name="d" value="<?php echo thaidate('j'); ?>" readonly="readonly" data-onload="set_size($(this),25)" style="margin-top: 5px;">/
+                    <input type="text" name="m" value="<?php echo thaidate('F'); ?>" readonly="readonly" data-onload="set_size($(this),60)" style="margin-top: 5px;">/
+                    <input type="text" name="y" value="<?php echo thaidate('Y'); ?>" readonly="readonly" data-onload="set_size($(this),40)" style="margin-top: 5px;">
 
                 </div>
             </div>
