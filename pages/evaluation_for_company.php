@@ -223,10 +223,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         $cid = $_SESSION['cid'];
         $sid = $_REQUEST['sid'];
 
-
-        $sql = "SELECT * FROM register_work ,company,student
-                          WHERE register_work.cid = $cid
-                          AND register_work.sid = $sid";
+echo $sid;
+        $sql = "SELECT * FROM register_work , company , student 
+                    WHERE register_work.cid = company.cid 
+                    AND register_work.sid = student.sid 
+                    AND register_work.sid = $sid";
 
         $query_work = mysqli_query($link , $sql);
 $row_work = mysqli_fetch_array($query_work);
@@ -326,10 +327,12 @@ $row_work = mysqli_fetch_array($query_work);
                     โปรดปิดผนึกและลงลายมือชื่อกำกับเอกสารสำคัญฉบับนี้ด้วย และให้นักศึกษานำส่งที่งานสหกิจศึกษา <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. โปรดให้คะแนนในช่อง <img src="../img/table.PNG"
                                                                                           height="20px">
-                    ในแต่ละหัวข้อการประเมิน หากไม่มีข้อมูลให้ใส่เครื่องหมาย – และโปรดให้ความคิดเห็นเพิ่มเติม (ถ้ามี)
+                    ในแต่ละหัวข้อการประเมิน 1 - 5 คะแนน และโปรดให้ความคิดเห็นเพิ่มเติม (ถ้ามี)
                     <br><br> <br>
-
+                    <form action="../php/update_evaluation_for_company.php" method="post" enctype="multipart/form-data">
                     <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
+                        <input type="text" name="sid" value="<?= $sid ?>">
+                        <input type="text" name="cid" value="<?= $cid ?>">
                     ชื่อ - สกุล (นักศึกษา) <input type="text" name="fn_st" data-onload="set_size($(this),150)"
                                                   value="<?= $row_work['fn_st'] ?>" readonly="readonly" style="margin-top: 5px;"><input type="text" name="ln_st" data-onload="set_size($(this),150)"
                                                                                                                     value="<?= $row_work['ln_st'] ?>" readonly="readonly" style="margin-top: 5px;">
@@ -347,6 +350,7 @@ $row_work = mysqli_fetch_array($query_work);
                                                                                            name="rank_leader"  data-onload="set_size($(this),200)"
                                                                                              style="margin-top: 5px;">
                     <br><br>
+
 
                     <font size="4"><b>ผลสำเร็จของงาน / Work Achievement</b></font>
                     <table border="1" width="100%">
@@ -663,7 +667,10 @@ $row_work = mysqli_fetch_array($query_work);
                     <input type="text" name="d" value="<?php echo thaidate('j'); ?>" readonly="readonly" data-onload="set_size($(this),25)" style="margin-top: 5px;">/
                     <input type="text" name="m" value="<?php echo thaidate('F'); ?>" readonly="readonly" data-onload="set_size($(this),60)" style="margin-top: 5px;">/
                     <input type="text" name="y" value="<?php echo thaidate('Y'); ?>" readonly="readonly" data-onload="set_size($(this),40)" style="margin-top: 5px;">
+<br>
+                    <button type="submit" class="btn btn-success">ประเมิน</button>
 
+                    </form>
                 </div>
             </div>
         </div>

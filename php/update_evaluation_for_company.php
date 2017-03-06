@@ -3,21 +3,55 @@
 <?php
 include 'config.php';
 
-$passwd = $_REQUEST['passwd'];
-$frist_name = $_REQUEST['frist_name'];
-$fn_te = $_REQUEST['fn_te'];
-$ln_te = $_REQUEST['ln_te'];
-$email = $_REQUEST['email'];
-$telaphone = $_REQUEST['telaphone'];
-$address = $_REQUEST['address'];
-$tid = $_REQUEST['tid'];
+$sid = $_REQUEST['sid'];
+$cid = $_REQUEST['cid'];
+$fn_st = $_REQUEST['fn_st'];
+$ln_st = $_REQUEST['ln_st'];
+$number_id = $_REQUEST['number_id'];
+$c_name = $_REQUEST['c_name'];
+$name_leader = $_REQUEST['name_leader'];
+$rank_leader= $_REQUEST['rank_leader'];
+$no1 = $_REQUEST['no1'];
+$no2 = $_REQUEST['no2'];
+$no3 = $_REQUEST['no3'];
+$no4 = $_REQUEST['no4'];
+$no5 = $_REQUEST['no5'];
+$no6 = $_REQUEST['no6'];
+$no7 = $_REQUEST['no7'];
+$no8 = $_REQUEST['no8'];
+$no9 = $_REQUEST['no9'];
+$no10 = $_REQUEST['no10'];
+$no11 = $_REQUEST['no11'];
+$no12 = $_REQUEST['no12'];
+$no13 = $_REQUEST['no13'];
+$no14 = $_REQUEST['no14'];
+$no15 = $_REQUEST['no15'];
+$no16 = $_REQUEST['no16'];
+$no17 = $_REQUEST['no17'];
+$no18 = $_REQUEST['no18'];
+$no19_1 = $_REQUEST['no19_1'];
+$no19_2 = $_REQUEST['no19_2'];
+$get_work = $_REQUEST['get_work'];
+$comment = $_REQUEST['comment'];
+$evaluator = $_REQUEST['evaluator'];
+$d = $_REQUEST['d'];
+$m = $_REQUEST['m'];
+$y = $_REQUEST['y'];
 
 
 
 
-$sql_edit = "UPDATE teacher SET  passwd = '$passwd' , frist_name = '$frist_name' , fn_te = '$fn_te' , ln_te = '$ln_te' , email = '$email' , telaphone = '$telaphone' , address = '$address' WHERE tid = '$tid'";
-mysqli_query($link,$sql_edit);
+$sql = "INSERT INTO evaluator_company (sid ,cid,fn_st,ln_st,number_id,c_name,name_leader,rank_leader,no1,no2,no3,no4,no5,no6,no7,no8,no9,no10,no11,no12,no13,no14,no15,no16,no17,no18,no19_1,no19_2,get_work,comment,evaluator,d,m,y) 
+              VALUE ('$sid','$cid','$fn_st','$ln_st','$number_id','$c_name','$name_leader','$rank_leader','$no1','$no2','$no3','$no4','$no5','$no6','$no7','$no8','$no9','$no10','$no11','$no12','$no13','$no14','$no15','$no16','$no17','$no18','$no19_1','$no19_2','$get_work','$comment','$evaluator','$d','$m','$y')";
 
+if (mysqli_query($link, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+}
 
-echo  "<script type='text/javascript'>window.location='../pages/edit_profile_teacher_sucess.php'</script>";
+mysqli_close($link);
 ?>
+
+
+
