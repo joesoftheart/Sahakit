@@ -213,7 +213,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         }
     </style>
 
-        <?php
+    <?php
     $status = null;
 
 
@@ -223,16 +223,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         $cid = $_SESSION['cid'];
         $sid = $_REQUEST['sid'];
 
-echo $sid;
+
         $sql = "SELECT * FROM register_work , company , student 
                     WHERE register_work.cid = company.cid 
                     AND register_work.sid = student.sid 
                     AND register_work.sid = $sid";
 
-        $query_work = mysqli_query($link , $sql);
-$row_work = mysqli_fetch_array($query_work);
+        $query_work = mysqli_query($link, $sql);
+        $row_work = mysqli_fetch_array($query_work);
 
-    echo print_r($query_work);
 
     }
     ?>
@@ -300,7 +299,7 @@ $row_work = mysqli_fetch_array($query_work);
                             <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
                         </ul>
                     </li>
-                    <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a></li>
+                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
 
                 </ul>
             </div>
@@ -330,59 +329,70 @@ $row_work = mysqli_fetch_array($query_work);
                     ในแต่ละหัวข้อการประเมิน 1 - 5 คะแนน และโปรดให้ความคิดเห็นเพิ่มเติม (ถ้ามี)
                     <br><br> <br>
                     <form action="../php/update_evaluation_for_company.php" method="post" enctype="multipart/form-data">
-                    <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
-                        <input type="text" name="sid" value="<?= $sid ?>">
-                        <input type="text" name="cid" value="<?= $cid ?>">
-                    ชื่อ - สกุล (นักศึกษา) <input type="text" name="fn_st" data-onload="set_size($(this),150)"
-                                                  value="<?= $row_work['fn_st'] ?>" readonly="readonly" style="margin-top: 5px;"><input type="text" name="ln_st" data-onload="set_size($(this),150)"
-                                                                                                                    value="<?= $row_work['ln_st'] ?>" readonly="readonly" style="margin-top: 5px;">
-                    รหัสนักศึกษา <input type="text" name="number_id" value="<?= $row_work['number_id'] ?>" readonly="readonly" data-onload="set_size($(this),200)"
-                                        style="margin-top: 5px;">
-                    <br>
-                    สาขาวิชา <input type="text" value="วิทยาการคอมพิวเตอร์" data-onload="set_size($(this),300)" readonly="readonly" style="margin-top: 5px;"> คณะ
-                    <input type="text" value="วิทยาศาสตร์และเทคโนโลยี" data-onload="set_size($(this),305)"  readonly="readonly" style="margin-top: 5px;"> <br>
-                    ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>" readonly="readonly" data-onload="set_size($(this),325)"
-                                             style="margin-top: 5px;"> จังหวัด <input type="text"
-                                                                                      data-onload="set_size($(this),200)"
-                                                                                      style="margin-top: 5px;"> <br>
-                    ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" data-onload="set_size($(this),300)"
-                                                    style="margin-top: 5px;"> ตำแหน่ง <input type="text"
-                                                                                           name="rank_leader"  data-onload="set_size($(this),200)"
-                                                                                             style="margin-top: 5px;">
-                    <br><br>
+                        <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
+                        <input type="hidden" name="sid" value="<?= $sid ?>">
+                        <input type="hidden" name="cid" value="<?= $cid ?>">
+                        ชื่อ - สกุล (นักศึกษา) <input type="text" name="fn_st" data-onload="set_size($(this),150)"
+                                                      value="<?= $row_work['fn_st'] ?>" readonly="readonly"
+                                                      style="margin-top: 5px;"><input type="text" name="ln_st"
+                                                                                      data-onload="set_size($(this),150)"
+                                                                                      value="<?= $row_work['ln_st'] ?>"
+                                                                                      readonly="readonly"
+                                                                                      style="margin-top: 5px;">
+                        รหัสนักศึกษา <input type="text" name="number_id" value="<?= $row_work['number_id'] ?>"
+                                            readonly="readonly" data-onload="set_size($(this),200)"
+                                            style="margin-top: 5px;">
+                        <br>
+                        สาขาวิชา <input type="text" value="วิทยาการคอมพิวเตอร์" data-onload="set_size($(this),300)"
+                                        readonly="readonly" style="margin-top: 5px;"> คณะ
+                        <input type="text" value="วิทยาศาสตร์และเทคโนโลยี" data-onload="set_size($(this),305)"
+                               readonly="readonly" style="margin-top: 5px;"> <br>
+                        ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>"
+                                                 readonly="readonly" data-onload="set_size($(this),325)"
+                                                 style="margin-top: 5px;"> จังหวัด <input type="text"
+                                                                                          required="required"
+                                                                                          data-onload="set_size($(this),200)"
+                                                                                          style="margin-top: 5px;"> <br>
+                        ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required"
+                                                        data-onload="set_size($(this),300)"
+                                                        style="margin-top: 5px;">
+                        ตำแหน่ง <input type="text" name="rank_leader" required="required"
+                                       data-onload="set_size($(this),200)"
+                                       style="margin-top: 5px;">
+                        <br><br>
 
 
-                    <font size="4"><b>ผลสำเร็จของงาน / Work Achievement</b></font>
-                    <table border="1" width="100%">
-                        <thead>
-                        <tr>
-                            <th colspan="2" class="text-center">หัวข้อประเมิน / Items</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><b> &nbsp;1.ปริมาณงาน (Quantity of Work) </b><br>
-                                &nbsp; &nbsp;
-                                ปริมาณงานที่ปฏิบัติสำเร็จตามหน้าที่หรือตามที่ได้รับมอบหมายภายในระยะเวลาที่ <br>
-                                &nbsp; &nbsp;&nbsp; &nbsp; กำหนดและเทียบกับนักศึกษาทั่ว ๆ ไป
-                            </td>
-                            <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
-                                                              style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td><b> &nbsp;2. คุณภาพงาน (Quantity of Work) </b><br>
-                                &nbsp; &nbsp; ทำงานได้ถูกต้องครบถ้วนสมบูรณ์ มีความปราณีตเรียบร้อย มีความรอบคอบ
-                                ไม่เกิด <br>
-                                &nbsp; &nbsp;&nbsp; &nbsp; ปัญหา ติดตามมา งานไม่ค้างคา
-                                ทำงานเสร็จทันเวลาหรือก่อนเวลาที่กำหนด
-                            </td>
-                            <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
-                                                              style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <font size="4"><b>ผลสำเร็จของงาน / Work Achievement</b></font>
+                        <table border="1" width="100%">
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="text-center">หัวข้อประเมิน / Items</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><b> &nbsp;1.ปริมาณงาน (Quantity of Work) </b><br>
+                                    &nbsp; &nbsp;
+                                    ปริมาณงานที่ปฏิบัติสำเร็จตามหน้าที่หรือตามที่ได้รับมอบหมายภายในระยะเวลาที่ <br>
+                                    &nbsp; &nbsp;&nbsp; &nbsp; กำหนดและเทียบกับนักศึกษาทั่ว ๆ ไป
+                                </td>
+                                <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
+                                                                  style="margin-top: 5px;"
+                                                                  rows="1" required="required"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td><b> &nbsp;2. คุณภาพงาน (Quantity of Work) </b><br>
+                                    &nbsp; &nbsp; ทำงานได้ถูกต้องครบถ้วนสมบูรณ์ มีความปราณีตเรียบร้อย มีความรอบคอบ
+                                    ไม่เกิด <br>
+                                    &nbsp; &nbsp;&nbsp; &nbsp; ปัญหา ติดตามมา งานไม่ค้างคา
+                                    ทำงานเสร็จทันเวลาหรือก่อนเวลาที่กำหนด
+                                </td>
+                                <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
+                                                                  style="margin-top: 5px;"
+                                                                  rows="1" required="required"></textarea></td>
+                            </tr>
+                            </tbody>
+                        </table>
                 </div>
             </div>
 
@@ -405,7 +415,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no3" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;4. ความสามารถในการเรียนรู้และประยุกต์วิชาการ (Ability to Learn and Apply
@@ -416,7 +426,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no4" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;5. ความรู้ความชำนาญในการปฏิบัติงาน (Practical Ability)</b><br>
@@ -424,7 +434,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no5" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;6. วิจารญาณและการตัดสินใจ (Judgement and Decision Making)</b><br>
@@ -436,7 +446,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no6" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;7. การจัดการและวางแผน (Organization and Planning)</b><br>
@@ -445,7 +455,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no7" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;8. ทักษะการสื่อสาร (Communication Skills)</b><br>
@@ -458,7 +468,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no8" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;9. การพัฒนาด้านภาษาและวัฒนธรรมต่างประเทศ (Foreign Language and Cultural
@@ -470,7 +480,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no9" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;10. ความเหมาะสมต่อตำแหน่งงานที่ได้รับมอบหมาย (Suitability for
@@ -481,7 +491,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no10" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -507,7 +517,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no11" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -528,7 +538,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no12" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;13. ความสามารถเริ่มต้นทำงานได้ด้วยตนเอง (Initiative or Self
@@ -541,7 +551,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no13" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;14. การตอบสนองต่อการสั่งการ (Response to Supervision)</b><br>
@@ -553,7 +563,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no14" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -574,7 +584,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no15" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;16. มนุษยสัมพันธ์ (Interpersonal Skills)</b><br>
@@ -584,7 +594,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no16" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
 
                         <tr>
@@ -599,7 +609,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no17" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;18. คุณธรรมและจริยธรรม (Ethics and Morality)</b><br>
@@ -609,7 +619,7 @@ $row_work = mysqli_fetch_array($query_work);
                             </td>
                             <td class="text-center"><textarea name="no18" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1"></textarea></td>
+                                                              rows="1" required="required"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -632,10 +642,10 @@ $row_work = mysqli_fetch_array($query_work);
                         <tr>
                             <td class="text-center">  <textarea name="no19_1" data-onload="set_size($(this),350)"
                                                                 style="margin-top: 5px;"
-                                                                rows="3"></textarea></td>
+                                                                rows="3" required="required"></textarea></td>
                             <td class="text-center"> <textarea name="no19_2" data-onload="set_size($(this),350)"
                                                                style="margin-top: 5px;"
-                                                               rows="3"></textarea></td>
+                                                               rows="3" required="required"></textarea></td>
                         </tr>
 
                         </tbody>
@@ -647,7 +657,7 @@ $row_work = mysqli_fetch_array($query_work);
                         Once this student graduates, will you be interested to offer him/her a job?</b> <br>
                     (&nbsp; <input type="radio" name="get_work" value="yes"> &nbsp;) รับ / yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     (&nbsp; <input type="radio" name="get_work" value="notsure"> &nbsp;)ไม่แน่ใจ / Not sure &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ( &nbsp;<input type="radio" name="get_work" value="no"> &nbsp;)ไม่รับ / No
+                    (&nbsp;<input type="radio" name="get_work" value="no"> &nbsp;)ไม่รับ / No
 
                     <br><br>
                     <b> 20. ข้อคิดเห็นเพิ่มเติม / Other comments</b> <br>
@@ -655,21 +665,29 @@ $row_work = mysqli_fetch_array($query_work);
                               rows="5"></textarea>
                     <br><br><br>
                     <p align="right">
-                        ลงชื่อ / Evaluator ‘s Signature <input type="text"  name="evaluator" data-onload="set_size($(this),150)"
-                                                               style="margin-top: 5px;"> พนักงานที่ปรึกษา <br></p>
+                        ลงชื่อ / Evaluator ‘s Signature <input type="text" name="evaluator"
+                                                               data-onload="set_size($(this),150)"
+                                                               style="margin-top: 5px;" required="required">
+                        พนักงานที่ปรึกษา <br></p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    (<input type="text" data-onload="set_size($(this),150)" style="margin-top: 5px;">)
+                    (<input type="text" data-onload="set_size($(this),150)" style="margin-top: 5px;"
+                            required="required">)
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;
 
 
-                    <input type="text" name="d" value="<?php echo thaidate('j'); ?>" readonly="readonly" data-onload="set_size($(this),25)" style="margin-top: 5px;">/
-                    <input type="text" name="m" value="<?php echo thaidate('F'); ?>" readonly="readonly" data-onload="set_size($(this),60)" style="margin-top: 5px;">/
-                    <input type="text" name="y" value="<?php echo thaidate('Y'); ?>" readonly="readonly" data-onload="set_size($(this),40)" style="margin-top: 5px;">
-<br>
-                    <button type="submit" class="btn btn-success">ประเมิน</button>
+                    <input type="text" name="d" value="<?php echo thaidate('j'); ?>" readonly="readonly"
+                           data-onload="set_size($(this),25)" style="margin-top: 5px;">/
+                    <input type="text" name="m" value="<?php echo thaidate('F'); ?>" readonly="readonly"
+                           data-onload="set_size($(this),60)" style="margin-top: 5px;">/
+                    <input type="text" name="y" value="<?php echo thaidate('Y'); ?>" readonly="readonly"
+                           data-onload="set_size($(this),40)" style="margin-top: 5px;">
+                    <br><br><br><br><br><br><br><br>
 
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success"><font size="4">ประเมิน</font></button>
+                    </div>
                     </form>
                 </div>
             </div>

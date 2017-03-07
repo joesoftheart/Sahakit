@@ -46,9 +46,15 @@ $sql = "INSERT INTO evaluator_company (sid ,cid,fn_st,ln_st,number_id,c_name,nam
 
 if (mysqli_query($link, $sql)) {
     echo "New record created successfully";
+    echo "<script type='text/javascript'>location.window='../page/evaluation_for_company_1.php'</script>";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($link);
+
 }
+
+
+
+
 
 mysqli_close($link);
 ?>

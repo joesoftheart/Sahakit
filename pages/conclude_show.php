@@ -219,7 +219,7 @@ include '../php/config.php';
         $sid = $_SESSION["sid"];
         $fn_st = $_SESSION['fn_st'];
         $ln_st = $_SESSION['ln_st'];
-        $idst = $_SESSION['idst'];
+        $number_id = $_SESSION['number_id'];
 
         $sql1 = "SELECT * FROM register_work,company,student
                           WHERE register_work.cid = company.cid AND register_work.sid = student.sid";

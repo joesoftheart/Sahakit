@@ -1,4 +1,5 @@
 <?php session_start();
+error_reporting("E_ALL & ~E_NOTICE");
 include '../php/config.php';
 ?>
 
@@ -12,9 +13,21 @@ include '../php/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../vendor/js/function.js"></script>
 
     <title>สหกิจศึกษา</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/jquery/jquery-ui.css" rel="stylesheet">
+    <link href="../vendor/jquery/jquery-ui.theme.css" rel="stylesheet">
+    <link href="../vendor/jquery/jquery-ui.structure.css" rel="stylesheet">
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
@@ -39,12 +52,56 @@ include '../php/config.php';
             font-style: normal;
         }
 
-        #crop {
+        .crop {
             margin: 0;
             padding: 0;
             background-color: #FAFAFA;
             font: 12pt "Tahoma";
             font-family: 'THSarabunPSK';
+        }
+
+        .ui-datepicker td span, .ui-datepicker td a{
+            color: #ffffff;
+        }
+        .ui-datepicker th{
+            color: #ffffff;
+        }
+        .ui-datepicker .ui-datepicker-next{
+            background: url("../image/button.png");
+            background-position: -176px -18px;
+            cursor: pointer;
+        }
+        .ui-datepicker .ui-datepicker-prev{
+            background: url("../image/button.png");
+            background-position: -24px -18px;
+            cursor: pointer;
+        }
+        .ui-datepicker-trigger{
+            background: url("../image/calendar.png");
+            background-size: 100% 100%;
+            width: 40px;
+            opacity: 0.2;
+            border: none;
+            color:#333332;
+        }
+        .ui-datepicker-trigger:hover{
+            opacity: 1;
+        }
+
+        .ui-datepicker-month,.ui-datepicker-year{
+            color: #000;
+            font-family: 'THSarabunPSK';
+        }
+
+        .ui-datepicker{
+            background: #3f85c3;
+        }
+        .ui-state-default{
+            font-size:10px;
+        }
+
+        .ui-datepicker .ui-datepicker-header{
+            background: #3f85c3 !important;
         }
 
         * {
@@ -54,7 +111,7 @@ include '../php/config.php';
 
         input[type="text"] {
             border: none;
-            border-bottom: dotted #0f0f0f 1px;
+           /* border-bottom: dotted #0f0f0f 1px; */
             font-family: 'THSarabunPSK';
             display: inline;
             position: relative;
@@ -208,6 +265,9 @@ include '../php/config.php';
             font-size: 20px;
             overflow: hidden;
         }
+        .ui-datepicker-trigger > img{
+            width:20px;
+        }
     </style>
 
 
@@ -216,10 +276,7 @@ include '../php/config.php';
 
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
-        $sid = $_SESSION["sid"];
-        $fn_st = $_SESSION['fn_st'];
-        $ln_st = $_SESSION['ln_st'];
-        $number_id = $_SESSION['number_id'];
+
 
         $sql1 = "SELECT * FROM register_work,company,student
                           WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
@@ -262,14 +319,22 @@ include '../php/config.php';
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#">คู่มือนักศึกษา <span class="fa arrow"></span></a>
+                        <a href="#">นักศึกษา <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="index.php">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">แนวปฏิบัติสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">เทคนิคการเลือกสถานประกอบการ</a></li>
+                            <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
+                            <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
+                                <ul class="nav nav-third-level">
+                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
+                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
+                                    <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
+
+                                </ul>
+                            </li>
+                            <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
                         </ul>
                     </li>
-
                     <?php if ($result['status_work'] == 1) { ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i> ค้นหาบริษัทฝึกงาน</a>
                         </li>
@@ -278,8 +343,10 @@ include '../php/config.php';
                     if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="add_note1.php" class="active">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="diary.php">สมุดบันทึกการฝึกงาน</a></li>
+                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
+                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
+                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
+                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
@@ -290,122 +357,40 @@ include '../php/config.php';
     </nav>
 </div>
 <div id="page-wrapper">
-    <div id="crop">
-        <div class="book">
-            <?PHP
-            $sql_list = "SELECT * FROM execute WHERE id= ".$_GET['id']." ";
-            $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
-            while($row=mysqli_fetch_array($sql_listquery)) {
-                $date = explode("-",$row["date"]);
-                //echo $row["date"];
-                ?>
-                <div class="page">
-                    <div class="subpage">
-
-                        สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $row["week"] ?>" style="margin-top: -5px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <font size="5"><b>บันทึกการปฎิบัติประจำวัน</b></font> <br>
-                        <div style="border: solid 1px">
-                            วันที่<input type="text" data-onload="set_size($(this),25)" value="<?PHP echo $date[0]  ?>" style="margin-top: 5px;">/
-                            <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $date[1]  ?>" style="margin-top: 5px;">/
-                            <input type="text" data-onload="set_size($(this),35)" value="<?PHP echo $date[2]  ?>" style="margin-top: 5px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เวลาเริ่มปฎิบัติงาน
-                            <input type="text" data-onload="set_size($(this),35)" value="<?PHP echo $row["start_minute"] ?>:<?PHP echo $row["start_secound"] ?>" style="margin-top: 5px;">น. เวลาเลิกปฎิบัติงาน
-                            <input type="text" data-onload="set_size($(this),35)" value="<?PHP echo $row["end_minute"] ?>:<?PHP echo $row["end_secound"] ?>" style="margin-top: 5px;">น.  <br>
-                            ลักษณะงานที่ปฎิบัติ <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                            <?PHP echo $row["job_work"] ?>
-                            </textarea>
-                            ปัญหาที่พบ <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                                <?PHP echo $row["problem"] ?>
-                            </textarea>
-                            แนวทางการแก้ไขปัญหา <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                                <?PHP echo $row["work_fix"] ?>
-                            </textarea>
-                            หมายเหต <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2">
-                                <?PHP echo $row["note"] ?>
-                            </textarea>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page">
-                    <div class="subpage">
-                        <div align="center"> บันทึกเพิ่มเติม</div>
-                        <div style="border: solid 1px">
-
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="15">
-                                <?PHP echo $row["save_note"] ?>
-                            </textarea>
-
-
-                        </div>
-                    </div>
-
-                </div>
-                <?PHP
-            }
-            ?>
-
-            <div class="page">
-                <div class="subpage">
-                    <div align="center"><font size="5"><b>สรุปผลบันทึกการปฎิบัติงานประจำวัน &nbsp;&nbsp;&nbsp;ในรอบสัปดาห์ที่
-                                <input type="text" data-onload="set_size($(this),45)"
-                                       style="margin-top: 5px;"></b></font><br>
-                        ระหว่างวันที่
-                        <input type="text" data-onload="set_size($(this),100)" style="margin-top: 5px;"> ถึงวันที่ <input type="text" data-onload="set_size($(this),100)" style="margin-top: 5px;">
-
-                    </div>
-                    <div style="border: solid 1px">
-
-                        ลักษณะงานที่ปฎิบัติ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        ปัญหาที่พบ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        หมายเหต <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2"> </textarea>
-
-                    </div>
-                    <br>
-                    <div align="center">
-                        <font size="5"><b>รวมจำนวนชั่วโมงที่ปฏิบัติงานสหกิจศึกษาทั้งหมดในสัปดาห์นี้ &nbsp;&nbsp;&nbsp;
-                                เท่ากับ <input type="text" data-onload="set_size($(this),45)"
-                                               style="margin-top: 5px;"> ชั่วโมง</b></font>
-                    </div>
-                    <div style="border: solid 1px">
-                        <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4"> </textarea>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ลงชื่อ <input type="text" data-onload="set_size($(this),150)"
-                                  style="margin-top: 5px;"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    (<input type="text" data-onload="set_size($(this),150)"
-                            style="margin-top: 5px;">)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ตำแหน่ง <input type="text" data-onload="set_size($(this),200)"
-                                   style="margin-top: 5px;">
-                </div>
-
-            </div>
-        </div>
+    <form action="../php/get_note.php" method="post" >
+    <table style="margin-top: 5px;margin-left: 50px;font-size:15px;width:90%;" class="table" >
+        <tr>
+            <th>สัปดาห์ที่</th>
+            <th>สถานะ</th>
+            <th>วันที่</th>
+            <th>เข้างาน</th>
+            <th>ออกงาน</th>
+            <th>ลักษณะงานที่ปฎิบัติ/หมายเหตุ</th>
+            <th>สถานะ</th>
+        </tr>
+        <?PHP
+        $sql_list = "SELECT * FROM execute WHERE uid= ".$sid." ";
+        $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
+        while($row=mysqli_fetch_array($sql_listquery)){
+        ?>
+        <tr style="cursor: pointer;" onclick="window.open('note_show.php?id=<?PHP echo $row["id"] ?>','_blank')" >
+            <td><?PHP echo $row["week"] ?></td>
+            <td><?PHP if($row["type"] == 0 ) { echo "ปฎิบัติงาน"; }else  { echo "ลางาน"; } ?></td>
+            <td><?PHP echo $row["date"] ?></td>
+            <td><?PHP echo $row["start_minute"] ?>:<?PHP echo $row["start_secound"] ?></td>
+            <td><?PHP echo $row["end_minute"] ?>:<?PHP echo $row["end_secound"] ?></td>
+            <td><?PHP echo $row["job_work"] ?></td>
+            <td><?PHP if($row["status"] == 0 ) { echo "รอตรวจ"; } else{ echo "ตรวจสอบแล้ว"; }  ?></td>
+        </tr>
+        <?PHP
+        }
+        ?>
+    </table>
     </div>
 </div>
+</form>
 
 
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-<script src="../vendor/raphael/raphael.min.js"></script>
-<script src="../vendor/morrisjs/morris.min.js"></script>
-<script src="../data/morris-data.js"></script>
-<script src="../dist/js/sb-admin-2.js"></script>
 
 <script>
     function set_size(input, width) {

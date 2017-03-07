@@ -21,7 +21,7 @@ conndb();
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="../script/script_teacher.js"></script>
+
 
 
 
@@ -124,7 +124,7 @@ conndb();
 <body>
 
 <div class="f3 " style="margin-top: 2%">
-    <form id="form3" action="../php/getform_company.php" method="post" enctype="multipart/form-data">
+    <form id="form3" action="../pages/mou.php" method="get" enctype="multipart/form-data">
         <div class="col-lg-8 col-lg-offset-2">
             <div class="panel panel-red">
                 <div class="panel-heading">
@@ -180,13 +180,7 @@ conndb();
                                        class="form-control"
                                        required="required">
                             </div>
-                            <div class="col-md-4 col-md-4 form-group">
-                                <label for="exampleInputFile">รูปภาพประจำตัว</label>
-                                <input type="file"  name="filetoload" id="fileimg" required="required"
-                                       onblur="checkimg()">
-                                <span class="img-availability-status"></span>
-                                <br>
-                            </div>
+
                         </div>
 
                             <input type="hidden" name="status" value="สถานประกอบการ">

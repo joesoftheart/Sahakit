@@ -114,8 +114,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                 </ul>
             </div>
     </nav>
+    <div id="page-wrapper">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-3 ">
+        <div class="col-md-10 col-md-offset-1 ">
             <form action="../php/gteform_workpost.php" method="post" enctype="multipart/form-data">
                 <div class="panel panel-info">
                     <div class="panel-heading text-center">
@@ -123,7 +124,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <input type="hidden" name="cid" value="<?= $cid ?>">
                                 <label>รายละเอียดบริษัท</label>
                                 <input type="text" name="detail_work" class="form-control" required="required">
@@ -131,21 +132,21 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>เว็บไซต์</label>
                                 <input type="text" name="web" class="form-control" required="required">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>ต้องการนักศึกษาตำแหน่ง</label>
                                 <input type="text" name="rank" class="form-control">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>ต้องการนักศึกษา</label>
                                 <select name="num_stu" class="form-control">
                                     <option value="1">1 อัตรา</option>
@@ -164,43 +165,43 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>รายละเอียดงาน</label>
                                 <textarea name="detail" class="form-control" rows="3" required="required"></textarea>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>คุณสมบัติที่ต้องการ</label>
                                 <textarea name="property" class="form-control" rows="3" required="required"></textarea>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>สถานที่ปฏิบัติงาน</label>
                                 <textarea name="map_work" class="form-control" rows="3" required="required"></textarea>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>ข้อเสนอพิเศษ อย่างเช่น เบี้ยเลี้ยง,ค่าเดินทาง</label>
                                 <input type="text" name="gold" class="form-control">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <p><?php echo thaidate('วัน l ที่ j เดือน F พ.ศ. Y เวลา H:i:s'); ?></p>
                                 <input type="hidden" name="dmt" value="<?php echo thaidate('วัน l ที่ j เดือน F พ.ศ. Y เวลา H:i:s'); ?> ">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
-                                <button type="submit"  class="btn btn-outline btn-info pull-right "><font
-                                        size="4"><strong>ประกาศ</strong> </font></button>
+                            <div class="col-md-8 col-md-offset-2">
+                                <button type="submit"  class="btn btn-outline btn-info pull-right ">
+                                      <strong>ประกาศ</strong> </button>
                             </div>
                         </div>
                     </div>
@@ -208,7 +209,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
             </form>
         </div>
     </div>
-
+    </div>
 
 
     <script src="../vendor/jquery/jquery.min.js"></script>

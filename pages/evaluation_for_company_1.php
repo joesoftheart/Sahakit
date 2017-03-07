@@ -105,7 +105,7 @@ include '../php/config.php';
                             <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
                         </ul>
                     </li>
-                    <li><a href="evaluation_for_company.php">ประเมินนักศึกษา</a></li>
+                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
                 </ul>
             </div>
     </nav>
