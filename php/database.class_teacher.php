@@ -56,16 +56,17 @@ class Database {
     public function get_user($user_id){
 
         $db = $this->connect();
-        $get_user = $db->prepare("SELECT tid,username,passwd,fn_te,ln_te,address,telaphone,email FROM teacher WHERE tid = ?");
+        $get_user = $db->prepare("SELECT tid,username,passwd,frist_name,fn_te,ln_te,address,telaphone,email FROM teacher WHERE tid = ?");
         $get_user->bind_param('i',$user_id);
         $get_user->execute();
-        $get_user->bind_result($tid,$username,$passwd,$fn_te,$ln_te,$address,$telaphone,$email);
+        $get_user->bind_result($tid,$username,$passwd,$frist_name,$fn_te,$ln_te,$address,$telaphone,$email);
         $get_user->fetch();
 
         $result = array(
             'tid'=>$tid,
             'username'=>$username,
             'passwd'=>$passwd,
+            'frist_name' =>$frist_name,
             'fn_te'=>$fn_te,
             'ln_te'=>$ln_te,
             'address'=>$address,
@@ -82,9 +83,9 @@ class Database {
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("INSERT INTO teacher (tid,username,passwd,fn_te,ln_te,address,telaphone,email) VALUES(NULL,?,?,?,?,?,?,?,?) ");
+        $add_user = $db->prepare("INSERT INTO teacher (tid,username,passwd,frist_name,fn_te,ln_te,address,telaphone,email,status) VALUES(NULL,?,?,?,?,?,?,?,?,?) ");
 
-        $add_user->bind_param("sssssss",$data['username'],$data['passwd'],$data['fn_te'],$data['ln_te'],$data['address'],$data['telaphone'],$data['email']);
+        $add_user->bind_param("sssssssss",$data['username'],$data['passwd'],$data['frist_name'],$data['fn_te'],$data['ln_te'],$data['address'],$data['telaphone'],$data['email'],$data['status']);
 
         if(!$add_user->execute()){
 
@@ -101,9 +102,9 @@ class Database {
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("UPDATE teacher SET username = ? , passwd = ? , fn_te = ? , ln_te = ? , address = ? ,  telaphone = ? , email = ?  WHERE tid = ?");
+        $add_user = $db->prepare("UPDATE teacher SET username = ? , passwd = ? ,frist_name = ? , fn_te = ? , ln_te = ? , address = ? ,  telaphone = ? , email = ?  WHERE tid = ?");
 
-        $add_user->bind_param("sssssssi",$data['edit_username'],$data['edit_passwd'],$data['edit_fn_te'],$data['edit_ln_te'],$data['edit_address'],$data['edit_telaphone'],$data['edit_email'],$data['edit_user_id']);
+        $add_user->bind_param("ssssssssi",$data['edit_username'],$data['edit_passwd'],$data['frist_name'],$data['edit_fn_te'],$data['edit_ln_te'],$data['edit_address'],$data['edit_telaphone'],$data['edit_email'],$data['edit_user_id']);
 
         if(!$add_user->execute()){
 

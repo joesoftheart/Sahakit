@@ -56,16 +56,16 @@ class Database {
     public function get_user($user_id){
 
         $db = $this->connect();
-        $get_user = $db->prepare("SELECT cid,c_user,c_pw,c_name,c_tela,c_address,c_email FROM company WHERE cid = ?");
+        $get_user = $db->prepare("SELECT cid,username,passwd,c_name,c_tela,c_address,c_email FROM company WHERE cid = ?");
         $get_user->bind_param('i',$user_id);
         $get_user->execute();
-        $get_user->bind_result($cid,$c_user,$c_pw,$c_name,$c_tela,$c_address,$c_email);
+        $get_user->bind_result($cid,$username,$passwd,$c_name,$c_tela,$c_address,$c_email);
         $get_user->fetch();
 
         $result = array(
             'cid'=>$cid,
-            'c_user'=>$c_user,
-            'c_pw'=>$c_pw,
+            'username'=>$username,
+            'passwd'=>$passwd,
             'c_name'=>$c_name,
             'c_tela'=>$c_tela,
             'c_address'=>$c_address,
@@ -81,9 +81,9 @@ class Database {
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("INSERT INTO company (cid,c_user,c_pw,c_name,c_tela,c_c_address,c_c_email) VALUES(NULL,?,?,?,?,?,?) ");
+        $add_user = $db->prepare("INSERT INTO company (cid,username,passwd,c_name,c_tela,c_c_address,c_c_email) VALUES(NULL,?,?,?,?,?,?) ");
 
-        $add_user->bind_param("ssssss",$data['c_user'],$data['c_pw'],$data['c_name'],$data['c_tela'],$data['c_c_address'],$data['c_c_email']);
+        $add_user->bind_param("ssssss",$data['username'],$data['passwd'],$data['c_name'],$data['c_tela'],$data['c_c_address'],$data['c_c_email']);
 
         if(!$add_user->execute()){
 
@@ -100,9 +100,9 @@ class Database {
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("UPDATE company SET c_user = ? , c_pw = ? , c_name = ? ,  c_tela = ? , c_address = ?  , c_email = ?  WHERE cid = ?");
+        $add_user = $db->prepare("UPDATE company SET username = ? , passwd = ? , c_name = ? ,  c_tela = ? , c_address = ?  , c_email = ?  WHERE cid = ?");
 
-        $add_user->bind_param("ssssssi",$data['edit_c_user'],$data['edit_c_pw'],$data['edit_c_name'],$data['edit_c_tela'],$data['edit_c_address'],$data['edit_c_email'],$data['edit_user_id']);
+        $add_user->bind_param("ssssssi",$data['edit_username'],$data['edit_passwd'],$data['edit_c_name'],$data['edit_c_tela'],$data['edit_c_address'],$data['edit_c_email'],$data['edit_user_id']);
 
         if(!$add_user->execute()){
 

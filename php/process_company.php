@@ -18,11 +18,11 @@ if(isset($_POST['show_user_id'])){
     echo'<form id="edit_user_form">
                     <div class="form-group">
                         <label >ไอดี</label>
-                        <input type="text" class="form-control" name="edit_c_user"   value="'.$edit_user['c_user'].'">
+                        <input type="text" class="form-control" name="edit_username"   value="'.$edit_user['username'].'">
                     </div>
                     <div class="form-group">
                         <label >รหัสผ่าน</label>
-                        <input type="text" class="form-control" name="edit_c_pw"   value="'.$edit_user['c_pw'].'">
+                        <input type="text" class="form-control" name="edit_passwd"   value="'.$edit_user['passwd'].'">
                     </div>
                     <div class="form-group">
                         <label >ชื่อ</label>

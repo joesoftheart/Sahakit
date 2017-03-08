@@ -92,6 +92,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
+
                     <li><a href="#">เกี่ยวกับสหกิจศึกษา <span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="whit_sahakit.php">อะไรคือสหกิจศึกษา</a></li>

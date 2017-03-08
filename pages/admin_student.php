@@ -28,7 +28,7 @@ if(isset($_POST['search_user'])){
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="../script/script_teacher.js"></script>
+    <script src="../script/script_student.js"></script>
 
 </head>
 <body>
@@ -55,10 +55,10 @@ if(isset($_POST['search_user'])){
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
-                <li><a href="admin_teacher.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
-                <li><a href="admin_company.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
-                <li><a href="#"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
+                <li class="active"><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
+                <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
+                <li><a href="admin_company.php"><i class=" fa fa-cog fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
+                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li><a href="admin_upload.php" class="fa fa-folder "> อัพโหลด</a> </li>
             </ul>
@@ -121,7 +121,7 @@ if(isset($_POST['search_user'])){
                             <td><?php echo $user['passwd']?></td>
                             <td><?php echo $user['fn_st']?></td>
                             <td><?php echo $user['ln_st']?></td>
-                            <td><?php echo $user['idst']?></td>
+                            <td><?php echo $user['number_id']?></td>
                             <td><?php echo $user['age']?></td>
                             <td><?php echo $user['gender']?></td>
                             <td><?php echo $user['telaphone'] ?></td>
@@ -172,7 +172,7 @@ if(isset($_POST['search_user'])){
                     </div>
                     <div class="form-group">
                         <label >รหัสนักศึกษา</label>
-                        <input type="text" class="form-control" name="idst"  placeholder="ระบุ รหัสนักศึกษา">
+                        <input type="text" class="form-control" name="number_id"  placeholder="ระบุ รหัสนักศึกษา">
                     </div>
                     <div class="form-group">
                         <label >อายุ</label>

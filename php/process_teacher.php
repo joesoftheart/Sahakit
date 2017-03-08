@@ -25,6 +25,10 @@ if(isset($_POST['show_user_id'])){
                         <input type="text" class="form-control" name="edit_passwd"   value="'.$edit_user['passwd'].'">
                     </div>
                     <div class="form-group">
+                        <label >คำนำหน้า</label>
+                        <input type="text" class="form-control" name="edit_frist_name"   value="'.$edit_user['frist_name'].'">
+                    </div>
+                    <div class="form-group">
                         <label >ชื่อ</label>
                         <input type="text" class="form-control" name="edit_fn_te"   value="'.$edit_user['fn_te'].'">
                     </div>

@@ -1,45 +1,22 @@
 <?php session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+    <link rel="shortcut icon" href="../img/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Sahakit System</title>
-    <!-- Bootstrap Core CSS -->
+    <title>sahakit</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="../script/script_teacher.js"></script>
 
-    <?php
-    $status = null;
-
-    if (isset($_SESSION['status'])) {
-        $status = $_SESSION['status'];
-    }
-
-    ?>
 </head>
-
 <body>
-
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -51,176 +28,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
         </div>
         <!-- /.navbar-header -->
-        <ul class="nav navbar-top-links navbar-left">
-            <li><a href="index.php">ระเบียบและข้อบังคับ</a></li>
-            <li><a href="company_join.php">บริษัทที่เข้าร่วมสหกิจ</a></li>
-            <li><a href="index.php">ถามและตอบ FAQ</a></li>
-            <li><a href="dowload.php">ดาวน์โหลดเอกสาร</a></li>
-        </ul>
-        <ul class="nav navbar-top-links navbar-right">
 
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 1%">
 
-            <?php
-            if (!isset($_SESSION['login'])) { ?>
-                <li><a href="register.php"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่</a></li>
-                <li><a href="login.html"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
-
-            <?php } else { ?>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <?php
-                        if ($status == "นักศึกษา") { ?>
-                            <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                            <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i>
-                                    เปลี่ยนรหัสผ่าน</a></li>
-                            <?php
-                        } else {
-                        } ?>
-                        <?php
-                        if ($status == "อาจารย์") { ?>
-                            <li><a href="profile_teacher.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                            <li><a href="editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i>
-                                    เปลี่ยนรหัสผ่าน</a></li>
-                            <?php
-                        } else {
-                        } ?>
-                        <?php
-                        if ($status == "สถานประกอบการ") { ?>
-                            <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                            <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i>
-                                    เปลี่ยนรหัสผ่าน</a></li>
-                            <?php
-                        } else {
-                        } ?>
-
-                        <?php
-                        if ($status == "BOSS") { ?>
-                            <li><a href="profile_admin.php">โปรไฟล์</a></li>
-                            <?php
-                        } else {
-                        } ?>
-                        <li class="divider"></li>
-                        <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                        </li>
-                    </ul>
-                </li>
-            <?php } ?>
+            <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
+            </li>
         </ul>
 
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#">นักศึกษา <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="flot.html">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">แนวปฏิบัติสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">เทคนิคการเลือกสถานประกอบการ</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">คณาอาจารย์ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="flot.html">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">แนวปฏิบัติสหกิจศึกษา</a></li>
-                            <li><a href="flot.html">ผลการประเมินนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="flot.html">ขั้นตอนการรับนักศึกษา</a></li>
-                            <li><a href="flot.html">คู่มือสถานประกอบการ</a></li>
-                            <li><a href="flot.html">การประเมินผลนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.sidebar-collapse -->
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
+                <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
+                <li><a href="admin_company.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
+                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
+                <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
+                <li class="active"><a href="admin_upload.php" class="fa fa-folder "> อัพโหลด</a> </li>
+            </ul>
         </div>
-        <!-- /.navbar-static-side -->
+        <!-- /.navbar-collapse -->
     </nav>
 
-    <div id="page-wrapper">
-
+<div class="container-fluid">
         <div class="col-lg-12">
-            <h1 class="page-header">
+            <h4 class="page-header">
                 อัพโหลดไฟล์
-            </h1>
+            </h4>
         </div>
         <div class="row">
             <div class="col-md-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Context Classes
-                    </div>
+
                     <!-- /.panel-heading -->
 
                     <div class="table-responsive">
@@ -265,7 +105,7 @@
                 </div>
             </div>
         </div>
-
+</div>
 
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

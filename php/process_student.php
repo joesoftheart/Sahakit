@@ -34,7 +34,7 @@ if(isset($_POST['show_user_id'])){
                     </div>
                     <div class="form-group">
                         <label >รหัสนักศึกษา</label>
-                        <input type="text" class="form-control" name="edit_idst" value="'.$edit_user['idst'].'">
+                        <input type="text" class="form-control" name="edit_number_id" value="'.$edit_user['number_id'].'">
                     </div>
                     <div class="form-group">
                         <label >อายุ</label>

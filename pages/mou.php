@@ -367,14 +367,14 @@ $c_status_join = $_REQUEST['c_status_join'];
                 <input type="hidden" name="m_mou" value="<?php echo thaidate('F'); ?> ">
                 <input type="hidden" name="y_mou" value="<?php echo thaidate('Y'); ?> ">
                 <input type="hidden" name="time_mou" value="<?php echo thaidate('เวลา H:i:s'); ?> ">
-                <input type="text" name="username" value="<?= $username ?>">
-                <input type="text" name="passwd" value="<?= $passwd ?>">
-                <input type="text" name="c_name" value="<?= $c_name ?>">
-                <input type="text" name="c_address" value="<?= $c_address ?>">
-                <input type="text" name="c_email" value="<?= $c_email ?>">
-                <input type="text" name="c_tela" value="<?= $c_tela ?>">
-                <input type="text" name="status" value="<?= $status ?>">
-                <input type="text" name="c_status_join" value="<?= $c_status_join ?>">
+                <input type="hidden" name="username" value="<?= $username ?>">
+                <input type="hidden" name="passwd" value="<?= $passwd ?>">
+                <input type="hidden" name="c_name" value="<?= $c_name ?>">
+                <input type="hidden" name="c_address" value="<?= $c_address ?>">
+                <input type="hidden" name="c_email" value="<?= $c_email ?>">
+                <input type="hidden" name="c_tela" value="<?= $c_tela ?>">
+                <input type="hidden" name="status" value="<?= $status ?>">
+                <input type="hidden" name="c_status_join" value="<?= $c_status_join ?>">
                 <input type="submit" value="ยอมรับเงื่อนไข" class="btn">
 
 

@@ -61,10 +61,10 @@ class Database
     {
 
         $db = $this->connect();
-        $get_user = $db->prepare("SELECT sid,username,passwd,fn_st,ln_st,idst,age,gender,telaphone,email FROM student WHERE sid = ?");
+        $get_user = $db->prepare("SELECT sid,username,passwd,fn_st,ln_st,number_id,age,gender,telaphone,email FROM student WHERE sid = ?");
         $get_user->bind_param('i', $user_id);
         $get_user->execute();
-        $get_user->bind_result($sid, $username, $passwd, $fn_st, $ln_st, $idst, $age, $gender, $telaphone, $email);
+        $get_user->bind_result($sid, $username, $passwd, $fn_st, $ln_st, $number_id, $age, $gender, $telaphone, $email);
         $get_user->fetch();
 
         $result = array(
@@ -73,7 +73,7 @@ class Database
             'passwd' => $passwd,
             'fn_st' => $fn_st,
             'ln_st' => $ln_st,
-            'idst' => $idst,
+            'number_id' => $number_id,
             'age' => $age,
             'gender' => $gender,
             'telaphone' => $telaphone,
@@ -90,9 +90,9 @@ class Database
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("INSERT INTO student (sid,username,passwd,fn_st,ln_st,idst,age,gender,telaphone,email) VALUES(NULL,?,?,?,?,?,?,?,?,?) ");
+        $add_user = $db->prepare("INSERT INTO student (sid,username,passwd,fn_st,ln_st,number_id,age,gender,telaphone,email) VALUES(NULL,?,?,?,?,?,?,?,?,?) ");
 
-        $add_user->bind_param("sssssssss", $data['username'], $data['passwd'], $data['fn_st'], $data['ln_st'], $data['idst'], $data['age'], $data['gender'], $data['telaphone'], $data['email']);
+        $add_user->bind_param("sssssssss", $data['username'], $data['passwd'], $data['fn_st'], $data['ln_st'], $data['number_id'], $data['age'], $data['gender'], $data['telaphone'], $data['email']);
 
         if (!$add_user->execute()) {
 
@@ -109,9 +109,9 @@ class Database
 
         $db = $this->connect();
 
-        $add_user = $db->prepare("UPDATE student SET username = ? , passwd = ? , fn_st = ? , ln_st = ? , idst = ? , age = ? , gender = ? , telaphone = ? , email = ?  WHERE sid = ?");
+        $add_user = $db->prepare("UPDATE student SET username = ? , passwd = ? , fn_st = ? , ln_st = ? , number_id = ? , age = ? , gender = ? , telaphone = ? , email = ?  WHERE sid = ?");
 
-        $add_user->bind_param("sssssssssi", $data['edit_username'], $data['edit_passwd'], $data['edit_fn_st'], $data['edit_ln_st'], $data['edit_idst'], $data['edit_age'], $data['edit_gender'], $data['edit_telaphone'], $data['edit_email'], $data['edit_user_id']);
+        $add_user->bind_param("sssssssssi", $data['edit_username'], $data['edit_passwd'], $data['edit_fn_st'], $data['edit_ln_st'], $data['edit_number_id'], $data['edit_age'], $data['edit_gender'], $data['edit_telaphone'], $data['edit_email'], $data['edit_user_id']);
 
         if (!$add_user->execute()) {
 

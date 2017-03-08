@@ -55,10 +55,10 @@ if(isset($_POST['search_user'])){
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
-                <li><a href="admin_teacher.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
-                <li><a href="admin_company.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
-                <li><a href="#"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
+                <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
+                <li class="active"><a href="admin_teacher.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
+                <li><a href="admin_company.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
+                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li><a href="admin_upload.php" class="fa fa-folder "> อัพโหลด</a> </li>
             </ul>
@@ -99,6 +99,7 @@ if(isset($_POST['search_user'])){
                     <th width="10%">ลำดับ</th>
                     <th width="10%">ไอดี</th>
                     <th width="10%">รหัสผ่าน</th>
+                    <th>คำนำหน้า</th>
                     <th width="15%">ชื่อ</th>
                     <th width="15%">สกุล</th>
                     <th width="30%">ที่อยู่</th>
@@ -119,6 +120,7 @@ if(isset($_POST['search_user'])){
                             <td><?php echo $user["tid"]?></td>
                             <td><?php echo $user['username']?></td>
                             <td><?php echo $user['passwd']?></td>
+                            <td><?php echo $user['frist_name'] ?></td>
                             <td><?php echo $user['fn_te']?></td>
                             <td><?php echo $user['ln_te']?></td>
                             <td><?php echo $user['address']?></td>
@@ -153,7 +155,7 @@ if(isset($_POST['search_user'])){
             <div class="modal-body">
                 <form id="add_user_form">
                     <div class="form-group">
-                        <label >รหัสผ่าน</label>
+                        <label >ไอดี</label>
                         <input type="text" class="form-control" name="username">
                     </div>
                     <div class="form-group">
@@ -161,12 +163,16 @@ if(isset($_POST['search_user'])){
                         <input type="text" class="form-control" name="passwd">
                     </div>
                     <div class="form-group">
+                        <label >คำนำหน้า</label>
+                        <input type="text" class="form-control" name="frist_name"  placeholder="คำนำหน้า">
+                    </div>
+                    <div class="form-group">
                         <label >ชื่อ</label>
-                        <input type="text" class="form-control" name="te_fname"  placeholder="ระบุ ชื่อ">
+                        <input type="text" class="form-control" name="fn_te"  placeholder="ระบุ ชื่อ">
                     </div>
                     <div class="form-group">
                         <label >สกุล</label>
-                        <input type="text" class="form-control" name="te_ln"  placeholder="ระบุ สกุล">
+                        <input type="text" class="form-control" name="ln_te"  placeholder="ระบุ สกุล">
                     </div>
                     <div class="form-group">
                         <label >ที่อยู่</label>
@@ -180,6 +186,9 @@ if(isset($_POST['search_user'])){
                         <label >อีเมล์</label>
                         <input type="text" class="form-control" name="email"  placeholder="ระบุ อีเมล์">
                     </div>
+
+                        <input type="hidden" class="form-control" name="status" value="อาจารย์" >
+
                 </form>
             </div>
             <div class="modal-footer">
