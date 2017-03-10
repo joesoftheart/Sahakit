@@ -166,7 +166,7 @@ include '../php/config.php';
     $strSQL = "SELECT * FROM files_student";
     $objQuery = mysqli_query($link, $strSQL) or die ("Error Query [" . $strSQL . "]");
 
-    $strSQL_1 = "SELECT * FROM files_techer";
+    $strSQL_1 = "SELECT * FROM files_teacher";
     $objQuery_1 = mysqli_query($link, $strSQL_1) or die ("Error Query [" . $strSQL_1 . "]");
 
     $strSQL_2 = "SELECT * FROM files_company";
@@ -174,7 +174,7 @@ include '../php/config.php';
     ?>
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="panel-default">
                     <h4 class="page-header">
                         ดาวน์โหลดไฟล์เอกสาร
@@ -209,8 +209,8 @@ include '../php/config.php';
                                     </tr>
                                         <tr>
                                         <?php while ($objResult_1 = mysqli_fetch_array($objQuery_1)) { ?>
-                                            <td class="padding1"><a href="../myfile/techer/<?php echo $objResult_1["filestecher"]; ?>"
-                                                   download class="jj"><?= $objResult_1["filestecher"]; ?></a></td>
+                                            <td class="padding1"><a href="../myfile/techer/<?php echo $objResult_1["filesteacher"]; ?>"
+                                                   download class="jj"><?= $objResult_1["filesteacher"]; ?></a></td>
                                             <?php
                                         }
                                         ?>
