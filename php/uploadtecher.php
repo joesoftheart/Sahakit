@@ -7,14 +7,14 @@
 </head>
 <body>
 <?php
-if(move_uploaded_file($_FILES["filUpload"]["tmp_name"],"../myfile/techer/".$_FILES["filUpload"]["name"]))
+if(move_uploaded_file($_FILES["filUpload"]["tmp_name"],"../myfile/teacher/".$_FILES["filUpload"]["name"]))
 {
 
 
-    $strSQL = "INSERT INTO files_techer ";
-    $strSQL .="(filestecher) VALUES ('".$_FILES["filUpload"]["name"]."')";
+    $strSQL = "INSERT INTO files_teacher ";
+    $strSQL .="(filesteacher) VALUES ('".$_FILES["filUpload"]["name"]."')";
     $objQuery = mysqli_query($link,$strSQL);
-    echo "<script>window.location='../pages/dowload.php'</script>";
+    echo "<script>window.location='../pages/admin_upload.php'</script>";
 }
 ?>
 

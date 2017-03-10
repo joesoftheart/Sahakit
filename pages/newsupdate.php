@@ -58,29 +58,31 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
 <font face="TH Sarabun New" size="5">
 
-        <div class="col-lg-6 col-md-offset-3 " style="margin-top: 20px">
+        <div class="col-md-6 col-md-offset-3 " style="margin-top: 20px">
             <form action="../php/newsupload.php" method="post" enctype="multipart/form-data">
                 <div class="panel panel-info">
                     <div class="panel panel-heading">
-                        โพสข่าวสารต่างๆ
+                        อัพเดทข่าวสาร
                         </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-md-8 col-md-offset-2">
                                 <label>หัวเรื่องข่าว</label>
                                 <input type="text" name="headnews" class="form-control" required="required">
                             </div>
                             </div>
+                        <br>
                             <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2">
-                                <label>เนื้อเรื่องข่าว</label>
+                            <div class="col-md-8 col-md-offset-2">
+                                <label>เนื้อเรื่องข่าว</label> <br>
                                 <textarea name="substance" class="form-control" required="required"  rows="5"> </textarea>
                             </div>
                                 <input type="hidden" name="dmt" value="<?php echo thaidate('j F Y เวลา H:i:s'); ?> ">
                                 </div>
+                        <br>
                             <div class="row">
-                                <div class="col-lg-8 col-lg-offset-2">
-                                    <button type="submit"  class="btn btn-outline btn-info pull-right "><font
+                                <div class="col-md-8 col-md-offset-2">
+                                    <button type="submit"  class="btn  btn-info pull-right "><font
                                             size="4"><strong>ประกาศ</strong> </font></button>
                                 </div>
                             </div>
