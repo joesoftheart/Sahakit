@@ -279,7 +279,7 @@ include '../php/config.php';
         $sid = $_SESSION["sid"];
         $fn_st = $_SESSION['fn_st'];
         $ln_st = $_SESSION['ln_st'];
-        $idst = $_SESSION['idst'];
+        $number_id = $_SESSION['number_id'];
 
         $sql1 = "SELECT * FROM register_work,company,student
                           WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
@@ -302,14 +302,14 @@ include '../php/config.php';
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
-            <a class="navbar-brand" href="profile_student.php">โปรไฟล์</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $fn_st ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
+                    <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
                     <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
                     </li>
                     <li class="divider"></li>
@@ -339,12 +339,13 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <?php if ($result['status_work'] == 1) { ?>
-                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i> ค้นหาบริษัทฝึกงาน</a>
-                        </li>
+                    <?php if ($result['tid'] == 0 ){ ?>
 
-                    <?php }
-                    if ($result['status_work'] == 2) { ?>
+                    <?php }else{ ?>
+                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
+                    <?php } ?>
+
+                    <?php  if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
@@ -353,6 +354,8 @@ include '../php/config.php';
                                 <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
+                    <?php } ?>
+                    <?php if ($result['status_work'] == 3) {?>
                         <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
                     <?php } ?>
                 </ul>

@@ -57,10 +57,10 @@ include '../php/config.php';
                 <li><a href="register_company.php"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่ </a> </li>
                 <li><a href="login.html"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
             <?php } else { ?>
+                <li><?= $status ?> </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="fa fa-user"></i> <b class="caret"></b> </a>
                     <ul class="dropdown-menu dropdown-user">
                         <?php
                         if ($status == "นักศึกษา") { ?>

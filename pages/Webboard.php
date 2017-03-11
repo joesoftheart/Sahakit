@@ -44,6 +44,7 @@ if (isset($_SESSION['status'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
                 <ul class="nav navbar-top-links navbar-left">
                     <li><a href="index.php">ระเบียบและข้อบังคับ</a></li>
@@ -58,6 +59,7 @@ if (isset($_SESSION['status'])) {
                     <li><a href="register.php"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่</a></li>
                     <li><a href="login.html"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
                 <?php } else { ?>
+                    <li><?= $status ?> </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -112,9 +114,11 @@ if (isset($_SESSION['status'])) {
                                 <li><a href="whit_vision.php">เจ้าหน้าที่</a></li>
                             </ul>
                         </li>
+                        <?php if ($status != "นักศึกษา") { ?>
                         <li>
                             <a href="./timeline.php">หางาน / ฝึกงาน </a>
                         </li>
+                        <?php } ?>
                         <li>
                             <a href="#">นักศึกษา <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

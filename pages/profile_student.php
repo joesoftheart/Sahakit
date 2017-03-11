@@ -118,6 +118,8 @@ include '../php/config.php';
                                 <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
+                    <?php } ?>
+                    <?php if ($result['status_work'] == 3) {?>
                         <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
                 <?php } ?>
                 </ul>

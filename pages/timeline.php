@@ -26,6 +26,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <?php
     $sid = $_SESSION['sid'];
     $status1 = $_SESSION['status'];
+    $fn_st  = $_SESSION['fn_st'];
+    $ln_st  = $_SESSION['ln_st'];
         $perpage = 4;
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -35,11 +37,41 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
         $start = ($page - 1) * $perpage;
 
-        $sql = "SELECT * FROM post_company
-                INNER JOIN company
-                 ON post_company.cid=company.cid limit {$start} , {$perpage} ";
-        $query = mysqli_query($link, $sql);
 
+        if(isset($_GET['c_name'],$_GET['rank'])){
+
+            $c_name = $_GET['c_name'];
+            $rank = $_GET['rank'];
+
+
+            if ($c_name != null && $rank == null) {
+
+                $sql = "SELECT * FROM company,post_company
+                                      WHERE company.cid = post_company.cid 
+                                              AND company.c_name = '$c_name' limit {$start} , {$perpage}";
+            $query = mysqli_query($link,$sql);
+
+            } elseif ($c_name != null && $rank != null) {
+
+            $sql_rank_name = "SELECT * FROM company,post_company
+                                      WHERE company.cid = post_company.cid 
+                                              AND company.c_name = '$c_name'
+                                               AND post_company.rank = '$rank' limit {$start} , {$perpage}";
+
+            $query = mysqli_query($link,$sql_rank_name);
+
+            }else{
+
+            }
+
+        }else {
+
+            $sql = "SELECT * FROM company,post_company,register_work 
+                                      WHERE company.cid = post_company.cid 
+                                          AND company.cid = register_work.cid
+                                              AND company.c_name = c_name limit {$start} , {$perpage} ";
+            $query = mysqli_query($link, $sql);
+        }
 
         $sql3 = "SELECT * FROM student WHERE sid = $sid";
         $query3 = mysqli_query($link, $sql3);
@@ -61,12 +93,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
+            <?php if ($status == " ") { ?>
             <ul class="nav navbar-top-links navbar-left">
                 <li><a href="index.php">ระเบียบและข้อบังคับ</a></li>
                 <li><a href="company_join.php">บริษัทที่เข้าร่วมสหกิจ</a></li>
                 <li><a href="index.php">ถามและตอบ FAQ</a></li>
                 <li><a href="dowload.php">ดาวน์โหลด </a></li>
             </ul>
+            <?php } ?>
         </div>
         <!-- /.navbar-header -->
 
@@ -76,9 +110,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                 <li><a href="register.php"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่</a></li>
                 <li><a href="login.html"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
             <?php } else { ?>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user fa-md"></i> <?= $row3['fn_st'] ?> <b class="caret"></b> </a>
+                <li><?= $status ?> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
+                            class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
                     <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>
@@ -92,8 +127,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-
-                    <li><a href="#">เกี่ยวกับสหกิจศึกษา <span class="fa arrow"></span> </a>
+                    <?php if ($status == 'นักศึกษา') { ?>
+                    <?php }else{ ?>
+                        <li><a href="#">เกี่ยวกับสหกิจศึกษา <span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="whit_sahakit.php">อะไรคือสหกิจศึกษา</a></li>
                             <li><a href="whit_company.php">เกี่ยวกับสถานประกอบการ</a></li>
@@ -110,6 +146,24 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             <li><a href="whit_vision.php">เจ้าหน้าที่</a></li>
                         </ul>
                     </li>
+                        <li><a href="#">คณาอาจารย์ <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+
+                                <li><a href="visit_tea.php">ขั้นตอนการนิเทศงาน</a></li>
+                                <li><a href="whit_vision.php">แนวปฏิบัติสหกิจศึกษา</a></li>
+                                <li><a href="evaluation_tea.php">ผลการประเมินนักศึกษา</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
+                                <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
+                                <li><a href="visit_comp.php">วัตถุประสงค์ของการนิเทศงาน</a></li>
+                                <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
+                            </ul>
+                        </li>
+                   <?php } ?>
                     <li>
                         <a href="./timeline.php">หางาน / ฝึกงาน </a>
                     </li>
@@ -129,35 +183,57 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">คณาอาจารย์ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
 
-                            <li><a href="visit_tea.php">ขั้นตอนการนิเทศงาน</a></li>
-                            <li><a href="whit_vision.php">แนวปฏิบัติสหกิจศึกษา</a></li>
-                            <li><a href="evaluation_tea.php">ผลการประเมินนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
-                            <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
-                            <li><a href="visit_comp.php">วัตถุประสงค์ของการนิเทศงาน</a></li>
-                            <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+<?php
+    $sql_search = "SELECT DISTINCT c_name FROM register_work,company
+    WHERE register_work.cid = company.cid";
+    $query_search = mysqli_query($link,$sql_search);
+
+    $sql_rank = "SELECT DISTINCT rank FROM register_work,company
+    WHERE register_work.cid = company.cid";
+    $query_rank = mysqli_query($link,$sql_rank);
+?>
     <div id="page-wrapper">
         <br>
+        <div class="row">
+            <form action="timeline.php" method="get" enctype="multipart/form-data">
+            <div class="col-md-3">
+                <label>ค้นหาบริษัท</label>
+        <select name="c_name" class="form-control">
+            <option>เลือกชื่อบริษัทที่ต้องการค้นหา</option>
+            <?php while ($row_search = mysqli_fetch_array($query_search)) { ?>
+            <option value="<?= $row_search['c_name'] ?>"><?= $row_search['c_name'] ?></option>
+            <?php  } ?>
+        </select>
+                </div>
+            <div class="col-md-3">
+                <label>ตำแหน่งงาน</label>
+        <select name="rank" class="form-control">
+            <option>เลือกคำแหน่งที่ต้องการค้นหา</option>
+
+            <?php while ($row_rank = mysqli_fetch_array($query_rank)) { ?>
+                <option value="<?= $row_rank['rank'] ?>"><?= $row_rank['rank'] ?></option>
+            <?php  } ?>
+
+        </select>
+                </div>
+            <div class="col-md-3">
+                <button type="submit"  class="btn btn-primary">ค้นหา</button>
+                </div>
+            </form>
+            </div>
+        <br><br><br>
         <?php while ($row = mysqli_fetch_array($query)) { ?>
 
             <div class="col-md-12">
                 <div class="panel panel-danger">
                     <div class="panel-heading right"><?= $row['c_name'] ?> :
-                        <small><i class="text-muted">ลงประกาศ ณ <?= $row['dmt'] ?> </i></small>
+                        <small><i class="text-muted"> <?= $row['dmt'] ?> </i></small>
                     </div>
                     <div class="panel-body">
                         <div class="col-xs-2" style="height: auto">
@@ -200,7 +276,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <div class="col-md-12">
                                     <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
                                         <div class=" text-center">
-                                            <h1><?= $row['company_name'] ?></h1>
+                                            <h1><?= $row['c_name'] ?></h1>
                                             <input type="hidden" name="cid" value="<?= $row['cid'] ?>">
                                             <input type="hidden" name="sid" value="<?= $row3['sid'] ?>">
                                             <input type="hidden" name="rank" value="<?= $row['rank'] ?>">
@@ -271,7 +347,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <label>ติดต่อ</label>
-                                                    <p><img src="../img/checked.png" width="15px" height="15px">เพิ่มมมมมมมมมมมมมมมมมมม
+                                                    <p><img src="../img/checked.png" width="15px" height="15px"><?= $row['c_tela'] ?>
                                                     </p>
                                                 </div>
                                             </div>
