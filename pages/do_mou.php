@@ -303,7 +303,7 @@ $result = mysqli_fetch_array($query);
 
             <br><br><br>
 
-            <a href="index.php" class="btn" >ย้อนกลับ</a>
+            <a href="company_join.php" class="btn" >ย้อนกลับ</a>
 
         </div>
     <script>

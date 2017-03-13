@@ -71,7 +71,7 @@ include '../php/config.php';
                         }
                         if ($status == "อาจารย์") { ?>
                             <li><a href="profile_teacher.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                            <li><a href="editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a></li>
+                            <li><a href="editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>
                             <?php
                         } else {
                         }
@@ -104,9 +104,7 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-<!--                    <li>-->
-<!--                        <a href="./timeline.php">หางาน / ฝึกงาน </a>-->
-<!--                    </li>-->
+
                     <li>
                         <a href="#">นักศึกษา <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

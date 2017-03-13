@@ -339,7 +339,7 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <?php if ($result['tid'] == 0 ){ ?>
+                    <?php if ($Result['tid'] == 0 ){ ?>
 
                     <?php }else{ ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>

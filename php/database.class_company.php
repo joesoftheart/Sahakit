@@ -5,7 +5,6 @@ class Database {
     public $user = 'root'; //ชื่อผู้ใช้งาน ฐานข้อมูล
     public $password = ''; // password สำหรับเข้าจัดการฐานข้อมูล
     public $database = 'sahakit'; //ชื่อ ฐานข้อมูล
-
     //function เชื่อมต่อฐานข้อมูล
     public function connect(){
 

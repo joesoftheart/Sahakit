@@ -26,6 +26,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
     <?PHP
     $tid = $_SESSION['tid'];
+    $status = $_SESSION['status'];
+    $fn_te = $_SESSION['fn_te'];
+    $ln_te = $_SESSION['ln_te'];
 
     $mysql = "SELECT * FROM teacher WHERE tid = $tid";
     $query_teacher = mysqli_query($link, $mysql);
@@ -52,9 +55,10 @@ $msql = "SELECT * FROM register_work";
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $row['fn_te'] ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_te ?>  <?= $ln_te ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
                     <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>
@@ -124,7 +128,7 @@ $msql = "SELECT * FROM register_work";
                                                     <img
                                                         src="../img/png2/notepad-8.png" width="30px"
                                                         height="30px"></a></td>
-                                            <td class="text-center"><a href="evaluation_tea.php"><img src="../img/png/notebook-4.png"
+                                            <td class="text-center"><a href="#"><img src="../img/png/notebook-4.png"
                                                                                      width="30px" height="30px"></a>
                                             </td>
                                             <td class="text-center"><a

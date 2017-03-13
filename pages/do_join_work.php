@@ -28,7 +28,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
     <?PHP
     $tid = $_SESSION['tid'];
+    $status = $_SESSION['status'];
     $fn_te = $_SESSION['fn_te'];
+    $ln_te = $_SESSION['ln_te'];
+
+
     $SQL = "SELECT * FROM register_work , company,student  
                           WHERE register_work.cid = company.cid 
                             AND register_work.sid = student.sid  
@@ -56,9 +60,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $fn_te ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_te ?>  <?= $ln_te ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
                     <li><a href="editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>
@@ -72,22 +77,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
-                    <li><a href="#"><img src="../img/png/user-6.png" width="25px" height="25px"> ข้อมูลนักศึกษา <span
-                                class="fa arrow"></span></a>
+                    <li><a href="#"><img src="../img/png/user-6.png" width="25px" height="25px"> นักศึกษา <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="data_student.php">นักศึกษาในการดูแล</a></li>
-                            <li><a href="flot.html">นักศึกษาสหกิจ</a></li>
-                            <li><a href="flot.html">สรุปคะแนนการปฏิบัติงาน</a></li>
+                            <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                         </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px">
-                            การสมัครงานของนักศึกษา</a></li>
-                    <li><a href="#">คณาอาจารย์ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="visit_tea.php">ขั้นตอนการนิเทศงาน</a></li>
-                            <li><a href="evaluation_tea.php">ผลการประเมินนักศึกษา</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+
                 </ul>
             </div>
     </nav>

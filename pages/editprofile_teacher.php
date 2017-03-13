@@ -51,7 +51,7 @@ include '../php/config.php';
                             <div class="col-md-4 ">
                                 <label>รหัสผ่าน</label>
                                 <input type="text" name="passwd" class="form-control" value="<?= $result['passwd'] ?>"
-                                       maxlength="18" required="required">
+                                      minlength="8" maxlength="18" required="required">
                             </div>
                         </div>
                         <br>
@@ -83,7 +83,7 @@ include '../php/config.php';
 
                             <div class="col-md-4 ">
                                 <label>เบอร์โทรติดต่อ</label>
-                                <input type="text" name="telaphone"
+                                <input type="tel" name="telaphone"
                                        class="form-control" minlength="10"
                                        maxlength="10" value="<?= $result['telaphone'] ?> " required="required"/>
                             </div>

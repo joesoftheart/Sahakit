@@ -8,6 +8,7 @@ include '../php/config.php';
 <html>
 
 <head>
+    <link rel="shortcut icon" href="../img/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -96,7 +97,7 @@ include '../php/config.php';
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
                             <li><a href="list_note_company.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                            <li><a href="list_conclude_company.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                         </ul>
                     </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>

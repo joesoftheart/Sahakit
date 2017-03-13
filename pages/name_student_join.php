@@ -49,6 +49,11 @@ include '../php/config.php';
     $objQuery = mysqli_query($link, $strSQL) or die ("Error Query [" . $strSQL . "]");
         $objResult = mysqli_fetch_array($objQuery);
 
+
+        $sql3 = "SELECT * FROM company WHERE c_status_join = 1";
+        $qquery = mysqli_query($link,$sql3);
+        $result3 = mysqli_fetch_array($qquery);
+
     }
     ?>
 
@@ -64,12 +69,14 @@ include '../php/config.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
+            <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $c_name ?> <b class="caret"></b> </a>
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
+                        class="fa fa-user"></i>  <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
                     <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
@@ -80,13 +87,12 @@ include '../php/config.php';
                 </ul>
             </li>
         </ul>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#">สถานประกอบการ <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
                             <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
@@ -94,24 +100,33 @@ include '../php/config.php';
                             <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
-                            <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
-                        </ul>
-                    </li>
+                    <?php $check = $result3['c_status_join']; if ($check == 1) {?>
+                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
+                                <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
+                            </ul>
+                        </li>
 
-                    <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
-                            <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-                            <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="progress.php"><i class="fa fa-list-alt"></i> ตรวจสอบรายงาน</a></li>
+                        <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
+                                <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
 
-                    <li><a href="evaluation_for_company.php">แบบประเมิน</a> </li>
+                                <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="list_note_company.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                            </ul>
+                        </li>
+                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
+                    <?php }else{ ?>
+
+                    <?php } ?>
                 </ul>
             </div>
     </nav>

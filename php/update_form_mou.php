@@ -42,7 +42,7 @@ $sql = "INSERT INTO company (username,passwd,c_name,c_tela,c_address,c_email,sta
  mysqli_query($link,$sql) or die(mysqli_error($sql));
 
 
-
+echo "<script type='text/javascript'>window.location='../pages/index.php'</script>";
 
 
 $link -> close();

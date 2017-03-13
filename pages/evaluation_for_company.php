@@ -23,6 +23,31 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+
+    <script language="javascript">
+        function IsNumeric(sText,obj)
+        {
+            var ValidChars = "12345.";
+            var IsNumber=true;
+            var Char;
+            for (i = 0; i < sText.length && IsNumber == true; i++)
+            {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1)
+                {
+                    IsNumber = false;
+                }
+            }
+            if(IsNumber==false){
+
+                obj.value=sText.substr(0,sText.length-1);
+            }
+        }
+    </script>
+
+
+
+
     <style>
         @font-face {
             font-family: 'THSarabun';
@@ -326,7 +351,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     โปรดปิดผนึกและลงลายมือชื่อกำกับเอกสารสำคัญฉบับนี้ด้วย และให้นักศึกษานำส่งที่งานสหกิจศึกษา <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. โปรดให้คะแนนในช่อง <img src="../img/table.PNG"
                                                                                           height="20px">
-                    ในแต่ละหัวข้อการประเมิน 1 - 5 คะแนน และโปรดให้ความคิดเห็นเพิ่มเติม (ถ้ามี)
+                    ในแต่ละหัวข้อการประเมิน (5 = มากที่สุด 4 = มาก 3 = ปานกลาง
+                    2 = น้อย 1 = น้อยที่สุด) หากไม่มีข้อมูลให้ใส่เครื่องหมาย - และโปรดให้ความคิดเห็นเพิ่มเติม (ถ้ามี)
                     <br><br> <br>
                     <form action="../php/update_evaluation_for_company.php" method="post" enctype="multipart/form-data">
                         <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
@@ -348,16 +374,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <input type="text" value="วิทยาศาสตร์และเทคโนโลยี" data-onload="set_size($(this),305)"
                                readonly="readonly" style="margin-top: 5px;"> <br>
                         ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>"
-                                                 readonly="readonly" data-onload="set_size($(this),325)"
-                                                 style="margin-top: 5px;"> จังหวัด <input type="text"
-                                                                                          required="required"
-                                                                                          data-onload="set_size($(this),200)"
-                                                                                          style="margin-top: 5px;"> <br>
-                        ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required"
+                                                 readonly="readonly" data-onload="set_size($(this),574)"
+                                                 style="margin-top: 5px;"> <br>
+                        ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"
                                                         data-onload="set_size($(this),300)"
                                                         style="margin-top: 5px;">
-                        ตำแหน่ง <input type="text" name="rank_leader" required="required"
-                                       data-onload="set_size($(this),200)"
+                        ตำแหน่ง <input type="text" name="rank_leader" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"
+                                       data-onload="set_size($(this),210)"
                                        style="margin-top: 5px;">
                         <br><br>
 
@@ -378,7 +403,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 </td>
                                 <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
-                                                                  rows="1" required="required"></textarea></td>
+                                                                  rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             <tr>
                                 <td><b> &nbsp;2. คุณภาพงาน (Quantity of Work) </b><br>
@@ -389,7 +415,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 </td>
                                 <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
-                                                                  rows="1" required="required"></textarea></td>
+                                                                  rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             </tbody>
                         </table>
@@ -415,7 +442,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no3" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                              onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;4. ความสามารถในการเรียนรู้และประยุกต์วิชาการ (Ability to Learn and Apply
@@ -426,7 +454,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no4" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                              onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;5. ความรู้ความชำนาญในการปฏิบัติงาน (Practical Ability)</b><br>
@@ -434,7 +463,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no5" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                              onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b> &nbsp;6. วิจารญาณและการตัดสินใจ (Judgement and Decision Making)</b><br>
@@ -446,7 +476,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no6" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                              onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;7. การจัดการและวางแผน (Organization and Planning)</b><br>
@@ -455,7 +486,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no7" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required"  minlength="1" maxlength="1" id="mynumber"
+                                                              onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;8. ทักษะการสื่อสาร (Communication Skills)</b><br>
@@ -468,7 +500,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no8" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;9. การพัฒนาด้านภาษาและวัฒนธรรมต่างประเทศ (Foreign Language and Cultural
@@ -480,7 +513,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no9" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;10. ความเหมาะสมต่อตำแหน่งงานที่ได้รับมอบหมาย (Suitability for
@@ -491,7 +525,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no10" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -517,7 +552,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no11" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -538,7 +574,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no12" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;13. ความสามารถเริ่มต้นทำงานได้ด้วยตนเอง (Initiative or Self
@@ -551,7 +588,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no13" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;14. การตอบสนองต่อการสั่งการ (Response to Supervision)</b><br>
@@ -563,7 +601,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no14" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -584,7 +623,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no15" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;16. มนุษยสัมพันธ์ (Interpersonal Skills)</b><br>
@@ -594,12 +634,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no16" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
 
                         <tr>
                             <td><b>&nbsp;17. ความมีระเบียบวินัย ปฏิบัติตามวัฒนธรรมขององค์กร <br>
-                                    (Discipline and Adaptability to Formal Organization)
+                                    &nbsp; &nbsp;&nbsp;  (Discipline and Adaptability to Formal Organization)
                                 </b><br>
                                 &nbsp; &nbsp; ความสนใจเรียนรู้ ศึกษา กฏระเบียบ นโยบายต่าง ๆ และปฏิบัติตามโดยเต็มใจ
                                 การปฏิบัติตาม <br>
@@ -609,7 +650,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no17" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
                             <td><b>&nbsp;18. คุณธรรมและจริยธรรม (Ethics and Morality)</b><br>
@@ -619,7 +661,30 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </td>
                             <td class="text-center"><textarea name="no18" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
-                                                              rows="1" required="required"></textarea></td>
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><b>&nbsp;19. ความมั่นใจในตนเอง (self confidence) </b><br>
+                                &nbsp; &nbsp;มีความสามารถแก้ปัญหา รับมือกับปัญหาต่าง ๆ เผชิญหน้ากับความท้าทาย หรืออุปสรรคต่างๆ <br>
+                                &nbsp; &nbsp;ในชีวิตได้ เชื่อมั่นในความคิด และความสามารถของตัวเอง สามารถเลือกวิธีการตัดสินใจที่ถูกต้อง มีความรู้สึกที่ดี <br>
+                                &nbsp; &nbsp;ให้กับตนเอง ไว้วางใจตนเองว่ามีความสามารถ มีพลัง มีประสิทธิภาพ และพึ่งพาตนเองได้ เป็นต้น
+                            </td>
+                            <td class="text-center"><textarea name="no19" data-onload="set_size($(this),100)"
+                                                              style="margin-top: 5px;"
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><b>&nbsp;20. ความเป็นผู้นํา (Leadership) </b><br>
+                                &nbsp; &nbsp;มีความสามารถทําให้คนอื่นให้ความร่วมมือ สามารถชักจูง โน้มน้าว ชี้แนะ แนะนํา ให้บุคคลอื่น <br>
+                                &nbsp; &nbsp;ร่วมทํางานจนบรรลุวัตถุประสงค์เป็นศูนย์กลางหรือศูนย์รวม สามารถสอดแทรกแนวความคิดให้เป็น <br>
+                                &nbsp; &nbsp;ที่ยอมรับ เป็นต้น
+                            </td>
+                            <td class="text-center"><textarea name="no20" data-onload="set_size($(this),100)"
+                                                              style="margin-top: 5px;"
+                                                              rows="1" required="required" minlength="1" maxlength="1" id="mynumber"
+                                                                  onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
@@ -628,7 +693,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
             <div class="page">
                 <div class="subpage">
                     <p align="center"> -4- </p>
-                    <b>19.โปรดให้ข้อคิดเห็นที่เป็นประโยชน์แก่นักศึกษา / Please give comments on the student</b>
+                    <b>21.โปรดให้ข้อคิดเห็นที่เป็นประโยชน์แก่นักศึกษา / Please give comments on the student</b>
                     <table border="1" width="100%">
                         <thead>
                         <tr>
@@ -640,12 +705,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="text-center">  <textarea name="no19_1" data-onload="set_size($(this),350)"
+                            <td class="text-center">  <textarea name="no21_1" data-onload="set_size($(this),350)"
                                                                 style="margin-top: 5px;"
-                                                                rows="3" required="required"></textarea></td>
-                            <td class="text-center"> <textarea name="no19_2" data-onload="set_size($(this),350)"
+                                                                rows="3" required="required" ></textarea></td>
+                            <td class="text-center"> <textarea name="no21_2" data-onload="set_size($(this),350)"
                                                                style="margin-top: 5px;"
-                                                               rows="3" required="required"></textarea></td>
+                                                               rows="3" required="required" ></textarea></td>
                         </tr>
 
                         </tbody>
@@ -660,18 +725,18 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     (&nbsp;<input type="radio" name="get_work" value="no"> &nbsp;)ไม่รับ / No
 
                     <br><br>
-                    <b> 20. ข้อคิดเห็นเพิ่มเติม / Other comments</b> <br>
+                    <b> 22. ข้อคิดเห็นเพิ่มเติม / Other comments</b> <br>
                     <textarea name="comment" data-onload="set_size($(this),600)" style="margin-top: 5px;"
                               rows="5"></textarea>
                     <br><br><br>
                     <p align="right">
                         ลงชื่อ / Evaluator ‘s Signature <input type="text" name="evaluator"
                                                                data-onload="set_size($(this),150)"
-                                                               style="margin-top: 5px;" required="required">
+                                                               style="margin-top: 5px;" required="required" >
                         พนักงานที่ปรึกษา <br></p>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     (<input type="text" data-onload="set_size($(this),150)" style="margin-top: 5px;"
-                            required="required">)
+                            required="required" >)
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;

@@ -1,85 +1,158 @@
-<?php session_start();
+<?php
+session_start();
 include '../php/config.php';
 ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="shortcut icon" href="../img/favicon.ico" >
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <title>สหกิจศึกษา</title>
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+        <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+        <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-    <?php
-    $username = $_SESSION['username'];
-    ?>
+<?php
+$status = null;
 
-</head>
-<body>
-<font face="TH Sarabun New" size="5">
-<div  style="margin-top: 2%">
+if (isset($_SESSION['status'])) {
+    $status = $_SESSION['status'];
+    $sid    = $_SESSION["sid"];
+    $fn_st  = $_SESSION['fn_st'];
+    $ln_st  = $_SESSION['ln_st'];
+    $number_id   = $_SESSION['number_id'];
+
+    $sql1   = "SELECT * FROM register_work,company,student
+                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+    $objquery = mysqli_query($link,$sql1) or die(mysqli_error($sql1));
+    $result = mysqli_fetch_array($objquery);
+
+
+
+    $sql3 = "SELECT * FROM student,teacher
+                        WHERE student.tid = teacher.tid";
+    $query2 = mysqli_query($link,$sql3);
+    $Result = mysqli_fetch_array($query2);
+
+}
+?>
+    </head>
+    <body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li><?= $status ?> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
+                            class="fa fa-user"></i> <b class="caret"></b> </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
+                        <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#">นักศึกษา <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
+                                <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
+                                    <ul class="nav nav-third-level">
+                                        <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
+                                        <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
+                                        <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
+                                        <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
+                                        <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
+
+                                    </ul>
+                                </li>
+                                <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
+                            </ul>
+                        </li>
+
+                        <?php if ($Result['tid'] == 0 ){ ?>
+
+                        <?php }else{ ?>
+                            <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
+                        <?php } ?>
+
+                        <?php  if ($result['status_work'] == 2) { ?>
+                            <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
+                                    <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
+                                    <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
+                                    <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                </ul>
+                            </li>
+                        <?php } ?>
+                        <?php if ($result['status_work'] == 3) {?>
+                            <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+
     <form action="../php/getedit_student.php" method="post" enctype="multipart/form-data">
-        <div class="container col-md-3 col-md-offset-4">
+        <div class="container-fluid ">
             <div class="row">
+                <div class="col-md-6 col-md-offset-2">
                 <div class="panel panel-primary">
                     <div class="panel-heading text-center">
-                        <h1>แก้ไขรหัสผ่าน</h1>
+                        <h4>แก้ไขรหัสผ่าน</h4>
                     </div>
                     <div class="panel-body">
 
                     <input type="hidden" name="username" value="<?=$username?>">
             <div class="row">
-                <div class="col-md-12 col-md-10 col-md-offset-1">
+                <div class="col-md-12">
                     <label>พาสเวิร์ดเก่า</label>
                         <input type="text" name="oldpasswd" class="form-control">
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12 col-md-10 col-md-offset-1">
+                <div class="col-md-12 ">
                     <label>พาสเวิร์ดใหม่</label>
                         <input type="text" name="passwd" class="form-control" maxlength="18" minlength="8">
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12 col-md-10 col-md-offset-1">
+                <div class="col-md-12">
                     <label>ยืนยันพาสเวิร์ด</label>
                         <input type="text" name="repasswd" class="form-control" maxlength="18" minlength="8">
                 </div>
             </div>
             <br><br>
             <div class="row">
-                <div class="col-md-6 col-lg-offset-9">
-                    <button type="submit" class="btn btn-outline btn-primary" > <font size="4"><strong>ยืนยัน</strong></font></button>
+                <div class="col-md-6 col-md-offset-9">
+                    <button type="submit" class="btn btn-outline btn-primary" > ยืนยัน</button>
 
                 </div>
             </div>
@@ -87,8 +160,30 @@ include '../php/config.php';
                 </div>
             </div>
 </form>
+            </div>
 
-</div>
-    </font><!-- แบบฟอร์มสำรับสถานประกอบการ -->
-</body>
+        </div>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+        <script src="../vendor/raphael/raphael.min.js"></script>
+        <script src="../vendor/morrisjs/morris.min.js"></script>
+        <script src="../data/morris-data.js"></script>
+        <script src="../dist/js/sb-admin-2.js"></script>
+        <script>
+            function update(id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../php/update_student.php",
+                    data: "id=" + id,
+                    success: function (data) {
+
+                        window.location.reload();
+
+                    }
+
+                });
+            }
+        </script>
+    </body>
 </html>

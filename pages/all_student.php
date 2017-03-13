@@ -28,7 +28,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
     <?PHP
     $tid = $_SESSION['tid'];
+    $status = $_SESSION['status'];
     $fn_te = $_SESSION['fn_te'];
+    $ln_te = $_SESSION['ln_te'];
+
+
     $SQL = "SELECT * FROM register_work , company,student  
                           WHERE register_work.cid = company.cid 
                             AND register_work.sid = student.sid  
@@ -56,9 +60,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $fn_te ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_te ?>  <?= $ln_te ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
                     <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>

@@ -27,7 +27,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <?PHP
-
+    $status = $_SESSION['status'];
+    $fn_te = $_SESSION['fn_te'];
+    $ln_te = $_SESSION['ln_te'];
 
     $SQL = "SELECT * FROM teacher";
     $query = mysqli_query($link, $SQL);
@@ -52,9 +54,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            <li><?= $status ?> </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-user"></i> <?= $row['fn_te'] ?> <b class="caret"></b> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_te ?>  <?= $ln_te ?> <i
+                        class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
                     <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>

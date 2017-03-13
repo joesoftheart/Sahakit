@@ -4,8 +4,6 @@ include '../php/connect.php';
 conndb();
 ?>
 
-<!DOCTYPE html>
-<html>
 
 
 <!DOCTYPE html>
@@ -22,8 +20,50 @@ conndb();
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <script type="text/javascript">
+        function isThaichar(str,obj){
+            var orgi_text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9  ";
+            var str_length=str.length;
+            var str_length_end=str_length-1;
+            var isThai=true;
+            var Char_At="";
+            for(i=0;i<str_length;i++){
+                Char_At=str.charAt(i);
+                if(orgi_text.indexOf(Char_At)==-1){
+                    isThai=false;
+                }
+            }
+            if(str_length>=1){
+                if(isThai==false){
+                    obj.value=str.substr(0,str_length_end);
+                }
+            }
+            return isThai; // ถ้าเป็น true แสดงว่าเป็นภาษาไทยทั้งหมด
+        }
+    </script>
 
 
+
+    <script language="javascript">
+        function IsNumeric(sText,obj)
+        {
+            var ValidChars = "0123456789.";
+            var IsNumber=true;
+            var Char;
+            for (i = 0; i < sText.length && IsNumber == true; i++)
+            {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1)
+                {
+                    IsNumber = false;
+                }
+            }
+            if(IsNumber==false){
+
+                obj.value=sText.substr(0,sText.length-1);
+            }
+        }
+    </script>
 
 
 
@@ -120,6 +160,8 @@ conndb();
     <!-- Checkimg -->
 
 
+
+
 </head>
 <body>
 
@@ -136,19 +178,19 @@ conndb();
                         <div class="row">
                             <div class="col-md-4 col-md-4">
                                 <label>ชือผู้ใช้</label>
-                                <input type="text" name="username" placeholder="กรอกไอดีของท่าน"
+                                <input type="text" name="username" placeholder="กรอกไอดีของท่าน" id="data_text" size="40" onkeyup="isThaichar(this.value,this)"
                                        class="form-control"
-                                       maxlength="10" required="required">
+                                       maxlength="24" required />
                             </div>
                             <div class="col-md-4 col-md-4">
                                 <label>รหัสผ่าน</label>
-                                <input type="password" name="passwd" class="form-control"
+                                <input type="password" name="passwd" class="form-control" minlength="8"
                                        maxlength="18"
                                        required="required">
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <label>ยืนยันรหัสผ่าน</label>
-                                <input type="password" name="conpasswd" class="form-control"
+                                <input type="password" name="conpasswd" class="form-control" minlength="8"
                                        maxlength="18"
                                        required="required">
                             </div>
@@ -163,9 +205,10 @@ conndb();
                             </div>
                             <div class="col-md-4 col-md-4">
                                 <label>เบอร์โทรติดต่อ</label>
-                                <input type="text" name="c_tela" placeholder="" class="form-control"
+                                <input type="tel" name="c_tela" placeholder="" class="form-control"
                                        minlength="10"
-                                       maxlength="10" required="required"/>
+                                       maxlength="10" id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)" required="required"/>
                             </div>
                             <div class="col-md-4 col-md-4">
                                 <label>ที่อยู่บริษัท</label>
@@ -187,7 +230,7 @@ conndb();
                             <input type="hidden" name="c_status_join" value="0">
 
                         <br><br><br><br>
-                        <div class="col-md-6 col-lg-offset-5">
+                        <div class="col-md-12 col-md-offset-9">
                             <button type="submit" value="Upload Image" class="btn btn-outline btn-primary"
                                     data-toggle="tooltip"
                                     data-placement="top" title="สมัครสมาชิก"> ลงทะเบียน
@@ -207,7 +250,23 @@ conndb();
     </form>
 
 <br><br>
-</body>
 
+    <script>
+        $("#user").keypress(function(event){
+            var ew = event.which;
+            if(ew == 32)
+                return true;
+            if(48 <= ew && ew <= 57)
+                return true;
+            if(65 <= ew && ew <= 90)
+                return true;
+            if(97 <= ew && ew <= 122)
+                return true;
+            return false;
+        });
+
+    </script>
+</body>
 </html>
+
 

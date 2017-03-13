@@ -26,6 +26,51 @@
     <script src="../vendor/jquery/jquery-1.11.2.min.js"></script>
 
 
+    <script type="text/javascript">
+        function isThaichar(str,obj){
+            var orgi_text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9";
+            var str_length=str.length;
+            var str_length_end=str_length-1;
+            var isThai=true;
+            var Char_At="";
+            for(i=0;i<str_length;i++){
+                Char_At=str.charAt(i);
+                if(orgi_text.indexOf(Char_At)==-1){
+                    isThai=false;
+                }
+            }
+            if(str_length>=1){
+                if(isThai==false){
+                    obj.value=str.substr(0,str_length_end);
+                }
+            }
+            return isThai; // ถ้าเป็น true แสดงว่าเป็นภาษาไทยทั้งหมด
+        }
+    </script>
+
+
+
+    <script language="javascript">
+        function IsNumeric(sText,obj)
+        {
+            var ValidChars = "0123456789.";
+            var IsNumber=true;
+            var Char;
+            for (i = 0; i < sText.length && IsNumber == true; i++)
+            {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1)
+                {
+                    IsNumber = false;
+                }
+            }
+            if(IsNumber==false){
+
+                obj.value=sText.substr(0,sText.length-1);
+            }
+        }
+    </script>
+
     <script>
         $(document).ready(function () {
             $(".f1").removeClass('hide');
@@ -168,16 +213,16 @@
                             <div class="col-md-4">
                                 <label>ชื่อผู้ใช้</label>
                                 <input type="text" name="username" placeholder="กรอกไอดีของท่าน" class="form-control"
-                                       maxlength="10" required="required">
+                                       maxlength="24" required="required" id="data_text" size="40" onkeyup="isThaichar(this.value,this)">
                             </div>
                             <div class="col-md-4">
                                 <label>รหัสผ่าน</label>
-                                <input type="password" name="passwd" class="form-control" maxlength="18"
+                                <input type="password" name="passwd" class="form-control" minlength="8" maxlength="18"
                                        required="required">
                             </div>
                             <div class="col-md-4">
                                 <label>ยืนยันรหัสผ่าน</label>
-                                <input type="password" name="conpasswd" class="form-control" maxlength="18"
+                                <input type="password" name="conpasswd" class="form-control" minlength="8" maxlength="18"
                                        required="required">
                             </div>
                             <br><br><br><br>
@@ -185,7 +230,8 @@
                             <div class="col-md-2">
                                 <label>รหัสนักศึกษา</label>
                                 <input type="text" name="number_id" required="required" minlength="10" maxlength="10"
-                                       class="form-control ">
+                                       class="form-control " id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)">
                             </div>
                             <div class="col-md-2">
                                 <label>คำนำหน้า</label>
@@ -211,11 +257,13 @@
 
                             <div class="col-md-2">
                                 <label>บ้านเลขที่</label>
-                                <input type="text" name="house_no" class="form-control" required="required">
+                                <input type="text" name="house_no" class="form-control" required="required" id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)">
                             </div>
                             <div class="col-md-2">
                                 <label>หมู่ที่</label>
-                                <input type="text" name="village_no" class="form-control" required="required">
+                                <input type="text" name="village_no" class="form-control" required="required" id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)">
                             </div>
                             <div class="col-md-2">
                                 <label>จังหวัด </label>
@@ -243,14 +291,16 @@
                             </div>
                             <div class="col-md-2">
                                 <label>รหัสไปรษณีย์</label>
-                                <input type="text" name="postal_code" class="form-control">
+                                <input type="text" name="postal_code" class="form-control" id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)">
                             </div>
                             <br><br><br><br>
 
                             <div class="col-md-3">
                                 <label>เบอร์โทรติดต่อ</label>
-                                <input type="tel" name="telaphone" placeholder="0909869999" class="form-control"
-                                       minlength="10" maxlength="10" required="required"/>
+                                <input type="tel" name="telaphone"  class="form-control"
+                                       minlength="10" maxlength="10" required="required" id="mynumber"
+                                       onKeyUp="IsNumeric(this.value,this)" />
                             </div>
                             <div class="col-md-3">
                                 <label>อีเมลผู้ใช้</label>
@@ -274,7 +324,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label>เพศ</label><br>
-                                <input type="radio" name="gender" value="หญิง"> หญิง
+                                <input type="radio" name="gender" checked="checked" value="หญิง"> หญิง
                                 <input type="radio" name="gender" value="ชาย"> ชาย
                             </div>
 
@@ -291,7 +341,7 @@
 
                             <input type="hidden" name="status" value="นักศึกษา">
                             <input type="hidden" name="tid" value="0">
-                            <div class="col-md-12" style="margin-top:4%" align="center">
+                            <div class="col-md-12 col-md-offset-4" style="margin-top:4%" align="center">
                                 <button type="submit" value="Upload Image" class="btn  btn-primary"
                                         data-toggle="tooltip" data-placement="top" title="สมัครสมาชิก"> สมัครสมาชิก
                                 </button>
@@ -320,16 +370,16 @@
                                 <div class="row">
                                     <div class="col-md-4 ">
                                         <label>ชื่อผู้ใช้</label>
-                                        <input type="text" name="username" class="form-control" maxlength="10" required="required">
+                                        <input type="text" name="username" class="form-control"  maxlength="24" required="required" id="data_text" size="40" onkeyup="isThaichar(this.value,this)">
                                     </div>
                                     <div class="col-md-4 ">
                                         <label>รหัสผ่าน</label>
-                                        <input type="password" name="passwd" class="form-control"
+                                        <input type="password" name="passwd" class="form-control" minlength="8"
                                                maxlength="18" required="required">
                                     </div>
                                     <div class="col-md-4 ">
                                         <label>ยืนยันรหัสผ่าน</label>
-                                        <input type="password" name="conpasswd" class="form-control"
+                                        <input type="password" name="conpasswd" class="form-control" minlength="8"
                                                maxlength="18"
                                                required="required">
                                     </div>
@@ -361,9 +411,10 @@
 
                                     <div class="col-md-4 ">
                                         <label>เบอร์โทรติดต่อ</label>
-                                        <input type="text" name="telaphone"
+                                        <input type="tel" name="telaphone"
                                                class="form-control" minlength="10"
-                                               maxlength="10" required="required"/>
+                                               maxlength="10" id="mynumber"
+                                               onKeyUp="IsNumeric(this.value,this)" required="required"/>
                                     </div>
 
                                     <div class="col-md-4 ">
@@ -382,7 +433,7 @@
 
                                 <input type="hidden" name="status" value="อาจารย์" checked="checked">
                                 <br><br><br><br>
-                                <div class="col-md-6 col-md-offset-4" style="margin-top: 1%">
+                                <div class="col-md-12 col-md-offset-9" style="margin-top: 1%">
                                     <button type="submit" value="Upload Image" class="btn btn-primary"
                                             data-toggle="tooltip"
                                             data-placement="top" title="สมัครสมาชิก"> สมัครสมาชิก

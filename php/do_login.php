@@ -33,6 +33,7 @@ if($sql = "SELECT * FROM student
             $_SESSION['username'] = $row['username'];
             $_SESSION['status'] = $row['status'];
             $_SESSION['fn_te'] = $row['fn_te'];
+            $_SESSION['ln_te'] = $row['ln_te'];
             $_SESSION['tid'] = $row['tid'];
 
 

@@ -29,8 +29,10 @@ $no15 = $_REQUEST['no15'];
 $no16 = $_REQUEST['no16'];
 $no17 = $_REQUEST['no17'];
 $no18 = $_REQUEST['no18'];
-$no19_1 = $_REQUEST['no19_1'];
-$no19_2 = $_REQUEST['no19_2'];
+$no19 = $_REQUEST['no19'];
+$no20 = $_REQUEST['no20'];
+$no21_1 = $_REQUEST['no21_1'];
+$no21_2 = $_REQUEST['no21_2'];
 $get_work = $_REQUEST['get_work'];
 $comment = $_REQUEST['comment'];
 $evaluator = $_REQUEST['evaluator'];
@@ -41,8 +43,8 @@ $y = $_REQUEST['y'];
 
 
 
-$sql = "INSERT INTO evaluator_company (sid ,cid,fn_st,ln_st,number_id,c_name,name_leader,rank_leader,no1,no2,no3,no4,no5,no6,no7,no8,no9,no10,no11,no12,no13,no14,no15,no16,no17,no18,no19_1,no19_2,get_work,comment,evaluator,d,m,y) 
-              VALUE ('$sid','$cid','$fn_st','$ln_st','$number_id','$c_name','$name_leader','$rank_leader','$no1','$no2','$no3','$no4','$no5','$no6','$no7','$no8','$no9','$no10','$no11','$no12','$no13','$no14','$no15','$no16','$no17','$no18','$no19_1','$no19_2','$get_work','$comment','$evaluator','$d','$m','$y')";
+$sql = "INSERT INTO evaluator_company (sid ,cid,fn_st,ln_st,number_id,c_name,name_leader,rank_leader,no1,no2,no3,no4,no5,no6,no7,no8,no9,no10,no11,no12,no13,no14,no15,no16,no17,no18,no19,no20,no21_1,no21_2,get_work,comment,evaluator,d,m,y) 
+              VALUE ('$sid','$cid','$fn_st','$ln_st','$number_id','$c_name','$name_leader','$rank_leader','$no1','$no2','$no3','$no4','$no5','$no6','$no7','$no8','$no9','$no10','$no11','$no12','$no13','$no14','$no15','$no16','$no17','$no18','$no19,'$no20,'$no21_1','$no21_2','$get_work','$comment','$evaluator','$d','$m','$y')";
 
 if (mysqli_query($link, $sql)) {
     echo "New record created successfully";
