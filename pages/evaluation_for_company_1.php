@@ -30,15 +30,18 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql = "SELECT * FROM register_work ,company , student 
-                  WHERE register_work.cid = company.cid
-                    AND register_work.sid = student.sid ";
+
+
+        $sql = "SELECT * FROM register_work 
+                      INNER JOIN company ON register_work.cid = company.cid 
+                      INNER JOIN student ON register_work.sid = student.sid 
+                      AND register_work.cid = $cid ";
         $query = mysqli_query($link, $sql);
 
 
-        $mysql = "SELECT * FROM company WHERE cid = $cid";
-        $Query = mysqli_query($link, $mysql);
-        $result = mysqli_fetch_array($Query);
+//        $mysql = "SELECT * FROM company WHERE cid = $cid";
+//        $Query = mysqli_query($link, $mysql);
+//        $result1 = mysqli_fetch_array($Query);
     }
     ?>
 </head>
@@ -101,8 +104,7 @@ include '../php/config.php';
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
-                            <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a></li>
-                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
+                            <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
                         </ul>
                     </li>
                     <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
@@ -123,16 +125,30 @@ include '../php/config.php';
                                 <th>ชื่อนักศึกษา</th>
                                 <th class="right"></th>
                             </tr>
-                            <?php for ($i = 1; $result = mysqli_fetch_array($query); $i++) { ?>
-                                <tr>
-                                    <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
-                                             height="50px"/></td>
-                                    <td><?= $result['number_id'] ?></td>
-                                    <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
-                                    <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
-                                           class="btn btn-success">ประเมิน</a></td>
-                                </tr>
-                            <?php } ?>
+                            <?php  for ($i = 1; $result = mysqli_fetch_array($query); $i++) { ?>
+
+                                <?php if ($result['status_work'] == '3') { ?>
+
+                                    <tr>
+                                        <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
+                                                 height="50px"/></td>
+                                        <td><?= $result['number_id'] ?></td>
+                                        <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
+                                        <td><a href="#"
+                                               class="btn btn-danger" disabled="disable">ประเมินแล้ว</a></td>
+                                    </tr>
+
+                                <?php } elseif ($result['status_work'] == '2') { ?>
+                                    <tr>
+                                        <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
+                                                 height="50px"/></td>
+                                        <td><?= $result['number_id'] ?></td>
+                                        <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
+                                        <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
+                                               class="btn btn-success">ประเมิน</a></td>
+                                    </tr>
+                                <?php }
+                            }?>
                         </table>
                     </div>
                 </div>

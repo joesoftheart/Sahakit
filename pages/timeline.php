@@ -246,7 +246,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                              height="15px"><strong>สถานที่ทำงาน
                                     :</strong> <?= $row['map_work'] ?></h6>
                             <h6 class="col-md-offset-2"><img src="../img/png6/price-tag-4.png" width="15px"
-                                                             height="15px"><strong>สวัสดิการ</strong> <?= $row['gold'] ?>
+                                                             height="15px"><strong>สวัสดิการ :</strong><?= $row['gold'] ?>
                             </h6>
                             <div class="pull-right">
                                 <?php
@@ -324,7 +324,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <label>ตำแหน่ง</label>
                                                     <p><img src="../img/checked.png" width="15px"
-                                                            height="15px"><?= $row['rank'] ?></p>
+                                                            height="15px"> <?= $row['rank'] ?></p>
                                                 </div>
                                             </div>
                                             <br>
@@ -347,7 +347,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <label>ติดต่อ</label>
-                                                    <p><img src="../img/checked.png" width="15px" height="15px"><?= $row['c_tela'] ?>
+                                                    <p><img src="../img/checked.png" width="15px" height="15px"> <?= $row['c_tela'] ?>
                                                     </p>
                                                 </div>
                                             </div>

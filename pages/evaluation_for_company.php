@@ -320,11 +320,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
-                            <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a></li>
-                            <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a></li>
+                            <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
                         </ul>
                     </li>
-                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
+                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
 
                 </ul>
             </div>
@@ -376,12 +375,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>"
                                                  readonly="readonly" data-onload="set_size($(this),574)"
                                                  style="margin-top: 5px;"> <br>
-                        ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required" minlength="1" maxlength="1" id="mynumber"
-                                                                  onKeyUp="IsNumeric(this.value,this)"
+                        ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required"
                                                         data-onload="set_size($(this),300)"
                                                         style="margin-top: 5px;">
-                        ตำแหน่ง <input type="text" name="rank_leader" required="required" minlength="1" maxlength="1" id="mynumber"
-                                                                  onKeyUp="IsNumeric(this.value,this)"
+                        ตำแหน่ง <input type="text" name="rank_leader" required="required"
                                        data-onload="set_size($(this),210)"
                                        style="margin-top: 5px;">
                         <br><br>

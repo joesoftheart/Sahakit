@@ -282,7 +282,7 @@ include '../php/config.php';
         $number_id = $_SESSION['number_id'];
 
         $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+                          WHERE register_work.cid = company.cid AND register_work.sid = '$sid'";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
@@ -348,10 +348,9 @@ include '../php/config.php';
                     <?php  if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
-                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+
+                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำวัน</a></li>
+                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำวัน </a> </li>
                             </ul>
                         </li>
                     <?php } ?>
@@ -387,9 +386,9 @@ include '../php/config.php';
         }
         ?>
     </table>
+   </form>
     </div>
-</div>
-</form>
+
 
 
 

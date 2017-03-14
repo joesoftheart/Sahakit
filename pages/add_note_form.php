@@ -279,10 +279,10 @@ include '../php/config.php';
         $sid = $_SESSION["sid"];
         $fn_st = $_SESSION['fn_st'];
         $ln_st = $_SESSION['ln_st'];
-        $idst = $_SESSION['idst'];
+        $number_id = $_SESSION['number_id'];
 
         $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+                          WHERE register_work.cid = company.cid AND register_work.sid = '$sid'";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
@@ -348,10 +348,10 @@ include '../php/config.php';
                     <?php  if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
-                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                <li><a href="add_note_form.php">บันทึกการฝึกงานประจำวัน</a></li>
+                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำสัปดาห์</a></li>
+                                <li><a href="list_note.php">ดูประวัติบันทึกประจำวัน</a> </li>
+                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำสัปดาห์</a> </li>
                             </ul>
                         </li>
                     <?php } ?>
@@ -369,6 +369,7 @@ include '../php/config.php';
         <tr>
             <th colspan="2" >บันทึกการปฎิบัติประจำวัน </th>
             <input type="hidden" name="user_id" value="<?PHP echo $sid ?>" />
+            <input type="hidden" name="cid" value="<?= $result['cid'] ?>" />
         </tr>
         <tr>
             <td><font>กรุณาเลือก</font></td>
@@ -483,9 +484,9 @@ include '../php/config.php';
             </td>
         </tr>
     </table>
+    </form>
     </div>
-</div>
-</form>
+
 
 
 

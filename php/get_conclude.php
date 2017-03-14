@@ -47,6 +47,7 @@ function convertdate($monthcon){
 
 include 'config.php';
    $user_id =  $_POST["user_id"];
+    $cid = $_POST['cid'];
    $week_number = $_POST["week_number"];
    $date_start = $_POST["date_start"];
    $date_end = $_POST["date_end"];
@@ -70,7 +71,10 @@ include 'config.php';
 
 
 
-$sql = "INSERT INTO conclude (uid,week,date_start,date_end,job_work,problem,work_fix,note,date_start_now,date_start_end)
-VALUES ('$user_id','$week_number','$date_start','$date_end','$job_work','$problem','$work_fix','$note','$date_now_start','$date_now_end') ";
+$sql = "INSERT INTO conclude (uid,cid,week,date_start,date_end,job_work,problem,work_fix,note,date_start_now,date_start_end)
+VALUES ('$user_id','$cid','$week_number','$date_start','$date_end','$job_work','$problem','$work_fix','$note','$date_now_start','$date_now_end') ";
    $result = mysqli_query($link,$sql)or die(mysqli_error($link));
+
+echo "<script type='text/javascript'>window.location='../pages/list_conclude.php'</script>";
+
 ?>

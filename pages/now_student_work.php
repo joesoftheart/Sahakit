@@ -106,8 +106,7 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_note_company.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>

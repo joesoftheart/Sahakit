@@ -2,724 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="642c8b28-d4a8-4ab6-bb4e-6838061594ea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/~$ญญา MOU.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/สัญญา MOU.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/นักศึกษา/สมุดบันทึกการปฏิบติงาน.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/นักศึกษา/สมุดบันทึกการฝึกงาน.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/นักศึกษา/สมุดบันทึกการฝึกงาน1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/บริษัท/ใบประเมินการปฏิบัติงาน.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/อาจารย์/~$บประเมินการนำเสนองาน.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/อาจารย์/แบบประเมินการนำเสนองาน.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/แบบฟอร์ม/อาจารย์/แบบประเมินเล่มรายงาน.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/Git-2.12.0-64-bit.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/list-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/list.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/abacus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/american-football.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/apple.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/baseball.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/basketball.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/bell.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/books.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/bookshelf.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/calculator-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/calculator.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/chalkboard-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/chalkboard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/chemistry-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/chemistry.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/college.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/compact-disc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/compass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/computer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/crayon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/cup.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/diploma-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/diploma-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/diploma-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/diploma.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/earth-globe-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/earth-globe.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/glue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/marker.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/microscope.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/mortarboard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/notebook-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/notebook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/open-book.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/paint-palette.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/pen.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/pencil.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/pendrive.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/research-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/research.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/ruler.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/school-bus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/school-material.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/science.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/scissors.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/set-square.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/sharpener.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/statistics.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png3/telescope.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/add-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/add-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/add-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/add.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/agenda.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/alarm-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/alarm-clock-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/alarm-clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/alarm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/albums.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/app.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/archive-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/archive-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/archive-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/archive.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/attachment.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/back.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/battery.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/binoculars.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/blueprint.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/bluetooth-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/bluetooth.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/bookmark-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/bookmark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/briefcase.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/broken-link.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calculator-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calculator.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/checked-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/checked.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/clock-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud-computing.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/cloud.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/command.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/compact-disc-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/compact-disc-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/compact-disc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/compass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/compose.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/controls.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/database-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/database-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/database-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/database.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/diamond.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/diploma.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/dislike-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/dislike.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/divide-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/divide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/division.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/document.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/download.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/edit-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/edit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/eject-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/eject.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/equal-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/equal-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/equal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/error.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/exit-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/exit-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/exit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/eyeglasses.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/fast-forward-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/fast-forward.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/fax.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/file-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/file-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/file.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/film.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/fingerprint.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/flag-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/flag-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/flag-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/flag-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/flag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/focus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/folder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/forbidden.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/funnel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/garbage-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/garbage-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/garbage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/gift.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/help.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hold.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/home-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/home-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/home.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hourglass-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hourglass-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hourglass-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/hourglass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/house.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/id-card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/idea.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/incoming.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/infinity.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/info.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/internet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/key.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/lamp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/layers-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/layers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/like-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/like-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/like.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/link.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/list-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/list.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/lock-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/locked.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/login.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/magic-wand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/magnet-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/magnet-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/magnet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/map-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/map-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/map-location.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/megaphone-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/megaphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/menu-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/menu-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/menu-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/menu-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/menu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/microphone-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/microphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/minus-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/minus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/more-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/more-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/more.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/multiply-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/multiply.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/music-player-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/music-player-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/music-player-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/music-player.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/mute.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/muted.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/navigation-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/navigation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/network.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/newspaper.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/next.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/note.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notebook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notepad-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notepad-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notepad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/notification.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/paper-plane-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/paper-plane.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/pause-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/pause.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/percent-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/percent.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/perspective.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/photo-camera-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/photo-camera.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/photos.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/picture-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/picture-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/picture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/pin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/placeholder-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/placeholder-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/placeholder-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/placeholders.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/play-button-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/play-button.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/plus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/power.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/previous.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/price-tag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/print.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/push-pin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/radar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/reading.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/record.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/repeat-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/repeat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/restart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/resume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/rewind-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/rewind.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/route.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/search-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/send.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/server-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/server-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/server-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/server.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/settings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/share-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/share-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/share.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/shuffle-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/shuffle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/shutdown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/sign-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/sign.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/skip.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/smartphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/speaker.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/spotlight.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/star-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/star.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stop-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stopwatch-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stopwatch-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stopwatch-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stopwatch-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/stopwatch.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/street-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/street.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/substract-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/substract.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/success.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/switch.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/tabs-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/tabs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/target.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/television-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/television.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/time.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/trash.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/umbrella.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/unlink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/unlocked-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/unlocked-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/unlocked.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/upload.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/users-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/users.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/video-camera-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/video-camera.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/video-player-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/video-player-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/video-player.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/view-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/view-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/view.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/volume-control-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/volume-control.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/warning.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/wifi-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/wifi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/windows-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/windows-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/windows-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/windows-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/windows.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/wireless-internet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/worldwide-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/worldwide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/zoom-in.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png4/zoom-out.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/bag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/bank.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/bishop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/board.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/briefcase.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/bulb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/calculator.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/camera-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/camera.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/cart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/chart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/charts.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/chat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/computer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/configuration-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/configuration-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/configuration.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/cpu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/credit-card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/crown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/customer-service.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/dialog.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/eye.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/flag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/id-card-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/id-card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/laptop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/letter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/link-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/link.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/medal-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/medal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/megaphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/microphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/mobile-phone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/mouse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/rocket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/shopping-online.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/sound.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/statistics-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/statistics-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/statistics-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/statistics.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/store.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/strongbox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/target.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/television.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/test.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/tie.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/typewriter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/upload.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png5/video-player.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/atm-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/atm-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/atm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/bank.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/barbershop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/barcode-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/barcode.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/basket-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/basket-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/basket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/box-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/box-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/box-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/box.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/briefcase-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/briefcase.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/calculator.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cashier-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/cashier.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/change.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/check.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coins-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/coins.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/crate.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/credit-card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/delivery-cart-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/delivery-cart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/diagram-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/diagram-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/diagram-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/diagram.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/folder-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/folder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/get-money.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/graph.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/grocery-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/grocery.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/insert-coin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/investment.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/justice-scale.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/justice.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/megaphone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/money.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/notes-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/notes-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/notes.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/pie-chart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/piggy-bank-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/piggy-bank.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/point-of-service.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/poor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/presentation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag-9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/price-tag.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/receipt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/record.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/rewind-time.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/rich.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/safebox-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/safebox-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/safebox-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/safebox-4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/safebox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/stamp-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/stamp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/stand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/store-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/store-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/store-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/store.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/strongbox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/suitcase-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/suitcase-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/suitcase.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/time-is-money.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/time-passing.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/wallet-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/wallet-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/wallet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/png6/yen.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/putty-64bit-0.68-installer.msi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/map site/Map Site.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/company/Jellyfish.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/company/Penguins.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/company/Tulips.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/company/t.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/resume/student/t.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/student/Desert.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/student/Lighthouse.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/student/Penguins.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/student/à¸šà¸—à¸™à¸³.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/teacher/Hydrangeas.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myfile/teacher/Tulips.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/print.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/print_pdf.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/company/company1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/student/student1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/teacher/teacher1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/teacher/teacher2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/yesyes.jpgstudent" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/update_conclude_company.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/all_student.php" afterPath="$PROJECT_DIR$/pages/all_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/company_join.php" afterPath="$PROJECT_DIR$/pages/company_join.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/data_student.php" afterPath="$PROJECT_DIR$/pages/data_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/do_join_work.php" afterPath="$PROJECT_DIR$/pages/do_join_work.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/do_mou.php" afterPath="$PROJECT_DIR$/pages/do_mou.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/editprofile_student.php" afterPath="$PROJECT_DIR$/pages/editprofile_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/editprofile_teacher.php" afterPath="$PROJECT_DIR$/pages/editprofile_teacher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_conclude_form.php" afterPath="$PROJECT_DIR$/pages/add_conclude_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_note_form.php" afterPath="$PROJECT_DIR$/pages/add_note_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/conclude_show.php" afterPath="$PROJECT_DIR$/pages/conclude_show.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/evaluation_for_company.php" afterPath="$PROJECT_DIR$/pages/evaluation_for_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.php" afterPath="$PROJECT_DIR$/pages/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/evaluation_for_company_1.php" afterPath="$PROJECT_DIR$/pages/evaluation_for_company_1.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/last_work.php" afterPath="$PROJECT_DIR$/pages/last_work.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/list_conclude.php" afterPath="$PROJECT_DIR$/pages/list_conclude.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/list_conclude_company.php" afterPath="$PROJECT_DIR$/pages/list_conclude_company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/list_note.php" afterPath="$PROJECT_DIR$/pages/list_note.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/list_note_company.php" afterPath="$PROJECT_DIR$/pages/list_note_company.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/name_student_join.php" afterPath="$PROJECT_DIR$/pages/name_student_join.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/now_student_work.php" afterPath="$PROJECT_DIR$/pages/now_student_work.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/profile_company.php" afterPath="$PROJECT_DIR$/pages/profile_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/profile_teacher.php" afterPath="$PROJECT_DIR$/pages/profile_teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/register.php" afterPath="$PROJECT_DIR$/pages/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/register_company.php" afterPath="$PROJECT_DIR$/pages/register_company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/profile_student.php" afterPath="$PROJECT_DIR$/pages/profile_student.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/timeline.php" afterPath="$PROJECT_DIR$/pages/timeline.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/work_post.php" afterPath="$PROJECT_DIR$/pages/work_post.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/work_post_edit.php" afterPath="$PROJECT_DIR$/pages/work_post_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/database.class_company.php" afterPath="$PROJECT_DIR$/php/database.class_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/database.class_teacher.php" afterPath="$PROJECT_DIR$/php/database.class_teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/do_login.php" afterPath="$PROJECT_DIR$/php/do_login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/get_conclude.php" afterPath="$PROJECT_DIR$/php/get_conclude.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/get_note.php" afterPath="$PROJECT_DIR$/php/get_note.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/update_evaluation_for_company.php" afterPath="$PROJECT_DIR$/php/update_evaluation_for_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/update_form_mou.php" afterPath="$PROJECT_DIR$/php/update_form_mou.php" />
     </list>
     <ignored path="sahakit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -743,72 +47,29 @@
       <file leaf-file-name="profile_company.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/profile_company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="276">
+              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
               <folding>
-                <marker date="1489396133257" expanded="true" signature="986:1031" ph="SELECT * FRO... company" />
+                <marker date="1489486544016" expanded="true" signature="986:1031" ph="SELECT * FRO... company" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_company.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/register_company.php">
+      <file leaf-file-name="evaluation_for_company_1.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company_1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="232" column="61" selection-start-line="232" selection-start-column="61" selection-end-line="232" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="435" column="69" selection-start-line="435" selection-start-column="69" selection-end-line="435" selection-end-column="69" />
+            <state relative-caret-position="251">
+              <caret line="137" column="68" selection-start-line="137" selection-start-column="68" selection-end-line="137" selection-end-column="68" />
               <folding>
-                <element signature="n#style#0;n#div#19;n#div#1;n#div#0;n#div#0;n#form#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="last_work.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/last_work.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="106" column="54" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
-              <folding>
-                <marker date="1489396320894" expanded="true" signature="1050:1342" ph="SELECT * FRO... register_work" />
-                <marker date="1489396320894" expanded="true" signature="1411:1456" ph="SELECT * FRO... company" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="name_student_join.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/name_student_join.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="107" column="50" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
-              <folding>
-                <marker date="1489396320936" expanded="true" signature="929:1225" ph="SELECT * FRO... register_work" />
-                <marker date="1489396320936" expanded="true" signature="1291:1583" ph="SELECT * FRO... register_work" />
-                <marker date="1489396320936" expanded="true" signature="1650:1671" ph="SELECT * FRO... student" />
-                <marker date="1489396320936" expanded="true" signature="1832:1877" ph="SELECT * FRO... company" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="work_post_edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/work_post_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-              <folding>
-                <marker date="1489397771072" expanded="true" signature="1008:1047" ph="SELECT * FRO... post_company" />
+                <marker date="1489510564247" expanded="true" signature="988:1217" ph="SELECT * FRO... register_work" />
+                <marker date="1489510564247" expanded="true" signature="988:1218" ph="SELECT * FRO... register_work" />
+                <marker date="1489510564247" expanded="true" signature="988:1222" ph="SELECT * FRO... register_work" />
+                <marker date="1489510564247" expanded="true" signature="988:1267" ph="SELECT * FRO... register_work" />
+                <marker date="1489510564247" expanded="true" signature="1291:1325" ph="SELECT * FRO... company" />
+                <marker date="1489510564247" expanded="true" signature="1455:1464" ph="..." />
+                <marker date="1489510564247" expanded="true" signature="5914:6000" ph="..." />
+                <marker date="1489510564247" expanded="true" signature="6609:6695" ph="..." />
               </folding>
             </state>
           </provider>
@@ -817,30 +78,10 @@
       <file leaf-file-name="evaluation_for_company.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="406" column="102" selection-start-line="405" selection-start-column="124" selection-end-line="406" selection-end-column="102" />
+            <state relative-caret-position="4100">
+              <caret line="380" column="89" selection-start-line="380" selection-start-column="89" selection-end-line="380" selection-end-column="89" />
               <folding>
-                <element signature="e#33290#33296#0#HTML" expanded="true" />
-                <element signature="e#33297#33303#0#HTML" expanded="true" />
-                <element signature="e#33303#33309#0#HTML" expanded="true" />
-                <element signature="e#33437#33443#0#HTML" expanded="true" />
-                <element signature="e#34481#34487#0#HTML" expanded="true" />
-                <element signature="e#34488#34494#0#HTML" expanded="true" />
-                <element signature="e#35202#35208#0#HTML" expanded="true" />
-                <element signature="e#35289#35295#0#HTML" expanded="true" />
-                <element signature="e#35296#35302#0#HTML" expanded="true" />
-                <element signature="e#35421#35427#0#HTML" expanded="true" />
-                <element signature="e#35428#35434#0#HTML" expanded="true" />
-                <element signature="e#35579#35585#0#HTML" expanded="true" />
-                <element signature="e#35586#35592#0#HTML" expanded="true" />
-                <element signature="e#36258#36264#0#HTML" expanded="true" />
-                <element signature="e#36337#36343#0#HTML" expanded="true" />
-                <element signature="e#36344#36350#0#HTML" expanded="true" />
-                <element signature="e#36475#36481#0#HTML" expanded="true" />
-                <element signature="e#36482#36488#0#HTML" expanded="true" />
-                <element signature="e#36611#36617#0#HTML" expanded="true" />
-                <element signature="e#36618#36624#0#HTML" expanded="true" />
-                <marker date="1489402381282" expanded="true" signature="7005:7214" ph="SELECT * FRO... register_work" />
+                <marker date="1489503427010" expanded="true" signature="7005:7214" ph="SELECT * FRO... register_work" />
               </folding>
             </state>
           </provider>
@@ -849,35 +90,49 @@
       <file leaf-file-name="update_evaluation_for_company.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/update_evaluation_for_company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="983">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="251">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
-                <marker date="1489400002778" expanded="true" signature="1074:1633" ph="INSERT INTO evaluator_company... " />
+                <marker date="1489507724077" expanded="true" signature="1074:1563" ph="INSERT INTO evaluator_company... " />
+                <marker date="1489507724077" expanded="true" signature="1074:1635" ph="INSERT INTO evaluator_company... " />
+                <marker date="1489507724077" expanded="true" signature="1074:1723" ph="INSERT INTO evaluator_company... " />
+                <marker date="1489507724077" expanded="true" signature="1725:1771" ph="UPDATE regis... " />
+                <marker date="1489507724077" expanded="true" signature="1725:1773" ph="UPDATE regis... " />
+                <marker date="1489507724077" expanded="true" signature="1725:1778" ph="UPDATE regis... " />
+                <marker date="1489507724077" expanded="true" signature="1975:2054" ph="INSERT INTO grade... " />
+                <marker date="1489507724077" expanded="true" signature="1986:2012" ph="INSERT INTO grade... " />
+                <marker date="1489507724077" expanded="true" signature="1986:2054" ph="UPDATE grade... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="work_post.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/work_post.php">
+      <file leaf-file-name="conclude_show_company.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/conclude_show_company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="84" column="71" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
+            <state relative-caret-position="200">
+              <caret line="293" column="32" selection-start-line="293" selection-start-column="32" selection-end-line="293" selection-end-column="101" />
               <folding>
-                <marker date="1489396320883" expanded="true" signature="1082:1127" ph="SELECT * FRO... company" />
+                <marker date="1489495903556" expanded="true" signature="6250:6393" ph="SELECT * FRO... register_work" />
+                <marker date="1489495903556" expanded="true" signature="10606:10639" ph="SELECT * FRO... conclude" />
+                <marker date="1489495903556" expanded="true" signature="11018:11102" ph="SELECT * FRO... execute" />
+                <marker date="1489495903556" expanded="true" signature="15513:15624" ph="..." />
+                <marker date="1489495903556" expanded="true" signature="15516:15620" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_note_company.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/list_note_company.php">
+      <file leaf-file-name="update_conclude_company.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/update_conclude_company.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="361" column="18" selection-start-line="361" selection-start-column="18" selection-end-line="361" selection-end-column="18" />
+            <state relative-caret-position="475">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <marker date="1489396133274" expanded="true" signature="8367:8510" ph="SELECT * FRO... register_work" />
-                <marker date="1489396133274" expanded="true" signature="13110:13143" ph="SELECT * FRO... execute" />
+                <marker date="1489495958152" expanded="true" signature="162:196" ph="UPDATE concl... " />
+                <marker date="1489495958152" expanded="true" signature="162:222" ph="UPDATE concl... " />
+                <marker date="1489495958152" expanded="true" signature="162:247" ph="UPDATE concl... " />
+                <marker date="1489495958152" expanded="true" signature="162:273" ph="UPDATE concl... " />
               </folding>
             </state>
           </provider>
@@ -898,27 +153,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/dowload.php" />
-        <option value="$PROJECT_DIR$/php/update_status.php" />
-        <option value="$PROJECT_DIR$/php/uploadstudent.php" />
-        <option value="$PROJECT_DIR$/php/delete_file_upload.php" />
-        <option value="$PROJECT_DIR$/php/uploadcompany.php" />
-        <option value="$PROJECT_DIR$/php/uploadtecher.php" />
         <option value="$PROJECT_DIR$/php/delete_file_upload_teacher.php" />
         <option value="$PROJECT_DIR$/php/delete_file_upload_company.php" />
         <option value="$PROJECT_DIR$/pages/admin_upload.php" />
         <option value="$PROJECT_DIR$/pages/newsupdate.php" />
-        <option value="$PROJECT_DIR$/pages/profile_student.php" />
-        <option value="$PROJECT_DIR$/pages/add_note_form.php" />
-        <option value="$PROJECT_DIR$/pages/add_conclude_form.php" />
-        <option value="$PROJECT_DIR$/pages/list_note.php" />
-        <option value="$PROJECT_DIR$/pages/note_show.php" />
-        <option value="$PROJECT_DIR$/pages/conclude_show.php" />
         <option value="$PROJECT_DIR$/pages/Webboard.php" />
         <option value="$PROJECT_DIR$/pages/test.php" />
         <option value="$PROJECT_DIR$/pages/timeline_search.php" />
         <option value="$PROJECT_DIR$/php/timeline_search.php" />
-        <option value="$PROJECT_DIR$/pages/timeline.php" />
         <option value="$PROJECT_DIR$/php/config.php" />
         <option value="$PROJECT_DIR$/php/connect.php" />
         <option value="$PROJECT_DIR$/php/database.class_company.php" />
@@ -936,19 +178,32 @@
         <option value="$PROJECT_DIR$/pages/index.php" />
         <option value="$PROJECT_DIR$/pages/editprofile_student.php" />
         <option value="$PROJECT_DIR$/php/update_form_mou.php" />
-        <option value="$PROJECT_DIR$/pages/list_conclude_company.php" />
-        <option value="$PROJECT_DIR$/pages/list_conclude.php" />
-        <option value="$PROJECT_DIR$/pages/profile_company.php" />
-        <option value="$PROJECT_DIR$/pages/list_note_company.php" />
-        <option value="$PROJECT_DIR$/pages/last_work.php" />
-        <option value="$PROJECT_DIR$/pages/now_student_work.php" />
-        <option value="$PROJECT_DIR$/pages/name_student_join.php" />
-        <option value="$PROJECT_DIR$/pages/work_post.php" />
-        <option value="$PROJECT_DIR$/pages/work_post_edit.php" />
-        <option value="$PROJECT_DIR$/php/update_evaluation_for_company.php" />
-        <option value="$PROJECT_DIR$/pages/evaluation_for_company.php" />
         <option value="$PROJECT_DIR$/pages/register.php" />
         <option value="$PROJECT_DIR$/pages/register_company.php" />
+        <option value="$PROJECT_DIR$/pages/list_note_company.php" />
+        <option value="$PROJECT_DIR$/pages/note_show.php" />
+        <option value="$PROJECT_DIR$/php/get_note.php" />
+        <option value="$PROJECT_DIR$/php/get_conclude.php" />
+        <option value="$PROJECT_DIR$/pages/list_note.php" />
+        <option value="$PROJECT_DIR$/pages/add_note_form.php" />
+        <option value="$PROJECT_DIR$/pages/profile_student.php" />
+        <option value="$PROJECT_DIR$/pages/add_conclude_form.php" />
+        <option value="$PROJECT_DIR$/pages/list_conclude.php" />
+        <option value="$PROJECT_DIR$/pages/conclude_show.php" />
+        <option value="$PROJECT_DIR$/pages/timeline.php" />
+        <option value="$PROJECT_DIR$/pages/profile_company.php" />
+        <option value="$PROJECT_DIR$/pages/update_conclude_company.php" />
+        <option value="$PROJECT_DIR$/pages/conclude_show_company.php" />
+        <option value="$PROJECT_DIR$/php/update_conclude_company.php" />
+        <option value="$PROJECT_DIR$/pages/list_conclude_company.php" />
+        <option value="$PROJECT_DIR$/pages/work_post.php" />
+        <option value="$PROJECT_DIR$/pages/work_post_edit.php" />
+        <option value="$PROJECT_DIR$/pages/name_student_join.php" />
+        <option value="$PROJECT_DIR$/pages/now_student_work.php" />
+        <option value="$PROJECT_DIR$/pages/last_work.php" />
+        <option value="$PROJECT_DIR$/pages/evaluation_for_company.php" />
+        <option value="$PROJECT_DIR$/php/update_evaluation_for_company.php" />
+        <option value="$PROJECT_DIR$/pages/evaluation_for_company_1.php" />
       </list>
     </option>
   </component>
@@ -968,10 +223,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
-    <option name="y" value="-114" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1164,12 +419,14 @@
       <workItem from="1489209237768" duration="14582000" />
       <workItem from="1489298004912" duration="5381000" />
       <workItem from="1489325875999" duration="5596000" />
-      <workItem from="1489393844358" duration="8171000" />
+      <workItem from="1489393844358" duration="9706000" />
+      <workItem from="1489409072795" duration="3888000" />
+      <workItem from="1489481747791" duration="18816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="552380000" />
+    <option name="totallyTimeSpent" value="576619000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1181,7 +438,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-114" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1220,34 +477,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/delete_file_upload_teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/uploadcompany.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/uploadtecher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/uploadstudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/delete_file_upload_student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1280,41 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1825">
           <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/add_note_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9100">
-          <caret line="364" column="6" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/add_conclude_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9100">
-          <caret line="364" column="6" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/list_note.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8825">
-          <caret line="353" column="45" selection-start-line="353" selection-start-column="45" selection-end-line="353" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/note_show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7100">
-          <caret line="284" column="80" selection-start-line="284" selection-start-column="80" selection-end-line="284" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/conclude_show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7025">
-          <caret line="281" column="55" selection-start-line="281" selection-start-column="55" selection-end-line="281" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1357,7 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1459,209 +652,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2600">
-          <caret line="104" column="48" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
-          <folding>
-            <marker date="1488802233157" expanded="true" signature="986:1145" ph="SELECT * FRO... register_work" />
-            <marker date="1488802233157" expanded="true" signature="1213:1247" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/update_form_mou.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
-          <folding>
-            <marker date="1489314010740" expanded="true" signature="557:1145" ph="INSERT INTO company... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/timeline.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="50" column="94" selection-start-line="45" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <marker date="1489220847238" expanded="true" signature="1490:1667" ph="SELECT * FRO... company" />
-            <marker date="1489220847238" expanded="true" signature="1490:1668" ph="SELECT * FRO... company" />
-            <marker date="1489220847238" expanded="true" signature="1490:1695" ph="SELECT * FRO... company" />
-            <marker date="1489220847238" expanded="true" signature="1845:2023" ph="SELECT * FRO... register_work" />
-            <marker date="1489220847238" expanded="true" signature="1845:2129" ph="SELECT * FRO... register_work" />
-            <marker date="1489220847238" expanded="true" signature="2273:2544" ph="SELECT * FRO... post_company" />
-            <marker date="1489220847238" expanded="true" signature="2273:2551" ph="SELECT * FRO... post_company" />
-            <marker date="1489220847238" expanded="true" signature="2273:2568" ph="SELECT * FRO... post_company" />
-            <marker date="1489220847238" expanded="true" signature="2658:2692" ph="SELECT * FRO... student" />
-            <marker date="1489220847238" expanded="true" signature="8893:8984" ph="SELECT * FRO... register_work" />
-            <marker date="1489220847238" expanded="true" signature="9058:9147" ph="SELECT * FRO... register_work" />
-            <marker date="1489220847238" expanded="true" signature="11005:11104" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="11286:11492" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="11568:11731" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="11828:11920" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="13396:13454" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="14056:14134" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="14572:14699" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="15161:15288" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="15585:15712" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="16114:16241" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="16538:16665" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="17115:17241" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="17701:17828" ph="..." />
-            <marker date="1489220847238" expanded="true" signature="19905:20015" ph="SELECT * FRO... post_company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/list_conclude_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="362" column="18" selection-start-line="362" selection-start-column="18" selection-end-line="362" selection-end-column="18" />
-          <folding>
-            <marker date="1489396085481" expanded="true" signature="8377:8520" ph="SELECT * FRO... register_work" />
-            <marker date="1489396085481" expanded="true" signature="13056:13090" ph="SELECT * FRO... conclude" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/profile_student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="127" selection-end-column="10" />
-          <folding>
-            <marker date="1489207214998" expanded="true" signature="1075:1199" ph="SELECT * FRO... register_work" />
-            <marker date="1489207214998" expanded="true" signature="1299:1442" ph="SELECT * FRO... register_work" />
-            <marker date="1489207214998" expanded="true" signature="1670:1730" ph="SELECT * FRO... register_work" />
-            <marker date="1489207214998" expanded="true" signature="1843:1928" ph="SELECT * FRO... student" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/list_conclude.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2322">
-          <caret line="363" column="10" selection-start-line="363" selection-start-column="10" selection-end-line="363" selection-end-column="10" />
-          <folding>
-            <marker date="1489396085466" expanded="true" signature="8377:8520" ph="SELECT * FRO... register_work" />
-            <marker date="1489396085466" expanded="true" signature="12994:13028" ph="SELECT * FRO... conclude" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/now_student_work.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="100" column="53" selection-start-line="100" selection-start-column="53" selection-end-line="100" selection-end-column="53" />
-          <folding>
-            <marker date="1489396320906" expanded="true" signature="929:1225" ph="SELECT * FRO... register_work" />
-            <marker date="1489396320906" expanded="true" signature="1294:1339" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/name_student_join.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="107" column="50" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
-          <folding>
-            <marker date="1489396320936" expanded="true" signature="929:1225" ph="SELECT * FRO... register_work" />
-            <marker date="1489396320936" expanded="true" signature="1291:1583" ph="SELECT * FRO... register_work" />
-            <marker date="1489396320936" expanded="true" signature="1650:1671" ph="SELECT * FRO... student" />
-            <marker date="1489396320936" expanded="true" signature="1832:1877" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/last_work.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="106" column="54" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
-          <folding>
-            <marker date="1489396320894" expanded="true" signature="1050:1342" ph="SELECT * FRO... register_work" />
-            <marker date="1489396320894" expanded="true" signature="1411:1456" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/work_post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="84" column="71" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
-          <folding>
-            <marker date="1489396320883" expanded="true" signature="1082:1127" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/profile_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <marker date="1489396133257" expanded="true" signature="986:1031" ph="SELECT * FRO... company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/work_post_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <marker date="1489397771072" expanded="true" signature="1008:1047" ph="SELECT * FRO... post_company" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/update_evaluation_for_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <marker date="1489400002778" expanded="true" signature="1074:1633" ph="INSERT INTO evaluator_company... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/list_note_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="361" column="18" selection-start-line="361" selection-start-column="18" selection-end-line="361" selection-end-column="18" />
-          <folding>
-            <marker date="1489396133274" expanded="true" signature="8367:8510" ph="SELECT * FRO... register_work" />
-            <marker date="1489396133274" expanded="true" signature="13110:13143" ph="SELECT * FRO... execute" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="406" column="102" selection-start-line="405" selection-start-column="124" selection-end-line="406" selection-end-column="102" />
-          <folding>
-            <element signature="e#33290#33296#0#HTML" expanded="true" />
-            <element signature="e#33297#33303#0#HTML" expanded="true" />
-            <element signature="e#33303#33309#0#HTML" expanded="true" />
-            <element signature="e#33437#33443#0#HTML" expanded="true" />
-            <element signature="e#34481#34487#0#HTML" expanded="true" />
-            <element signature="e#34488#34494#0#HTML" expanded="true" />
-            <element signature="e#35202#35208#0#HTML" expanded="true" />
-            <element signature="e#35289#35295#0#HTML" expanded="true" />
-            <element signature="e#35296#35302#0#HTML" expanded="true" />
-            <element signature="e#35421#35427#0#HTML" expanded="true" />
-            <element signature="e#35428#35434#0#HTML" expanded="true" />
-            <element signature="e#35579#35585#0#HTML" expanded="true" />
-            <element signature="e#35586#35592#0#HTML" expanded="true" />
-            <element signature="e#36258#36264#0#HTML" expanded="true" />
-            <element signature="e#36337#36343#0#HTML" expanded="true" />
-            <element signature="e#36344#36350#0#HTML" expanded="true" />
-            <element signature="e#36475#36481#0#HTML" expanded="true" />
-            <element signature="e#36482#36488#0#HTML" expanded="true" />
-            <element signature="e#36611#36617#0#HTML" expanded="true" />
-            <element signature="e#36618#36624#0#HTML" expanded="true" />
-            <marker date="1489402381282" expanded="true" signature="7005:7214" ph="SELECT * FRO... register_work" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1669,9 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="599">
           <caret line="435" column="69" selection-start-line="435" selection-start-column="69" selection-end-line="435" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#19;n#div#1;n#div#0;n#div#0;n#form#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1679,7 +670,405 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="232" column="61" selection-start-line="232" selection-start-column="61" selection-end-line="232" selection-end-column="61" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/list_note_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="372" column="28" selection-start-line="372" selection-start-column="28" selection-end-line="372" selection-end-column="28" />
+          <folding>
+            <marker date="1489405596706" expanded="true" signature="8367:8510" ph="SELECT * FRO... register_work" />
+            <marker date="1489405596706" expanded="true" signature="13117:13150" ph="SELECT * FRO... execute" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/note_show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2650">
+          <caret line="376" column="51" selection-start-line="376" selection-start-column="51" selection-end-line="376" selection-end-column="51" />
+          <folding>
+            <element signature="e#14257#14263#0#HTML" expanded="false" />
+            <element signature="e#14263#14269#0#HTML" expanded="false" />
+            <element signature="e#14269#14275#0#HTML" expanded="false" />
+            <element signature="e#15609#15615#0#HTML" expanded="false" />
+            <element signature="e#15615#15621#0#HTML" expanded="false" />
+            <element signature="e#15621#15627#0#HTML" expanded="false" />
+            <element signature="e#16183#16189#0#HTML" expanded="false" />
+            <element signature="e#16189#16195#0#HTML" expanded="false" />
+            <element signature="e#16195#16201#0#HTML" expanded="false" />
+            <element signature="e#16201#16207#0#HTML" expanded="false" />
+            <element signature="e#16207#16213#0#HTML" expanded="false" />
+            <element signature="e#16213#16219#0#HTML" expanded="false" />
+            <element signature="e#16219#16225#0#HTML" expanded="false" />
+            <element signature="e#16225#16231#0#HTML" expanded="false" />
+            <element signature="e#16231#16237#0#HTML" expanded="false" />
+            <element signature="e#16237#16243#0#HTML" expanded="false" />
+            <element signature="e#16243#16249#0#HTML" expanded="false" />
+            <element signature="e#16249#16255#0#HTML" expanded="false" />
+            <element signature="e#16255#16261#0#HTML" expanded="false" />
+            <element signature="e#16261#16267#0#HTML" expanded="false" />
+            <element signature="e#16267#16273#0#HTML" expanded="false" />
+            <element signature="e#16273#16279#0#HTML" expanded="false" />
+            <element signature="e#16279#16285#0#HTML" expanded="false" />
+            <element signature="e#16285#16291#0#HTML" expanded="false" />
+            <element signature="e#16291#16297#0#HTML" expanded="false" />
+            <element signature="e#16297#16303#0#HTML" expanded="false" />
+            <element signature="e#16303#16309#0#HTML" expanded="false" />
+            <element signature="e#16309#16315#0#HTML" expanded="false" />
+            <element signature="e#16315#16321#0#HTML" expanded="false" />
+            <element signature="e#16321#16327#0#HTML" expanded="false" />
+            <element signature="e#16327#16333#0#HTML" expanded="false" />
+            <element signature="e#16333#16339#0#HTML" expanded="false" />
+            <element signature="e#16339#16345#0#HTML" expanded="false" />
+            <element signature="e#16345#16351#0#HTML" expanded="false" />
+            <element signature="e#16351#16357#0#HTML" expanded="false" />
+            <element signature="e#16357#16363#0#HTML" expanded="false" />
+            <element signature="e#16573#16579#0#HTML" expanded="false" />
+            <element signature="e#16579#16585#0#HTML" expanded="false" />
+            <element signature="e#16585#16591#0#HTML" expanded="false" />
+            <element signature="e#16591#16597#0#HTML" expanded="false" />
+            <element signature="e#16597#16603#0#HTML" expanded="false" />
+            <element signature="e#16603#16609#0#HTML" expanded="false" />
+            <element signature="e#16609#16615#0#HTML" expanded="false" />
+            <element signature="e#16615#16621#0#HTML" expanded="false" />
+            <element signature="e#16621#16627#0#HTML" expanded="false" />
+            <element signature="e#16627#16633#0#HTML" expanded="false" />
+            <element signature="e#16633#16639#0#HTML" expanded="false" />
+            <element signature="e#16639#16645#0#HTML" expanded="false" />
+            <element signature="e#16645#16651#0#HTML" expanded="false" />
+            <element signature="e#16651#16657#0#HTML" expanded="false" />
+            <element signature="e#16657#16663#0#HTML" expanded="false" />
+            <element signature="e#16663#16669#0#HTML" expanded="false" />
+            <element signature="e#16669#16675#0#HTML" expanded="false" />
+            <element signature="e#16675#16681#0#HTML" expanded="false" />
+            <element signature="e#16681#16687#0#HTML" expanded="false" />
+            <element signature="e#16687#16693#0#HTML" expanded="false" />
+            <element signature="e#16693#16699#0#HTML" expanded="false" />
+            <element signature="e#16699#16705#0#HTML" expanded="false" />
+            <element signature="e#16705#16711#0#HTML" expanded="false" />
+            <element signature="e#16711#16717#0#HTML" expanded="false" />
+            <element signature="e#16717#16723#0#HTML" expanded="false" />
+            <element signature="e#16723#16729#0#HTML" expanded="false" />
+            <element signature="e#16729#16735#0#HTML" expanded="false" />
+            <element signature="e#16735#16741#0#HTML" expanded="false" />
+            <element signature="e#16741#16747#0#HTML" expanded="false" />
+            <element signature="e#16747#16753#0#HTML" expanded="false" />
+            <element signature="e#16753#16759#0#HTML" expanded="false" />
+            <element signature="e#16759#16765#0#HTML" expanded="false" />
+            <element signature="e#16765#16771#0#HTML" expanded="false" />
+            <element signature="e#16771#16777#0#HTML" expanded="false" />
+            <element signature="e#16777#16783#0#HTML" expanded="false" />
+            <element signature="e#16783#16789#0#HTML" expanded="false" />
+            <element signature="e#16789#16795#0#HTML" expanded="false" />
+            <element signature="e#16951#16957#0#HTML" expanded="false" />
+            <element signature="e#16957#16963#0#HTML" expanded="false" />
+            <element signature="e#16963#16969#0#HTML" expanded="false" />
+            <element signature="e#16969#16975#0#HTML" expanded="false" />
+            <element signature="e#16975#16981#0#HTML" expanded="false" />
+            <element signature="e#16981#16987#0#HTML" expanded="false" />
+            <element signature="e#16987#16993#0#HTML" expanded="false" />
+            <element signature="e#16993#16999#0#HTML" expanded="false" />
+            <element signature="e#16999#17005#0#HTML" expanded="false" />
+            <element signature="e#17005#17011#0#HTML" expanded="false" />
+            <element signature="e#17011#17017#0#HTML" expanded="false" />
+            <element signature="e#17017#17023#0#HTML" expanded="false" />
+            <element signature="e#17023#17029#0#HTML" expanded="false" />
+            <element signature="e#17029#17035#0#HTML" expanded="false" />
+            <element signature="e#17035#17041#0#HTML" expanded="false" />
+            <element signature="e#17041#17047#0#HTML" expanded="false" />
+            <element signature="e#17047#17053#0#HTML" expanded="false" />
+            <element signature="e#17053#17059#0#HTML" expanded="false" />
+            <element signature="e#17059#17065#0#HTML" expanded="false" />
+            <element signature="e#17065#17071#0#HTML" expanded="false" />
+            <element signature="e#17071#17077#0#HTML" expanded="false" />
+            <element signature="e#17077#17083#0#HTML" expanded="false" />
+            <element signature="e#17083#17089#0#HTML" expanded="false" />
+            <element signature="e#17089#17095#0#HTML" expanded="false" />
+            <element signature="e#17095#17101#0#HTML" expanded="false" />
+            <element signature="e#17101#17107#0#HTML" expanded="false" />
+            <element signature="e#17107#17113#0#HTML" expanded="false" />
+            <element signature="e#17113#17119#0#HTML" expanded="false" />
+            <element signature="e#17119#17125#0#HTML" expanded="false" />
+            <element signature="e#17125#17131#0#HTML" expanded="false" />
+            <marker date="1489412118927" expanded="true" signature="6330:6473" ph="SELECT * FRO... register_work" />
+            <marker date="1489412118927" expanded="true" signature="10675:10707" ph="SELECT * FRO... execute" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/list_note.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="393" column="10" selection-start-line="393" selection-start-column="10" selection-end-line="393" selection-end-column="10" />
+          <folding>
+            <marker date="1489413155621" expanded="true" signature="8367:8499" ph="SELECT * FRO... register_work" />
+            <marker date="1489413155621" expanded="true" signature="8367:8505" ph="SELECT * FRO... register_work" />
+            <marker date="1489413155621" expanded="true" signature="13051:13084" ph="SELECT * FRO... execute" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/get_note.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+          <folding>
+            <marker date="1489412819728" expanded="true" signature="2032:2413" ph="INSERT INTO execute... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/add_note_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="378" column="52" selection-start-line="378" selection-start-column="52" selection-end-line="378" selection-end-column="52" />
+          <folding>
+            <marker date="1489413562714" expanded="true" signature="8377:8509" ph="SELECT * FRO... register_work" />
+            <marker date="1489413562714" expanded="true" signature="8377:8515" ph="SELECT * FRO... register_work" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/profile_student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="118" column="29" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
+          <folding>
+            <marker date="1489485906087" expanded="true" signature="1075:1199" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906087" expanded="true" signature="1299:1442" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906087" expanded="true" signature="1670:1730" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906087" expanded="true" signature="1843:1928" ph="SELECT * FRO... student" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/add_conclude_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="352" column="89" selection-start-line="352" selection-start-column="89" selection-end-line="352" selection-end-column="89" />
+          <folding>
+            <marker date="1489485906073" expanded="true" signature="8367:8499" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906073" expanded="true" signature="8367:8505" ph="SELECT * FRO... register_work" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/list_conclude.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="352" column="89" selection-start-line="352" selection-start-column="89" selection-end-line="352" selection-end-column="89" />
+          <folding>
+            <marker date="1489485906079" expanded="true" signature="8377:8509" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906079" expanded="true" signature="8377:8515" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906079" expanded="true" signature="12793:12827" ph="SELECT * FRO... conclude" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/get_conclude.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <marker date="1489412989643" expanded="true" signature="1790:2051" ph="INSERT INTO conclude... " />
+            <marker date="1489412989643" expanded="true" signature="2158:2217" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/conclude_show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1703">
+          <caret line="289" column="61" selection-start-line="289" selection-start-column="61" selection-end-line="289" selection-end-column="61" />
+          <folding>
+            <marker date="1489485906095" expanded="true" signature="6330:6473" ph="SELECT * FRO... register_work" />
+            <marker date="1489485906095" expanded="true" signature="10479:10512" ph="SELECT * FRO... conclude" />
+            <marker date="1489485906095" expanded="true" signature="10898:10982" ph="SELECT * FRO... execute" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/timeline.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2613">
+          <caret line="326" column="75" selection-start-line="326" selection-start-column="75" selection-end-line="326" selection-end-column="75" />
+          <folding>
+            <marker date="1489486412773" expanded="true" signature="1490:1667" ph="SELECT * FRO... company" />
+            <marker date="1489486412773" expanded="true" signature="1490:1668" ph="SELECT * FRO... company" />
+            <marker date="1489486412773" expanded="true" signature="1490:1695" ph="SELECT * FRO... company" />
+            <marker date="1489486412773" expanded="true" signature="1845:2023" ph="SELECT * FRO... register_work" />
+            <marker date="1489486412773" expanded="true" signature="1845:2129" ph="SELECT * FRO... register_work" />
+            <marker date="1489486412773" expanded="true" signature="2273:2544" ph="SELECT * FRO... post_company" />
+            <marker date="1489486412773" expanded="true" signature="2273:2551" ph="SELECT * FRO... post_company" />
+            <marker date="1489486412773" expanded="true" signature="2273:2568" ph="SELECT * FRO... post_company" />
+            <marker date="1489486412773" expanded="true" signature="2658:2692" ph="SELECT * FRO... student" />
+            <marker date="1489486412773" expanded="true" signature="8893:8984" ph="SELECT * FRO... register_work" />
+            <marker date="1489486412773" expanded="true" signature="9058:9147" ph="SELECT * FRO... register_work" />
+            <marker date="1489486412773" expanded="true" signature="11005:11104" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="11286:11492" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="11568:11732" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="11829:11921" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="13397:13455" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="14057:14135" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="14573:14700" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="15162:15289" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="15586:15713" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="16115:16242" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="16539:16666" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="17116:17243" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="17703:17830" ph="..." />
+            <marker date="1489486412773" expanded="true" signature="19908:20018" ph="SELECT * FRO... post_company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/update_conclude_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <marker date="1489495958152" expanded="true" signature="162:196" ph="UPDATE concl... " />
+            <marker date="1489495958152" expanded="true" signature="162:222" ph="UPDATE concl... " />
+            <marker date="1489495958152" expanded="true" signature="162:247" ph="UPDATE concl... " />
+            <marker date="1489495958152" expanded="true" signature="162:273" ph="UPDATE concl... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/conclude_show_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="293" column="32" selection-start-line="293" selection-start-column="32" selection-end-line="293" selection-end-column="101" />
+          <folding>
+            <marker date="1489495903556" expanded="true" signature="6250:6393" ph="SELECT * FRO... register_work" />
+            <marker date="1489495903556" expanded="true" signature="10606:10639" ph="SELECT * FRO... conclude" />
+            <marker date="1489495903556" expanded="true" signature="11018:11102" ph="SELECT * FRO... execute" />
+            <marker date="1489495903556" expanded="true" signature="15513:15624" ph="..." />
+            <marker date="1489495903556" expanded="true" signature="15516:15620" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/work_post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
+          <folding>
+            <marker date="1489503076973" expanded="true" signature="1082:1127" ph="SELECT * FRO... company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/work_post_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
+          <folding>
+            <marker date="1489503076951" expanded="true" signature="1008:1047" ph="SELECT * FRO... post_company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/name_student_join.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="114" column="52" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+          <folding>
+            <marker date="1489503076959" expanded="true" signature="929:1225" ph="SELECT * FRO... register_work" />
+            <marker date="1489503076959" expanded="true" signature="1291:1583" ph="SELECT * FRO... register_work" />
+            <marker date="1489503076959" expanded="true" signature="1650:1671" ph="SELECT * FRO... student" />
+            <marker date="1489503076959" expanded="true" signature="1832:1877" ph="SELECT * FRO... company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/now_student_work.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+          <folding>
+            <marker date="1489503076943" expanded="true" signature="929:1225" ph="SELECT * FRO... register_work" />
+            <marker date="1489503076943" expanded="true" signature="1294:1339" ph="SELECT * FRO... company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/last_work.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="113" column="101" selection-start-line="113" selection-start-column="101" selection-end-line="113" selection-end-column="101" />
+          <folding>
+            <marker date="1489503076966" expanded="true" signature="1050:1342" ph="SELECT * FRO... register_work" />
+            <marker date="1489503076966" expanded="true" signature="1411:1456" ph="SELECT * FRO... company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/list_conclude_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="354" column="48" selection-start-line="354" selection-start-column="48" selection-end-line="354" selection-end-column="48" />
+          <folding>
+            <marker date="1489496568083" expanded="true" signature="8297:8440" ph="SELECT * FRO... register_work" />
+            <marker date="1489496568083" expanded="true" signature="12891:12897" ph="SELECT * FRO... conclude" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4100">
+          <caret line="380" column="89" selection-start-line="380" selection-start-column="89" selection-end-line="380" selection-end-column="89" />
+          <folding>
+            <marker date="1489503427010" expanded="true" signature="7005:7214" ph="SELECT * FRO... register_work" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/profile_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+          <folding>
+            <marker date="1489486544016" expanded="true" signature="986:1031" ph="SELECT * FRO... company" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/update_evaluation_for_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <marker date="1489507724077" expanded="true" signature="1074:1563" ph="INSERT INTO evaluator_company... " />
+            <marker date="1489507724077" expanded="true" signature="1074:1635" ph="INSERT INTO evaluator_company... " />
+            <marker date="1489507724077" expanded="true" signature="1074:1723" ph="INSERT INTO evaluator_company... " />
+            <marker date="1489507724077" expanded="true" signature="1725:1771" ph="UPDATE regis... " />
+            <marker date="1489507724077" expanded="true" signature="1725:1773" ph="UPDATE regis... " />
+            <marker date="1489507724077" expanded="true" signature="1725:1778" ph="UPDATE regis... " />
+            <marker date="1489507724077" expanded="true" signature="1975:2054" ph="INSERT INTO grade... " />
+            <marker date="1489507724077" expanded="true" signature="1986:2012" ph="INSERT INTO grade... " />
+            <marker date="1489507724077" expanded="true" signature="1986:2054" ph="UPDATE grade... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/evaluation_for_company_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="137" column="68" selection-start-line="137" selection-start-column="68" selection-end-line="137" selection-end-column="68" />
+          <folding>
+            <marker date="1489510564247" expanded="true" signature="988:1217" ph="SELECT * FRO... register_work" />
+            <marker date="1489510564247" expanded="true" signature="988:1218" ph="SELECT * FRO... register_work" />
+            <marker date="1489510564247" expanded="true" signature="988:1222" ph="SELECT * FRO... register_work" />
+            <marker date="1489510564247" expanded="true" signature="988:1267" ph="SELECT * FRO... register_work" />
+            <marker date="1489510564247" expanded="true" signature="1291:1325" ph="SELECT * FRO... company" />
+            <marker date="1489510564247" expanded="true" signature="1455:1464" ph="..." />
+            <marker date="1489510564247" expanded="true" signature="5914:6000" ph="..." />
+            <marker date="1489510564247" expanded="true" signature="6609:6695" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

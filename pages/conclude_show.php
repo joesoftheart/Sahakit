@@ -288,10 +288,9 @@ include '../php/config.php';
                     <?php  if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
-                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+
+                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำวัน</a></li>
+                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำวัน </a> </li>
                             </ul>
                         </li>
                     <?php } ?>
@@ -348,10 +347,9 @@ include '../php/config.php';
                                 <?PHP echo $row_note["work_fix"] ?>
                             </textarea>
                             หมายเหต <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2">
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="5">
                                 <?PHP echo $row_note["note"] ?>
                             </textarea>
-
 
                         </div>
                     </div>
@@ -368,70 +366,41 @@ include '../php/config.php';
 
 
                         </div>
+                        <br>
+                        <div align="center">
+                            <font size="5"><b>รวมจำนวนชั่วโมงที่ปฏิบัติงานสหกิจศึกษาทั้งหมดในสัปดาห์นี้ &nbsp;&nbsp;&nbsp;
+                                    เท่ากับ <input type="text" data-onload="set_size($(this),45)"
+                                                   value="<?PHP echo $hour_amount; ?>"  style="margin-top: 5px;"> ชั่วโมง</b></font>
+                        </div>
+                        <div style="border: solid 1px">
+                            <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4"> </textarea>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ลงชื่อ <input type="text" data-onload="set_size($(this),150)"
+                                      style="margin-top: 5px;"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        (<input type="text" data-onload="set_size($(this),150)"
+                                style="margin-top: 5px;">)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ตำแหน่ง <input type="text" data-onload="set_size($(this),200)"
+                                       style="margin-top: 5px;">
                     </div>
+
+                </div>
 
                 </div>
                 <?PHP
             }
             ?>
 
-            <div class="page">
-                <div class="subpage">
-                    <div align="center"><font size="5"><b>สรุปผลบันทึกการปฎิบัติงานประจำวัน &nbsp;&nbsp;&nbsp;ในรอบสัปดาห์ที่
-                                <input type="text" data-onload="set_size($(this),45)"
-                                       style="margin-top: 5px;"></b></font><br>
-                        ระหว่างวันที่
-                        <input type="text" data-onload="set_size($(this),150)" value="<?PHP echo $row["date_start"] ?>" style="margin-top: 5px;"> ถึงวันที่ <input type="text" data-onload="set_size($(this),150)" value="<?PHP echo $row["date_end"] ?>" style="margin-top: 5px;">
 
-                    </div>
-                    <div style="border: solid 1px">
-
-                        ลักษณะงานที่ปฎิบัติ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                            <?PHP echo $row["job_work"] ?>
-                        </textarea>
-                        ปัญหาที่พบ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                            <?PHP echo $row["problem"] ?>
-                        </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3">
-                            <?PHP echo $row["work_fix"] ?>
-                        </textarea>
-                        หมายเหต <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2">
-                            <?PHP echo $row["note"] ?>
-                        </textarea>
-
-                    </div>
-                    <br>
-                    <div align="center">
-                        <font size="5"><b>รวมจำนวนชั่วโมงที่ปฏิบัติงานสหกิจศึกษาทั้งหมดในสัปดาห์นี้ &nbsp;&nbsp;&nbsp;
-                                เท่ากับ <input type="text" data-onload="set_size($(this),45)"
-                                             value="<?PHP echo $hour_amount; ?>"  style="margin-top: 5px;"> ชั่วโมง</b></font>
-                    </div>
-                    <div style="border: solid 1px">
-                        <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4"> </textarea>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ลงชื่อ <input type="text" data-onload="set_size($(this),150)"
-                                  style="margin-top: 5px;"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    (<input type="text" data-onload="set_size($(this),150)"
-                            style="margin-top: 5px;">)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ตำแหน่ง <input type="text" data-onload="set_size($(this),200)"
-                                   style="margin-top: 5px;">
-                </div>
 
             </div>
             <?PHP
             }
             ?>
-        </div>
-    </div>
-</div>
+
 
 
 <script src="../vendor/jquery/jquery.min.js"></script>

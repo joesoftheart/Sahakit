@@ -44,15 +44,32 @@ $y = $_REQUEST['y'];
 
 
 $sql = "INSERT INTO evaluator_company (sid ,cid,fn_st,ln_st,number_id,c_name,name_leader,rank_leader,no1,no2,no3,no4,no5,no6,no7,no8,no9,no10,no11,no12,no13,no14,no15,no16,no17,no18,no19,no20,no21_1,no21_2,get_work,comment,evaluator,d,m,y) 
-              VALUE ('$sid','$cid','$fn_st','$ln_st','$number_id','$c_name','$name_leader','$rank_leader','$no1','$no2','$no3','$no4','$no5','$no6','$no7','$no8','$no9','$no10','$no11','$no12','$no13','$no14','$no15','$no16','$no17','$no18','$no19,'$no20,'$no21_1','$no21_2','$get_work','$comment','$evaluator','$d','$m','$y')";
+              VALUE ('$sid','$cid','$fn_st','$ln_st','$number_id','$c_name','$name_leader','$rank_leader','$no1','$no2','$no3','$no4','$no5','$no6','$no7','$no8','$no9','$no10','$no11','$no12','$no13','$no14','$no15','$no16','$no17','$no18','$no19','$no20','$no21_1','$no21_2','$get_work','$comment','$evaluator','$d','$m','$y')";
+$query = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-if (mysqli_query($link, $sql)) {
-    echo "New record created successfully";
-    echo "<script type='text/javascript'>location.window='../page/evaluation_for_company_1.php'</script>";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($link);
 
-}
+
+
+$sql_status_work = "UPDATE register_work SET status_work='3' WHERE '$sid'";
+$query_sql_status = mysqli_query($link,$sql_status_work);
+
+
+
+
+$sum = $no1+$no2+$no3+$no4+$no5+$no6+$no7+$no8+$no9+$no10+$no11+$no12+$no13+$no14+$no15+$no16+$no17+$no18+$no19+$no20;
+
+$sql_sum = "INSERT INTO grade (point_company,sid)
+                    VALUE ('$sum','$sid')";
+$query_sum = mysqli_query($link,$sql_sum);
+
+echo print_r($query)."/////";
+
+
+echo print_r($query_sql_status)."//////";
+
+
+
+echo print_r($query_sum);
 
 
 

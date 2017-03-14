@@ -276,10 +276,8 @@ include '../php/config.php';
 
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
-        $sid = $_SESSION["sid"];
-        $fn_st = $_SESSION['fn_st'];
-        $ln_st = $_SESSION['ln_st'];
-        $number_id = $_SESSION['number_id'];
+        $c_name = $_SESSION['c_name'];
+        $cid = $_SESSION['cid'];
 
         $sql1 = "SELECT * FROM register_work,company,student
                           WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
@@ -351,8 +349,7 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_note_company.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a> </li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
@@ -371,25 +368,31 @@ include '../php/config.php';
             <th>วันที่เริ่ม</th>
             <th>วันที่สิ้นสุด</th>
             <th>ลักษณะงานที่ปฎิบัติ/หมายเหตุ</th>
+            <th></th>
         </tr>
         <?PHP
-        $sql_list = "SELECT * FROM conclude WHERE uid= ".$sid." ";
+        $sql_list = "SELECT*FROM conclude INNER JOIN company ON conclude.cid = company.cid WHERE conclude.cid=$cid";
         $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
         while($row=mysqli_fetch_array($sql_listquery)){
         ?>
-        <tr style="cursor: pointer;" onclick="window.open('conclude_show.php?id=<?PHP echo $row["id"] ?>','_blank')" >
+        <tr style="cursor: pointer;" onclick="window.open('conclude_show_company.php?id=<?PHP echo $row["id"] ?>','_blank')" >
             <td><?PHP echo $row["week"] ?></td>
             <td><?PHP echo $row["date_start"] ?></td>
             <td><?PHP echo $row["date_end"] ?></td>
             <td><?PHP echo $row["job_work"] ?></td>
+            <?php if ($row['status'] !=1 ) {?>
+            <td><font color="green">ตรวจแล้ว</font></td>
+            <?php }else{ ?>
+                <td><font color="red">รอตรวจ </font></td>
+           <?php } ?>
         </tr>
         <?PHP
         }
         ?>
     </table>
+  </form>
     </div>
-</div>
-</form>
+
 
 
 
