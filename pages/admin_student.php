@@ -59,7 +59,6 @@ if(isset($_POST['search_user'])){
                 <li class="active"><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
                 <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
                 <li><a href="admin_company.php"><i class=" fa fa-cog fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
-                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li><a href="admin_upload.php" class="fa fa fa-upload "> อัพโหลด</a> </li>
             </ul>
@@ -68,14 +67,14 @@ if(isset($_POST['search_user'])){
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="panel-default">
                     <div class="panel-heading">
                         ตาราง เพิ่ม / ลบ / แก้ไข / นักศึกษา
                     </div>
                     <div class="panel-body">
-                <div class="col-md-12">
-            <div class="col-md-6">
+                <div class="col-md-6">
+
                 <button class="btn btn-info" data-toggle="modal" data-target="#add_user">เพิ่มข้อมูล</button>
             </div>
 

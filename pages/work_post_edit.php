@@ -98,7 +98,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
@@ -123,7 +124,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     </tr>
                                     </thead>
                                     <?php
-                                    $mysql = "SELECT*FROM post_company post INNER JOIN company com ON post.cid = com.cid WHERE post.cid=$cid";
+                                    $mysql = "SELECT * FROM post_company post INNER JOIN company com ON post.cid = com.cid WHERE post.cid=$cid";
                                     $query_detail = mysqli_query($link, $mysql) or die($mysql);
 
 
@@ -136,15 +137,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <td class="text-center"><?= $row_detail['dmt'] ?></td>
                                             <td class="text-center">
                                                 <a href="#" data-toggle="modal"
-                                                   data-target=".bs-example-modal-lg<?= $row_detail['idpost'] ?>">
+                                                   data-target=".bs-example-modal-md<?= $row_detail['idpost'] ?>">
                                                     <img src="../img/png/search.png" width="30px" heighi="30px"> </a>
                                             </td>
                                         </tr>
                                         </tbody>
-                                        <div class="modal fade bs-example-modal-lg<?= $row_detail['idpost'] ?>"
+                                        <div class="modal fade bs-example-modal-md<?= $row_detail['idpost'] ?>"
                                              tabindex="-1" role="dialog"
                                              aria-labelledby="myLargeModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-dialog modal-md" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close"
@@ -161,7 +162,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                            value="<?= $row_detail['idpost'] ?>">
                                                                     <input type="hidden" name="cid"
                                                                            value="<?= $cid ?> ">
-                                                                    <div class="col-md-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>รายละเอียดบริษัท</label>
                                                                         <input type="text" name="detail_work"
                                                                                class="form-control" required="required"
@@ -169,7 +170,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                     </div>
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>เว็บไซต์</label>
                                                                         <input type="text" name="web"
                                                                                class="form-control"
@@ -179,7 +180,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>ต้องการนักศึกษาตำแหน่ง</label>
                                                                         <input type="text" name="rank"
                                                                                class="form-control"
@@ -188,7 +189,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>ต้องการนักศึกษา</label>
                                                                         <select name="num_stu" class="form-control">
                                                                             <option
@@ -240,7 +241,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>รายละเอียดงาน</label>
                                                                         <textarea name="detail" class="form-control"
                                                                                   rows="3"
@@ -249,7 +250,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>คุณสมบัติที่ต้องการ</label>
                                                                         <textarea name="property" class="form-control"
                                                                                   rows="3"
@@ -258,7 +259,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>สถานที่ปฏิบัติงาน</label>
                                                                         <textarea name="map_work" class="form-control"
                                                                                   rows="3"
@@ -267,7 +268,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>ข้อเสนอพิเศษ อย่างเช่น
                                                                             เบี้ยเลี้ยง,ค่าเดินทาง</label>
                                                                         <input type="text" name="gold"
@@ -277,7 +278,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <br>
 
-                                                                    <div class="col-lg-8 col-md-offset-2">
+                                                                    <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <p><?= $row_detail['dmt'] ?></p>
                                                                         <input type="hidden" name="dmt"
                                                                                value="<?php echo thaidate('แก้ไขล่าสุด วัน l ที่ j เดือน F พ.ศ. Y เวลา H:i:s'); ?> ">

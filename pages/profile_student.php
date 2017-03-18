@@ -5,7 +5,7 @@ include '../php/config.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" href="../img/favicon.ico" >
+    <link rel="shortcut icon" href="../img/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,32 +25,33 @@ include '../php/config.php';
 
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
-        $sid    = $_SESSION["sid"];
-        $fn_st  = $_SESSION['fn_st'];
-        $ln_st  = $_SESSION['ln_st'];
-        $number_id   = $_SESSION['number_id'];
+        $sid = $_SESSION["sid"];
+        $fn_st = $_SESSION['fn_st'];
+        $ln_st = $_SESSION['ln_st'];
+        $number_id = $_SESSION['number_id'];
 
+#วนลูป
+        $sql = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
+                                        INNER JOIN company ON register_work.cid = company.cid";
+        $query = mysqli_query($link, $sql) or die(mysqli_error($sql));
 
-        $sql    = "SELECT * FROM register_work,company
-                          WHERE register_work.cid = company.cid AND register_work.sid = $sid";
-        $query  = mysqli_query($link, $sql) or die(mysqli_error($sql));
-
-
-        $sql1   = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
-        $objquery = mysqli_query($link,$sql1) or die(mysqli_error($sql1));
+#โชว์ ค่าต่างๆ
+        $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
+                                        INNER JOIN company ON register_work.cid = company.cid";
+        $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
-        $tid    = $result['tid'];
+        $tid = $result['tid'];
         $status_work = $result['status_work'];
-        $sql2   = "SELECT * FROM register_work WHERE status_work = 2 AND sid = $sid";
-        $Query  = mysqli_query($link,$sql2);
-        $num    = mysqli_num_rows($Query);
 
         $sql3 = "SELECT * FROM student,teacher
                         WHERE student.tid = teacher.tid";
-        $query2 = mysqli_query($link,$sql3);
-        $Result = mysqli_fetch_array($query2);
+        $query2 = mysqli_query($link, $sql3);
+        $row_tea = mysqli_fetch_array($query2);
+
+        $sql_sum = "SELECT SUM(hour_amount) AS clock FROM execute  WHERE uid = $sid";
+        $query_sum = mysqli_query($link,$sql_sum);
+        $row_sum = mysqli_fetch_array($query_sum);
 
     }
     ?>
@@ -91,11 +92,11 @@ include '../php/config.php';
                             <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
                             <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
                                 <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
+                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
+                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
 
                                 </ul>
                             </li>
@@ -103,24 +104,29 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <?php if ($Result['tid'] == 0 ){ ?>
+                    <?php if ($row_tea['tid'] == 0) { ?>
 
-                        <?php }else{ ?>
+                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
+
+                    <?php }elseif($result['status_work'] == 3){ ?>
+
+                   <?php }else{ ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                   <?php } ?>
+                  <?php  } ?>
 
-                    <?php  if ($result['status_work'] == 2) { ?>
+                    <?php if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-
-                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำวัน</a></li>
-                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำวัน </a> </li>
+                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
+                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
+                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
+                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
                     <?php } ?>
-                    <?php if ($result['status_work'] == 3) {?>
-                        <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                <?php } ?>
+                    <?php if ($result['status_work'] == 3) { ?>
+                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -131,69 +137,74 @@ include '../php/config.php';
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                  <font size="4">ข้อมูลพื้นฐาน :</font>   <font size="4"><?= $number_id ?>&nbsp;&nbsp;&nbsp; <?= $fn_st ?>&nbsp;&nbsp; <?= $ln_st ?></font>
+                    <font size="4">ข้อมูลพื้นฐาน :</font> <font size="4"><?= $number_id ?>
+                        &nbsp;&nbsp;&nbsp; <?= $fn_st ?>&nbsp;&nbsp; <?= $ln_st ?></font>
                 </div>
             </div>
         </div>
 
 
-        <?php if ($tid == $tid && $num <=0){ ?>
+        <?php if ($tid == $tid && $status_work == 1){ ?>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        นักศึกษา : ตารางสถานะ
-                    </div>
-                    <div class="panel-body">
-                        <div class="col-md-12 table-responsive">
-                            <table class="table table-hover table-striped">
-                                <tr>
-                                    <th width="10%" class="text-center">ลำดับ</th>
-                                    <th width="30%" class="text-center">ชื่อบริษัท</th>
-                                    <th width="20%" class="text-center">ตำแหน่งงาน</th>
-                                    <th width="20%" class="text-center">สถานะ</th>
-                                    <th width="15%" class="text-center">ยอมรับ</th>
-                                </tr>
-                                    <?php for ($i=1; $row1=mysqli_fetch_array($query);$i++) {?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            นักศึกษา : ตารางสถานะ
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12 table-responsive">
+                                <table class="table table-hover table-striped">
+                                    <tr>
+                                        <th width="10%" class="text-center">ลำดับ</th>
+                                        <th width="30%" class="text-center">ชื่อบริษัท</th>
+                                        <th width="20%" class="text-center">ตำแหน่งงาน</th>
+                                        <th width="20%" class="text-center">สถานะ</th>
+                                        <th width="15%" class="text-center">ยอมรับ</th>
+                                    </tr>
+                                    <?php for ($i = 1; $row1 = mysqli_fetch_array($query); $i++) { ?>
                                         <tr class="text-center">
                                             <td> <?= $i; ?> </td>
                                             <td><?= $row1['c_name'] ?></td>
                                             <td><?= $row1['rank'] ?></td>
-                                            <td><?php if ($row1['status_work']==0){?>
-                                                <font color="red" >รออนุมัติ</font>
-                                               <?php }else{ ?>
-                                                   <font color="green">อนุมัติแล้ว</font>
-                                               <?php }?>
+                                            <td><?php if ($row1['status_work'] == 0) { ?>
+                                                    <font color="red">รออนุมัติ</font>
+                                                <?php } else { ?>
+                                                    <font color="green">อนุมัติแล้ว</font>
+                                                <?php } ?>
                                             </td>
 
                                             <td>
-                                                <?php if ($row1['status_work'] == 0){ ?>
-                                                <button class="btn  btn-danger" disabled> ยืนยัน
-                                                </button>
-                                                <?php }elseif($row1['status_work'] == 1){?>
-                                                    <button class="btn  btn-success" onclick="update(<?= $row1['rwid']; ?>)"> ยืนยัน </button>
-                                                <?php }else{ ?>
-                                                    <button class="btn btn-default" disabled="disabled">เรียบร้อยแล้วค่ะ</button>
-                                               <?php }?>
+                                                <?php if ($row1['status_work'] == 0) { ?>
+                                                    <button class="btn  btn-danger" disabled> ยืนยัน
+                                                    </button>
+                                                <?php } elseif ($row1['status_work'] == 1) { ?>
+                                                    <button class="btn  btn-success"
+                                                            onclick="update(<?= $row1['rwid']; ?>)"> ยืนยัน
+                                                    </button>
+                                                <?php } else { ?>
+                                                    <button class="btn btn-default" disabled="disabled">
+                                                        เรียบร้อยแล้วค่ะ
+                                                    </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                     <?php } ?>
-                                <caption>
-                                    <p style="color: red">
-                                        <small>**** หมายเหต นักศึกษาสามารถทำการยืนยัน
-                                            บริษัทที่จะไปฝึกงานได้เพียงบริษัทเดียวเท่านั้น *****
-                                        </small>
-                                    </p>
-                                </caption>
-                            </table>
+                                    <caption>
+                                        <p style="color: red">
+                                            <small>**** หมายเหต นักศึกษาสามารถทำการยืนยัน
+                                                บริษัทที่จะไปฝึกงานได้เพียงบริษัทเดียวเท่านั้น *****
+                                            </small>
+                                        </p>
+                                    </caption>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <?php  }else if($tid == $tid && $num > 0){ ?>
+        <?php }else if ($tid == $tid && $status_work >=2){ ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-green">
@@ -201,66 +212,73 @@ include '../php/config.php';
                     <div class="panel-body">
                         <div class="col-md-12 table-responsive">
                             <table class="table">
-                <thead >
-                <tr>
-                    <th colspan="3"  class="text-center"><h4><?= $result['c_name'] ?></h4></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>ชื่อหัวหน้างาน</td>
-                    <td><?= $result['leader'] ?></td>
-                </tr>
-                <tr>
-                    <td>ตำแหน่งหัวหน้างาน</td>
-                    <td><?= $result['rank_leader'] ?></td>
-                </tr>
-                <tr>
-                    <td>ที่ตั้งบริษัท</td>
-                    <td><?= $result['c_address'] ?></td>
-                </tr>
-                <tr>
-                    <td>เบอร์โทรติดต่อ</td>
-                    <td><?= $result['c_tela']?></td>
-                </tr>
-                <tr>
-                    <td>ตำแหน่งที่ฝึก</td>
-                    <td><?= $result['rank'] ?></td>
-                </tr>
-                <tr>
-                    <td>เวลาเข้างาน - เลิกงาน</td>
-                    <td>ยังไม่ระบุวันและเวลา</td>
-                </tr>
-                <tr>
-                    <td>จำนวนวันที่ฝึกแล้ว</td>
-                    <td>0 วัน</td>
-                </tr>
-                </tbody>
-            </table>
-                            <?php  }  ?>
-    </div>
-</div>
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-<script src="../vendor/raphael/raphael.min.js"></script>
-<script src="../vendor/morrisjs/morris.min.js"></script>
-<script src="../data/morris-data.js"></script>
-<script src="../dist/js/sb-admin-2.js"></script>
-<script>
-    function update(id) {
-        $.ajax({
-            type: "POST",
-            url: "../php/update_student.php",
-            data: "id=" + id,
-            success: function (data) {
+                                <thead>
+                                <tr>
+                                    <th colspan="3" class="text-center"><h4><?= $result['c_name'] ?></h4></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>ชื่อหัวหน้างาน</td>
+                                    <td><?= $result['leader'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>ตำแหน่งหัวหน้างาน</td>
+                                    <td><?= $result['rank_leader'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>ที่ตั้งบริษัท</td>
+                                    <td><?= $result['c_address'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>เบอร์โทรติดต่อ</td>
+                                    <td><?= $result['c_tela'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>ตำแหน่งที่ฝึก</td>
+                                    <td><?= $result['rank'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>เวลาเข้างาน - เลิกงาน</td>
+                                    <td> 8:00 - 17:00 น </td>
+                                </tr>
+                                <tr>
+                                    <td>จำนวนชั่วโมงที่ฝึกแล้ว</td>
+                                    <td><?= $row_sum['clock'] ?> ชั่วโมง</td>
+                                </tr>
+                                <?php if ($status_work == 3) { ?>
+                                <tr>
+                                    <td> </td>
+                                    <td> ผ่านการฝึกงาน</td>
+                                </tr>
+                                <?php }?>
 
-                window.location.reload();
+                                </tbody>
+                            </table>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <script src="../vendor/jquery/jquery.min.js"></script>
+                    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+                    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+                    <script src="../vendor/raphael/raphael.min.js"></script>
+                    <script src="../vendor/morrisjs/morris.min.js"></script>
+                    <script src="../data/morris-data.js"></script>
+                    <script src="../dist/js/sb-admin-2.js"></script>
+                    <script>
+                        function update(id) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../php/update_student.php",
+                                data: "id=" + id,
+                                success: function (data) {
 
-        }
+                                    window.location.reload();
 
-    });
-    }
-</script>
+                                }
+
+                            });
+                        }
+                    </script>
 </body>
 </html>

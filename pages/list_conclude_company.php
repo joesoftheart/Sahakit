@@ -13,15 +13,7 @@ include '../php/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src="../vendor/jquery/jquery.js"></script>
-    <script src="../vendor/jquery/jquery-ui.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-    <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../vendor/js/function.js"></script>
+
 
     <title>สหกิจศึกษา</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +24,21 @@ include '../php/config.php';
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../vendor/js/function.js"></script>
+
+
 
     <style>
         @font-face {
@@ -279,10 +286,11 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
-        $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
-        $result = mysqli_fetch_array($objquery);
+        $sql_all = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
+                                                 INNER JOIN student ON register_work.sid = student.sid
+                                                 WHERE company.c_status_join = 1";
+        $query_all = mysqli_query($link, $sql_all) or die(mysqli_error($sql_all));
+        $result = mysqli_fetch_array($query_all);
 
 
     }
@@ -349,12 +357,11 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a> </li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
-                    <?php }else{ ?>
-
                     <?php } ?>
                 </ul>
             </div>
@@ -371,20 +378,23 @@ include '../php/config.php';
             <th></th>
         </tr>
         <?PHP
-        $sql_list = "SELECT*FROM conclude INNER JOIN company ON conclude.cid = company.cid WHERE conclude.cid=$cid";
+        $sql_list = "SELECT * FROM conclude  WHERE cid = $cid";
         $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
-        while($row=mysqli_fetch_array($sql_listquery)){
         ?>
+
+
+
+      <?php  while($row=mysqli_fetch_array($sql_listquery)){?>
         <tr style="cursor: pointer;" onclick="window.open('conclude_show_company.php?id=<?PHP echo $row["id"] ?>','_blank')" >
             <td><?PHP echo $row["week"] ?></td>
             <td><?PHP echo $row["date_start"] ?></td>
             <td><?PHP echo $row["date_end"] ?></td>
             <td><?PHP echo $row["job_work"] ?></td>
-            <?php if ($row['status'] !=1 ) {?>
-            <td><font color="green">ตรวจแล้ว</font></td>
-            <?php }else{ ?>
-                <td><font color="red">รอตรวจ </font></td>
-           <?php } ?>
+            <td><?PHP $check1 = $row["status"];  if($check1 == 0 ) { ?>
+                    <font color="red">ยังไม่ตรวจ</font>
+                <?php } else{ ?>
+                    <font color="green">ตรวจสอบแล้ว </font>
+                <?php }  ?></td>
         </tr>
         <?PHP
         }

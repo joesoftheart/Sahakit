@@ -30,8 +30,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $status = $_SESSION['status'];
     $fn_te = $_SESSION['fn_te'];
     $ln_te = $_SESSION['ln_te'];
+    $tid = $_SESSION['tid'];
 
-    $SQL = "SELECT * FROM teacher";
+    $SQL = "SELECT * FROM teacher WHERE tid ='$tid'";
     $query = mysqli_query($link, $SQL);
     $row = mysqli_fetch_array($query);
 
@@ -77,7 +78,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                     </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> การสมัครงานนักศึกษา</a> </li>
 
                 </ul>
             </div>

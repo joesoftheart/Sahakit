@@ -33,11 +33,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $ln_te = $_SESSION['ln_te'];
 
 
-    $SQL = "SELECT * FROM register_work , company,student  
-                          WHERE register_work.cid = company.cid 
-                            AND register_work.sid = student.sid  
-                             AND register_work.status_work
-                              AND register_work.cid";
+    $SQL = "SELECT * FROM student INNER JOIN register_work ON student.sid = register_work.sid
+                                  INNER JOIN company ON company.cid = register_work.cid";
     $query = mysqli_query($link, $SQL);
 
 
@@ -83,7 +80,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                         </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> การสมัครงานนักศึกษา</a> </li>
 
                 </ul>
             </div>

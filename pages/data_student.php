@@ -34,8 +34,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $query_teacher = mysqli_query($link, $mysql);
     $row = mysqli_fetch_array($query_teacher);
 
-$msql = "SELECT * FROM register_work";
-    $query_status = mysqli_query($link , $msql);
+    $msql = "SELECT * FROM register_work";
+    $query_status = mysqli_query($link, $msql);
     $row_status = mysqli_fetch_array($query_status);
     ?>
 
@@ -61,7 +61,8 @@ $msql = "SELECT * FROM register_work";
                         class="fa fa-user"></i> <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
-                    <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a></li>
+                    <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a>
+                    </li>
                     <li class="divider"></li>
                     <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
                     </li>
@@ -72,13 +73,15 @@ $msql = "SELECT * FROM register_work";
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
-                    <li><a href="#"><img src="../img/png/user-6.png" width="25px" height="25px"> นักศึกษา <span class="fa arrow"></span></a>
+                    <li><a href="#"><img src="../img/png/user-6.png" width="25px" height="25px"> นักศึกษา <span
+                                class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="data_student.php">นักศึกษาในการดูแล</a></li>
                             <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                         </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px">
+                            การสมัครงานนักศึกษา</a></li>
 
                 </ul>
             </div>
@@ -101,45 +104,65 @@ $msql = "SELECT * FROM register_work";
                                         <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                         <th class="text-center">สถานที่ตั้งบริษัท</th>
                                         <th class="text-center">สถานะการสมัครงาน</th>
-                                        <?php if($row_status['status_work'] == 2){ ?>
-                                        <th class="text-center">รายงาน</th>
-                                        <th class="text-center">ประเมิน</th>
-                                        <th class="text-center">ลบนักศึกษา</th>
-                                        <?php }?>
+                                        <?php if ($row_status['status_work'] == 2) { ?>
+                                            <th class="text-center">รายงาน</th>
+                                            <th class="text-center">ประเมิน</th>
+                                            <th class="text-center">ลบนักศึกษา</th>
+                                        <?php } ?>
 
                                     </tr>
                                     </thead>
                                     <?php
-                                    $sql_register = "SELECT * FROM register_work ,company , student ,teacher
-                                                        WHERE register_work.cid = company.cid 
-                                                            AND register_work.sid = student.sid
-															AND student.tid = $tid ";
-                                    $query_regiswork = mysqli_query($link , $sql_register);
-                                    for ($i = 1; $row_register = mysqli_fetch_array($query_regiswork); $i++) { ?>
-                                        <tbody>
+                                    $sql_register = "SELECT * FROM teacher INNER JOIN student ON teacher.tid = student.tid 
+                                                                            INNER JOIN register_work ON student.sid = register_work.sid";
+                                    $query_regiswork = mysqli_query($link, $sql_register);
+
+                                    $sql_evaluator ="SELECT * FROM evaluator_company ";
+                                    $query_evaluator = mysqli_query($link,$sql_evaluator);
+                                    $row_evaluator = mysqli_fetch_array($query_evaluator);
+
+                                    $sql_student = "SELECT * FROM student WHERE tid = $tid";
+                                    $query_student = mysqli_query($link,$sql_student);
+                                    $row_student = mysqli_fetch_array($query_student);
+
+                                    ?>
+
+
+                                    <tbody>
+                                    <?php for ($i = 1; $row_register = mysqli_fetch_array($query_regiswork); $i++) { ?>
                                         <tr>
                                             <td class="text-center"><?= $row_register['number_id'] ?></td>
                                             <td class="text-center"><?= $row_register['fn_st'] ?> <?= $row_register['ln_st'] ?></td>
                                             <td class="text-center"><?= $row_register['rank'] ?></td>
-                                            <td class="text-center"><?= $row_register['c_address'] ?></td>
-                                            <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
-                                            <?php if($row_register['status_work'] == 2){ ?>
-                                            <td class="text-center"><a href="read_report.php?=<?= $row_register['sid'] ?>">
-                                                    <img
-                                                        src="../img/png2/notepad-8.png" width="30px"
-                                                        height="30px"></a></td>
-                                            <td class="text-center"><a href="#"><img src="../img/png/notebook-4.png"
-                                                                                     width="30px" height="30px"></a>
-                                            </td>
-                                            <td class="text-center"><a
-                                                    href="delete_student.php?id=<?= $row_register['sid']; ?>"> <img
-                                                        src="../img/png/garbage-1.png" width="30px"
-                                                        height="30px"></a></td>
+                                            <td class="text-center"><?= $row_register['map_work'] ?></td>
+                                            <?php if($row_status['status_work'] == 0) { ?>
+                                            <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
                                             <?php } ?>
+                                            <?php if($row_status['status_work'] == 1) { ?>
+                                            <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
+                                            <?php }elseif($row_status['status_work'] == 2){ ?>
+                                                <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
+                                           <?php } ?>
+                                            <?php  if ($row_register['status_work'] == 2) { ?>
+                                                <td class="text-center"><a
+                                                        href="list_conclude_teacher.php?id=<?= $row_register['sid'] ?>">
+                                                        <img
+                                                            src="../img/png2/notepad-8.png" width="30px"
+                                                            height="30px"></a></td>
+                                                <td class="text-center"><a
+                                                        href="evaluation_for_teacher.php?sid=<?= $row_register['sid'] ?>"><img
+                                                            src="../img/png/notebook-4.png"
+                                                            width="30px" height="30px"></a>
+                                                </td>
+                                                <td class="text-center"><a
+                                                        href="delete_student.php?id=<?= $row_register['sid']; ?>"> <img
+                                                            src="../img/png/garbage-1.png" width="30px"
+                                                            height="30px"></a></td>
+                                            <?php }  ?>
                                         </tr>
-                                        </tbody>
-                                    <?php
-                                     }?>
+                                    <?php } ?>
+                                    </tbody>
+
                                 </table>
                             </div>
                         </div>
@@ -205,8 +228,13 @@ $msql = "SELECT * FROM register_work";
                                                 <td><?= $row_1['fn_st'] ?> <?= $row_1['ln_st'] ?></td>
                                                 <td><?= $row_1['status'] ?></td>
                                                 <td>
-                                                    <a href="add_techer_to_student.php?idtecher=<?= $row['tid'] ?>.<?= $row_1['sid'] ?>">
-                                                        <img src="../img/png/add-1.png" width="30px" height="30px"></a>
+                                                    <form action="add_techer_to_student.php" method="post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="tid" value="<?= $row['tid'] ?>">
+                                                    <input type="hidden" name="sid" value="<?= $row_1['sid'] ?>">
+                                                    <input type="hidden" name="status_work" value="0">
+                                                    <button type="submit" >
+                                                        <img src="../img/png/add-1.png" width="30px" height="30px"></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -221,7 +249,6 @@ $msql = "SELECT * FROM register_work";
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

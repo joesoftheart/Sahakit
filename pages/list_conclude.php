@@ -281,8 +281,8 @@ include '../php/config.php';
         $ln_st = $_SESSION['ln_st'];
         $number_id = $_SESSION['number_id'];
 
-        $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = '$sid'";
+        $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
+                                        INNER JOIN company ON register_work.cid = company.cid";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
@@ -327,11 +327,11 @@ include '../php/config.php';
                             <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
                             <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
                                 <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
+                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
+                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
 
                                 </ul>
                             </li>
@@ -339,23 +339,24 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <?php if ($Result['tid'] == 0 ){ ?>
+                    <?php if ($Result['tid'] == 0) { ?>
 
-                    <?php }else{ ?>
+                    <?php } else { ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
                     <?php } ?>
 
-                    <?php  if ($result['status_work'] == 2) { ?>
+                    <?php if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-
-                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำวัน</a></li>
-                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำวัน </a> </li>
+                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
+                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
+                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
+                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
                     <?php } ?>
-                    <?php if ($result['status_work'] == 3) {?>
-                        <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                    <?php if ($result['status_work'] == 3) { ?>
+                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -386,9 +387,9 @@ include '../php/config.php';
         }
         ?>
     </table>
-   </form>
     </div>
-
+</div>
+</form>
 
 
 

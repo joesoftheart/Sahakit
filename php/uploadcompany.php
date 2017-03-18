@@ -14,7 +14,9 @@ if(move_uploaded_file($_FILES["filUpload"]["tmp_name"],"../myfile/company/".$_FI
 
     $strSQL = "INSERT INTO files_company ";
     $strSQL .="(filescompany) VALUES ('".$_FILES["filUpload"]["name"]."')";
-    $objQuery = mysqli_query($link,$strSQL);
+    $objQuery = mysqli_query($link,$strSQL) or die(mysqli_error($link,$strSQL));
+
+
     echo "<script>window.location='../pages/admin_upload.php'</script>";
 }
 ?>

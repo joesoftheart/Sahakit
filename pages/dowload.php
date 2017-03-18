@@ -124,9 +124,6 @@ include '../php/config.php';
                     </li>
 
                     <li>
-                        <a href="./timeline.php">หางาน / ฝึกงาน </a>
-                    </li>
-                    <li>
                         <a href="#">นักศึกษา <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
@@ -134,7 +131,6 @@ include '../php/config.php';
                                 <ul class="nav nav-third-level">
                                     <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
                                     <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
                                     <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
                                     <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
                                 </ul>

@@ -48,7 +48,6 @@ include '../php/config.php';
                 <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a></li>
                 <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a></li>
                 <li><a href="admin_company.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบริษัท</a></li>
-                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a></li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li><a href="admin_upload.php" class="fa fa-upload "> อัพโหลด</a></li>
             </ul>
@@ -70,6 +69,7 @@ include '../php/config.php';
                 <div class="panel panel-danger" style="margin-top: 5%">
 
                     <!-- /.panel-heading -->
+                    <div class="col-md-10 col-md-offset-1">
                     <div class="panel-body">
                         <div class="table-responsive ">
                             <table class="table table-hover">
@@ -84,7 +84,7 @@ include '../php/config.php';
                                     <th></th>
                                 </tr>
                                 </thead>
-                                <?php while ($row = mysqli_fetch_array($query)) { ?>
+                                <?php  while ($row = mysqli_fetch_array($query)){ ?>
                                     <tbody>
                                     <tr>
                                         <td></td>
@@ -104,6 +104,7 @@ include '../php/config.php';
                         <!-- /.table-responsive -->
                     </div>
                     <!-- /.panel-body -->
+                        </div>
                 </div>
                 <!-- /.panel -->
             </div>

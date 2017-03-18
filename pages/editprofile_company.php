@@ -108,11 +108,11 @@ include '../php/config.php';
                 </ul>
             </div>
     </nav>
-
+<div id="page-wrapper">
         <form action="../php/getedit_company.php" method="post" enctype="multipart/form-data">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-4">
+            <div class="container ">
+                <div class="row" style="margin-top: 5%">
+                    <div class="col-md-6 col-md-offset-2">
                     <div class="panel panel-red">
                         <div class="panel-heading text-center">
                             <h4>แก้ไขรหัสผ่าน</h4>
@@ -121,21 +121,21 @@ include '../php/config.php';
 
                             <input type="hidden" name="username" value="<?= $username ?>">
                             <div class="row">
-                                <div class="col-md-12 col-md-10 col-md-offset-1">
+                                <div class="col-md-10 col-md-offset-1">
                                     <label>พาสเวิร์ดเก่า</label>
                                     <input type="text" name="oldpasswd" class="form-control">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-12 col-md-10 col-md-offset-1">
+                                <div class=" col-md-10 col-md-offset-1">
                                     <label>พาสเวิร์ดใหม่</label>
                                     <input type="text" name="passwd" class="form-control" maxlength="18" minlength="8">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-12 col-md-10 col-md-offset-1">
+                                <div class=" col-md-10 col-md-offset-1">
                                     <label>ยืนยันพาสเวิร์ด</label>
                                     <input type="text" name="repasswd" class="form-control" maxlength="18"
                                            minlength="8">
@@ -144,18 +144,17 @@ include '../php/config.php';
                             <br><br>
                             <div class="row">
                                 <div class="col-md-6 col-lg-offset-9">
-                                    <button type="submit" class="btn btn-outline btn-primary">
+                                    <button type="submit" class="btn  btn-warning">
                                                 ยืนยัน</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                    </div>
+                </div></div>
         </form>
     </div><!-- แบบฟอร์มสำรับสถานประกอบการ -->
 
-
+</div>
 
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

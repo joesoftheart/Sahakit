@@ -128,7 +128,6 @@ if (isset($_SESSION['status'])) {
                                         <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
                                         <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
                                         <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                        <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
                                         <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
                                     </ul>
                                 </li>

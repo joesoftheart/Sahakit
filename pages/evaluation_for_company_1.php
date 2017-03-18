@@ -39,9 +39,9 @@ include '../php/config.php';
         $query = mysqli_query($link, $sql);
 
 
-//        $mysql = "SELECT * FROM company WHERE cid = $cid";
-//        $Query = mysqli_query($link, $mysql);
-//        $result1 = mysqli_fetch_array($Query);
+        $sql_sum = "SELECT SUM(hour_amount) AS clock FROM execute  WHERE cid = $cid";
+        $query_sum = mysqli_query($link,$sql_sum);
+        $row_sum = mysqli_fetch_array($query_sum);
     }
     ?>
 </head>
@@ -104,7 +104,8 @@ include '../php/config.php';
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
-                            <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                            <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                            <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                         </ul>
                     </li>
                     <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
@@ -114,7 +115,7 @@ include '../php/config.php';
 </div>
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-md-12" style="margin-top: 5%">
+        <div class="col-md-8 col-md-offset-2" style="margin-top: 5%">
             <div class="panel panel-yellow">
                 <div class="panel-body">
                     <div class="col-md-12 table-responsive">
@@ -137,15 +138,19 @@ include '../php/config.php';
                                         <td><a href="#"
                                                class="btn btn-danger" disabled="disable">ประเมินแล้ว</a></td>
                                     </tr>
-
                                 <?php } elseif ($result['status_work'] == '2') { ?>
                                     <tr>
                                         <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
                                                  height="50px"/></td>
                                         <td><?= $result['number_id'] ?></td>
                                         <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
+                                        <?php if ($row_sum['clock'] >= '360' ){ ?>
                                         <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
                                                class="btn btn-success">ประเมิน</a></td>
+                                        <?php }else{ ?>
+                                            <td><a href="#"
+                                                   class="btn btn-danger" disabled="disable">ประเมิน</a></td>
+                                       <?php } ?>
                                     </tr>
                                 <?php }
                             }?>

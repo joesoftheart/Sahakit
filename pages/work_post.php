@@ -106,7 +106,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
@@ -118,7 +119,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     </nav>
     <div id="page-wrapper">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1 ">
+        <div class="col-md-10 col-md-offset-1 " style="margin-top: 3%">
             <form action="../php/gteform_workpost.php" method="post" enctype="multipart/form-data">
                 <div class="panel panel-info">
                     <div class="panel-heading text-center">
@@ -201,8 +202,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <button type="submit"  class="btn btn-outline btn-info pull-right ">
+                            <div class="col-md-8 col-md-offset-2" style="margin-top: 3%">
+                                <button type="submit"  class="btn  btn-info pull-right ">
                                       <strong>ประกาศ</strong> </button>
                             </div>
                         </div>

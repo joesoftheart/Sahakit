@@ -24,6 +24,96 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+    <style>
+
+        .credits {
+            border-bottom: solid 1px #eee;
+            padding-bottom: 10px;
+            margin: 0 0 30px;
+        }
+        #pagewrap {
+            margin: 0 auto;
+            width: 600px;
+            padding-left: 150px;
+            position: relative;
+        }
+
+        /*
+        Back to top button
+        */
+        #back-top {
+            position: fixed;
+            bottom: 30px;
+            margin-left: -150px;
+        }
+        #back-top a {
+            width: 108px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #bbb;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover {
+            color: #000;
+        }
+        /* arrow icon (span tag) */
+        #back-top span {
+            width: 80px;
+            height: 80px;
+            display: block;
+            margin-bottom: 7px;
+            background: #ddd url(../img/up-arrow.png) no-repeat center center;
+            /* rounded corners */
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover span {
+            background-color: #777;
+        }
+    </style>
+
+
     <script language="javascript">
         function IsNumeric(sText,obj)
         {
@@ -261,7 +351,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     }
     ?>
 </head>
-<body>
+<body id="top">
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -751,6 +841,9 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <button type="submit" class="btn btn-success"><font size="4">ประเมิน</font></button>
                     </div>
                     </form>
+                    <p id="back-top">
+                        <a href="#top" style="margin-left: 800%"><span></span>Back to Top</a>
+                    </p>
                 </div>
             </div>
         </div>

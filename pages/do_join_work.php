@@ -33,11 +33,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $ln_te = $_SESSION['ln_te'];
 
 
-    $SQL = "SELECT * FROM register_work , company,student  
-                          WHERE register_work.cid = company.cid 
-                            AND register_work.sid = student.sid  
-                             AND register_work.status_work
-                              AND register_work.cid";
+    $SQL = "SELECT * FROM student INNER JOIN register_work ON student.sid = register_work.sid
+                                  INNER JOIN company ON company.cid = register_work.cid";
     $query = mysqli_query($link, $SQL);
 
 
@@ -83,7 +80,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                         </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> การสมัครงานนักศึกษา</a> </li>
 
                 </ul>
             </div>
@@ -106,13 +103,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <table class="table table-hover ">
                             <tr>
                                 <th class="text-center">ลำดับ</th>
-                                <th>ชื่อบริษัท</th>
                                 <th class="text-center">ชื่อนักศึกษา</th>
+                                <th>ชื่อบริษัท</th>
                                 <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                 <th class="text-center">สถานที่ตั้ง</th>
+                                <th class="text-center">สถานะ</th>
 
                             </tr>
-                            <?php  if ($check == null) { ?>
+                            <?php  if ($check == null) {?>
 
                                <tr>
                                    <td class="text-center" colspan="4">ไม่มีข้อมูลการสมัคร</td>
@@ -121,10 +119,20 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                <?php  }   for($i=1;$result = mysqli_fetch_array($query);$i++) {?>
                                 <tr>
                                     <td class="text-center"> <?= $i ?></td>
-                                    <td><?= $result['c_name'] ?></td>
                                     <td class="text-center"><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
+                                    <td><?= $result['c_name'] ?></td>
                                     <td class="text-center"><?= $result['rank'] ?></td>
                                     <td><?= $result['c_address'] ?></td>
+
+                                    <?php if($check['status_work'] == 0) { ?>
+                                        <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
+                                    <?php } elseif($check['status_work'] == 1) { ?>
+                                        <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
+                                    <?php }elseif($check['status_work'] == 2){ ?>
+                                        <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
+                                    <?php } elseif($check['status_work'] == 3){ ?>
+                                    <td class="text-center"><font color="fuchsia">ผ่านการฝึกงาน</font></td>
+                                    <?php } ?>
 
                                 </tr>
                             <?php } ?>

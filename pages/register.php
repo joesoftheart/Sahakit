@@ -194,16 +194,15 @@
     </div>
     <br> <br>
     <div class="col-md-12 ">
-        <div class="col-md-12 col-md-3 col-md-offset-4  ">
+        <div class="col-md-3 col-md-offset-4  ">
             <select class=" form-control" id="reply">
                 <option value="1"> แบบฟอร์มสำหรับนักศึกษา</option>
                 <option value="2"> แบบฟอร์มสำหรับอาจารย์</option>
             </select>
         </div>
-        <br><br><br><br>
-        <div class="f1">
+
+        <div class="f1" style="margin-top: 5%">
             <form id="form1" action="../php/getform_student.php" method="post" enctype="multipart/form-data">
-                <div class="col-md-12">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <h4 class=" text-center">แบบฟอร์มกรอกสมัครสมาชิก สำหรับนักศึกษา</h4>
@@ -352,14 +351,13 @@
                         <!-- /.col-md-4 -->
                     </div>
                     <!-- แบบฟอร์มสำรับ นักศึกษา -->
-                </div>
+
             </form>
         </div>
 
 
-        <div class="f2 ">
+        <div class="f2 " style="margin-top: 5%">
             <form id="form2" action="../php/getform_teacher.php" method="post" enctype="multipart/form-data">
-                <div class="col-md-12">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <h4 class=" text-center">แบบฟอร์มกรอกสมัครสมาชิกสำหรับอาจารย์</h4>
@@ -449,10 +447,9 @@
                     <!-- /.col-md-4 -->
                 </div>
                 <!-- แบบฟอร์มสำรับ อาจารย์ -->
-            </form>
         </div>
     </div>
-</div>
+
 
 </body>
 </html>

@@ -47,7 +47,6 @@ include '../php/config.php';
                 <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a></li>
                 <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a></li>
                 <li><a href="admin_company.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบริษัท</a></li>
-                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a></li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li class="active"><a href="admin_upload.php" class="fa fa-upload "> อัพโหลด</a></li>
             </ul>
@@ -119,66 +118,112 @@ include '../php/config.php';
         ?>
 
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-3 col-md-offset-1 ">
                 <div class="panel panel-success">
 
                     <!-- /.panel-heading -->
 
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table table-striped  table-hover">
                             <thead>
                             <tr>
-                                <th>นักศึกษา</th>
-                                <th>อาจารย์</th>
-                                <th>บริษัท</th>
+                                <th colspan="2">นักศึกษา</th>
+
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
                             <?php while ($objResult = mysqli_fetch_array($objQuery)) { ?>
-
-
+                            <tr>
                                     <td><a href="../myfile/student/<?php echo $objResult["filestudent"]; ?>"
                                            download>
-                                            <?= $objResult["filestudent"]; ?></a> <a
-                                            href="../php/delete_file_upload_student.php?id=<?= $objResult['id'] ?>"
-                                            class="text-right">ลบไฟล์</a>
+                                            <?= $objResult["filestudent"]; ?></a>
                                     </td>
-                                <?php }  ?>
+                                    <td style="margin-right: 4%">
+                                        <a href="../php/delete_file_upload_student.php?id=<?= $objResult['id'] ?>"
+                                           class="btn btn-danger">ลบไฟล์ </a></td>
 
-                            <?php while ($objResult_1 = mysqli_fetch_array($objQuery_1)) { ?>
-                                    <td><a href="../myfile/teacher/<?php echo $objResult_1["filesteacher"]; ?>"
-                                           download><?= $objResult_1["filesteacher"]; ?></a> <a
-                                            href="../php/delete_file_upload_teacher.php?id=<?= $objResult_1['id'] ?>"
-                                            class="text-right">ลบไฟล์1</a>
-                                    </td>
-                            <?php }  ?>
-
-                            <?php while ($objResult_2 = mysqli_fetch_array($objQuery_2)) { ?>
-                                    <td><a href="../myfile/company/<?= $objResult_2["filescompany"]; ?>"
-                                           download>
-                                            <?= $objResult_2["filescompany"]; ?></a> <a
-                                            href="../php/delete_file_upload_company.php?id=<?= $objResult_2['id'] ?>"
-                                            class="right">ลบไฟล์2</a>
-                                    </td>
-
-                            <?php }  ?>
                             </tr>
+                            <?php } ?>
                             </tbody>
-
+                        </table>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div class="panel panel-success">
+
+                        <!-- /.panel-heading -->
+
+                        <div class="table-responsive">
+                            <table class="table table-striped  table-hover">
+                                <thead>
+                                <tr>
+
+                                    <th colspan="2">อาจารย์</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php while ($objResult_1 = mysqli_fetch_array($objQuery_1)) { ?>
+                                <tr>
+                                        <td><a href="../myfile/teacher/<?php echo $objResult_1["filesteacher"]; ?>"
+                                               download><?= $objResult_1["filesteacher"]; ?></a></td>
+                                        <td><a href="../php/delete_file_upload_teacher.php?id=<?= $objResult_1['id'] ?>"
+                                               class="text-right">ลบไฟล์</a></td>
+
+                                </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-success">
+
+                            <!-- /.panel-heading -->
+
+                            <div class="table-responsive">
+                                <table class="table table-striped  table-hover">
+                                    <thead>
+                                    <tr>
+
+                                        <th colspan="2">บริษัท</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php while ($objResult_2 = mysqli_fetch_array($objQuery_2)) { ?>
+                                        <tr>
+                                        <td><a href="../myfile/company/<?= $objResult_2["filescompany"]; ?>"
+                                               download>
+                                                <?= $objResult_2["filescompany"]; ?></a>
+                                        </td>
+                                        <td><a
+                                                href="../php/delete_file_upload_company.php?id=<?= $objResult_2['id'] ?>"
+                                                class="right">ลบไฟล์</a></td>
+                                            <tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </div>
 
 
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-        <script src="../vendor/raphael/raphael.min.js"></script>
-        <script src="../vendor/morrisjs/morris.min.js"></script>
-        <script src="../data/morris-data.js"></script>
-        <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+    <script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 </html>

@@ -33,6 +33,95 @@ include '../php/config.php';
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <script>
+        $(document).ready(function(){
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+    <style>
+
+        .credits {
+            border-bottom: solid 1px #eee;
+            padding-bottom: 10px;
+            margin: 0 0 30px;
+        }
+        #pagewrap {
+            margin: 0 auto;
+            width: 600px;
+            padding-left: 150px;
+            position: relative;
+        }
+
+        /*
+        Back to top button
+        */
+        #back-top {
+            position: fixed;
+            bottom: 30px;
+            margin-left: -150px;
+        }
+        #back-top a {
+            width: 108px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #bbb;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover {
+            color: #000;
+        }
+        /* arrow icon (span tag) */
+        #back-top span {
+            width: 108px;
+            height: 108px;
+            display: block;
+            margin-bottom: 7px;
+            background: #ddd url(../img/up-arrow.png) no-repeat center center;
+            /* rounded corners */
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover span {
+            background-color: #777;
+        }
+    </style>
+
+
+
     <style>
         @font-face {
             font-family: 'THSarabun';
@@ -52,56 +141,12 @@ include '../php/config.php';
             font-style: normal;
         }
 
-        .crop {
+        #crop {
             margin: 0;
             padding: 0;
             background-color: #FAFAFA;
             font: 12pt "Tahoma";
             font-family: 'THSarabunPSK';
-        }
-
-        .ui-datepicker td span, .ui-datepicker td a{
-            color: #ffffff;
-        }
-        .ui-datepicker th{
-            color: #ffffff;
-        }
-        .ui-datepicker .ui-datepicker-next{
-            background: url("../image/button.png");
-            background-position: -176px -18px;
-            cursor: pointer;
-        }
-        .ui-datepicker .ui-datepicker-prev{
-            background: url("../image/button.png");
-            background-position: -24px -18px;
-            cursor: pointer;
-        }
-        .ui-datepicker-trigger{
-            background: url("../image/calendar.png");
-            background-size: 100% 100%;
-            width: 40px;
-            opacity: 0.2;
-            border: none;
-            color:#333332;
-        }
-        .ui-datepicker-trigger:hover{
-            opacity: 1;
-        }
-
-        .ui-datepicker-month,.ui-datepicker-year{
-            color: #000;
-            font-family: 'THSarabunPSK';
-        }
-
-        .ui-datepicker{
-            background: #3f85c3;
-        }
-        .ui-state-default{
-            font-size:10px;
-        }
-
-        .ui-datepicker .ui-datepicker-header{
-            background: #3f85c3 !important;
         }
 
         * {
@@ -111,7 +156,7 @@ include '../php/config.php';
 
         input[type="text"] {
             border: none;
-           /* border-bottom: dotted #0f0f0f 1px; */
+            border-bottom: dotted #0f0f0f 1px;
             font-family: 'THSarabunPSK';
             display: inline;
             position: relative;
@@ -138,33 +183,9 @@ include '../php/config.php';
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
-        .subpage {
-            padding: 1cm;
-            border: 5px white solid;
-            height: 256mm;
-            outline: 2cm white solid;
-        }
 
-        .page_rotate {
-            width: 29.7cm;
-            font-size: 18px;
-            height: 21cm;
-            padding: 2cm;
-            margin: 1cm auto;
-            border: 1px #D3D3D3 solid;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
 
-        .subpage_rotate {
-            padding: 0cm;
-            padding-top: 20px;;
-            border: 5px white solid;
-            width: 257mm;
-            outline: 2cm white solid;
-            height: 170mm;
-        }
+
 
         @page {
             font-family: 'THSarabun';
@@ -246,10 +267,7 @@ include '../php/config.php';
             }
         }
 
-        .note {
-            background: none;
-            resize: none;
-        }
+
 
         .note textarea {
             font-family: 'THSarabun';
@@ -265,9 +283,6 @@ include '../php/config.php';
             font-size: 20px;
             overflow: hidden;
         }
-        .ui-datepicker-trigger > img{
-            width:20px;
-        }
     </style>
 
 
@@ -276,13 +291,11 @@ include '../php/config.php';
 
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
-        $sid = $_SESSION["sid"];
-        $fn_st = $_SESSION['fn_st'];
-        $ln_st = $_SESSION['ln_st'];
-        $idst = $_SESSION['idst'];
+        $c_name = $_SESSION['c_name'];
+        $cid = $_SESSION['cid'];
 
-        $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+        $sql1 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid
+                                        INNER JOIN student ON register_work.cid = student.sid";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
@@ -291,7 +304,7 @@ include '../php/config.php';
     ?>
 
 </head>
-<body>
+<body id="top">
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -351,8 +364,8 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_note_company.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
@@ -376,18 +389,22 @@ include '../php/config.php';
             <th>สถานะ</th>
         </tr>
         <?PHP
-        $sql_list = "SELECT * FROM execute WHERE uid= ".$sid." ";
+        $sql_list = "SELECT * FROM execute WHERE cid = ".$cid." ";
         $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
         while($row=mysqli_fetch_array($sql_listquery)){
         ?>
-        <tr style="cursor: pointer;" onclick="window.open('note_show.php?id=<?PHP echo $row["id"] ?>','_blank')" >
+        <tr style="cursor: pointer;" onclick="window.open('../php/update_note_company.php?id=<?PHP echo $row["id"] ?>','_blank')" >
             <td><?PHP echo $row["week"] ?></td>
             <td><?PHP if($row["type"] == 0 ) { echo "ปฎิบัติงาน"; }else  { echo "ลางาน"; } ?></td>
             <td><?PHP echo $row["date"] ?></td>
             <td><?PHP echo $row["start_minute"] ?>:<?PHP echo $row["start_secound"] ?></td>
             <td><?PHP echo $row["end_minute"] ?>:<?PHP echo $row["end_secound"] ?></td>
             <td><?PHP echo $row["job_work"] ?></td>
-            <td><?PHP if($row["status"] == 0 ) { echo "รอตรวจ"; } else{ echo "ตรวจสอบแล้ว"; }  ?></td>
+            <td><?PHP if($row["status"] == 0 ) { ?>
+              <font color="red">ยังไม่ตรวจ</font>
+                <?php } else{ ?>
+             <font color="green">ตรวจแล้ว </font>
+                <?php }  ?></td>
         </tr>
         <?PHP
         }

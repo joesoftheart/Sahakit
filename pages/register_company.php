@@ -165,9 +165,10 @@ conndb();
 </head>
 <body>
 
-<div class="f3 " style="margin-top: 2%">
+<div style="margin-top: 5%">
+<div class="container well">
     <form id="form3" action="../pages/mou.php" method="get" enctype="multipart/form-data">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-red">
                 <div class="panel-heading">
                     <h3 class=" text-center">แบบฟอร์มกรอกสมัครสมาชิก สำหรับสถานประกอบการ</h3>
@@ -176,19 +177,19 @@ conndb();
                     <!-- แบบฟอร์มสำรับสถานประกอบการ -->
                     <form style="display: none;">
                         <div class="row">
-                            <div class="col-md-4 col-md-4">
+                            <div class="col-md-4">
                                 <label>ชือผู้ใช้</label>
                                 <input type="text" name="username" placeholder="กรอกไอดีของท่าน" id="data_text" size="40" onkeyup="isThaichar(this.value,this)"
                                        class="form-control"
                                        maxlength="24" required />
                             </div>
-                            <div class="col-md-4 col-md-4">
+                            <div class="col-md-4 ">
                                 <label>รหัสผ่าน</label>
                                 <input type="password" name="passwd" class="form-control" minlength="8"
                                        maxlength="18"
                                        required="required">
                             </div>
-                            <div class="col-md-4 col-lg-4">
+                            <div class="col-md-4 ">
                                 <label>ยืนยันรหัสผ่าน</label>
                                 <input type="password" name="conpasswd" class="form-control" minlength="8"
                                        maxlength="18"
@@ -197,27 +198,27 @@ conndb();
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-4 col-md-4 form-group">
+                            <div class="col-md-4 ">
                                 <label>ชื่อบริษัท</label>
                                 <input type="text" name="c_name" placeholder="" maxlength="70"
                                        class="form-control"
                                        required="required"/>
                             </div>
-                            <div class="col-md-4 col-md-4">
+                            <div class="col-md-4">
                                 <label>เบอร์โทรติดต่อ</label>
                                 <input type="tel" name="c_tela" placeholder="" class="form-control"
                                        minlength="10"
                                        maxlength="10" id="mynumber"
                                        onKeyUp="IsNumeric(this.value,this)" required="required"/>
                             </div>
-                            <div class="col-md-4 col-md-4">
+                            <div class="col-md-4 ">
                                 <label>ที่อยู่บริษัท</label>
                                 <textarea name="c_address" class="form-control" rows="3"></textarea>
                             </div>
 
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-md-4 form-group">
+                            <div class="col-md-4 ">
                                 <label>อีเมลผู้ใช้</label>
                                 <input type="text" name="c_email" placeholder="pond_pond@hotmail.com"
                                        class="form-control"
@@ -229,27 +230,23 @@ conndb();
                             <input type="hidden" name="status" value="สถานประกอบการ">
                             <input type="hidden" name="c_status_join" value="0">
 
-                        <br><br><br><br>
-                        <div class="col-md-12 col-md-offset-9">
-                            <button type="submit" value="Upload Image" class="btn btn-outline btn-primary"
-                                    data-toggle="tooltip"
-                                    data-placement="top" title="สมัครสมาชิก"> ลงทะเบียน
-                            </button>
-                            <a href="index.php" class="btn btn-outline btn-danger "><i
-                                    class="glyphicon glyphicon-home"></i>
-                                หน้าแรก</a>
+
+                        <div class="col-md-12 col-md-offset-9" style="margin-top: 3%">
+                            <button type="submit" class="btn  btn-primary"> ลงทะเบียน </button>
+                            <a href="index.php" class="btn btn-danger ">
+                                ย้อนกลับ</a>
                         </div>
 
                     </form>
                 </div>
-                <!-- /.col-lg-4 -->
+                <!-- /.col-md-4 -->
             </div>
         </div>
 
         <!-- แบบฟอร์มสำรับสถานประกอบการ -->
     </form>
+</div>
 
-<br><br>
 
     <script>
         $("#user").keypress(function(event){

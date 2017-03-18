@@ -19,6 +19,96 @@ include '../php/config.php';
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+    <style>
+
+        .credits {
+            border-bottom: solid 1px #eee;
+            padding-bottom: 10px;
+            margin: 0 0 30px;
+        }
+        #pagewrap {
+            margin: 0 auto;
+            width: 600px;
+            padding-left: 150px;
+            position: relative;
+        }
+
+        /*
+        Back to top button
+        */
+        #back-top {
+            position: fixed;
+            bottom: 30px;
+            margin-left: -150px;
+        }
+        #back-top a {
+            width: 108px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #bbb;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover {
+            color: #000;
+        }
+        /* arrow icon (span tag) */
+        #back-top span {
+            width: 108px;
+            height: 108px;
+            display: block;
+            margin-bottom: 7px;
+            background: #ddd url(../img/up-arrow.png) no-repeat center center;
+            /* rounded corners */
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover span {
+            background-color: #777;
+        }
+    </style>
+
+
 
     <style>
         @font-face {
@@ -88,26 +178,7 @@ include '../php/config.php';
             outline: 2cm white solid;
         }
 
-        .page_rotate {
-            width: 29.7cm;
-            font-size: 18px;
-            height: 21cm;
-            padding: 2cm;
-            margin: 1cm auto;
-            border: 1px #D3D3D3 solid;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
 
-        .subpage_rotate {
-            padding: 0cm;
-            padding-top: 20px;;
-            border: 5px white solid;
-            width: 257mm;
-            outline: 2cm white solid;
-            height: 170mm;
-        }
 
         @page {
             font-family: 'THSarabun';
@@ -211,6 +282,7 @@ include '../php/config.php';
     </style>
 
 
+
     <?php
     $status = null;
 
@@ -221,17 +293,26 @@ include '../php/config.php';
         $ln_st = $_SESSION['ln_st'];
         $number_id = $_SESSION['number_id'];
 
-        $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+        $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
+                                        INNER JOIN company ON register_work.cid = company.cid";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
+
+
+        $tid = $result['tid'];
+        $status_work = $result['status_work'];
+
+        $sql3 = "SELECT * FROM student,teacher
+                        WHERE student.tid = teacher.tid";
+        $query2 = mysqli_query($link, $sql3);
+        $row_tea = mysqli_fetch_array($query2);
 
 
     }
     ?>
 
 </head>
-<body>
+<body id="top">
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -267,11 +348,11 @@ include '../php/config.php';
                             <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
                             <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
                                 <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
+                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
+                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
+                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
 
                                 </ul>
                             </li>
@@ -279,13 +360,17 @@ include '../php/config.php';
                         </ul>
                     </li>
 
-                    <?php if ($result['tid'] == 0 ){ ?>
+                    <?php if ($row_tea['tid'] == 0) { ?>
+
+                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
+
+                    <?php }elseif($result['status_work'] == 3){ ?>
 
                     <?php }else{ ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                    <?php } ?>
+                    <?php  } ?>
 
-                    <?php  if ($result['status_work'] == 2) { ?>
+                    <?php if ($result['status_work'] == 2) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
@@ -295,8 +380,8 @@ include '../php/config.php';
                             </ul>
                         </li>
                     <?php } ?>
-                    <?php if ($result['status_work'] == 3) {?>
-                        <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                    <?php if ($result['status_work'] == 3) { ?>
+                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -309,12 +394,14 @@ include '../php/config.php';
             <?PHP
             $sql_list = "SELECT * FROM execute WHERE id= ".$_GET['id']." ";
             $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
-            while($row=mysqli_fetch_array($sql_listquery)) {
+            for($i=1;$row=mysqli_fetch_array($sql_listquery);$i++) {
                 $date = explode("-",$row["date"]);
                 //echo $row["date"];
+
                 ?>
                 <div class="page">
                     <div class="subpage">
+                        <p class="text-right" style="margin-top: -8%">หน้าที่ <?=  $i ?> </p><br><br><br><br><br>
 
                         สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $row["week"] ?>" style="margin-top: -5px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -343,6 +430,7 @@ include '../php/config.php';
                                 <?PHP echo $row["note"] ?>
                             </textarea>
 
+
                         </div>
                     </div>
                 </div>
@@ -358,56 +446,15 @@ include '../php/config.php';
 
 
                         </div>
+                        <p id="back-top">
+                            <a href="#top" style="margin-left: 780%"><span></span>Back to Top</a>
+                        </p>
                     </div>
-
                 </div>
                 <?PHP
             }
             ?>
 
-            <div class="page">
-                <div class="subpage">
-                    <div align="center"><font size="5"><b>สรุปผลบันทึกการปฎิบัติงานประจำวัน &nbsp;&nbsp;&nbsp;ในรอบสัปดาห์ที่
-                                <input type="text" data-onload="set_size($(this),45)"
-                                       style="margin-top: 5px;"></b></font><br>
-                        ระหว่างวันที่
-                        <input type="text" data-onload="set_size($(this),100)" style="margin-top: 5px;"> ถึงวันที่ <input type="text" data-onload="set_size($(this),100)" style="margin-top: 5px;">
-
-                    </div>
-                    <div style="border: solid 1px">
-
-                        ลักษณะงานที่ปฎิบัติ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        ปัญหาที่พบ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3"> </textarea>
-                        หมายเหต <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2"> </textarea>
-
-                    </div>
-                    <br>
-                    <div align="center">
-                        <font size="5"><b>รวมจำนวนชั่วโมงที่ปฏิบัติงานสหกิจศึกษาทั้งหมดในสัปดาห์นี้ &nbsp;&nbsp;&nbsp;
-                                เท่ากับ <input type="text" data-onload="set_size($(this),45)"
-                                               style="margin-top: 5px;"> ชั่วโมง</b></font>
-                    </div>
-                    <div style="border: solid 1px">
-                        <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4"> </textarea>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ลงชื่อ <input type="text" data-onload="set_size($(this),150)"
-                                  style="margin-top: 5px;"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    (<input type="text" data-onload="set_size($(this),150)"
-                            style="margin-top: 5px;">)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ตำแหน่ง <input type="text" data-onload="set_size($(this),200)"
-                                   style="margin-top: 5px;">
-                </div>
-
-            </div>
         </div>
     </div>
 </div>

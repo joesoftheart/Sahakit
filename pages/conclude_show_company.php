@@ -19,7 +19,94 @@ include '../php/config.php';
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 
+    <script>
+        $(document).ready(function(){
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+    <style>
+
+        .credits {
+            border-bottom: solid 1px #eee;
+            padding-bottom: 10px;
+            margin: 0 0 30px;
+        }
+        #pagewrap {
+            margin: 0 auto;
+            width: 600px;
+            padding-left: 150px;
+            position: relative;
+        }
+
+        /*
+        Back to top button
+        */
+        #back-top {
+            position: fixed;
+            bottom: 30px;
+            margin-left: -150px;
+        }
+        #back-top a {
+            width: 108px;
+            display: block;
+            text-align: center;
+            font: 11px/100% Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #bbb;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover {
+            color: #000;
+        }
+        /* arrow icon (span tag) */
+        #back-top span {
+            width: 108px;
+            height: 108px;
+            display: block;
+            margin-bottom: 7px;
+            background: #ddd url(../img/up-arrow.png) no-repeat center center;
+            /* rounded corners */
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            /* background color transition */
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+        #back-top a:hover span {
+            background-color: #777;
+        }
+    </style>
     <style>
         @font-face {
             font-family: 'THSarabun';
@@ -88,26 +175,6 @@ include '../php/config.php';
             outline: 2cm white solid;
         }
 
-        .page_rotate {
-            width: 29.7cm;
-            font-size: 18px;
-            height: 21cm;
-            padding: 2cm;
-            margin: 1cm auto;
-            border: 1px #D3D3D3 solid;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .subpage_rotate {
-            padding: 0cm;
-            padding-top: 20px;;
-            border: 5px white solid;
-            width: 257mm;
-            outline: 2cm white solid;
-            height: 170mm;
-        }
 
         @page {
             font-family: 'THSarabun';
@@ -219,8 +286,8 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+        $sql1 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid
+                                        INNER JOIN student ON register_work.cid = student.sid";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
@@ -229,7 +296,7 @@ include '../php/config.php';
     ?>
 
 </head>
-<body>
+<body id="top">
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -246,7 +313,7 @@ include '../php/config.php';
             <li class="dropdown">
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
-                        class="fa fa-user"></i> <b class="caret"></b> </a>
+                        class="fa fa-user"></i>  <b class="caret"></b> </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
                     <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
@@ -270,10 +337,8 @@ include '../php/config.php';
                             <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
                         </ul>
                     </li>
-                    <?php $check = $result['c_status_join'];
-                    if ($check == 1) { ?>
-                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i
-                                    class="fa arrow"></i>
+                    <?php $check = $result['c_status_join']; if ($check == 1) {?>
+                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
                             </a>
                             <ul class="nav nav-second-level">
                                 <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
@@ -291,12 +356,11 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
-                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
-                    <?php } else { ?>
-
+                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
                     <?php } ?>
                 </ul>
             </div>
@@ -306,9 +370,9 @@ include '../php/config.php';
     <div id="crop">
         <div class="book">
             <?PHP
-            $sql_list = "SELECT * FROM conclude WHERE id= " . $_GET['id'] . " ";
-            $sql_listquery = mysqli_query($link, $sql_list) or die(mysqli_errror($link));
-            while ($row = mysqli_fetch_array($sql_listquery)) {
+            $sql_list = "SELECT * FROM conclude WHERE id= ".$_GET['id']." ";
+            $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
+            while($row=mysqli_fetch_array($sql_listquery)) {
             $date_list_start = $row["date_start_now"];
             $date_list_end = $row["date_start_end"];
             $hour_amount = "";
@@ -316,65 +380,95 @@ include '../php/config.php';
             //echo $row["date"];
             $sql_list_not = "SELECT * FROM execute WHERE date_now BETWEEN '$date_list_start' AND '$date_list_end'   ";
             //echo $sql_list_not;
-            $sql_list_not_query = mysqli_query($link, $sql_list_not) or die(mysqli_errror($link));
-            while ($row_note = mysqli_fetch_array($sql_list_not_query)) {
-            $date_note = explode("-", $row_note["date"]);
-            $hour_amount += $row_note["hour_amount"];
-            ?>
-            <div class="page">
-                <div class="subpage">
+            $sql_list_not_query = mysqli_query($link,$sql_list_not)or die(mysqli_errror($link));
+            for($i=1; $row_note=mysqli_fetch_array($sql_list_not_query);$i++ ) {
+                $date_note = explode("-",$row_note["date"]);
+                $hour_amount += $row_note["hour_amount"];
+                ?>
+                <div class="page">
+                    <div class="subpage">
+                        <p class="text-right" style="margin-top: -8%">( <?=  $i ?> )</p><br><br><br><br><br>
 
-                    สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)"
-                                      value="<?PHP echo $row_note["week"] ?>" style="margin-top: -5px;" readonly>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <font size="5"><b>บันทึกการปฎิบัติประจำวัน</b></font> <br>
-                    <div style="border: solid 1px">
-                        วันที่<input type="text" data-onload="set_size($(this),25)" value="<?PHP echo $date_note[0] ?>"
-                                     style="margin-top: 5px;" readonly>/
-                        <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $date_note[1] ?>"
-                               style="margin-top: 5px;" readonly>/
-                        <input type="text" data-onload="set_size($(this),35)" value="<?PHP echo $date_note[2] ?>"
-                               style="margin-top: 5px;" readonly>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เวลาเริ่มปฎิบัติงาน
-                        <input type="text" data-onload="set_size($(this),35)"
-                               value="<?PHP echo $row_note["start_minute"] ?>:<?PHP echo $row_note["start_secound"] ?>"
-                               style="margin-top: 5px;" readonly>น. เวลาเลิกปฎิบัติงาน
-                        <input type="text" data-onload="set_size($(this),35)"
-                               value="<?PHP echo $row_note["end_minute"] ?>:<?PHP echo $row_note["end_secound"] ?>"
-                               style="margin-top: 5px;" readonly>น. <br>
-                        ลักษณะงานที่ปฎิบัติ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                        สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $row_note["week"] ?>" style="margin-top: -5px;" readonly>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font size="5"><b>บันทึกการปฎิบัติประจำวัน</b></font> <br>
+                        <div style="border: solid 1px">
+                            วันที่<input type="text" data-onload="set_size($(this),25)" readonly value="<?PHP echo $date_note[0]  ?>" style="margin-top: 5px;">/
+                            <input type="text" data-onload="set_size($(this),70)" readonly value="<?PHP echo $date_note[1]  ?>" style="margin-top: 5px;">/
+                            <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $date_note[2]  ?>" style="margin-top: 5px;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เวลาเริ่มปฎิบัติงาน
+                            <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["start_minute"] ?>:<?PHP echo $row_note["start_secound"] ?>" style="margin-top: 5px;">น. เวลาเลิกปฎิบัติงาน
+                            <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["end_minute"] ?>:<?PHP echo $row_note["end_secound"] ?>" style="margin-top: 5px;">น.  <br>
+                            ลักษณะงานที่ปฎิบัติ <br>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row_note["job_work"] ?>
                             </textarea>
-                        ปัญหาที่พบ <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            ปัญหาที่พบ <br>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["problem"] ?>
                             </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            แนวทางการแก้ไขปัญหา <br>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["work_fix"] ?>
                             </textarea>
-                        หมายเหต <br>
-                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="5" readonly>
+                            หมายเหต <br>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
                                 <?PHP echo $row_note["note"] ?>
                             </textarea>
 
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="page">
-                <div class="subpage">
-                    <div align="center"> บันทึกเพิ่มเติม</div>
-                    <div style="border: solid 1px">
+                <div class="page">
+                    <div class="subpage">
+                        <div align="center"> บันทึกเพิ่มเติม</div>
+                        <div style="border: solid 1px">
 
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="15" readonly>
                                 <?PHP echo $row_note["save_note"] ?>
                             </textarea>
 
 
+                        </div>
                     </div>
-                    <br><br><br><br>
+
+                </div>
+                <?PHP
+            }
+            ?>
+
+            <div class="page">
+                <div class="subpage">
+                    <div align="center"><font size="5"><b>สรุปผลบันทึกการปฎิบัติงานประจำวัน &nbsp;&nbsp;&nbsp;ในรอบสัปดาห์ที่
+                                <input type="text" data-onload="set_size($(this),45)" readonly value="<?PHP echo $row["week"] ?>"
+                                       style="margin-top: 5px;"></b></font><br>
+                        ระหว่างวันที่
+                        <input type="text" data-onload="set_size($(this),150)" readonly value="<?PHP echo $row["date_start"] ?>" style="margin-top: 5px;"> ถึงวันที่ <input type="text" data-onload="set_size($(this),150)" readonly value="<?PHP echo $row["date_end"] ?>" style="margin-top: 5px;">
+
+                    </div>
+                    <div style="border: solid 1px">
+
+                        ลักษณะงานที่ปฎิบัติ <br>
+                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            <?PHP echo $row["job_work"] ?>
+                        </textarea>
+                        ปัญหาที่พบ <br>
+                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            <?PHP echo $row["problem"] ?>
+                        </textarea>
+                        แนวทางการแก้ไขปัญหา <br>
+                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            <?PHP echo $row["work_fix"] ?>
+                        </textarea>
+                        หมายเหต <br>
+                        <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
+                            <?PHP echo $row["note"] ?>
+                        </textarea>
+
+                    </div>
+                    <br>
                     <div align="center">
                         <font size="5"><b>รวมจำนวนชั่วโมงที่ปฏิบัติงานสหกิจศึกษาทั้งหมดในสัปดาห์นี้ &nbsp;&nbsp;&nbsp;
                                 เท่ากับ <input type="text" data-onload="set_size($(this),45)"
@@ -385,17 +479,17 @@ include '../php/config.php';
                         <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                         <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา /
                                     ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
-                        <textarea name="offer"  data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4" required> <?= $row['offer'] ?> </textarea>
-                    </div>
+                        <textarea name="offer"  data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4" required="required"> <?= $row['offer'] ?> </textarea>
+                    </div><br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     ลงชื่อ <input type="text" name="name_leder" value="<?= $row['name_leder'] ?>" data-onload="set_size($(this),150)"
-                                  style="margin-top: 5px;" required> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
+                                  style="margin-top: 5px;" required="required"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     (<input type="text" value="<?= $row['name_leder'] ?>" data-onload="set_size($(this),150)"
-                            style="margin-top: 5px;" required>)<br>
+                            style="margin-top: 5px;" required="required">)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     ตำแหน่ง <input type="text" name="rank_leder" value="<?= $row['rank_leder'] ?>" data-onload="set_size($(this),175)"
-                                   style="margin-top: 5px;" required>
+                                   style="margin-top: 5px;" required="required">
 
 
                     <br><br><br><br>
@@ -403,6 +497,9 @@ include '../php/config.php';
                     <button type="submit" class="btn btn-success" value="ยืนยัน"> ยืนยัน </button>
                         </div>
                     </form>
+                    <p id="back-top">
+                        <a href="#top" style="margin-left: 780%"><span></span>Back to Top</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -412,9 +509,7 @@ include '../php/config.php';
 
 
     </div>
-    <?PHP
-    }
-    ?>
+    </div>
 
 
     <script src="../vendor/jquery/jquery.min.js"></script>

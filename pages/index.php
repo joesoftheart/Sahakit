@@ -17,7 +17,17 @@ include '../php/config.php';
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    .cut{
+        width: 250px;
+        height: 30px;
+        solid #ccc;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
+</style>
 
   
 
@@ -114,7 +124,6 @@ include '../php/config.php';
                                         <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a> </li>
                                     <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a> </li>
                                     <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a> </li>
                                     <li><a href="evaluation_ca.php">การประเมินผล</a> </li>
                                 </ul>
                             </li>
@@ -142,29 +151,29 @@ include '../php/config.php';
         </div>
     </nav>
     <?php
-    $sql1 = "SELECT *  FROM news WHERE  id >(SELECT max(id) FROM news)-2";
+    $sql1 = "SELECT * FROM news ORDER BY id DESC limit 3 ";
     $query1 = mysqli_query($link, $sql1);
     ?>
     <div id="page-wrapper">
         <br>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <img class="thumbnail img-responsive" src="../img/index.png">
                 <h3 class="page-header">
-                    สหกิจศึกษายินดีต้อนรับ
+                    ข่าวประชาสัมพันธ์
                 </h3>
             <?php while ($row1 = mysqli_fetch_array($query1)) { ?>
                 <div class="col-md-4 ">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <?= $row1['headnews'] ?>
+                           <p class="cut"> <?= $row1['news_story'] ?></p>
                         </div>
                         <div class="panel-body">
-                            <p><?= $row1['substance'] ?> </p>
+                            <p class="cut"><?= $row1['fntroductory_message'] ?> </p>
                             <p>
-                                <small>ประกาศ ณ วันที่ <?= $row1['dmt'] ?></small>
+                                <small>โพสต์เมื่อ : <?= $row1['dmt'] ?></small>
                             </p>
-                            <a href="#" class="btn btn-outline btn-info">อ่านต่อ</a>
+                            <a href="index_show_news.php?id=<?= $row1['id'] ?>" target="_blank" class="btn btn-outline btn-info">อ่านต่อ</a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +185,7 @@ include '../php/config.php';
         $query = mysqli_query($link, $sql);
 
         ?>
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <h3 class="page-header">
                 รายชื่อผลงานนักศึกษา
             </h3>
@@ -211,7 +220,7 @@ include '../php/config.php';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="flot-chart">

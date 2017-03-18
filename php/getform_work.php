@@ -5,18 +5,13 @@
 $cid = $_REQUEST['cid'];
 $sid = $_REQUEST['sid'];
 $rank = $_REQUEST['rank'];
-$status_work = $_REQUEST['status_work'];
+$map_work = $_POST['map_work'];
 $dmt = $_REQUEST['dmt'];
 
 ?>
 
 <?php
-$strSQL = "INSERT INTO register_work (sid,cid,rank,status_work,dmt) 
-            VALUES ('$sid',
-                    '$cid',
-                    '$rank',
-                    '$status_work',
-                    '$dmt')";
+$strSQL = "UPDATE register_work SET cid ='$cid',rank='$rank',map_work='$map_work',dmt='$dmt' WHERE sid =$sid ";
 
 
 $objQuery = mysqli_query($link,$strSQL) or die(mysqli_error($link));

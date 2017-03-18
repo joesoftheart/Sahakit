@@ -59,7 +59,6 @@ if(isset($_POST['search_user'])){
                 <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
                 <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
                 <li class="active"><a href="admin_company.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
-                <li><a href="#"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบันทึกคะแนน</a> </li>
                 <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
                 <li><a href="admin_upload.php" class="fa fa-upload "> อัพโหลด</a> </li>
             </ul>

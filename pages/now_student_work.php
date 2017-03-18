@@ -30,15 +30,14 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql = "SELECT * FROM register_work , company,student  
-                          WHERE register_work.cid = company.cid 
-                            AND register_work.sid = student.sid  
-                             AND register_work.status_work = 2
-                              AND register_work.cid = $cid";
-        $query = mysqli_query($link, $sql);
+        $sql_work = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
+                                                 INNER JOIN student ON register_work.sid = student.sid
+                                                 INNER JOIN post_company ON company.cid = post_company.cid
+                                                 WHERE register_work.status_work = 2";
+        $query_work = mysqli_query($link, $sql_work);
 
-        $sql3 = "SELECT * FROM company WHERE c_status_join = 1";
-        $query_status = mysqli_query($link,$sql3);
+        $sql_status = "SELECT * FROM company WHERE c_status_join = 1";
+        $query_status = mysqli_query($link,$sql_status);
         $result = mysqli_fetch_array($query_status);
 
     }
@@ -106,7 +105,8 @@ include '../php/config.php';
                         </li>
                         <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                             <ul class="nav nav-second-level">
-                                <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                             </ul>
                         </li>
                         <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
@@ -118,8 +118,8 @@ include '../php/config.php';
     </nav>
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-red">
+            <div class="col-md-8 col-md-offset-2" style="margin-top: 5%">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         รายชื่อ " นักศึกษา " ที่รับเข้าฝึกงานแล้ว
                     </div>
@@ -127,7 +127,7 @@ include '../php/config.php';
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table table-responsive">
-                                    <table class="table table table-hover ">
+                                    <table class="table table table-hover table-bordered ">
                                         <tr>
                                             <th width="9%">ลำดับ</th>
                                             <th width="18%">ชื่อนักศึกษา</th>
@@ -135,7 +135,7 @@ include '../php/config.php';
                                             <th width="15%">ข้อมูลส่วนตัว</th>
 
                                         </tr>
-                                        <?php  for ($j=1; $row2 = mysqli_fetch_array($query); $j++){ ?>
+                                        <?php  for ($j=1; $row2 = mysqli_fetch_array($query_work); $j++){ ?>
                                         <tr id="data">
                                             <td> <?= $j ?></td>
                                             <td><?= $row2['fn_st'] ?> <?= $row2['ln_st'] ?></td>
@@ -144,6 +144,94 @@ include '../php/config.php';
                                                    data-target="#myModal<?= $row2['sid'] ?>">ดูประวัติส่วนตัว</a>
                                             </td>
                                         </tr>
+
+
+
+                                            <div id="myModal<?= $row2['sid'] ?>" class="modal fade" role="dialog">
+                                                <div class="modal-dialog modal-md">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title"></h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
+                                                                        <div class=" text-center">
+                                                                            <h1><?= $row2['fn_st'] ?> <?= $row2['ln_st'] ?></h1>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="row">
+                                                                                <div class="col-md-10 col-md-offset-1">
+                                                                                    <label>รหัสนักศึกษา</label>
+                                                                                    <p><img src="../img/checked.png" width="15px" height="15px"> <?= $row2['number_id'] ?>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-5 col-md-offset-1">
+                                                                                    <label>คณะ</label>
+                                                                                    <p>วิทยาศาสตร์และเทคโนโลยี</p>
+                                                                                </div>
+                                                                                <div class="col-md-5 col-md-offset-1">
+                                                                                    <label>สาขา</label>
+                                                                                    <p>วิทยาการคอมพิวเตอร์ </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-5 col-md-offset-1">
+                                                                                    <label>ที่อยู่ </label>
+                                                                                    <p><?= $row2['house_no'] ?> <?= $row2['village_no'] ?> <?= $row2['province'] ?> </p>
+                                                                                </div>
+                                                                                <div class="col-md-5 col-md-offset-1">
+                                                                                    <label>สวัสดิการ</label> <br>
+                                                                                    <p><img src="../img/checked.png" width="15px"
+                                                                                            height="15px"> <?= $row2['gold'] ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-10 col-md-offset-1">
+                                                                                    <label>ตำแหน่ง</label>
+                                                                                    <p><img src="../img/checked.png" width="15px" height="15px"><?= $row2['rank'] ?>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-10 col-md-offset-1">
+                                                                                    <label>คุณสมบัติผู้สมัคร</label>
+                                                                                    <p><img src="../img/checked.png" width="15px"
+                                                                                            height="15px"> <?= $row2['property'] ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-10 col-md-offset-1">
+                                                                                    <label>วิธีการสมัคร</label>
+                                                                                    <p><img src="../img/checked.png" width="15px" height="15px">เพิ่มมมมมมมมมมมมมม
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-10 col-md-offset-1">
+                                                                                    <label>ติดต่อ</label>
+                                                                                    <p><img src="../img/checked.png" width="15px" height="15px"> <?= $row2['c_tela'] ?>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php }  ?>
                                     </table>
                                 </div>
@@ -158,97 +246,7 @@ include '../php/config.php';
 </div>
 
 
-<div id="myModal<?= $row['sid'] ?>" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
-                            <div class=" text-center">
-                                <h1><?= $row['fn_st'] ?> <?= $row['ln_st'] ?></h1>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <label>รหัสนักศึกษา</label>
-                                        <p><img src="../img/checked.png" width="15px" height="15px"> <?= $row['number_id'] ?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-5 col-md-offset-1">
-                                        <label>คณะ</label>
-                                        <p>วิทยาศาสตร์และเทคโนโลยี</p>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-1">
-                                        <label>สาขา</label>
-                                        <p>วิทยาการคอมพิวเตอร์ </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 col-md-offset-1">
-                                        <label>ที่อยู่ </label>
-                                        <p><?= $row['house_no'] ?> <?= $row['village_no'] ?> <?= $row['province'] ?> </p>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-1">
-                                        <label>สวัสดิการ</label> <br>
-                                        <p><img src="../img/checked.png" width="15px"
-                                                height="15px"> <?= $row['monney'] ?></p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <label>ตำแหน่ง</label>
-                                        <p><img src="../img/checked.png" width="15px" height="15px"><?= $row['rank'] ?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <label>คุณสมบัติผู้สมัคร</label>
-                                        <p><img src="../img/checked.png" width="15px"
-                                                height="15px"> <?= $row['property'] ?></p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <label>วิธีการสมัคร</label>
-                                        <p><img src="../img/checked.png" width="15px" height="15px">เพิ่มมมมมมมมมมมมมม
-                                        </p>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <label>ติดต่อ</label>
-                                        <p><img src="../img/checked.png" width="15px" height="15px">เพิ่มมมมมมมมมมมมมมมมมมม
-                                        </p>
-                                    </div>
-                                </div>
-                                <br><br><br>
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-5">
-                                        <input type="submit" name="submit" value="ยืนยันการสมัคร"
-                                               class="btn btn-primary ">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

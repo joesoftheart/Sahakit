@@ -46,10 +46,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
             if ($c_name != null && $rank == null) {
 
-                $sql = "SELECT * FROM company,post_company
-                                      WHERE company.cid = post_company.cid 
-                                              AND company.c_name = '$c_name' limit {$start} , {$perpage}";
+                $sql = "SELECT * FROM company INNER JOIN post_company ON company.cid = post_company.cid 
+                                      WHERE company.c_name = '$c_name' limit {$start} , {$perpage}";
             $query = mysqli_query($link,$sql);
+
 
             } elseif ($c_name != null && $rank != null) {
 
@@ -66,11 +66,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
         }else {
 
-            $sql = "SELECT * FROM company,post_company,register_work 
+            $sql = "SELECT * FROM company,post_company
                                       WHERE company.cid = post_company.cid 
-                                          AND company.cid = register_work.cid
                                               AND company.c_name = c_name limit {$start} , {$perpage} ";
             $query = mysqli_query($link, $sql);
+
         }
 
         $sql3 = "SELECT * FROM student WHERE sid = $sid";
@@ -190,12 +190,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     </nav>
 
 <?php
-    $sql_search = "SELECT DISTINCT c_name FROM register_work,company
-    WHERE register_work.cid = company.cid";
+    $sql_search = "SELECT DISTINCT c_name FROM post_company,company
+    WHERE post_company.cid = company.cid";
     $query_search = mysqli_query($link,$sql_search);
 
-    $sql_rank = "SELECT DISTINCT rank FROM register_work,company
-    WHERE register_work.cid = company.cid";
+    $sql_rank = "SELECT DISTINCT rank FROM post_company,company
+    WHERE post_company.cid = company.cid";
     $query_rank = mysqli_query($link,$sql_rank);
 ?>
     <div id="page-wrapper">
@@ -228,10 +228,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
             </form>
             </div>
         <br><br><br>
+        <div class="col-md-12">
+            <div class="panel panel-danger">
         <?php while ($row = mysqli_fetch_array($query)) { ?>
 
-            <div class="col-md-12">
-                <div class="panel panel-danger">
                     <div class="panel-heading right"><?= $row['c_name'] ?> :
                         <small><i class="text-muted"> <?= $row['dmt'] ?> </i></small>
                     </div>
@@ -280,7 +280,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <input type="hidden" name="cid" value="<?= $row['cid'] ?>">
                                             <input type="hidden" name="sid" value="<?= $row3['sid'] ?>">
                                             <input type="hidden" name="rank" value="<?= $row['rank'] ?>">
-                                            <input type="hidden" name="status_work" value="0">
+                                            <input type="hidden" name="map_work" value="<?= $row['map_work'] ?>">
                                             <input type="hidden" name="status_student" value="0">
                                             <input type="hidden" name="dmt"
                                                    value="<?php echo thaidate('วันที่ j เดือน F  Y เวลา H:i:s'); ?> ">
@@ -339,8 +339,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <div class="row">
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <label>วิธีการสมัคร</label>
-                                                    <p><img src="../img/checked.png" width="15px" height="15px">เพิ่มมมมมมมมมมมมมม
-                                                    </p>
+                                                    <p><img src="../img/checked.png" width="15px" height="15px"> กดยืนยันการสมัคร และ รอการตอบรับจากบริษัท </p>
                                                 </div>
                                             </div>
                                             <br>

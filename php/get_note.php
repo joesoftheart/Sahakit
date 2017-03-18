@@ -48,6 +48,7 @@ function convertdate($monthcon){
 include 'config.php';
    $user_id =  $_POST["user_id"];
     $cid = $_POST['cid'];
+    $tid = $_POST['tid'];
    $type = $_POST["type"];
    $week_number = $_POST["week_number"];
    $date_thai = $_POST["date_thai"];
@@ -72,6 +73,7 @@ include 'config.php';
     $start = date_create($date_now.$start_minute.":".$start_secound);
     $end = date_create($date_now.$end_minute.":".$end_secound);
     $diff=date_diff($end,$start);
+
     $date = $diff->format("%d%");
     $hour = $diff->format("%h%");
     $minute = $diff->format("%i%");
@@ -81,8 +83,8 @@ include 'config.php';
 
 
 
-$sql = "INSERT INTO execute (uid,cid,type,date,week,start_minute,start_secound,end_minute,end_secound,job_work,problem,work_fix,note,save_note,date_now,hour_amount,minute_amount)
-VALUES ('$user_id','$cid','$type','$date_thai','$week_number','$start_minute','$start_secound','$end_minute','$end_secound','$job_work','$problem','$work_fix','$note','$save_note','$date_now','$hour','$minute') ";
+$sql = "INSERT INTO execute (uid,cid,tid,type,date,week,start_minute,start_secound,end_minute,end_secound,job_work,problem,work_fix,note,save_note,date_now,hour_amount,minute_amount)
+VALUES ('$user_id','$cid','$tid','$type','$date_thai','$week_number','$start_minute','$start_secound','$end_minute','$end_secound','$job_work','$problem','$work_fix','$note','$save_note','$date_now','$hour','$minute') ";
    $result = mysqli_query($link,$sql)or die(mysqli_error($link));
 
 echo "<script type='text/javascript'>window.location='../pages/list_note.php'</script>";
