@@ -277,6 +277,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
                                         <div class=" text-center">
                                             <h1><?= $row['c_name'] ?></h1>
+                                            <input type="text" name="idpost" value="<?= $row['idpost'] ?>">
                                             <input type="hidden" name="cid" value="<?= $row['cid'] ?>">
                                             <input type="hidden" name="sid" value="<?= $row3['sid'] ?>">
                                             <input type="hidden" name="rank" value="<?= $row['rank'] ?>">
@@ -366,8 +367,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     </div>
                 </div>
             </div>
-        <?php }
-
+        <?php } ?>
+<?php
         $sql2 = "SELECT * FROM post_company
                 INNER JOIN company
                  ON post_company.cid=company.cid";

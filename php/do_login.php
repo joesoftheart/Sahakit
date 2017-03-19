@@ -14,6 +14,7 @@ if($sql = "SELECT * FROM student
 		$_SESSION['login'] = true;
 		$_SESSION['username'] = $row['username'];
         $_SESSION['sid'] = $row['sid'];
+        $_SESSION['tid'] = $row['tid'];
         $_SESSION['fn_st'] = $row['fn_st'];
         $_SESSION['ln_st'] = $row['ln_st'];
         $_SESSION['number_id'] = $row['number_id'];

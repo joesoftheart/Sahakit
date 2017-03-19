@@ -21,14 +21,17 @@ include '../php/config.php';
 
 
     <?php
-    $status = null;
 
-    if (isset($_SESSION['status'])) {
+    $tid = null;
+
+    if (isset($_SESSION['tid'])) {
         $status = $_SESSION['status'];
         $sid = $_SESSION["sid"];
         $fn_st = $_SESSION['fn_st'];
         $ln_st = $_SESSION['ln_st'];
+        $tid = $_SESSION['tid'];
         $number_id = $_SESSION['number_id'];
+
 
 #วนลูป
         $sql = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
@@ -44,8 +47,7 @@ include '../php/config.php';
         $tid = $result['tid'];
         $status_work = $result['status_work'];
 
-        $sql3 = "SELECT * FROM student,teacher
-                        WHERE student.tid = teacher.tid";
+        $sql3 = "SELECT * FROM student INNER JOIN teacher ON teacher.tid = $tid";
         $query2 = mysqli_query($link, $sql3);
         $row_tea = mysqli_fetch_array($query2);
 

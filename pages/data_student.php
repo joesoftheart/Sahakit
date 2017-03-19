@@ -113,8 +113,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     </tr>
                                     </thead>
                                     <?php
-                                    $sql_register = "SELECT * FROM teacher INNER JOIN student ON teacher.tid = student.tid 
-                                                                            INNER JOIN register_work ON student.sid = register_work.sid";
+                                    $sql_register = "SELECT * FROM teacher INNER JOIN student ON student.tid = $tid
+                                                                          INNER JOIN register_work ON student.sid = register_work.sid";
                                     $query_regiswork = mysqli_query($link, $sql_register);
 
                                     $sql_evaluator ="SELECT * FROM evaluator_company ";
@@ -135,14 +135,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <td class="text-center"><?= $row_register['fn_st'] ?> <?= $row_register['ln_st'] ?></td>
                                             <td class="text-center"><?= $row_register['rank'] ?></td>
                                             <td class="text-center"><?= $row_register['map_work'] ?></td>
-                                            <?php if($row_status['status_work'] == 0) { ?>
+                                            <?php if($row_register['status_work'] == 0) { ?>
                                             <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
-                                            <?php } ?>
-                                            <?php if($row_status['status_work'] == 1) { ?>
+                                            <?php } elseif($row_register['status_work'] == 1) { ?>
                                             <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
-                                            <?php }elseif($row_status['status_work'] == 2){ ?>
+                                            <?php }elseif($row_register['status_work'] == 2){ ?>
                                                 <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
-                                           <?php }elseif($row_status['status_work'] == 3){ ?>
+                                           <?php }elseif($row_register['status_work'] == 3){ ?>
                                             <td class="text-center"><font color="blue">ผ่านการฝึกงานแล้ว</font></td>
                                             <?php }?>
                                             <?php  if ($row_register['status_work'] == 2 || $row_register['status_work'] == 3) { ?>
