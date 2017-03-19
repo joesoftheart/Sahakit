@@ -150,7 +150,7 @@ include '../php/config.php';
                                 <?php
                                 while ($row = mysqli_fetch_array($query)) { ?>
                                     <tr>
-                                        <td><?= $row['idst']; ?></td>
+                                        <td><?= $row['number_id']; ?></td>
                                         <td><?= $row['fn_st']; ?>  <?= $row['ln_st']; ?></td>
                                         <td><?= $row['gender']; ?></td>
                                         <td class="center"><?= $row['rank']; ?></td>

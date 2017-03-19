@@ -298,7 +298,7 @@ include '../php/config.php';
                                         INNER JOIN student ON register_work.cid = student.sid";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
-
+        $uid = $result['sid'];
 
     }
     ?>
@@ -380,6 +380,7 @@ include '../php/config.php';
     <form action="../php/get_note.php" method="post" >
     <table style="margin-top: 5px;margin-left: 50px;font-size:15px;width:90%;" class="table" >
         <tr>
+            <th>ชื่อนักศึกษา</th>
             <th>สัปดาห์ที่</th>
             <th>สถานะ</th>
             <th>วันที่</th>
@@ -389,11 +390,15 @@ include '../php/config.php';
             <th>สถานะ</th>
         </tr>
         <?PHP
-        $sql_list = "SELECT * FROM execute WHERE cid = ".$cid." ";
+        $sql_list = "SELECT * FROM execute  WHERE cid = ".$cid." ";
         $sql_listquery = mysqli_query($link,$sql_list)or die(mysqli_errror($link));
         while($row=mysqli_fetch_array($sql_listquery)){
+            $sql_student ="SELECT * FROM execute INNER JOIN student ON student.sid = execute.uid";
+            $query_student = mysqli_query($link,$sql_student);
+            $row_student = mysqli_fetch_array($query_student);
         ?>
         <tr style="cursor: pointer;" onclick="window.open('../php/update_note_company.php?id=<?PHP echo $row["id"] ?>','_blank')" >
+            <td><?PHP echo $row_student['fn_st'] ?> <?PHP echo $row_student['ln_st'] ?></td>
             <td><?PHP echo $row["week"] ?></td>
             <td><?PHP if($row["type"] == 0 ) { echo "ปฎิบัติงาน"; }else  { echo "ลางาน"; } ?></td>
             <td><?PHP echo $row["date"] ?></td>

@@ -76,7 +76,7 @@ if (isset($_POST['search_user'])) {
                                     <td><?php echo $user['c_name']; ?> </td>
                                     <td>วันที่ <?php echo $user['d_mou']; ?> เดือน <?php echo $user['m_mou']; ?> พ.ศ.<?php echo $user['y_mou']; ?></td>
                                     <td><?php echo $user['time_mou'] ?></td>
-                                    <td class="text-center"><a href="do_mou.php?id=<?= $user['cid']; ?>"><img src="../img/png/file.png" width="45px" height="45px"> </a></td>
+                                    <td class="text-center"><a href="do_mou.php?id=<?= $user['cid']; ?>" target="_blank"><img src="../img/png/file.png" width="45px" height="45px"> </a></td>
                                 </tr>
                                 <?php
                                 $i++;

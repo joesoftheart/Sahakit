@@ -144,7 +144,7 @@ include '../php/config.php';
                                                  height="50px"/></td>
                                         <td><?= $result['number_id'] ?></td>
                                         <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
-                                        <?php if ($row_sum['clock'] >= '360' ){ ?>
+                                        <?php if ($row_sum['clock'] >= '100' ){ ?>
                                         <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
                                                class="btn btn-success">ประเมิน</a></td>
                                         <?php }else{ ?>

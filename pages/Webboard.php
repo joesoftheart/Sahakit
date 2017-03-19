@@ -114,7 +114,7 @@ if (isset($_SESSION['status'])) {
                                 <li><a href="whit_vision.php">เจ้าหน้าที่</a></li>
                             </ul>
                         </li>
-                        <?php if ($status != "นักศึกษา") { ?>
+                        <?php if ($status == "แบร่ๆๆ") { ?>
                         <li>
                             <a href="./timeline.php">หางาน / ฝึกงาน </a>
                         </li>

@@ -104,7 +104,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                         <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                         <th class="text-center">สถานที่ตั้งบริษัท</th>
                                         <th class="text-center">สถานะการสมัครงาน</th>
-                                        <?php if ($row_status['status_work'] == 2) { ?>
+                                        <?php if ($row_status['status_work'] == 2 || $row_status['status_work'] == 3) { ?>
                                             <th class="text-center">รายงาน</th>
                                             <th class="text-center">ประเมิน</th>
                                             <th class="text-center">ลบนักศึกษา</th>
@@ -142,8 +142,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
                                             <?php }elseif($row_status['status_work'] == 2){ ?>
                                                 <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
-                                           <?php } ?>
-                                            <?php  if ($row_register['status_work'] == 2) { ?>
+                                           <?php }elseif($row_status['status_work'] == 3){ ?>
+                                            <td class="text-center"><font color="blue">ผ่านการฝึกงานแล้ว</font></td>
+                                            <?php }?>
+                                            <?php  if ($row_register['status_work'] == 2 || $row_register['status_work'] == 3) { ?>
                                                 <td class="text-center"><a
                                                         href="list_conclude_teacher.php?id=<?= $row_register['sid'] ?>">
                                                         <img

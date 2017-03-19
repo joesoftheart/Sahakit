@@ -371,6 +371,7 @@ include '../php/config.php';
     <form action="../php/get_note.php" method="post" >
     <table style="margin-top: 5px;margin-left: 50px;font-size:15px;width:90%;" class="table" >
         <tr>
+            <th>ชื่อนักศึกษา</th>
             <th>สัปดาห์ที่</th>
             <th>วันที่เริ่ม</th>
             <th>วันที่สิ้นสุด</th>
@@ -384,8 +385,12 @@ include '../php/config.php';
 
 
 
-      <?php  while($row=mysqli_fetch_array($sql_listquery)){?>
+      <?php  while($row=mysqli_fetch_array($sql_listquery)){
+          $sql_student ="SELECT * FROM execute INNER JOIN student ON student.sid = execute.uid";
+          $query_student = mysqli_query($link,$sql_student);
+          $row_student = mysqli_fetch_array($query_student);?>
         <tr style="cursor: pointer;" onclick="window.open('conclude_show_company.php?id=<?PHP echo $row["id"] ?>','_blank')" >
+            <td><?PHP echo $row_student['fn_st'] ?> <?PHP echo $row_student['ln_st'] ?></td>
             <td><?PHP echo $row["week"] ?></td>
             <td><?PHP echo $row["date_start"] ?></td>
             <td><?PHP echo $row["date_end"] ?></td>

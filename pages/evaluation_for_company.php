@@ -410,11 +410,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     </li>
                     <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
                         <ul class="nav nav-second-level">
-                            <li><a href="list_conclude_company.php">ดูสมุดบันทึกประจำวัน</a></li>
+                            <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
+                            <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
                         </ul>
                     </li>
-                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
-
+                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
                 </ul>
             </div>
     </nav>

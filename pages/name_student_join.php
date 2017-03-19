@@ -32,11 +32,13 @@ include '../php/config.php';
 
         $sql_student0 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
                                                  INNER JOIN student ON register_work.sid = student.sid
+                                                 INNER JOIN post_company ON post_company.cid = $cid
                                                  WHERE register_work.status_work = 0";
         $query_student0= mysqli_query($link, $sql_student0);
 
         $sql_student1 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
                                                  INNER JOIN student ON register_work.sid = student.sid
+                                                 INNER JOIN post_company ON post_company.cid = $cid
                                                  WHERE register_work.status_work = 1";
         $query_student1= mysqli_query($link, $sql_student1);
 

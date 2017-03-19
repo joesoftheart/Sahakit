@@ -62,16 +62,8 @@ $sql_sum = "INSERT INTO grade (point_company,sid)
                     VALUE ('$sum','$sid')";
 $query_sum = mysqli_query($link,$sql_sum);
 
-echo print_r($query)."/////";
 
-
-echo print_r($query_sql_status)."//////";
-
-
-
-echo print_r($query_sum);
-
-
+echo "<script type='text/javascript'>window.location='../pages/evaluation_for_company_1.php'</script>";
 
 
 
