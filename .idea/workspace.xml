@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="642c8b28-d4a8-4ab6-bb4e-6838061594ea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/sahakit (1).sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/sahakit.sql" afterPath="$PROJECT_DIR$/db/sahakit.sql" />
-    </list>
+    <list default="true" id="642c8b28-d4a8-4ab6-bb4e-6838061594ea" name="Default" comment="" />
     <ignored path="sahakit.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -91,8 +88,8 @@
       <file leaf-file-name="profile_student.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/profile_student.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+            <state relative-caret-position="598">
+              <caret line="125" column="14" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
               <folding>
                 <marker date="1489926816665" expanded="true" signature="1070:1265" ph="SELECT * FRO... student" />
                 <marker date="1489926816665" expanded="true" signature="1372:1540" ph="SELECT * FRO... student" />
@@ -497,12 +494,12 @@
       <workItem from="1489721549991" duration="28826000" />
       <workItem from="1489816720676" duration="28058000" />
       <workItem from="1489892173180" duration="1913000" />
-      <workItem from="1489901378830" duration="20011000" />
+      <workItem from="1489901378830" duration="20376000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="688825000" />
+    <option name="totallyTimeSpent" value="689190000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,7 +511,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1024,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/profile_student.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+        <state relative-caret-position="598">
+          <caret line="125" column="14" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
           <folding>
             <marker date="1489926816665" expanded="true" signature="1070:1265" ph="SELECT * FRO... student" />
             <marker date="1489926816665" expanded="true" signature="1372:1540" ph="SELECT * FRO... student" />
