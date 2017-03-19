@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="642c8b28-d4a8-4ab6-bb4e-6838061594ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/data_student.php" afterPath="$PROJECT_DIR$/pages/data_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.php" afterPath="$PROJECT_DIR$/pages/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/last_work.php" afterPath="$PROJECT_DIR$/pages/last_work.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/name_student_join.php" afterPath="$PROJECT_DIR$/pages/name_student_join.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/now_student_work.php" afterPath="$PROJECT_DIR$/pages/now_student_work.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/profile_student.php" afterPath="$PROJECT_DIR$/pages/profile_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/timeline.php" afterPath="$PROJECT_DIR$/pages/timeline.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/work_post.php" afterPath="$PROJECT_DIR$/pages/work_post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/work_post_edit.php" afterPath="$PROJECT_DIR$/pages/work_post_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/getform_work.php" afterPath="$PROJECT_DIR$/php/getform_work.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/gteform_workpost.php" afterPath="$PROJECT_DIR$/php/gteform_workpost.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/update_company.php" afterPath="$PROJECT_DIR$/php/update_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/update_evaluation_for_company.php" afterPath="$PROJECT_DIR$/php/update_evaluation_for_company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/update_student.php" afterPath="$PROJECT_DIR$/php/update_student.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/sahakit (1).sql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/sahakit.sql" afterPath="$PROJECT_DIR$/db/sahakit.sql" />
     </list>
     <ignored path="sahakit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -510,12 +497,12 @@
       <workItem from="1489721549991" duration="28826000" />
       <workItem from="1489816720676" duration="28058000" />
       <workItem from="1489892173180" duration="1913000" />
-      <workItem from="1489901378830" duration="19782000" />
+      <workItem from="1489901378830" duration="20011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="688596000" />
+    <option name="totallyTimeSpent" value="688825000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
