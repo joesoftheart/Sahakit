@@ -284,6 +284,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <input type="hidden" name="status_student" value="0">
                                             <input type="hidden" name="dmt"
                                                    value="<?php echo thaidate('วันที่ j เดือน F  Y เวลา H:i:s'); ?> ">
+                                            <input type="hidden" name="idpost" value="<?=$row['idpost']?>" />
                                         </div>
                                         <div class="col-md-12">
                                             <div class="row">

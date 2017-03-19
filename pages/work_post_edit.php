@@ -182,9 +182,29 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>ต้องการนักศึกษาตำแหน่ง</label>
+                                                                        <?php if ($row_detail['rank'] == "System Engineer" or $row_detail['rank'] == "System Administrator" or $row_detail['rank'] == "Network Engineer" or $row_detail['rank'] == "Network Administrator" or $row_detail['rank'] == "IT Administrator" or $row_detail['rank'] == "IT Security" or $row_detail['rank'] == "Network Security" or $row_detail['rank'] == "Internet Security Manager" or $row_detail['rank'] == "IT Network Infrastructure" or $row_detail['rank'] == "Network Operation" or $row_detail['rank'] == "Internet Security Systems Engineer" or $row_detail['rank'] == "Linux Administrator" or $row_detail['rank'] == "Programmer" or $row_detail['rank'] == "Systems Analyst" or $row_detail['rank'] == "Business Analyst") {?>
+                                                                        <select name="rank" class="form-control" id="selectBox" onchange="changeFunc()">
+                                                                            <option value="System Engineer" <?php if ($row_detail['rank'] == "System Engineer"){ ?> selected <?php } ?> >System Engineer</option>
+                                                                            <option value="System Administrator" <?php if ($row_detail['rank'] == "System Administrator"){ ?> selected <?php } ?>>System Administrator</option>
+                                                                            <option value="Network Engineer" <?php if ($row_detail['rank'] == "Network Engineer"){ ?> selected <?php } ?>>Network Engineer</option>
+                                                                            <option value="Network Administrator" <?php if ($row_detail['rank'] == "Network Administrator"){ ?> selected <?php } ?>>Network Administrator</option>
+                                                                            <option value="IT Administrator" <?php if ($row_detail['rank'] == "IT Administrator"){ ?> selected <?php } ?>>IT Administrator</option>
+                                                                            <option value="IT Security" <?php if ($row_detail['rank'] == "IT Security"){ ?> selected <?php } ?>>IT Security</option>
+                                                                            <option value="Network Security" <?php if ($row_detail['rank'] == "Network Security"){ ?> selected <?php } ?>>Network Security</option>
+                                                                            <option value="Internet Security Manager" <?php if ($row_detail['rank'] == "Internet Security Manager"){ ?> selected <?php } ?>>Internet Security Manager</option>
+                                                                            <option value="IT Network Infrastructure" <?php if ($row_detail['rank'] == "IT Network Infrastructure"){ ?> selected <?php } ?>>IT Network Infrastructure</option>
+                                                                            <option value="Network Operation" <?php if ($row_detail['rank'] == "Network Operation"){ ?> selected <?php } ?>>Network Operation</option>
+                                                                            <option value="Internet Security Systems Engineer" <?php if ($row_detail['rank'] == "Internet Security Systems Engineer"){ ?> selected <?php } ?>>Internet Security Systems Engineer</option>
+                                                                            <option value="Linux Administrator" <?php if ($row_detail['rank'] == "Linux Administrator"){ ?> selected <?php } ?>>Linux Administrator</option>
+                                                                            <option value="Programmer" <?php if ($row_detail['rank'] == "Programmer"){ ?> selected <?php } ?>>Programmer</option>
+                                                                            <option value="Systems Analyst" <?php if ($row_detail['rank'] == "Systems Analyst"){ ?> selected <?php } ?>>Systems Analyst</option>
+                                                                            <option value="Business Analyst" <?php if ($row_detail['rank'] == "Business Analyst"){ ?> selected <?php } ?>>Business Analyst</option>
+                                                                        </select>
+                                                                        <?php } else { ?>
                                                                         <input type="text" name="rank"
                                                                                class="form-control"
                                                                                value="<?= $row_detail['rank'] ?>">
+                                                                        <?php } ?>
                                                                     </div>
 
                                                                     <br>
@@ -311,8 +331,21 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
+
     <script src="../data/morris-data.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
 
+
+    <script>
+        function changeFunc() {
+            var selectBox = document.getElementById("selectBox");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            if (selectedValue.toString() == "Other") {
+                alert(selectedValue)
+                $('.other').removeClass('hide');
+
+            }
+        }
+    </script>
 </body>
 </html>

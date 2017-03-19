@@ -32,7 +32,7 @@ include '../php/config.php';
 
 #วนลูป
         $sql = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
-                                        INNER JOIN company ON register_work.cid = company.cid";
+                                        INNER JOIN company ON register_work.cid = company.cid WHERE student.sid = '$sid'";
         $query = mysqli_query($link, $sql) or die(mysqli_error($sql));
 
 #โชว์ ค่าต่างๆ
@@ -44,8 +44,8 @@ include '../php/config.php';
         $tid = $result['tid'];
         $status_work = $result['status_work'];
 
-        $sql3 = "SELECT * FROM student,teacher
-                        WHERE student.tid = teacher.tid";
+        $sql3 = "SELECT * FROM student
+                        WHERE student.tid = $sid";
         $query2 = mysqli_query($link, $sql3);
         $row_tea = mysqli_fetch_array($query2);
 
@@ -105,16 +105,10 @@ include '../php/config.php';
                     </li>
 
                     <?php if ($row_tea['tid'] == 0) { ?>
-
-                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
-
-                    <?php }elseif($result['status_work'] == 3){ ?>
-
-                   <?php }else{ ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                  <?php  } ?>
+                    <?php } ?>
 
-                    <?php if ($result['status_work'] == 2) { ?>
+                    <?php if ($result['status_work'] == 3) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
@@ -123,9 +117,9 @@ include '../php/config.php';
                                 <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
-                    <?php } ?>
-                    <?php if ($result['status_work'] == 3) { ?>
-                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                    <?php if ($result['status_work'] == 4){ ?>
+                            <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                      <?php  }    ?>
                     <?php } ?>
                 </ul>
             </div>
@@ -144,7 +138,7 @@ include '../php/config.php';
         </div>
 
 
-        <?php if ($tid == $tid && $status_work == 1){ ?>
+        <?php if ($tid == $tid && $status_work == 2){ ?>
 
             <div class="row">
                 <div class="col-md-12">
@@ -178,7 +172,7 @@ include '../php/config.php';
                                                 <?php if ($row1['status_work'] == 0) { ?>
                                                     <button class="btn  btn-danger" disabled> ยืนยัน
                                                     </button>
-                                                <?php } elseif ($row1['status_work'] == 1) { ?>
+                                                <?php } elseif ($row1['status_work'] == 2) { ?>
                                                     <button class="btn  btn-success"
                                                             onclick="update(<?= $row1['rwid']; ?>)"> ยืนยัน
                                                     </button>

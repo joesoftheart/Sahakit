@@ -8,12 +8,19 @@ $cid = $_REQUEST['cid'];
 $detail_work = $_REQUEST['detail_work'];
 $web = $_REQUEST['web'];
 $rank = $_REQUEST['rank'];
+$rank2 = $_REQUEST['rank2'];
 $num_stu = $_REQUEST['num_stu'];
 $detail = $_REQUEST['detail'];
 $property = $_REQUEST['property'];
 $map_work = $_REQUEST['map_work'];
 $gold = $_REQUEST['gold'];
 $dmt = $_REQUEST['dmt'];
+
+
+if ($rank == "Other"){
+
+    $rank = $rank2;
+}
 
 ?>
 

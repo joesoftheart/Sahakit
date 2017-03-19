@@ -30,17 +30,18 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql_student0 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
-                                                 INNER JOIN student ON register_work.sid = student.sid
-                                                 INNER JOIN post_company ON post_company.cid = $cid
-                                                 WHERE register_work.status_work = 0";
-        $query_student0= mysqli_query($link, $sql_student0);
 
         $sql_student1 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
                                                  INNER JOIN student ON register_work.sid = student.sid
-                                                 INNER JOIN post_company ON post_company.cid = $cid
+                                                 INNER JOIN post_company ON register_work.idpost = post_company.idpost
                                                  WHERE register_work.status_work = 1";
         $query_student1= mysqli_query($link, $sql_student1);
+
+        $sql_student2 = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
+                                                 INNER JOIN student ON register_work.sid = student.sid
+                                                 INNER JOIN post_company ON register_work.idpost = post_company.idpost
+                                                 WHERE register_work.status_work = 2";
+        $query_student2 = mysqli_query($link, $sql_student2);
 
 
 
@@ -147,7 +148,7 @@ include '../php/config.php';
                                             <th class="text-center">สมัครมาวันที่</th>
                                             <th class="text-center">ยอมรับ</th>
                                         </tr>
-                                        <?php  for ($i=1; $row = mysqli_fetch_array($query_student0); $i++) { ?>
+                                        <?php  for ($i=1; $row = mysqli_fetch_array($query_student1); $i++) { ?>
                                             <tr>
                                                 <td class="text-center"><?= $i; ?></td>
                                                 <td class="text-center"><?= $row['fn_st'] ?> <?= $row['ln_st'] ?></td>
@@ -160,7 +161,7 @@ include '../php/config.php';
                                                     </td>
                                                 <td class="text-center"><?= $row['dmt'] ?></td>
                                                 <td class="text-center">
-                                                    <?php if ($row['status_work'] == 0) {?>
+                                                    <?php if ($row['status_work'] == 1) {?>
                                                     <button class="btn btn-outline btn-success"
                                                             onclick="update('<?= $row['rwid'] ?>')">อนุมัติ</button>
                                                     <?php } ?>
@@ -274,7 +275,7 @@ include '../php/config.php';
                                             <th width="15%">สถานะ</th>
 
                                         </tr>
-                                        <?php  for ($j=1; $row1 = mysqli_fetch_array($query_student1); $j++){ ?>
+                                        <?php  for ($j=1; $row1 = mysqli_fetch_array($query_student2); $j++){ ?>
                                                 <tr id="data">
                                                     <td> <?= $j ?></td>
                                                     <td><?= $row1['fn_st'] ?> <?= $row1['ln_st'] ?></td>
@@ -282,7 +283,7 @@ include '../php/config.php';
                                                     <td><a href="#" data-toggle="modal"
                                                            data-target="#myModal2<?= $row1['sid'] ?>">ดูประวัติส่วนตัว</a>
                                                     </td>
-                                                    <td><font color="#b8860b">รออนุมัติ</font> </td>
+                                                    <td><font color="#b8860b">รอยืนยันการเข้าทำงานของนักศึกษา</font> </td>
                                                 </tr>
 
 

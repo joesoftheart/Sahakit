@@ -142,16 +142,46 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
+
+                            <div class="col-md-4 col-md-offset-2">
                                 <label>ต้องการนักศึกษาตำแหน่ง</label>
-                                <input type="text" name="rank" class="form-control">
+                                <select name="rank" class="form-control" id="selectBox" onchange="changeFunc()">
+                                    <option value="System Engineer">System Engineer</option>
+                                    <option value="System Administrator">System Administrator</option>
+                                    <option value="Network Engineer">Network Engineer</option>
+                                    <option value="Network Administrator">Network Administrator</option>
+                                    <option value="IT Administrator">IT Administrator</option>
+                                    <option value="IT Security">IT Security</option>
+                                    <option value="Network Security">Network Security</option>
+                                    <option value="Internet Security Manager">Internet Security Manager</option>
+                                    <option value="IT Network Infrastructure">IT Network Infrastructure</option>
+                                    <option value="Network Operation">Network Operation</option>
+                                    <option value="Internet Security Systems Engineer">Internet Security Systems Engineer</option>
+                                    <option value="Linux Administrator">Linux Administrator</option>
+                                    <option value="Programmer">Programmer</option>
+                                    <option value="Systems Analyst">Systems Analyst</option>
+                                    <option value="Business Analyst">Business Analyst</option>
+                                    <option value="Senior System Analyst">Senior System Analyst</option>
+                                    <option value="System Analyst AS/400">System Analyst AS/400</option>
+                                    <option value="Other">Other</option>
+                                </select>
+
+
                             </div>
+
+                            <div class="col-md-2 other hide"><label>Other :</label><input name="rank2"  class="form-control" type="text" id="input_ot" /></div>
+
+
+
+
+
+
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <label>ต้องการนักศึกษา</label>
-                                <select name="num_stu" class="form-control">
+                                <select name="num_stu" class="form-control" >
                                     <option value="1">1 อัตรา</option>
                                     <option value="2">2 อัตรา</option>
                                     <option value="3">3 อัตรา</option>
@@ -222,5 +252,17 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <script>
+        function changeFunc() {
+            var selectBox = document.getElementById("selectBox");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            if (selectedValue.toString() == "Other") {
+                alert(selectedValue)
+                $('.other').removeClass('hide');
+
+            }
+        }
+    </script>
 </body>
 </html>

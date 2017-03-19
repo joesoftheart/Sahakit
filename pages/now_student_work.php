@@ -32,8 +32,8 @@ include '../php/config.php';
 
         $sql_work = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
                                                  INNER JOIN student ON register_work.sid = student.sid
-                                                 INNER JOIN post_company ON company.cid = post_company.cid
-                                                 WHERE register_work.status_work = 2";
+                                                 INNER JOIN post_company ON post_company.idpost = register_work.idpost
+                                                 WHERE register_work.status_work = 3";
         $query_work = mysqli_query($link, $sql_work);
 
         $sql_status = "SELECT * FROM company WHERE c_status_join = 1";

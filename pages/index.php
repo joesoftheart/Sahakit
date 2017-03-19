@@ -151,7 +151,7 @@ include '../php/config.php';
         </div>
     </nav>
     <?php
-    $sql1 = "SELECT * FROM news ORDER BY id DESC limit 3 ";
+    $sql1 = "SELECT * FROM news ORDER BY id DESC limit 4 ";
     $query1 = mysqli_query($link, $sql1);
     ?>
     <div id="page-wrapper">
@@ -159,24 +159,27 @@ include '../php/config.php';
         <div class="row">
             <div class="col-md-12">
                 <img class="thumbnail img-responsive" src="../img/index.png">
-                <h3 class="page-header">
-                    ข่าวประชาสัมพันธ์
-                </h3>
-            <?php while ($row1 = mysqli_fetch_array($query1)) { ?>
+                <h5 class="page-header"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  ข่าวประชาสัมพันธ์</h5>
+                <?php $i = 0 ?>
+            <?php while ($row1 = mysqli_fetch_array($query1)) { $i++?>
+                <?php if($i > 3) { ?>
+                    <h5 class="pull-right" style="margin-right: 10px;"><a href="all_new.php">อ่านทั้งหมด>></a> </h5>
+                    <?php  } else { ?>
                 <div class="col-md-4 ">
-                    <div class="panel panel-info">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                           <p class="cut"> <?= $row1['news_story'] ?></p>
+                           <?= $row1['news_story'] ?>
                         </div>
                         <div class="panel-body">
                             <p class="cut"><?= $row1['fntroductory_message'] ?> </p>
                             <p>
                                 <small>โพสต์เมื่อ : <?= $row1['dmt'] ?></small>
                             </p>
-                            <a href="index_show_news.php?id=<?= $row1['id'] ?>" target="_blank" class="btn btn-outline btn-info">อ่านต่อ</a>
+                            <a href="index_show_news.php?id=<?= $row1['id'] ?>" target="_blank" class="btn btn-outline btn-info pull-right">อ่านต่อ</a>
                         </div>
                     </div>
                 </div>
+                    <?php } ?>
             <?php } ?>
                 </div>
             </div>
@@ -186,18 +189,17 @@ include '../php/config.php';
 
         ?>
         <div class="col-md-12">
-            <h3 class="page-header">
-                รายชื่อผลงานนักศึกษา
-            </h3>
+            <h5 class="page-header">
+                ผลงานนักศึกษา
+            </h5>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-green">
+
                     <div class="panel-heading">
 
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -217,8 +219,6 @@ include '../php/config.php';
                             </tbody>
                             <?php } $i++; ?>
                         </table>
-                    </div>
-                </div>
             </div>
             <div class="col-md-6">
                     <!-- /.panel-heading -->

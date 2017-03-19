@@ -38,7 +38,7 @@ include '../php/config.php';
         $sql = "SELECT * FROM register_work , company,student
                           WHERE register_work.cid = company.cid
                             AND register_work.sid = student.sid
-                              AND register_work.status_work = 3
+                              AND register_work.status_work = 4  
                               AND register_work.cid = $cid";
         $query = mysqli_query($link, $sql);
 

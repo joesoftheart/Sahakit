@@ -50,7 +50,7 @@ $query = mysqli_query($link,$sql) or die(mysqli_error($link));
 
 
 
-$sql_status_work = "UPDATE register_work SET status_work='3' WHERE '$sid'";
+$sql_status_work = "UPDATE register_work SET status_work='4' WHERE '$sid'";
 $query_sql_status = mysqli_query($link,$sql_status_work);
 
 
