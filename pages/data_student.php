@@ -42,50 +42,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
-        </div>
+<?php include 'menu_teacher.php'?>
 
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?> </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_te ?>  <?= $ln_te ?> <i
-                        class="fa fa-user"></i> <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="../pages/profile_teacher.php"><i class="glyphicon glyphicon-user"></i>โปรไฟล์</a></li>
-                    <li><a href="../pages/editprofile_teacher.php"><i class="glyphicon glyphicon-edit"></i> แก้ไขโปรไฟล์</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-
-                    <li><a href="#"><img src="../img/png/user-6.png" width="25px" height="25px"> นักศึกษา <span
-                                class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="data_student.php">นักศึกษาในการดูแล</a></li>
-                            <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px">
-                            การสมัครงานนักศึกษา</a></li>
-
-                </ul>
-            </div>
-    </nav>
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -113,8 +71,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     </tr>
                                     </thead>
                                     <?php
-                                    $sql_register = "SELECT * FROM teacher INNER JOIN student ON student.tid = $tid
-                                                                          INNER JOIN register_work ON student.sid = register_work.sid";
+
+                                    $sql_register = "SELECT * FROM teacher INNER JOIN student ON student.tid = $tid 
+                                                      INNER JOIN register_work ON student.sid = register_work.sid
+                                                       WHERE teacher.tid = $tid";
                                     $query_regiswork = mysqli_query($link, $sql_register);
 
                                     $sql_evaluator ="SELECT * FROM evaluator_company ";
@@ -137,14 +97,16 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <td class="text-center"><?= $row_register['map_work'] ?></td>
                                             <?php if($row_register['status_work'] == 0) { ?>
                                             <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
-                                            <?php } elseif($row_register['status_work'] == 1) { ?>
+
+                                            <?php }elseif($row_register['status_work'] == 1) { ?>
+
                                             <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
                                             <?php }elseif($row_register['status_work'] == 2){ ?>
                                                 <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
                                            <?php }elseif($row_register['status_work'] == 3){ ?>
                                             <td class="text-center"><font color="blue">ผ่านการฝึกงานแล้ว</font></td>
                                             <?php }?>
-                                            <?php  if ($row_register['status_work'] == 2 || $row_register['status_work'] == 3) { ?>
+                                            <?php  if ($row_register['status_work'] == 3 || $row_register['status_work'] == 4) { ?>
                                                 <td class="text-center"><a
                                                         href="list_conclude_teacher.php?id=<?= $row_register['sid'] ?>">
                                                         <img

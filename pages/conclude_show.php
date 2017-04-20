@@ -316,7 +316,7 @@ include '../php/config.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
+            <a class="navbar-brand" href="profile_student.php"> <i class="fa fa-home"></i> หน้าแรก </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li><?= $status ?> </li>
@@ -336,35 +336,11 @@ include '../php/config.php';
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#">นักศึกษา <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
-                                <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
-
-                                </ul>
-                            </li>
-                            <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
-                        </ul>
-                    </li>
-
                     <?php if ($row_tea['tid'] == 0) { ?>
-
-                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
-
-                    <?php }elseif($result['status_work'] == 3){ ?>
-
-                    <?php }else{ ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                    <?php  } ?>
+                    <?php } ?>
 
-                    <?php if ($result['status_work'] == 2) { ?>
+                    <?php if ($result['status_work'] == 3) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
@@ -374,9 +350,10 @@ include '../php/config.php';
                             </ul>
                         </li>
                     <?php } ?>
-                    <?php if ($result['status_work'] == 3) { ?>
+                    <?php if ($result['status_work'] == 4){ ?>
                         <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                    <?php } ?>
+                    <?php  }    ?>
+
                 </ul>
             </div>
         </div>

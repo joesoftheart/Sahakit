@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2017 at 04:51 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Mar 19, 2017 at 01:47 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -10131,7 +10131,8 @@ CREATE TABLE `evaluator_company` (
 --
 
 INSERT INTO `evaluator_company` (`id`, `sid`, `cid`, `fn_st`, `ln_st`, `number_id`, `c_name`, `name_leader`, `rank_leader`, `no1`, `no2`, `no3`, `no4`, `no5`, `no6`, `no7`, `no8`, `no9`, `no10`, `no11`, `no12`, `no13`, `no14`, `no15`, `no16`, `no17`, `no18`, `no19`, `no20`, `no21_1`, `no21_2`, `get_work`, `comment`, `evaluator`, `d`, `m`, `y`) VALUES
-(1, 1, 1, 'อุบล', 'ราชธานี', '5521207002', 'KZY AGENCY (THAILAND)', '??????', 'Admin', 4, 5, 4, 5, 5, 3, 3, 3, 3, 3, 3, 5, 4, 4, 3, 3, 4, 3, 3, 4, 'dsagasdg', 'ashasdfhafh', 'yes', 'dfahadfhdfaasd', '??????', '19', 'มีนาคม', '2560');
+(1, 1, 1, 'อุบล', 'ราชธานี', '5521207002', 'KZY AGENCY (THAILAND)', '??????', 'Admin', 4, 5, 4, 5, 5, 3, 3, 3, 3, 3, 3, 5, 4, 4, 3, 3, 4, 3, 3, 4, 'dsagasdg', 'ashasdfhafh', 'yes', 'dfahadfhdfaasd', '??????', '19', 'มีนาคม', '2560'),
+(2, 2, 1, 'จิรนันท์', 'ขุนอินทอง', '5512220100', 'KZY AGENCY (THAILAND)', 'ddddddd', 'ddd', 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, '22', '2', 'yes', '2', '2', '19', 'มีนาคม', '2560');
 
 -- --------------------------------------------------------
 
@@ -10160,7 +10161,12 @@ CREATE TABLE `evaluator_teacher` (
 --
 
 INSERT INTO `evaluator_teacher` (`id`, `sid`, `cid`, `tid`, `no1`, `no2`, `no3`, `no4`, `no5`, `evaluator`, `d`, `m`, `y`) VALUES
-(1, 1, 1, 1, '35', '15', 15, 9, 8, 'หฟกด', '19', 'มีนาคม', '2560');
+(1, 1, 1, 1, '35', '15', 15, 9, 8, 'หฟกด', '19', 'มีนาคม', '2560'),
+(2, 1, 1, 1, '21', '12', 12, 12, 9, '2', '19', 'มีนาคม', '2560'),
+(3, 1, 1, 1, '12', '12', 12, 10, 10, '01', '19', 'มีนาคม', '2560'),
+(4, 1, 1, 1, '10', '10', 10, 10, 1, '10', '19', 'มีนาคม', '2560'),
+(5, 1, 1, 1, '20', '20', 20, 2, 2, '2', '19', 'มีนาคม', '2560'),
+(6, 1, 1, 1, '20', '10', 10, 9, 9, '99', '19', 'มีนาคม', '2560');
 
 -- --------------------------------------------------------
 
@@ -10210,7 +10216,8 @@ INSERT INTO `execute` (`id`, `uid`, `cid`, `tid`, `type`, `date`, `week`, `start
 (11, '001', 1, 1, 0, '15-มีนาคม-2560', 3, '08', '00', '17', '00', '\r\n              asdgdasg  ', '\r\n              dasgdasgasd  ', '\r\n                gdasgdasg', '\r\n                asdgasdgsdag', '\r\n                asdgdasgdasg', '2017-03-15', 9, 0, 0, ''),
 (12, '001', 1, 1, 0, '16-มีนาคม-2560', 3, '08', '00', '17', '00', '\r\n                dasgdas', '\r\n                gdasgdasg', '\r\n                dasgdasg', '\r\n                dasgdasgsdag', '\r\n                asdgdasgdasgdgas', '2017-03-16', 9, 0, 0, ''),
 (13, '001', 1, 1, 0, '17-มีนาคม-2560', 3, '09', '00', '17', '00', '\r\n             asdgdasg  ', '\r\n                ashdffashdfagasdg', 'ashafhdfahdafh\r\n                ', '\r\n                adfhdafhdfah', '\r\n                dafhdafhdafhdafh', '2017-03-17', 8, 0, 0, ''),
-(14, '001', 1, 1, 0, '20-มีนาคม-2560', 4, '08', '00', '17', '00', '\r\n                asdgsdag', '\r\n                dasgdasgdasg', '\r\n                dasgasdgasd', '\r\n                gsdagdasg', '\r\n                asdgsdag', '2017-03-20', 9, 0, 0, '');
+(14, '001', 1, 1, 0, '20-มีนาคม-2560', 4, '08', '00', '17', '00', '\r\n                asdgsdag', '\r\n                dasgdasgdasg', '\r\n                dasgasdgasd', '\r\n                gsdagdasg', '\r\n                asdgsdag', '2017-03-20', 9, 0, 0, ''),
+(15, '002', 1, 1, 0, '09-มีนาคม-2560', 1, '08', '59', '23', '59', '\r\n                dsa', '\r\n                sasad', '\r\n                sadasd', '\r\n              asdsad  ', '\r\n             sadads   ', '2017-03-09', 150, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -10255,7 +10262,7 @@ CREATE TABLE `grade` (
   `id` int(11) NOT NULL,
   `point_company` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `point_teacher` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `sid` int(4) NOT NULL,
+  `sid` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `grade` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -10264,7 +10271,7 @@ CREATE TABLE `grade` (
 --
 
 INSERT INTO `grade` (`id`, `point_company`, `point_teacher`, `sid`, `grade`) VALUES
-(1, '74', '82', 1, 'B');
+(2, '40', '', '002', '');
 
 -- --------------------------------------------------------
 
@@ -10285,7 +10292,10 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `news_story`, `fntroductory_message`, `featuring_news`, `dmt`) VALUES
-(0001, 'วันที่1', 'อะวันเดย', '้่หกฟเดาส่ว่ฟหเ ', '19 มีนาคม 2560 เวลา 01:25:58 ');
+(0001, 'วันที่1', 'อะวันเดย', '้่หกฟเดาส่ว่ฟหเ ', '19 มีนาคม 2560 เวลา 01:25:58 '),
+(0002, 'วันที่1', 'อะวันเดย', '้่หกฟเดาส่ว่ฟหเ ', '19 มีนาคม 2560 เวลา 01:25:58 '),
+(0003, 'วันที่1', 'อะวันเดย', '้่หกฟเดาส่ว่ฟหเ ', '19 มีนาคม 2560 เวลา 01:25:58 '),
+(0004, 'วันที่1', 'อะวันเดย', '้่หกฟเดาส่ว่ฟหเ ', '19 มีนาคม 2560 เวลา 01:25:58 ');
 
 -- --------------------------------------------------------
 
@@ -10312,7 +10322,14 @@ CREATE TABLE `post_company` (
 --
 
 INSERT INTO `post_company` (`idpost`, `cid`, `detail_work`, `web`, `rank`, `num_stu`, `detail`, `property`, `map_work`, `gold`, `dmt`) VALUES
-(001, '001', '-', 'http://kzyagency24hr.com/', 'Web Programmer', '2', '* พัฒนาเว็บไซด์ตามที่ได้รับมอบหมายโดยใช้ ระบบ CMS เช่น WordPress หรือ Magento เป็นหลัก\r\n* วิเคราะห์และออกแบบระบบให้เราสามารถทำตาม Requirement ได้ Install,Config,Customize WordPress และ CMS Magento ได้', 'เพศชาย/ หญิง * เทคนิค / อาชีวศึกษา / มหาวิทยาลัย\r\n\r\nสามารถใช้เครื่อง Mac ได้ และต้องมีความชำนาญในการใช้โปรแกรม Photoshop, Illustrator, 3Dmax\r\n\r\nสามารถ Config และ Setup ระบบ ได้อย่างรวดเร็วมีประสิทธิภาพสูงสุดและปลอดภัย\r\n\r\nสามารถ Customize ระบบได้ดี\r\n\r\nเข้าใจพื้นฐานภาษา PHP+MySQL และ Javascript\r\n\r\nสามารถเขียน HTML ในรูปแบบ HTML5/CSS3,Media Query หรือ ใช้ Framwork ต่างๆของ CSS ได้ มีความรับผิดชอบสูง', '101/1 สุขุมวิท 101/1 แขวง บางนา เขต บางนา กรุงเทพ', '-', 'วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 00:47:18 ');
+(001, '001', '-', 'http://kzyagency24hr.com/', 'Web Programmer', '2', '* พัฒนาเว็บไซด์ตามที่ได้รับมอบหมายโดยใช้ ระบบ CMS เช่น WordPress หรือ Magento เป็นหลัก\r\n* วิเคราะห์และออกแบบระบบให้เราสามารถทำตาม Requirement ได้ Install,Config,Customize WordPress และ CMS Magento ได้', 'เพศชาย/ หญิง * เทคนิค / อาชีวศึกษา / มหาวิทยาลัย\r\n\r\nสามารถใช้เครื่อง Mac ได้ และต้องมีความชำนาญในการใช้โปรแกรม Photoshop, Illustrator, 3Dmax\r\n\r\nสามารถ Config และ Setup ระบบ ได้อย่างรวดเร็วมีประสิทธิภาพสูงสุดและปลอดภัย\r\n\r\nสามารถ Customize ระบบได้ดี\r\n\r\nเข้าใจพื้นฐานภาษา PHP+MySQL และ Javascript\r\n\r\nสามารถเขียน HTML ในรูปแบบ HTML5/CSS3,Media Query หรือ ใช้ Framwork ต่างๆของ CSS ได้ มีความรับผิดชอบสูง', '101/1 สุขุมวิท 101/1 แขวง บางนา เขต บางนา กรุงเทพ', '-', 'วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 00:47:18 '),
+(002, '001', 'sss', 'sss', 'Other', '1', 'ss', 'ss', 'ss', 'sss', 'วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 15:17:15 '),
+(003, '001', 'qq', 'qq', 'Other', '1', 'qq', 'qq', 'qq', 'q', 'วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 15:19:21 '),
+(004, '001', 'ee', ' ee', 'System Engineer', '1', 'e', 'e', 'e', 'e', 'แก้ไขล่าสุด วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 15:54:42 '),
+(005, '001', 'ww', ' ww', 'wssss', '1', 'w', 'w', 'w', 'w', 'แก้ไขล่าสุด วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 15:26:42 '),
+(006, '001', 'qq', '  qq', 'Business Analyst', '1', 'qq', 'q', 'q', 'q', 'แก้ไขล่าสุด วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 15:55:41 '),
+(007, '001', 'a', ' a', 'IT Security', '1', 'a', 'a', 'a', 'a', 'แก้ไขล่าสุด วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 16:02:14 '),
+(008, '001', 'b', '  b', 'bbbb', '9', 'b', 'b', 'b', 'b', 'แก้ไขล่าสุด วัน อาทิตย์ ที่ 19 เดือน มีนาคม พ.ศ. 2560 เวลา 16:03:16 ');
 
 -- --------------------------------------------------------
 
@@ -10424,15 +10441,17 @@ CREATE TABLE `register_work` (
   `rank` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `map_work` text COLLATE utf8_unicode_ci NOT NULL,
   `status_work` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `dmt` text COLLATE utf8_unicode_ci NOT NULL
+  `dmt` text COLLATE utf8_unicode_ci NOT NULL,
+  `idpost` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `register_work`
 --
 
-INSERT INTO `register_work` (`rwid`, `sid`, `cid`, `rank`, `map_work`, `status_work`, `dmt`) VALUES
-(001, '001', '001', 'Web Programmer', '101/1 สุขุมวิท 101/1 แขวง บางนา เขต บางนา กรุงเทพ', '2', 'วันที่ 19 เดือน มีนาคม  2560 เวลา 00:48:23 ');
+INSERT INTO `register_work` (`rwid`, `sid`, `cid`, `rank`, `map_work`, `status_work`, `dmt`, `idpost`) VALUES
+(001, '001', '001', 'Web Programmer', '101/1 สุขุมวิท 101/1 แขวง บางนา เขต บางนา กรุงเทพ', '3', 'วันที่ 19 เดือน มีนาคม  2560 เวลา 00:48:23 ', '001'),
+(008, '002', '001', 'Web Programmer', '101/1 สุขุมวิท 101/1 แขวง บางนา เขต บางนา กรุงเทพ', '3', 'วันที่ 19 เดือน มีนาคม  2560 เวลา 18:48:29 ', '001');
 
 -- --------------------------------------------------------
 
@@ -10522,7 +10541,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`sid`, `username`, `passwd`, `frist_name`, `fn_st`, `ln_st`, `number_id`, `house_no`, `village_no`, `province`, `amphur`, `district`, `postal_code`, `age`, `gender`, `status`, `telaphone`, `email`, `filetoload`, `resume_upload`, `tid`) VALUES
-(001, 'student1', '12345678', 'นาย', 'อุบล', 'ราชธานี', '5521207002', '99', '99', '1', '43', '223', '99', '22', 'ชาย', 'นักศึกษา', '0897245645', 'pond_yakuza@hotmail.com', 'student1.jpg', 't.docx', '001');
+(001, 'student1', '12345678', 'นาย', 'อุบล', 'ราชธานี', '5521207002', '99', '99', '1', '43', '223', '99', '22', 'ชาย', 'นักศึกษา', '0897245645', 'pond_yakuza@hotmail.com', 'student1.jpg', 't.docx', '001'),
+(002, 'joesoftheart', 'joesoftheart', 'นาย', 'จิรนันท์', 'ขุนอินทอง', '5512220100', '121', '9', '15', '185', '1494', '24160', '24', 'หญิง', 'นักศึกษา', '0642077111', 'tonkha23@gmail.com', 'joesoftheart.jpg', '2201-แบบสอบถามความพึงพอใจ-วิทย์คอม-54.doc', '002');
 
 -- --------------------------------------------------------
 
@@ -10549,7 +10569,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`tid`, `username`, `passwd`, `frist_name`, `fn_te`, `ln_te`, `address`, `telaphone`, `email`, `filetoload`, `status`) VALUES
-(001, 'teacher1', '12345678', 'ผศ.ดร', 'ชล', 'บุรี', 'asdhfashdfahdfhas', '0984564156', 'ponkumiko@gmail.com', 'teacher1.jpg', 'อาจารย์');
+(001, 'teacher1', '12345678', 'ผศ.ดร', 'ชล', 'บุรี', 'asdhfashdfahdfhas', '0984564156', 'ponkumiko@gmail.com', 'teacher1.jpg', 'อาจารย์'),
+(002, 'joesoftteach', 'joesoftteach', 'ร.ศ.', 'จารย์โจ้', 'จารย์นะจารย์', '1122', '0642077112', 'tonkha233@gmail.com', 'joesoftteach.jpg', 'อาจารย์');
 
 -- --------------------------------------------------------
 
@@ -10730,17 +10751,17 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `evaluator_company`
 --
 ALTER TABLE `evaluator_company`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `evaluator_teacher`
 --
 ALTER TABLE `evaluator_teacher`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `execute`
 --
 ALTER TABLE `execute`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `files_company`
 --
@@ -10760,17 +10781,17 @@ ALTER TABLE `files_teacher`
 -- AUTO_INCREMENT for table `grade`
 --
 ALTER TABLE `grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `post_company`
 --
 ALTER TABLE `post_company`
-  MODIFY `idpost` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpost` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `provinces`
 --
@@ -10780,7 +10801,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `register_work`
 --
 ALTER TABLE `register_work`
-  MODIFY `rwid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rwid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `reply`
 --
@@ -10795,12 +10816,12 @@ ALTER TABLE `resume`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT 'student_ID', AUTO_INCREMENT=2;
+  MODIFY `sid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT 'student_ID', AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `tid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `tid` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `webboard`
 --

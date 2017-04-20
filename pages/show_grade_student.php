@@ -53,83 +53,16 @@ include '../php/config.php';
         $query_sum = mysqli_query($link,$sql_sum);
         $row_sum = mysqli_fetch_array($query_sum);
 
+        $sql3 = "SELECT * FROM student
+                        WHERE student.tid = $sid";
+        $query2 = mysqli_query($link, $sql3);
+        $row_tea = mysqli_fetch_array($query2);
+
     }
     ?>
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?> </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
-                        class="fa fa-user"></i> <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
-                    <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#">นักศึกษา <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
-                                <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
-
-                                </ul>
-                            </li>
-                            <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
-                        </ul>
-                    </li>
-
-                    <?php if ($row_tea['tid'] == 0) { ?>
-                        111111
-                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
-
-                    <?php }elseif($result['status_work'] == 3){ ?>
-
-                    <?php }else{ ?>
-                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                    <?php  } ?>
-
-                    <?php if ($result['status_work'] == 2) { ?>
-                        <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="add_conclude_form.php">บันทึกการฝึกงานประจำวัน</a></li>
-                                <li><a href="list_conclude.php">ดูประวัติบันทึกประจำวัน </a></li>
-                            </ul>
-                        </li>
-                    <?php } ?>
-                    <?php if ($result['status_work'] == 3) { ?>
-                        <li><a href="#"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+<?php include 'menu_student.php'?>
 
 <?php
 

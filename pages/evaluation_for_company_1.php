@@ -22,10 +22,7 @@ include '../php/config.php';
 
 
     <?php
-    $status = null;
 
-
-    if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
@@ -33,86 +30,24 @@ include '../php/config.php';
 
 
         $sql = "SELECT * FROM register_work 
-                      INNER JOIN company ON register_work.cid = company.cid 
                       INNER JOIN student ON register_work.sid = student.sid 
-                      AND register_work.cid = $cid ";
+                      WHERE register_work.cid = $cid ";
         $query = mysqli_query($link, $sql);
 
 
         $sql_sum = "SELECT SUM(hour_amount) AS clock FROM execute  WHERE cid = $cid";
         $query_sum = mysqli_query($link,$sql_sum);
         $row_sum = mysqli_fetch_array($query_sum);
-    }
+
+
+    $sql3 = "SELECT * FROM company WHERE cid= $cid AND c_status_join = 1";
+    $qquery = mysqli_query($link,$sql3);
+    $result = mysqli_fetch_array($qquery);
+
     ?>
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?></li>
-            <li class="dropdown">
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
-                        class="fa fa-user"></i> <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                    <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
-                            <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
-                            <li><a href="visit_comp.php">วัตถุประสงค์ของการนิเทศงาน</a></li>
-                            <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
-                            <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
-                            <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-
-                            <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
-                            <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a></li>
-                </ul>
-            </div>
-    </nav>
-</div>
+<?php include 'menu_company.php'?>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="margin-top: 5%">
@@ -126,10 +61,8 @@ include '../php/config.php';
                                 <th>ชื่อนักศึกษา</th>
                                 <th class="right"></th>
                             </tr>
-                            <?php  for ($i = 1; $result = mysqli_fetch_array($query); $i++) { ?>
-
-                                <?php if ($result['status_work'] == '3') { ?>
-
+                            <?php  for ($i = 1; $result = mysqli_fetch_array($query); $i++) {
+                                if ($result['status_work'] == '4') { ?>
                                     <tr>
                                         <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
                                                  height="50px"/></td>
@@ -138,13 +71,13 @@ include '../php/config.php';
                                         <td><a href="#"
                                                class="btn btn-danger" disabled="disable">ประเมินแล้ว</a></td>
                                     </tr>
-                                <?php } elseif ($result['status_work'] == '2') { ?>
+                                <?php } elseif ($result['status_work'] == '3') { ?>
                                     <tr>
                                         <td><img src="../uploads/student/<?= $result['filetoload'] ?>" width="50px"
                                                  height="50px"/></td>
                                         <td><?= $result['number_id'] ?></td>
                                         <td><?= $result['fn_st'] ?>  <?= $result['ln_st'] ?></td>
-                                        <?php if ($row_sum['clock'] >= '100' ){ ?>
+                                        <?php if ($row_sum['clock'] >= '300' ){ ?>
                                         <td><a href="evaluation_for_company.php?sid=<?= $result['sid'] ?>"
                                                class="btn btn-success">ประเมิน</a></td>
                                         <?php }else{ ?>

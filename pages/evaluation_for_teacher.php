@@ -271,7 +271,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
+            <a class="navbar-brand" href="profile_teacher.php"> <i class="fa fa-home"></i> หน้าแรก </a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
@@ -298,7 +298,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             <li><a href="all_student.php">นักศึกษาสหกิจทั้งหมด</a></li>
                         </ul>
                     </li>
-                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> สรุปคะแนนการปฏิบัติงาน</a> </li>
+                    <li><a href="do_join_work.php"><img src="../img/png/file.png" width="25px" height="25px"> การสมัครงานนักศึกษา</a> </li>
 
                 </ul>
             </div>
@@ -327,9 +327,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         นักศึกษา <input type="text"  value=" <?= $row_work['fn_st'] ?> <?= $row_work['ln_st'] ?>"
                                             data-onload="set_size($(this),500)"
                                             style="margin-top: 5px;">
-                        <br>
-                        ชื่อโครงงาน <input type="text"  data-onload="set_size($(this),500)"
-                                        readonly="readonly" style="margin-top: 5px;">
+
+
 
                         <br><br>
 
@@ -356,7 +355,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <td class="text-center"> 40 </td>
                                 <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
                                               style="margin-top: 5px;"
-                                              rows="3" required="required" min="0" max="40"  minlength="2" maxlength="2" id="mynumber"
+                                              rows="3" required="required"   maxlength="2" id="mynumber"
                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             <tr>
@@ -367,7 +366,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <td class="text-center"> 20 </td>
                                 <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
-                                                                  rows="1" required="required"  minlength="2" maxlength="2" id="mynumber"
+                                                                  rows="1" required="required"   maxlength="2" id="mynumber"
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             <tr>
@@ -377,7 +376,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <td class="text-center"> 20 </td>
                                 <td class="text-center"><textarea name="no3" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
-                                                                  rows="1" required="required"  minlength="2" maxlength="2" id="mynumber"
+                                                                  rows="1" required="required"   maxlength="2" id="mynumber"
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             <tr>

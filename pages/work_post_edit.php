@@ -37,76 +37,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $query = mysqli_query($link, $sql);
     $result = mysqli_fetch_array($query);
 
+    $sql3 = "SELECT * FROM company WHERE cid= $cid AND c_status_join = 1";
+    $qquery = mysqli_query($link,$sql3);
+    $result = mysqli_fetch_array($qquery);
+
     ?>
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?></li>
-            <li class="dropdown">
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
-                        class="fa fa-user"></i>  <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                    <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
-                            <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
-                            <li><a href="visit_comp.php">วัตถุประสงค์ของการนิเทศงาน</a></li>
-                            <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
-                            </a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
-                                <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
-                                <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-
-                                <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
-                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
-
-                </ul>
-            </div>
-    </nav>
+<?php include 'menu_company.php'?>
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="panel panel-info" style="margin-top: 5%">
@@ -182,9 +120,29 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
                                                                     <div class="col-md-8 col-md-offset-2" style="margin-top: 1%">
                                                                         <label>ต้องการนักศึกษาตำแหน่ง</label>
+                                                                        <?php if ($row_detail['rank'] == "System Engineer" or $row_detail['rank'] == "System Administrator" or $row_detail['rank'] == "Network Engineer" or $row_detail['rank'] == "Network Administrator" or $row_detail['rank'] == "IT Administrator" or $row_detail['rank'] == "IT Security" or $row_detail['rank'] == "Network Security" or $row_detail['rank'] == "Internet Security Manager" or $row_detail['rank'] == "IT Network Infrastructure" or $row_detail['rank'] == "Network Operation" or $row_detail['rank'] == "Internet Security Systems Engineer" or $row_detail['rank'] == "Linux Administrator" or $row_detail['rank'] == "Programmer" or $row_detail['rank'] == "Systems Analyst" or $row_detail['rank'] == "Business Analyst") {?>
+                                                                        <select name="rank" class="form-control" id="selectBox" onchange="changeFunc()">
+                                                                            <option value="System Engineer" <?php if ($row_detail['rank'] == "System Engineer"){ ?> selected <?php } ?> >System Engineer</option>
+                                                                            <option value="System Administrator" <?php if ($row_detail['rank'] == "System Administrator"){ ?> selected <?php } ?>>System Administrator</option>
+                                                                            <option value="Network Engineer" <?php if ($row_detail['rank'] == "Network Engineer"){ ?> selected <?php } ?>>Network Engineer</option>
+                                                                            <option value="Network Administrator" <?php if ($row_detail['rank'] == "Network Administrator"){ ?> selected <?php } ?>>Network Administrator</option>
+                                                                            <option value="IT Administrator" <?php if ($row_detail['rank'] == "IT Administrator"){ ?> selected <?php } ?>>IT Administrator</option>
+                                                                            <option value="IT Security" <?php if ($row_detail['rank'] == "IT Security"){ ?> selected <?php } ?>>IT Security</option>
+                                                                            <option value="Network Security" <?php if ($row_detail['rank'] == "Network Security"){ ?> selected <?php } ?>>Network Security</option>
+                                                                            <option value="Internet Security Manager" <?php if ($row_detail['rank'] == "Internet Security Manager"){ ?> selected <?php } ?>>Internet Security Manager</option>
+                                                                            <option value="IT Network Infrastructure" <?php if ($row_detail['rank'] == "IT Network Infrastructure"){ ?> selected <?php } ?>>IT Network Infrastructure</option>
+                                                                            <option value="Network Operation" <?php if ($row_detail['rank'] == "Network Operation"){ ?> selected <?php } ?>>Network Operation</option>
+                                                                            <option value="Internet Security Systems Engineer" <?php if ($row_detail['rank'] == "Internet Security Systems Engineer"){ ?> selected <?php } ?>>Internet Security Systems Engineer</option>
+                                                                            <option value="Linux Administrator" <?php if ($row_detail['rank'] == "Linux Administrator"){ ?> selected <?php } ?>>Linux Administrator</option>
+                                                                            <option value="Programmer" <?php if ($row_detail['rank'] == "Programmer"){ ?> selected <?php } ?>>Programmer</option>
+                                                                            <option value="Systems Analyst" <?php if ($row_detail['rank'] == "Systems Analyst"){ ?> selected <?php } ?>>Systems Analyst</option>
+                                                                            <option value="Business Analyst" <?php if ($row_detail['rank'] == "Business Analyst"){ ?> selected <?php } ?>>Business Analyst</option>
+                                                                        </select>
+                                                                        <?php } else { ?>
                                                                         <input type="text" name="rank"
                                                                                class="form-control"
                                                                                value="<?= $row_detail['rank'] ?>">
+                                                                        <?php } ?>
                                                                     </div>
 
                                                                     <br>
@@ -311,8 +269,21 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
+
     <script src="../data/morris-data.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
 
+
+    <script>
+        function changeFunc() {
+            var selectBox = document.getElementById("selectBox");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            if (selectedValue.toString() == "Other") {
+                alert(selectedValue)
+                $('.other').removeClass('hide');
+
+            }
+        }
+    </script>
 </body>
 </html>

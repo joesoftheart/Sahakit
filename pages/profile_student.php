@@ -35,19 +35,25 @@ include '../php/config.php';
 
 #วนลูป
         $sql = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
-                                        INNER JOIN company ON register_work.cid = company.cid";
+                                        INNER JOIN company ON register_work.cid = company.cid WHERE student.sid = '$sid'";
         $query = mysqli_query($link, $sql) or die(mysqli_error($sql));
 
 #โชว์ ค่าต่างๆ
-        $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
-                                        INNER JOIN company ON register_work.cid = company.cid";
+        $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = student.sid WHERE student.sid = $sid ";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
+
+        $sql_c = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
+                                        INNER JOIN company ON register_work.cid = company.cid WHERE student.sid = '$sid'";
+        $query_c = mysqli_query($link ,$sql_c);
+        $result_c = mysqli_fetch_array($query_c);
+
 
         $tid = $result['tid'];
         $status_work = $result['status_work'];
 
-        $sql3 = "SELECT * FROM student INNER JOIN teacher ON teacher.tid = $tid";
+        $sql3 = "SELECT * FROM student
+                        WHERE student.tid = $sid";
         $query2 = mysqli_query($link, $sql3);
         $row_tea = mysqli_fetch_array($query2);
 
@@ -59,81 +65,9 @@ include '../php/config.php';
     ?>
 </head>
 <body>
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"> <i class="fa fa-home"></i> หน้าแรก </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?> </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $fn_st ?>  <?= $ln_st ?> <i
-                        class="fa fa-user"></i> <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_student.php"><i class="glyphicon glyphicon-user"></i> Profiles</a></li>
-                    <li><a href="editprofile_student.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#">นักศึกษา <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="manual_student.php">คู่มือสหกิจศึกษา</a></li>
-                            <li><a href="#">แนวปฏิบัติสหกิจศึกษา <i class="fa arrow"></i> </a>
-                                <ul class="nav nav-third-level">
-                                    <li><a href="property_stu.php">คุณสมบัตินักศึกษา</a></li>
-                                    <li><a href="visit_stu.php">ขั้นตอนการนิเทศงาน</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="seminar.php">การสัมมนาวิชาการ</a></li>
-                                    <li><a href="evaluation_ca.php">การประเมินผล</a></li>
+<?php include 'menu_student.php'?>
 
-                                </ul>
-                            </li>
-                            <li><a href="tecnic_student.php">เทคนิคการเลือกสถานประกอบการ</a></li>
-                        </ul>
-                    </li>
 
-                    <?php if ($row_tea['tid'] == 0) { ?>
-
-                    <?php } elseif($result['tid'] != null && $result['status_work'] == 2)  { ?>
-
-                    <?php }elseif($result['status_work'] == 3){ ?>
-
-                   <?php }else{ ?>
-                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                  <?php  } ?>
-
-                    <?php if ($result['status_work'] == 2) { ?>
-                        <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
-                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
-                            </ul>
-                        </li>
-                    <?php } ?>
-                    <?php if ($result['status_work'] == 3) { ?>
-                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -146,7 +80,7 @@ include '../php/config.php';
         </div>
 
 
-        <?php if ($tid == $tid && $status_work == 1){ ?>
+        <?php if ($tid == $tid && $status_work == 2){ ?>
 
             <div class="row">
                 <div class="col-md-12">
@@ -169,7 +103,7 @@ include '../php/config.php';
                                             <td> <?= $i; ?> </td>
                                             <td><?= $row1['c_name'] ?></td>
                                             <td><?= $row1['rank'] ?></td>
-                                            <td><?php if ($row1['status_work'] == 0) { ?>
+                                            <td><?php if ($row1['status_work'] == 1) { ?>
                                                     <font color="red">รออนุมัติ</font>
                                                 <?php } else { ?>
                                                     <font color="green">อนุมัติแล้ว</font>
@@ -180,7 +114,7 @@ include '../php/config.php';
                                                 <?php if ($row1['status_work'] == 0) { ?>
                                                     <button class="btn  btn-danger" disabled> ยืนยัน
                                                     </button>
-                                                <?php } elseif ($row1['status_work'] == 1) { ?>
+                                                <?php } elseif ($row1['status_work'] == 2) { ?>
                                                     <button class="btn  btn-success"
                                                             onclick="update(<?= $row1['rwid']; ?>)"> ยืนยัน
                                                     </button>
@@ -206,7 +140,7 @@ include '../php/config.php';
                 </div>
             </div>
 
-        <?php }else if ($tid == $tid && $status_work >=2){ ?>
+        <?php }else if ($tid == $tid && $status_work >= 3){ ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-green">
@@ -216,29 +150,29 @@ include '../php/config.php';
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th colspan="3" class="text-center"><h4><?= $result['c_name'] ?></h4></th>
+                                    <th colspan="3" class="text-center"><h4><?= $result_c['c_name'] ?></h4></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>ชื่อหัวหน้างาน</td>
-                                    <td><?= $result['leader'] ?></td>
+                                    <td><?= $result_c['leader'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>ตำแหน่งหัวหน้างาน</td>
-                                    <td><?= $result['rank_leader'] ?></td>
+                                    <td><?= $result_c['rank_leader'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>ที่ตั้งบริษัท</td>
-                                    <td><?= $result['c_address'] ?></td>
+                                    <td><?= $result_c['c_address'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>เบอร์โทรติดต่อ</td>
-                                    <td><?= $result['c_tela'] ?></td>
+                                    <td><?= $result_c['c_tela'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>ตำแหน่งที่ฝึก</td>
-                                    <td><?= $result['rank'] ?></td>
+                                    <td><?= $result_c['rank'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>เวลาเข้างาน - เลิกงาน</td>
@@ -248,7 +182,7 @@ include '../php/config.php';
                                     <td>จำนวนชั่วโมงที่ฝึกแล้ว</td>
                                     <td><?= $row_sum['clock'] ?> ชั่วโมง</td>
                                 </tr>
-                                <?php if ($status_work == 3) { ?>
+                                <?php if ($status_work == 4) { ?>
                                 <tr>
                                     <td> </td>
                                     <td> ผ่านการฝึกงาน</td>
