@@ -1,6 +1,19 @@
-//Flot Line Chart
+
+<?php include '../php/config.php';
+
+$get_data = $mysqli->query("SELECT status_work COUNT(*) as count_rec FROM register_work GROUP BY status_work");
+
+while($data = $get_data->fetch_assoc()){
+
+    $result[] = $data;
+}
 
 
+?>
+
+
+
+<script>
 $(document).ready(function() {
 
     var offset = 0;
@@ -56,16 +69,16 @@ $(function() {
 
     var data = [{
         label: "ฝึกงานแล้ว",
-        data: 35
+        data: 1
     }, {
         label: "หาที่ฝึกงาน",
-        data: 27
+        data: 2
     }, {
         label: "ไม่มีที่ฝึกงาน",
-        data: 5
+        data: 3
     }, {
         label: "กำลังรออนุมัติ",
-        data: 31
+        data: 4
     }];
 
     var plotObj = $.plot($("#flot-pie-chart"), data, {
@@ -1242,3 +1255,4 @@ $(function() {
     $.plot($("#flot-bar-chart"), [barData], barOptions);
 
 });
+</script>

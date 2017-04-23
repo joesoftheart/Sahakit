@@ -64,7 +64,6 @@ include '../php/config.php';
                                 <tr>
                                     <th>รหัสนักศึกษา</th>
                                     <th>ชื่อ - นามสกุล</th>
-                                    <th>เพศ</th>
                                     <th>ฝึกงานตำแหน่ง</th>
                                     <th>เข้ามาฝึกงานเมื่อ</th>
                                     <th>ใบรองรับการฝึกงาน</th>
@@ -77,7 +76,6 @@ include '../php/config.php';
                                     <tr>
                                         <td><?= $row['number_id']; ?></td>
                                         <td><?= $row['fn_st']; ?>  <?= $row['ln_st']; ?></td>
-                                        <td><?= $row['gender']; ?></td>
                                         <td class="center"><?= $row['rank']; ?></td>
                                         <td class="center"><?= $row['dmt']; ?></td>
                                         <td>นี่ไงใบฝึกงานเสด</td>

@@ -40,10 +40,7 @@ if(isset($_POST['show_user_id'])){
                         <label >อายุ</label>
                         <input type="text" class="form-control" name="edit_age"  value="'.$edit_user['age'].'">
                     </div>
-                    <div class="form-group">
-                        <label >เพศ</label>
-                        <input type="text" class="form-control" name="edit_gender"  value="'.$edit_user['gender'].'">
-                    </div>
+                    
                     <div class="form-group">
                         <label >เบอร์โทรศัพท์</label>
                         <input type="text" class="form-control" name="edit_telaphone"  value="'.$edit_user['telaphone'].'">

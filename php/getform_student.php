@@ -26,6 +26,7 @@
 <?php
     $username = $_REQUEST['username'];
     $passwd = $_REQUEST['passwd'];
+    $conpasswd = $_REQUEST['conpasswd'];
     $number_id = $_REQUEST['number_id'];
     $frist_name = $_REQUEST['frist_name'];
     $fn_st = $_REQUEST['fn_st'];
@@ -37,7 +38,6 @@
     $district = $_REQUEST['district'];
     $postal_code = $_REQUEST['postal_code'];
     $age = $_REQUEST['age'];
-    $gender = $_REQUEST['gender'];
     $status = $_REQUEST['status'];
     $email = $_REQUEST['email'];
     $telaphone = $_REQUEST['telaphone'];
@@ -54,6 +54,8 @@
 <?php
 session_start();
 include 'config.php';
+
+
 $strSQL = "SELECT * FROM student
               WHERE username = '".trim($_POST['username'])."' ";
 $objQuery = mysqli_query($link,$strSQL) or die(mysqli_error($strSQL));
@@ -67,7 +69,7 @@ if($objResult)
 else
 {
 
-    $strSQL = "INSERT INTO student (username,passwd,frist_name,fn_st,ln_st,number_id,house_no,village_no,province,amphur,district,postal_code,age,gender,status,telaphone,email,filetoload,resume_upload,tid) 
+    $strSQL = "INSERT INTO student (username,passwd,frist_name,fn_st,ln_st,number_id,house_no,village_no,province,amphur,district,postal_code,age,status,telaphone,email,filetoload,resume_upload,tid) 
             VALUES ('$username',
                     '$passwd',
                     '$frist_name',
@@ -81,7 +83,6 @@ else
                     '$district',
                     '$postal_code',
                     '$age',
-                    '$gender',
                     '$status',
                     '$telaphone',
                     '$email',

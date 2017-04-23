@@ -75,16 +75,13 @@
         $(document).ready(function () {
             $(".f1").removeClass('hide');
             $(".f2").addClass('hide');
-            $(".f3").addClass('hide');
             $("#reply").click(function () {
                 if (this.value == '1') {
                     $(".f1").removeClass('hide')
                     $(".f2").addClass('hide');
-                    $(".f3").addClass('hide');
                 } else if (this.value == '2') {
                     $(".f1").addClass('hide')
                     $(".f2").removeClass('hide');
-                    $(".f3").addClass('hide');
 
                 }
             });
@@ -155,7 +152,6 @@
         .status-not-available {
             color: #D60202;
         }
-
         .img-availability-status {
             color: #2FC332;
         }
@@ -188,7 +184,7 @@
 <body>
 
 <div style="margin-top: 2%"></div>
-<div class="container well">
+<div class="container">
     <div class="col-md-12">
         <h3 class=" text-center">แบบฟอร์มกรอกสมัครสมาชิก ระบบสหกิจศึกษา</h3>
     </div>
@@ -209,28 +205,32 @@
                         </div>
                         <div class="panel-body">
                             <!-- แบบฟอร์มสำรับ นักศึกษา -->
+                            <div class="row">
                             <div class="col-md-4">
                                 <label>ชื่อผู้ใช้</label>
-                                <input type="text" name="username" placeholder="กรอกไอดีของท่าน" class="form-control"
+                                <input type="text" name="username"  class="form-control"
                                        maxlength="24" required="required" id="data_text" size="40" onkeyup="isThaichar(this.value,this)">
                             </div>
                             <div class="col-md-4">
                                 <label>รหัสผ่าน</label>
-                                <input type="password" name="passwd" class="form-control" minlength="8" maxlength="18"
+                                <input type="password" name="passwd" id="password" class="form-control" minlength="8" maxlength="18"
                                        required="required">
+
+                                <span id="pass_status"></span>
                             </div>
                             <div class="col-md-4">
                                 <label>ยืนยันรหัสผ่าน</label>
                                 <input type="password" name="conpasswd" class="form-control" minlength="8" maxlength="18"
                                        required="required">
+                                <br>
                             </div>
-                            <br><br><br><br>
-
+                            </div>
                             <div class="col-md-2">
                                 <label>รหัสนักศึกษา</label>
                                 <input type="text" name="number_id" required="required" minlength="10" maxlength="10"
                                        class="form-control " id="mynumber"
                                        onKeyUp="IsNumeric(this.value,this)">
+                                <br>
                             </div>
                             <div class="col-md-2">
                                 <label>คำนำหน้า</label>
@@ -294,7 +294,7 @@
                                        onKeyUp="IsNumeric(this.value,this)">
                             </div>
                             <br><br><br><br>
-
+                    <div class="row">
                             <div class="col-md-3">
                                 <label>เบอร์โทรติดต่อ</label>
                                 <input type="tel" name="telaphone"  class="form-control"
@@ -321,11 +321,7 @@
                                     <option value="25">25 ปี</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <label>เพศ</label><br>
-                                <input type="radio" name="gender" checked="checked" value="หญิง"> หญิง
-                                <input type="radio" name="gender" value="ชาย"> ชาย
-                            </div>
+                    </div>
 
                             <div class="col-md-6 col-md-4"  style="margin-top: 20px" >
                                 <label for="exampleInputFile">รูปภาพประจำตัว</label>
@@ -342,7 +338,7 @@
                             <input type="hidden" name="tid" value="0">
                             <div class="col-md-12 col-md-offset-4" style="margin-top:4%" align="center">
                                 <button type="submit" value="Upload Image" class="btn  btn-primary"
-                                        data-toggle="tooltip" data-placement="top" title="สมัครสมาชิก"> สมัครสมาชิก
+                                        data-toggle="tooltip" data-placement="top" title="สมัครสมาชิก" onclick="JavaScript:return conpasswd()"> สมัครสมาชิก
                                 </button>
                                 <a href="index.php" class="btn  btn-danger "><i
                                         class="glyphicon glyphicon-home"></i> หน้าแรก</a>
@@ -372,8 +368,9 @@
                                     </div>
                                     <div class="col-md-4 ">
                                         <label>รหัสผ่าน</label>
-                                        <input type="password" name="passwd" class="form-control" minlength="8"
+                                        <input type="password" name="passwd"  class="form-control" minlength="8"
                                                maxlength="18" required="required">
+
                                     </div>
                                     <div class="col-md-4 ">
                                         <label>ยืนยันรหัสผ่าน</label>
@@ -383,7 +380,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row">
+
                                     <div class="col-md-4">
                                         <label>คำนำหน้า</label>
                                         <input type="text" name="frist_name" class="form-control">
@@ -399,8 +396,8 @@
                                         <input type="text" name="ln_te" placeholder="นามสกุล" maxlength="25"
                                                class="form-control" required="required"/>
                                     </div>
-                                </div>
-                                <br>
+
+                                <br><br><br><br>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>อีเมลผู้ใช้</label>
@@ -450,6 +447,20 @@
         </div>
     </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        $(document.body).on("keyup","#password",function(){
+            $.get("get.php",{
+                password:$(this).val()
+            },function(data){
+                $("#pass_status").html(data);
+            });
+
+        });
+    });
+</script>
 
 </body>
 </html>

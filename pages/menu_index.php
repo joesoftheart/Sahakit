@@ -19,9 +19,10 @@
         <ul class="nav navbar-top-links navbar-right">
             <?php
             if (!isset($_SESSION['login'])) { ?>
-                <li><a href="register.php"><i class="fa fa-user-plus"></i> สมัครสมาชิก/ลงทะเบียนนักศึกษา</a></li>
-                <li><a href="register_company.php"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่ </a> </li>
-                <li><a href="login.html"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
+                <li><a href="register_teacher.php" class="btn bg-warning"> สมัครสมาชิกอาจารย์</a></li>
+                <li><a href="register_student.php" class="btn bg-success"> ลงทะเบียนนักศึกษา</a></li>
+                <li><a href="register_company.php" class="btn bg-danger"><i class="fa fa-user-plus"></i> ลงทะเบียนบริษัทใหม่ </a> </li>
+                <li><a href="login.php"><i class="fa fa-sign-in"> </i> เข้าสู่ระบบ</a></li>
             <?php } else { ?>
                 <li><?= $status ?> </li>
                 <li class="dropdown">

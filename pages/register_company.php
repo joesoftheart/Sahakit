@@ -42,6 +42,28 @@ conndb();
         }
     </script>
 
+    <script type="text/javascript">
+        function eng(str,obj){
+            var orgi_text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 @ _ . ";
+            var str_length=str.length;
+            var str_length_end=str_length-1;
+            var isThai=true;
+            var Char_At="";
+            for(i=0;i<str_length;i++){
+                Char_At=str.charAt(i);
+                if(orgi_text.indexOf(Char_At)==-1){
+                    isThai=false;
+                }
+            }
+            if(str_length>=1){
+                if(isThai==false){
+                    obj.value=str.substr(0,str_length_end);
+                }
+            }
+            return isThai; // ถ้าเป็น true แสดงว่าเป็นภาษาไทยทั้งหมด
+        }
+    </script>
+
 
 
     <script language="javascript">
@@ -127,46 +149,27 @@ conndb();
         .status-available {
             color: #2FC332;
         }
-
         .status-not-available {
             color: #D60202;
         }
-
         .img-availability-status {
             color: #2FC332;
         }
-
+        #demo{
+            color: #D60202;
+        }
+        #demo2{
+            color: #2FC332;
+        }
     </style>
     <!-- CheckEmail -->
-
-    <!-- Checkimg -->
-    <script>
-        function checkimg() {
-            var img = $('#fileimg').val();
-            var sizeimg = document.getElementById('fileimg').files[0].size;
-            console.log(img);
-            if (img.lastIndexOf("jpg") === img.length - 3 || img.lastIndexOf("png") === img.length - 3 || img.lastIndexOf("PNG") === img.length - 3) {
-                // check image size ไม่เกิน 2 MB
-                if (sizeimg <= 1000000) {
-                    var img_size = (sizeimg / (1024 * 1024)).toFixed(2);
-                    console.log(img_size + " MB ");
-                    $(".img-availability-status").html('อัพรูปสำเร็จ');
-
-                }
-            }
-
-        }
-    </script>
-    <!-- Checkimg -->
-
-
 
 
 </head>
 <body>
 
 <div style="margin-top: 5%">
-<div class="container well">
+<div class="container">
     <form id="form3" action="../pages/mou.php" method="get" enctype="multipart/form-data">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-red">
@@ -175,29 +178,32 @@ conndb();
                 </div>
                 <div class="panel-body">
                     <!-- แบบฟอร์มสำรับสถานประกอบการ -->
-                    <form style="display: none;">
                         <div class="row">
                             <div class="col-md-4">
                                 <label>ชือผู้ใช้</label>
-                                <input type="text" name="username" placeholder="กรอกไอดีของท่าน" id="data_text" size="40" onkeyup="isThaichar(this.value,this)"
+                                <input type="text" name="username"  id="data_text" size="40" onkeyup="isThaichar(this.value,this)"
                                        class="form-control"
                                        maxlength="24" required />
                             </div>
                             <div class="col-md-4 ">
                                 <label>รหัสผ่าน</label>
-                                <input type="password" name="passwd" class="form-control" minlength="8"
+                                <input type="password" name="passwd" id="password" class="form-control" minlength="8"
                                        maxlength="18"
                                        required="required">
+                                <span id="pass_status"></span>
                             </div>
                             <div class="col-md-4 ">
                                 <label>ยืนยันรหัสผ่าน</label>
-                                <input type="password" name="conpasswd" class="form-control" minlength="8"
+                                <input type="password" name="conpasswd" id="confirm_password" class="form-control" minlength="8"
                                        maxlength="18"
                                        required="required">
+                                <span id="demo"></span>
+
+
                             </div>
                         </div>
                         <br>
-                        <div class="row">
+
                             <div class="col-md-4 ">
                                 <label>ชื่อบริษัท</label>
                                 <input type="text" name="c_name" placeholder="" maxlength="70"
@@ -216,13 +222,14 @@ conndb();
                                 <textarea name="c_address" class="form-control" rows="3"></textarea>
                             </div>
 
-                        </div>
+
                         <div class="row">
                             <div class="col-md-4 ">
                                 <label>อีเมลผู้ใช้</label>
-                                <input type="text" name="c_email" placeholder="pond_pond@hotmail.com"
-                                       class="form-control"
-                                       required="required">
+                                <input class="form-control"  id="email" name="c_email" type="email"
+                                       required="required" onkeyup="eng(this.value,this)"
+                                       value="" onBlur="checkEmail()">
+                                <span id="email-availability-status"></span>
                             </div>
 
                         </div>
@@ -237,7 +244,7 @@ conndb();
                                 ย้อนกลับ</a>
                         </div>
 
-                    </form>
+
                 </div>
                 <!-- /.col-md-4 -->
             </div>
@@ -262,6 +269,42 @@ conndb();
             return false;
         });
 
+    </script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $(document.body).on("keyup","#password",function(){
+                $.get("get.php",{
+                    password:$(this).val()
+                },function(data){
+                    $("#pass_status").html(data);
+                });
+
+            });
+        });
+    </script>
+
+
+
+
+
+    <script>
+        var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+            if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
     </script>
 </body>
 </html>

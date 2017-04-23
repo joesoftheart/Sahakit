@@ -144,7 +144,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         <br>
         <div class="row">
             <form action="timeline.php" method="get" enctype="multipart/form-data">
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-left: 25px">
                 <label>ค้นหาบริษัท</label>
         <select name="c_name" class="form-control">
             <option>เลือกชื่อบริษัทที่ต้องการค้นหา</option>
@@ -164,7 +164,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 
         </select>
                 </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-top: 25px">
                 <button type="submit"  class="btn btn-primary">ค้นหา</button>
                 </div>
             </form>
@@ -178,7 +178,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <small><i class="text-muted"> <?= $row['dmt'] ?> </i></small>
                     </div>
                     <div class="panel-body">
-                        <div class="col-xs-2" style="height: auto">
+                        <div class="col-xs-2" style="height: auto; margin-top: 2%; margin-left: 25px">
                             <i class="fa fa-briefcase fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="caption">
@@ -212,7 +212,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     <form action="../php/getform_work.php" method="post" enctype="multipart/form-data">
                                         <div class=" text-center">
                                             <h1><?= $row['c_name'] ?></h1>
-                                            <input type="text" name="idpost" value="<?= $row['idpost'] ?>">
+                                            <input type="hidden" name="idpost" value="<?= $row['idpost'] ?>">
                                             <input type="hidden" name="cid" value="<?= $row['cid'] ?>">
                                             <input type="hidden" name="sid" value="<?= $row3['sid'] ?>">
                                             <input type="hidden" name="rank" value="<?= $row['rank'] ?>">

@@ -123,7 +123,6 @@ if(isset($_POST['search_user'])){
                             <td><?php echo $user['ln_st']?></td>
                             <td><?php echo $user['number_id']?></td>
                             <td><?php echo $user['age']?></td>
-                            <td><?php echo $user['gender']?></td>
                             <td><?php echo $user['telaphone'] ?></td>
                             <td><?php echo $user['email']?></td>
                             <td><button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit_user" onclick="return show_edit_user(<?=$user['sid']?>);">แก้ไข</button></td>
@@ -177,10 +176,6 @@ if(isset($_POST['search_user'])){
                     <div class="form-group">
                         <label >อายุ</label>
                         <input type="text" class="form-control" name="age"  placeholder="ระบุ อายุ">
-                    </div>
-                    <div class="form-group">
-                        <label >เพศ</label>
-                        <input type="text" class="form-control" name="gender"  placeholder="ระบุ เพศ">
                     </div>
                     <div class="form-group">
                         <label >เบอร์โทรศัพท์</label>

@@ -33,12 +33,13 @@ include '../php/config.php';
         $number_id = $_SESSION['number_id'];
 
 
-#วนลูป
+
         $sql = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = $sid
-                                        INNER JOIN company ON register_work.cid = company.cid WHERE student.sid = '$sid'";
+                                        INNER JOIN company ON register_work.cid = company.cid WHERE student.sid = $sid";
         $query = mysqli_query($link, $sql) or die(mysqli_error($sql));
 
-#โชว์ ค่าต่างๆ
+
+
         $sql1 = "SELECT * FROM student INNER JOIN register_work ON register_work.sid = student.sid WHERE student.sid = $sid ";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
@@ -49,8 +50,6 @@ include '../php/config.php';
         $result_c = mysqli_fetch_array($query_c);
 
 
-        $tid = $result['tid'];
-        $status_work = $result['status_work'];
 
         $sql3 = "SELECT * FROM student
                         WHERE student.tid = $sid";
@@ -80,7 +79,7 @@ include '../php/config.php';
         </div>
 
 
-        <?php if ($tid == $tid && $status_work == 2){ ?>
+        <?php if ($result['status_work'] <= '2'){ ?>
 
             <div class="row">
                 <div class="col-md-12">
@@ -103,7 +102,7 @@ include '../php/config.php';
                                             <td> <?= $i; ?> </td>
                                             <td><?= $row1['c_name'] ?></td>
                                             <td><?= $row1['rank'] ?></td>
-                                            <td><?php if ($row1['status_work'] == 1) { ?>
+                                            <td><?php if ($row1['status_work'] == '1') { ?>
                                                     <font color="red">รออนุมัติ</font>
                                                 <?php } else { ?>
                                                     <font color="green">อนุมัติแล้ว</font>
@@ -111,13 +110,12 @@ include '../php/config.php';
                                             </td>
 
                                             <td>
-                                                <?php if ($row1['status_work'] == 0) { ?>
+                                                <?php if ($row1['status_work'] == '1') { ?>
                                                     <button class="btn  btn-danger" disabled> ยืนยัน
                                                     </button>
-                                                <?php } elseif ($row1['status_work'] == 2) { ?>
-                                                    <button class="btn  btn-success"
-                                                            onclick="update(<?= $row1['rwid']; ?>)"> ยืนยัน
-                                                    </button>
+                                                <?php } elseif ($row1['status_work'] == '2') { ?>
+                                                    <a href="../php/update_student.php?id=<?= $row1['rwid']; ?>" class="btn  btn-success"> ยืนยัน
+                                                    </a>
                                                 <?php } else { ?>
                                                     <button class="btn btn-default" disabled="disabled">
                                                         เรียบร้อยแล้วค่ะ
@@ -140,14 +138,14 @@ include '../php/config.php';
                 </div>
             </div>
 
-        <?php }else if ($tid == $tid && $status_work >= 3){ ?>
+        <?php }else if ($result['status_work'] >= '3'){ ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-green">
 
                     <div class="panel-body">
                         <div class="col-md-12 table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th colspan="3" class="text-center"><h4><?= $result_c['c_name'] ?></h4></th>
@@ -155,7 +153,7 @@ include '../php/config.php';
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>ชื่อหัวหน้างาน</td>
+                                    <td width="300px">ชื่อหัวหน้างาน</td>
                                     <td><?= $result_c['leader'] ?></td>
                                 </tr>
                                 <tr>
@@ -182,7 +180,7 @@ include '../php/config.php';
                                     <td>จำนวนชั่วโมงที่ฝึกแล้ว</td>
                                     <td><?= $row_sum['clock'] ?> ชั่วโมง</td>
                                 </tr>
-                                <?php if ($status_work == 4) { ?>
+                                <?php if ($result['status_work'] == 4) { ?>
                                 <tr>
                                     <td> </td>
                                     <td> ผ่านการฝึกงาน</td>
@@ -201,20 +199,6 @@ include '../php/config.php';
                     <script src="../vendor/morrisjs/morris.min.js"></script>
                     <script src="../data/morris-data.js"></script>
                     <script src="../dist/js/sb-admin-2.js"></script>
-                    <script>
-                        function update(id) {
-                            $.ajax({
-                                type: "POST",
-                                url: "../php/update_student.php",
-                                data: "id=" + id,
-                                success: function (data) {
 
-                                    window.location.reload();
-
-                                }
-
-                            });
-                        }
-                    </script>
 </body>
 </html>

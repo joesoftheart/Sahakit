@@ -27,10 +27,9 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql_work = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid 
-                                                 INNER JOIN student ON register_work.sid = student.sid
-                                                 INNER JOIN post_company ON post_company.idpost = register_work.idpost
-                                                 WHERE register_work.status_work = 3";
+        $sql_work = "SELECT * FROM company INNER JOIN register_work ON register_work.cid = $cid
+                                            INNER JOIN student ON register_work.sid = student.sid
+                                            WHERE company.cid = $cid AND status_work = '3'";
         $query_work = mysqli_query($link, $sql_work);
 
     $sql3 = "SELECT * FROM company WHERE cid= $cid AND c_status_join = 1";

@@ -1,4 +1,5 @@
 <?php session_start();
+$_SESSION['mylog']='login';
 include '../php/config.php';
 ?>
 <?php
@@ -9,7 +10,7 @@ if (isset($_SESSION['status'])) {
 
 ?>
 <?php if($status == "") { ?>
-    <script>location.replace("login.html");</script>
+    <script>location.replace("login.php");</script>
 
 <?php } else{ ?>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>

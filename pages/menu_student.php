@@ -28,11 +28,11 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <?php if ($tid == $tid) { ?>
+                    <?php if ($tid == $tid && $result['cid'] == null) { ?>
                         <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                    <?php } ?>
-
-                    <?php if ($result['status_work'] == 3) { ?>
+                    <?php }else{
+                        //
+                    } if ($result['status_work'] == 3) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
@@ -41,10 +41,13 @@
                                 <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
                             </ul>
                         </li>
-                    <?php } ?>
-                    <?php if ($result['status_work'] == 4){ ?>
+                    <?php }else{
+                        //
+                    } if ($result['status_work'] == 4){ ?>
                             <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                      <?php  }    ?>
+                      <?php  }else{
+                          //
+                    }    ?>
 
                 </ul>
             </div>
