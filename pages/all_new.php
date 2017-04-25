@@ -57,7 +57,7 @@ $query1 = mysqli_query($link, $sql1);
                         <p>
                             <small>โพสต์เมื่อ : <?= $row1['dmt'] ?></small>
                         </p>
-                        <a href="index_show_news.php?id=<?= $row1['id'] ?>" target="_blank" class="btn btn-outline btn-info pull-right" style="margin-right: 5%">อ่านต่อ</a>
+                        <a href="index_show_news.php?id=<?= $row1['id'] ?>" target="_blank" class="btn  btn-info pull-right btn-xs" style="margin-right: 5%">อ่านต่อ</a>
                     </div>
 
                 </div>

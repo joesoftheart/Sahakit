@@ -70,6 +70,7 @@ if (mysqli_num_rows($result) > 0) {
             $_SESSION['cid'] = $row['cid'];
 
 
+
             if ($log == null) {
                 echo "<script type='text/javascript'>window.location='../pages/profile_company.php'</script>";
             } else {

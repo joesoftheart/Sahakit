@@ -32,42 +32,17 @@ if(isset($_POST['search_user'])){
 
 </head>
 <body>
-<div id="wrapper">
+<?php include 'menu_admin.php'?>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <!-- /.navbar-header -->
-
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 1%">
-
-            <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-            </li>
-        </ul>
-
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-                <li><a href="profile_admin.php" class="fa fa-user"> บริษัทสมัครเข้าโครงการ</a> </li>
-                <li class="active"><a href="admin_student.php"><i class=" fa fa-cog fa-spin fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a> </li>
-                <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a> </li>
-                <li><a href="admin_company.php"><i class=" fa fa-cog fa-fw"></i> แก้ไขข้อมูลบริษัท</a> </li>
-                <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
-                <li><a href="admin_upload.php" class="fa fa fa-upload "> อัพโหลด</a> </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="page-header">
+                    <ol class="breadcrumb">
+                        <li><a href="profile_admin.php">Home</a></li>
+                        <li class="active">แก้ไขข้อมูลนักศึกษา</a></li>
+                    </ol>
+                    </div>
                 <div class="panel-default">
                     <div class="panel-heading">
                         ตาราง เพิ่ม / ลบ / แก้ไข / นักศึกษา
@@ -86,22 +61,21 @@ if(isset($_POST['search_user'])){
                             <a href="admin_student.php"> <img src="../img/player-07-512.png" width="25px" height="25px"></a>
                             <input type="text" class="form-control" name="search_user" placeholder="พิมพ์ชื่อที่ต้องการค้นหา">
                         </div>
-                        <input type="submit" value="ค้นหา">
+                        <input type="submit" class="btn  btn-warning" value="ค้นหา">
                     </form>
                 </div>
             </div>
 
-            <table class="table table-hover">
+            <table class="table table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th width="10%">ลำดับ</th>
+                    <th width="5%">ลำดับ</th>
                     <th width="10%">ไอดี</th>
                     <th width="10%">รหัสผ่าน</th>
                     <th width="15%">ชื่อ</th>
                     <th width="15%">สกุล</th>
                     <th width="10%">รหัสนักศึกษา</th>
                     <th width="5%">อายุ</th>
-                    <th width="5%">เพศ</th>
                     <th width="10%">เบอร์โทร</th>
                     <th width="20%">อีเมล์</th>
                     <th width="15%">แก้ไข</th>

@@ -20,52 +20,23 @@ include '../php/config.php';
 
 </head>
 <body>
-<div id="wrapper">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <!-- /.navbar-header -->
-
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 1%">
-
-            <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-            </li>
-        </ul>
-
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-                <li><a href="profile_admin.php" class="fa fa-user"> บริษัทสมัครเข้าโครงการ</a></li>
-                <li><a href="admin_student.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลนักศึกษา</a></li>
-                <li><a href="admin_teacher.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลอาจารย์</a></li>
-                <li><a href="admin_company.php"><i class=" fa fa-cog  fa-fw"></i> แก้ไขข้อมูลบริษัท</a></li>
-                <li><a href="newsupdate.php"><i class="glyphicon glyphicon-list-alt"></i> อัพเดทข่าวสาร</a></li>
-                <li class="active"><a href="admin_upload.php" class="fa fa-upload "> อัพโหลด</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
+<?php include 'menu_admin.php'?>
 
     <div class="container-fluid">
-        <div class="col-md-10 col-md-offset-1">
-            <h4 class="page-header">
-                อัพโหลดไฟล์
-            </h4>
+        <div class="col-md-10">
+            <div class="page-header">
+                <ol class="breadcrumb">
+                    <li><a href="profile_admin.php">Home</a></li>
+                    <li class="active">อัพโหลด</a></li>
+                </ol>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-
-                    <!-- /.panel-heading -->
-
+                <div class="panel-heading">
+                    อัพโหลดไฟล์
+                </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <tr>

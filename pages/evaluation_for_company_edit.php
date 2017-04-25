@@ -24,6 +24,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../pages/css_evaluation.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+
 
     <script>
         $(document).ready(function(){
@@ -98,10 +100,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
         $result = mysqli_fetch_array($qquery);
 
 
-        $sql = "SELECT * FROM register_work , company , student 
-                    WHERE register_work.cid = company.cid 
-                    AND register_work.sid = student.sid 
-                    AND register_work.sid = $sid AND  register_work.cid = $cid";
+
 
         $query_work = mysqli_query($link, $sql);
         $row_work = mysqli_fetch_array($query_work);
@@ -138,16 +137,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     <br><br> <br>
                     <form action="../php/update_evaluation_for_company.php" method="post" enctype="multipart/form-data">
                         <font size="4"> <b>ข้อมูลทั่วไป / Work Term Information</b> </font> <br>
-                        <input type="hidden" name="sid" value="<?= $sid ?>">
-                        <input type="hidden" name="cid" value="<?= $cid ?>">
+
                         ชื่อ - สกุล (นักศึกษา) <input type="text" name="fn_st" data-onload="set_size($(this),150)"
-                                                      value="<?= $row_work['fn_st'] ?>" readonly="readonly"
+                                                       readonly="readonly"
                                                       style="margin-top: 5px;"><input type="text" name="ln_st"
                                                                                       data-onload="set_size($(this),150)"
-                                                                                      value="<?= $row_work['ln_st'] ?>"
+
                                                                                       readonly="readonly"
                                                                                       style="margin-top: 5px;">
-                        รหัสนักศึกษา <input type="text" name="number_id" value="<?= $row_work['number_id'] ?>"
+                        รหัสนักศึกษา <input type="text" name="number_id"
                                             readonly="readonly" data-onload="set_size($(this),200)"
                                             style="margin-top: 5px;">
                         <br>
@@ -155,7 +153,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                         readonly="readonly" style="margin-top: 5px;"> คณะ
                         <input type="text" value="วิทยาศาสตร์และเทคโนโลยี" data-onload="set_size($(this),305)"
                                readonly="readonly" style="margin-top: 5px;"> <br>
-                        ชื่อสถานประกอบการ <input type="text" name="c_name" value="<?= $row_work['c_name'] ?>"
+                        ชื่อสถานประกอบการ <input type="text" name="c_name"
                                                  readonly="readonly" data-onload="set_size($(this),574)"
                                                  style="margin-top: 5px;"> <br>
                         ชื่อ - นามสกุลผู้ประเมิน <input type="text" name="name_leader" required="required"
@@ -167,7 +165,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         <br><br>
 
 
-                        <font size="4"><b>ผลสำเร็จของงาน / Work Achievement</b></font>
+                        <font size="4"><b> <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                  style="margin-top: 5px;" ></b></font>
                         <table border="1" width="100%">
                             <thead>
                             <tr>
@@ -176,10 +175,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                             </thead>
                             <tbody>
                             <tr>
-                                <td><b> &nbsp;1.ปริมาณงาน (Quantity of Work) </b><br>
-                                    &nbsp; &nbsp;
-                                    ปริมาณงานที่ปฏิบัติสำเร็จตามหน้าที่หรือตามที่ได้รับมอบหมายภายในระยะเวลาที่ <br>
-                                    &nbsp; &nbsp;&nbsp; &nbsp; กำหนดและเทียบกับนักศึกษาทั่ว ๆ ไป
+                                <td><b> &nbsp;1.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                       style="margin-top: 5px;" > </b><br>
+
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
                                 </td>
                                 <td class="text-center"><textarea name="no1" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
@@ -187,11 +191,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                             </tr>
                             <tr>
-                                <td><b> &nbsp;2. คุณภาพงาน (Quantity of Work) </b><br>
-                                    &nbsp; &nbsp; ทำงานได้ถูกต้องครบถ้วนสมบูรณ์ มีความปราณีตเรียบร้อย มีความรอบคอบ
-                                    ไม่เกิด <br>
-                                    &nbsp; &nbsp;&nbsp; &nbsp; ปัญหา ติดตามมา งานไม่ค้างคา
-                                    ทำงานเสร็จทันเวลาหรือก่อนเวลาที่กำหนด
+                                <td><b> &nbsp;2.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                       style="margin-top: 5px;" > </b><br>
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
                                 </td>
                                 <td class="text-center"><textarea name="no2" data-onload="set_size($(this),100)"
                                                                   style="margin-top: 5px;"
@@ -206,7 +213,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
             <div class="page">
                 <div class="subpage">
                     <p align="center"> -2- </p>
-                    <font size="4"><b>ความรู้ความสามารถ / Knowledge and Ability </b></font>
+                    <font size="4"><b> <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                              style="margin-top: 5px;" > </b></font>
                     <table border="1" width="100%">
                         <thead>
                         <tr>
@@ -215,10 +223,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </thead>
                         <tbody>
                         <tr>
-                            <td><b> &nbsp;3. ความรู้ความสามารถทางวิชาการ (Academic Ability) </b><br>
-                                &nbsp; &nbsp;
-                                นักศึกษามีความรู้ทางวิชาการเพียงพอที่จะทำงานตามที่ได้รับมอบหมาย <br>
-                                &nbsp; &nbsp;&nbsp; &nbsp; (ในระดับที่นักศึกษาจะปฏิบัติได้)
+                            <td><b> &nbsp;3. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" >  </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no3" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -226,11 +237,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b> &nbsp;4. ความสามารถในการเรียนรู้และประยุกต์วิชาการ (Ability to Learn and Apply
-                                    Knowledge)</b><br>
-                                &nbsp; &nbsp; ความรวดเร็วในการเรียนรู้ เข้าใจข้อมูล ข่าวสาร และวิธีการทำงาน
-                                ตลอดจนการนำ <br>
-                                &nbsp;&nbsp;&nbsp; ความรู้ไปประยุกต์ใช้งาน
+                            <td><b> &nbsp;4.  <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                     style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
                             </td>
                             <td class="text-center"><textarea name="no4" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -238,8 +250,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b> &nbsp;5. ความรู้ความชำนาญในการปฏิบัติงาน (Practical Ability)</b><br>
-                                &nbsp; &nbsp; เช่น การปฏิบัติงานในภาคสนาม ในห้องปฏิบัติการ
+                            <td><b> &nbsp;5. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" ></b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no5" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -247,11 +262,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b> &nbsp;6. วิจารญาณและการตัดสินใจ (Judgement and Decision Making)</b><br>
-                                &nbsp; &nbsp; ตัดสินใจได้ดี ถูกต้อง รวดเร็ว มีการวิเคราะห์ข้อมูลและปัญหาต่าง ๆ
-                                อย่างรอบคอบ ก่อนการ <br>
-                                &nbsp;&nbsp;&nbsp; ตัดสินใจ สามารถแก้ปัญหาเฉพาะหน้า
-                                สามารถไว้วางใจให้ตัดสินใจได้ด้วยตนเอง
+                            <td><b> &nbsp;6. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" ></b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
 
                             </td>
                             <td class="text-center"><textarea name="no6" data-onload="set_size($(this),100)"
@@ -260,8 +276,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;7. การจัดการและวางแผน (Organization and Planning)</b><br>
-                                &nbsp; &nbsp; สามารถจัดการและวางแผนการทำงานให้เสร็จตามเป้าหมาย
+                            <td><b>&nbsp;7.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                  style="margin-top: 5px;" >
+                                    <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                           style="margin-top: 5px;" >
 
                             </td>
                             <td class="text-center"><textarea name="no7" data-onload="set_size($(this),100)"
@@ -270,12 +288,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                               onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;8. ทักษะการสื่อสาร (Communication Skills)</b><br>
-                                &nbsp; ความสามารถในการติดต่อสื่อสาร การพูด การเขียน การนำเสนอ (Presentation) <br>
-                                &nbsp; &nbsp;สามารถสื่อให้เข้าใจได้ง่าย เรียบร้อย ชัดเจน ถูกต้อง รัดกุม
-                                มีลำดับขั้นตอนที่ดี ไม่ก่อให้เกิด <br>
-                                &nbsp; &nbsp;ความสับสนต่อการทำงาน รู้จักสอบถาม
-                                รู้จักชี้แจงผลการปฏิบัติงานและข้อขัดข้องให้ทราบ
+                            <td><b>&nbsp;8.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                  style="margin-top: 5px;" ></b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
+
+
 
                             </td>
                             <td class="text-center"><textarea name="no8" data-onload="set_size($(this),100)"
@@ -284,11 +303,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;9. การพัฒนาด้านภาษาและวัฒนธรรมต่างประเทศ (Foreign Language and Cultural
-                                    Development)</b><br>
-                                &nbsp; &nbsp; เช่น ภาษาอังกฤษ การทำงานกับชาวต่างชาติ (ประเมินเฉพาะสถานประกอบการที่มี
+                            <td><b>&nbsp;9. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
                                 <br>
-                                &nbsp;&nbsp;&nbsp;ชาวต่างชาติหรือที่ใช้ภาษาต่างประเทศในการติดต่อสื่อสาร)
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
 
                             </td>
                             <td class="text-center"><textarea name="no9" data-onload="set_size($(this),100)"
@@ -297,11 +318,11 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;10. ความเหมาะสมต่อตำแหน่งงานที่ได้รับมอบหมาย (Suitability for
-                                    JobPosition)</b><br>
-                                &nbsp; &nbsp; สามารถพัฒนาตนเองให้ปฏิบัติงานตาม Job position และ Job description
-                                ที่มอบหมายได้อย่าง <br>
-                                &nbsp; &nbsp; เหมาะสมหรือตำแหน่งงานนี้เหมาะสมกับนักศึกษาคนนี้หรือไม่เพียงใด
+                            <td><b>10. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                              style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no10" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -311,7 +332,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </tbody>
                     </table>
                     <br>
-                    <font size="4"><b>ความรู้ความสามารถ / Knowledge and Ability </b></font>
+                    <font size="4"><b> <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                              style="margin-top: 5px;" > </b></font>
                     <table border="1" width="100%">
                         <thead>
                         <tr>
@@ -320,15 +342,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </thead>
                         <tbody>
                         <tr>
-                            <td><b>&nbsp;11. ความรับผิดชอบและเป็นผู้ที่ไว้วางใจได้ (Responsibility and
-                                    Dependability)</b><br>
-                                &nbsp; &nbsp; ดำเนินงานให้สำเร็จลุล่วงโดยคำนึงถึงเป้าหมายและความสำเร็จของงานเป็นหลัก
-                                ยอมรับผล <br>
-                                &nbsp; &nbsp; ที่เกิดจากการทำงานอย่างมีเหตุผล สามารถปล่อยให้ทำงาน (กรณีงานประจำ)
-                                ได้โดยไม่ต้อง <br>
-                                &nbsp; &nbsp; ควบคุมขั้นตอนในการทำงานตลอดเวลา
-                                สามารถไว้วางใจได้และรับผิดชอบงานที่มากกว่างาน <br>
-                                &nbsp; &nbsp; ประจำ สามารถไว้วางใจได้แทบทุกสถานการณ์หรือในสถานการณ์ปกติเท่านั้น
+                            <td><b>&nbsp;11.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no11" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -346,10 +368,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     <table border="1" width="100%">
                         <tbody>
                         <tr>
-                            <td><b>&nbsp;12. ความสนใจ อุตสาหะในการทำงาน (Interest in Work)</b><br>
-                                &nbsp; &nbsp; ความสนใจและความกระตือรือร้นในการทำงาน มีความอุตสาหะ ความพยายาม
-                                ความตั้งใจที่<br>
-                                &nbsp; &nbsp; จะทำงานได้สำเร็จ ความมานะบากบั่น ไม่ย่อท้อต่ออุปสรรคและปัญหา <br>
+                            <td><b>&nbsp;12.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" > <br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" ><br>
 
                             </td>
                             <td class="text-center"><textarea name="no12" data-onload="set_size($(this),100)"
@@ -358,13 +382,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;13. ความสามารถเริ่มต้นทำงานได้ด้วยตนเอง (Initiative or Self
-                                    Starter)</b><br>
-                                &nbsp; &nbsp; เมื่อได้รับคำชี้แนะ สามารถเริ่มทำงานได้เอง โดยไม่ต้องรอคำสั่ง
-                                (กรณีงานประจำ) <br>
-                                &nbsp; &nbsp; เสนอตัวเข้าช่วยงานแทบทุกอย่างมาขอรับงานใหม่ ๆ ไปทำ
-                                ไม่ปล่อยเวลาว่างให้ล่วงเลยไป <br>
-                                &nbsp; &nbsp; โดยเปล่าประโยชน์
+                            <td><b>&nbsp;13. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >  <br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >  <br>
+
                             </td>
                             <td class="text-center"><textarea name="no13" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -372,11 +396,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;14. การตอบสนองต่อการสั่งการ (Response to Supervision)</b><br>
-                                &nbsp; &nbsp; ยินดีรับคำสั่ง คำแนะนำ คำวิจารณ์ ไม่แสดงความอึดอัดใจ
-                                เมื่อได้รับคำติเตือนและวิจารณ์ <br>
-                                &nbsp; &nbsp; ความรวดเร็วในการปฏิบัติตามคำสั่ง การปรับตัวปฏิบัติตามคำแนะนำ
-                                ข้อเสนอแนะและวิจารณ์
+                            <td><b>&nbsp;14. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
 
                             </td>
                             <td class="text-center"><textarea name="no14" data-onload="set_size($(this),100)"
@@ -387,7 +414,8 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </tbody>
                     </table>
                     <br>
-                    <font size="4"><b>ลักษณะส่วนบุคคล / Personality</b></font>
+                    <font size="4"><b> <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                              style="margin-top: 5px;" ></b></font>
                     <table border="1" width="100%">
                         <thead>
                         <tr>
@@ -396,10 +424,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </thead>
                         <tbody>
                         <tr>
-                            <td><b>&nbsp;15. บุคลิกภาพและการวางตัว (Personality)</b><br>
-                                &nbsp; &nbsp; มีบุคลิกภาพและวางตัวได้เหมาะสม เช่น ทัศนคติ วุฒิภาวะ
-                                ความอ่อนน้อมถ่อมตน<br>
-                                &nbsp; &nbsp; การแต่งกาย กิริยาวาจา การตรงต่อเวลา และอื่น ๆ
+                            <td><b>&nbsp;15.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" ></b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
                             </td>
                             <td class="text-center"><textarea name="no15" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -407,10 +437,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;16. มนุษยสัมพันธ์ (Interpersonal Skills)</b><br>
-                                &nbsp; &nbsp; สามารถร่วมงานกับผู้อื่น การทำงานเป็นทีม สร้างมนุษยสัมพันธ์ได้ดี
-                                เป็นที่รักใคร่ <br>
-                                &nbsp; &nbsp; ชอบพอของเพื่อนร่วมงาน เป็นผู้ที่ช่วยก่อให้เกิดความร่วมมือประสานงาน
+                            <td><b>&nbsp;16.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" > <br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
                             </td>
                             <td class="text-center"><textarea name="no16" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -419,14 +451,14 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                         </tr>
 
                         <tr>
-                            <td><b>&nbsp;17. ความมีระเบียบวินัย ปฏิบัติตามวัฒนธรรมขององค์กร <br>
-                                    &nbsp; &nbsp;&nbsp;  (Discipline and Adaptability to Formal Organization)
-                                </b><br>
-                                &nbsp; &nbsp; ความสนใจเรียนรู้ ศึกษา กฏระเบียบ นโยบายต่าง ๆ และปฏิบัติตามโดยเต็มใจ
-                                การปฏิบัติตาม <br>
-                                &nbsp; &nbsp; ระเบียบบริหารงานบุคคล (การเข้างาน ลางาน
-                                ปฏิบัติตามกฎการรักษาความปลอดภัยใน <br>
-                                &nbsp; &nbsp; โรงงาน การควบคุมคุณภาพ 5 ส และอื่น ๆ)
+                            <td><b>&nbsp;17. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" >
+                                </b>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no17" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -434,9 +466,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;18. คุณธรรมและจริยธรรม (Ethics and Morality)</b><br>
-                                &nbsp; &nbsp; มีความซื่อสัตย์ สุจริต มีจิตใจสะอาด รู้จักเสียสละ ไม่เห็นแก่ตัว
-                                เอื้อเฟื้อช่วยเหลือผู้อื่น <br>
+                            <td><b>&nbsp;18. <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                    style="margin-top: 5px;" ></b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" > <br>
 
                             </td>
                             <td class="text-center"><textarea name="no18" data-onload="set_size($(this),100)"
@@ -445,10 +478,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;19. ความมั่นใจในตนเอง (self confidence) </b><br>
-                                &nbsp; &nbsp;มีความสามารถแก้ปัญหา รับมือกับปัญหาต่าง ๆ เผชิญหน้ากับความท้าทาย หรืออุปสรรคต่างๆ <br>
-                                &nbsp; &nbsp;ในชีวิตได้ เชื่อมั่นในความคิด และความสามารถของตัวเอง สามารถเลือกวิธีการตัดสินใจที่ถูกต้อง มีความรู้สึกที่ดี <br>
-                                &nbsp; &nbsp;ให้กับตนเอง ไว้วางใจตนเองว่ามีความสามารถ มีพลัง มีประสิทธิภาพ และพึ่งพาตนเองได้ เป็นต้น
+                            <td><b>&nbsp;19.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
                             </td>
                             <td class="text-center"><textarea name="no19" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -456,10 +492,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                                                   onKeyUp="IsNumeric(this.value,this)"></textarea></td>
                         </tr>
                         <tr>
-                            <td><b>&nbsp;20. ความเป็นผู้นํา (Leadership) </b><br>
-                                &nbsp; &nbsp;มีความสามารถทําให้คนอื่นให้ความร่วมมือ สามารถชักจูง โน้มน้าว ชี้แนะ แนะนํา ให้บุคคลอื่น <br>
-                                &nbsp; &nbsp;ร่วมทํางานจนบรรลุวัตถุประสงค์เป็นศูนย์กลางหรือศูนย์รวม สามารถสอดแทรกแนวความคิดให้เป็น <br>
-                                &nbsp; &nbsp;ที่ยอมรับ เป็นต้น
+                            <td><b>&nbsp;20.<input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                                   style="margin-top: 5px;" > </b><br>
+                                <input type="text" name="h_no2" value=" " data-onload="set_size($(this),550)"
+                                       style="margin-top: 5px;" >
+
+
                             </td>
                             <td class="text-center"><textarea name="no20" data-onload="set_size($(this),100)"
                                                               style="margin-top: 5px;"
@@ -522,16 +560,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                     &nbsp;&nbsp;
 
 
-                    <input type="text" name="d" value="<?php echo thaidate('j'); ?>" readonly="readonly"
-                           data-onload="set_size($(this),25)" style="margin-top: 5px;">/
-                    <input type="text" name="m" value="<?php echo thaidate('F'); ?>" readonly="readonly"
-                           data-onload="set_size($(this),60)" style="margin-top: 5px;">/
-                    <input type="text" name="y" value="<?php echo thaidate('Y'); ?>" readonly="readonly"
-                           data-onload="set_size($(this),40)" style="margin-top: 5px;">
                     <br><br><br><br><br><br><br><br>
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-success"><font size="4">ประเมิน</font></button>
+                        <button type="submit" class="btn btn-warning"><font size="4">ยืนยันแก้ไข</font></button>
                     </div>
                     </form>
                     <p id="back-top">

@@ -84,15 +84,15 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                     <td class="text-center"><?= $result['rank'] ?></td>
                                     <td><?= $result['c_address'] ?></td>
 
-                                    <?php if($check['status_work'] == 0) { ?>
+                                    <?php if($result['status_work'] == 0) { ?>
                                         <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
-                                    <?php } elseif($check['status_work'] == 1) { ?>
+                                    <?php } elseif($result['status_work'] == 1) { ?>
                                         <td class="text-center"><font color="#ff4500">สมัครงานรออนุมัติ</font></td>
-                                    <?php }elseif($check['status_work'] == 2) { ?>
+                                    <?php }elseif($result['status_work'] == 2) { ?>
                                         <td class="text-center"><font color="#ff4500">บริษัทอนุมัติรอนักศึกษายืนยัน</font></td>
-                                    <?php }elseif($check['status_work'] == 3){ ?>
+                                    <?php }elseif($result['status_work'] == 3){ ?>
                                         <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
-                                    <?php } elseif($check['status_work'] == 4){ ?>
+                                    <?php } elseif($result['status_work'] == 4){ ?>
                                     <td class="text-center"><font color="fuchsia">ผ่านการฝึกงาน</font></td>
                                     <?php } ?>
 
