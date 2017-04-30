@@ -62,11 +62,10 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                         <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                         <th class="text-center">สถานที่ตั้งบริษัท</th>
                                         <th class="text-center">สถานะการสมัครงาน</th>
-                                        <?php if ($row_status['status_work'] == 2 || $row_status['status_work'] == 3) { ?>
                                             <th class="text-center">รายงาน</th>
                                             <th class="text-center">ประเมิน</th>
                                             <th class="text-center">ลบนักศึกษา</th>
-                                        <?php } ?>
+
 
                                     </tr>
                                     </thead>
@@ -99,11 +98,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                             <td class="text-center"><font color="orange">ยังไม่มีที่ฝึกงาน</font></td>
 
                                             <?php }elseif($row_register['status_work'] == 1) { ?>
-
                                             <td class="text-center"><font color="#ff4500">รออนุมัติ</font></td>
-                                            <?php }elseif($row_register['status_work'] == 2){ ?>
+
+                                            <?php }elseif($row_register['status_work'] == 3){ ?>
                                                 <td class="text-center"><font color="green">กำลังฝึกงาน</font></td>
-                                           <?php }elseif($row_register['status_work'] == 3){ ?>
+
+                                           <?php }elseif($row_register['status_work'] == 4){ ?>
                                             <td class="text-center"><font color="blue">ผ่านการฝึกงานแล้ว</font></td>
                                             <?php }?>
                                             <?php  if ($row_register['status_work'] == 3 || $row_register['status_work'] == 4) { ?>

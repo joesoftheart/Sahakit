@@ -32,9 +32,7 @@
                 <ul class="nav" id="side-menu">
                     <?php $check = $result['c_status_join'];
                     if ($check == 1) { ?>
-                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i
-                                    class="fa arrow"></i>
-                            </a>
+                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
                                 <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>

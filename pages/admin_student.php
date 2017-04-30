@@ -33,7 +33,6 @@ if(isset($_POST['search_user'])){
 </head>
 <body>
 <?php include 'menu_admin.php'?>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">

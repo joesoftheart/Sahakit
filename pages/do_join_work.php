@@ -53,13 +53,13 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
  ?>
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-lg-10" style="margin-top: 5%;margin-left: 10%">
+        <div class="col-md-12" style="margin-top: 5%;">
             <div class="panel panel-yellow">
                 <div class="panel page-heading" align="center">
                     สถานะขอสมัครงานนักศึกษา
                 </div>
                 <div class="panel-body">
-                    <div class="col-lg-10 table-responsive" style="margin-left: 8%">
+                    <div class="col-md-10 table-responsive" style="margin-left: 8%">
                         <table class="table table-hover ">
                             <tr>
                                 <th class="text-center">ลำดับ</th>
@@ -67,7 +67,7 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
                                 <th>ชื่อบริษัท</th>
                                 <th class="text-center">ตำแหน่งงานที่สมัคร</th>
                                 <th class="text-center">สถานที่ตั้ง</th>
-                                <th class="text-center">สถานะ</th>
+                                <th class="text-center" width="20%">สถานะ</th>
 
                             </tr>
                             <?php  if ($check == null) {?>

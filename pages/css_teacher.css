@@ -1,4 +1,60 @@
 
+.credits {
+    border-bottom: solid 1px #eee;
+    padding-bottom: 10px;
+    margin: 0 0 30px;
+}
+#pagewrap {
+    margin: 0 auto;
+    width: 600px;
+    padding-left: 150px;
+    position: relative;
+}
+
+/*
+Back to top button
+*/
+#back-top {
+    position: fixed;
+    bottom: 30px;
+    margin-left: -150px;
+}
+#back-top a {
+    width: 108px;
+    display: block;
+    text-align: center;
+    font: 11px/100% Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #bbb;
+    /* background color transition */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+#back-top a:hover {
+    color: #000;
+}
+/* arrow icon (span tag) */
+#back-top span {
+    width: 108px;
+    height: 108px;
+    display: block;
+    margin-bottom: 7px;
+    background: #ddd url(../img/up-arrow.png) no-repeat center center;
+    /* rounded corners */
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    /* background color transition */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+#back-top a:hover span {
+    background-color: #777;
+}
+
 @font-face {
     font-family: 'THSarabun';
     src: url('../vendor/font-thsarabun/THSarabun.eot');
@@ -21,7 +77,7 @@
     margin: 0;
     padding: 0;
     background-color: #FAFAFA;
-    font: 16pt "Tahoma";
+    font: 12pt "Tahoma";
     font-family: 'THSarabunPSK';
 }
 
@@ -48,7 +104,7 @@ input[] {
 }
 
 .page {
-    width: 25cm;
+    width: 21cm;
     font-size: 20px;
     min-height: 29.7cm;
     padding: 2cm;
@@ -185,59 +241,4 @@ input[] {
     top: -0px;
     font-size: 20px;
     overflow: hidden;
-}
-.credits {
-    border-bottom: solid 1px #eee;
-    padding-bottom: 10px;
-    margin: 0 0 30px;
-}
-#pagewrap {
-    margin: 0 auto;
-    width: 600px;
-    padding-left: 150px;
-    position: relative;
-}
-
-/*
-Back to top button
-*/
-#back-top {
-    position: fixed;
-    bottom: 30px;
-    margin-left: -150px;
-}
-#back-top a {
-    width: 108px;
-    display: block;
-    text-align: center;
-    font: 11px/100% Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #bbb;
-    /* background color transition */
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-}
-#back-top a:hover {
-    color: #000;
-}
-/* arrow icon (span tag) */
-#back-top span {
-    width: 80px;
-    height: 80px;
-    display: block;
-    margin-bottom: 7px;
-    background: #ddd url(../img/up-arrow.png) no-repeat center center;
-    /* rounded corners */
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    /* background color transition */
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-}
-#back-top a:hover span {
-    background-color: #777;
 }

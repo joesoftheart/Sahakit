@@ -297,77 +297,9 @@ include '../php/config.php';
 
 </head>
 <body id="top">
-<div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"><font color="black"> <i class="fa fa-home"></i>หน้าแรก </font> </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
-            <li><?= $status ?></li>
-            <li class="dropdown">
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?= $c_name ?> <i
-                        class="fa fa-user"></i>  <b class="caret"></b> </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="profile_company.php"><i class="glyphicon glyphicon-user"></i> โปรไฟล์</a></li>
-                    <li><a href="editprofile_company.php"><i class="glyphicon glyphicon-edit"></i> เปลี่ยนรหัสผ่าน</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="../php/logout.php"><i class="glyphicon glyphicon-off"></i> ลงชื่อออก</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-book"></i> คู่มือ สถานประกอบการ <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="receive_stu.php">ขั้นตอนการรับนักศึกษา</a></li>
-                            <li><a href="manual_company.php">คู่มือสถานประกอบการ</a></li>
-                            <li><a href="visit_comp.php">วัตถุประสงค์ของการนิเทศงาน</a></li>
-                            <li><a href="evaluation_comp.php">การประเมินผลนักศึกษา</a></li>
-                        </ul>
-                    </li>
-                    <?php $check = $result['c_status_join']; if ($check == 1) {?>
-                        <li><a href="#"><i class="fa fa-bullhorn"></i> ประกาศรับสมัครนักศึกษาฝึกงาน <i class="fa arrow"></i>
-                            </a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="work_post.php">ประกาศรับฝึกงาน</a></li>
-                                <li><a href="work_post_edit.php">รายการโพสย้อนหลัง</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#">นักศึกษาฝึกงาน <span class="fa arrow"></span> </a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="name_student_join.php">รายชื่อนักศึกษาที่สมัครงานเข้ามา</a></li>
-                                <li><a href="now_student_work.php">รายชื่อนักศึกษาที่กำลังฝึกงาน</a></li>
-
-                                <li><a href="last_work.php">รายชื่อนักศึกษาที่ผ่านการฝึกงาน</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><i class="fa fa-list-alt  "></i> ตรวจสอบความก้าวหน้า</a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="list_note_company.php">ดูบันทึกรายวัน</a> </li>
-                                <li><a href="list_conclude_company.php">ดูบันทึกรายสัปดาห์</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="evaluation_for_company_1.php">ประเมินนักศึกษา</a> </li>
-                    <?php } ?>
-                </ul>
-            </div>
-    </nav>
-</div>
+<?php include 'menu_company.php'?>
+<div id="crop">
 <div id="page-wrapper">
-    <div id="crop">
         <div class="book">
             <?PHP
             $sql_list = "SELECT * FROM conclude WHERE id= ".$_GET['id']." ";
@@ -387,7 +319,7 @@ include '../php/config.php';
                 ?>
                 <div class="page">
                     <div class="subpage">
-                        <p class="text-right" style="margin-top: -8%">( <?=  $i ?> )</p><br><br><br><br><br>
+                        <p class="text-right" style="margin-top: -6%">( <?=  $i ?> )</p><br><br><br>
 
                         สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $row_note["week"] ?>" style="margin-top: -5px;" readonly>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -399,45 +331,33 @@ include '../php/config.php';
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เวลาเริ่มปฎิบัติงาน
                             <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["start_minute"] ?>:<?PHP echo $row_note["start_secound"] ?>" style="margin-top: 5px;">น. เวลาเลิกปฎิบัติงาน
                             <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["end_minute"] ?>:<?PHP echo $row_note["end_secound"] ?>" style="margin-top: 5px;">น.  <br>
-                            ลักษณะงานที่ปฎิบัติ <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+
+                            <div align="center"> ลักษณะงานที่ปฎิบัติ </div>
+                            <textarea  data-onload="set_size($(this),550)"  style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row_note["job_work"] ?>
                             </textarea>
-                            ปัญหาที่พบ <br>
+                            <div align="center"> ปัญหาที่พบ </div>
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["problem"] ?>
                             </textarea>
-                            แนวทางการแก้ไขปัญหา <br>
+                            <div align="center"> แนวทางการแก้ไขปัญหา </div>
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["work_fix"] ?>
                             </textarea>
-                            หมายเหต <br>
+                            <div align="center"> หมายเหต </div>
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
                                 <?PHP echo $row_note["note"] ?>
                             </textarea>
 
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page">
-                    <div class="subpage">
-                        <div align="center"> บันทึกเพิ่มเติม</div>
-                        <div style="border: solid 1px">
-
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="15" readonly>
+                            <div align="center"> บันทึกเพิ่มเติม</div>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["save_note"] ?>
                             </textarea>
-
-
                         </div>
                     </div>
-
                 </div>
-                <?PHP
-            }
-            ?>
+                <?PHP  }
+                ?>
 
             <div class="page">
                 <div class="subpage">
@@ -450,19 +370,19 @@ include '../php/config.php';
                     </div>
                     <div style="border: solid 1px">
 
-                        ลักษณะงานที่ปฎิบัติ <br>
+                        <div align="center"> ลักษณะงานที่ปฎิบัติ </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["job_work"] ?>
                         </textarea>
-                        ปัญหาที่พบ <br>
+                        <div align="center"> ปัญหาที่พบ </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["problem"] ?>
                         </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
+                        <div align="center"> แนวทางการแก้ไขปัญหา </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["work_fix"] ?>
                         </textarea>
-                        หมายเหต <br>
+                        <div align="center"> หมายเหต </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
                             <?PHP echo $row["note"] ?>
                         </textarea>
@@ -492,10 +412,14 @@ include '../php/config.php';
                                    style="margin-top: 5px;" required="required">
 
 
-                    <br><br><br><br>
-                    <div class="text-right">
-                    <button type="submit" class="btn btn-success" value="ยืนยัน"> ยืนยัน </button>
+<br><br><br>
+                        <div class="btn" align="center" style="margin-bottom: 20px;">
+                            <span class="fa fa-print" onclick="window.print();" style="font-size: 50px;cursor: pointer;margin-left: 220px; margin-right: 200px;" ></span>
+
+
+                    <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="ยืนยัน" value="ยืนยัน"> ยืนยัน </button>
                         </div>
+
                     </form>
                     <p id="back-top">
                         <a href="#top" style="margin-left: 780%"><span></span>Back to Top</a>
@@ -510,6 +434,8 @@ include '../php/config.php';
 
     </div>
     </div>
+
+
 
 
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -530,5 +456,7 @@ include '../php/config.php';
             eval($(this).data('onload'));
         });
     </script>
+
+
 </body>
 </html>

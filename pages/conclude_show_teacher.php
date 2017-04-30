@@ -299,22 +299,19 @@ include '../php/config.php';
 
 
     <?php
-    $status = null;
 
-    if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
         $fn_te = $_SESSION['fn_te'];
         $ln_te = $_SESSION['ln_te'];
-
+        $id = $_REQUEST['id'];
 
 
         $sql1 = "SELECT * FROM register_work,company,student
-                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid";
+                          WHERE register_work.cid = company.cid AND register_work.sid = student.sid
+                          AND register_work.sid = $id";
         $objquery = mysqli_query($link, $sql1) or die(mysqli_error($sql1));
         $result = mysqli_fetch_array($objquery);
 
-
-    }
     ?>
 
 </head>
@@ -382,7 +379,7 @@ include '../php/config.php';
                 ?>
                 <div class="page">
                     <div class="subpage">
-                        <p class="text-right" style="margin-top: -8%">( <?=  $i ?> )</p><br><br><br><br><br>
+                        <p class="text-right" style="margin-top: -6%">( <?=  $i ?> )</p>
 
                         สัปดาห์ที่ <input type="text" data-onload="set_size($(this),70)" value="<?PHP echo $row_note["week"] ?>" style="margin-top: -5px;" readonly>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -394,44 +391,31 @@ include '../php/config.php';
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เวลาเริ่มปฎิบัติงาน
                             <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["start_minute"] ?>:<?PHP echo $row_note["start_secound"] ?>" style="margin-top: 5px;">น. เวลาเลิกปฎิบัติงาน
                             <input type="text" data-onload="set_size($(this),35)" readonly value="<?PHP echo $row_note["end_minute"] ?>:<?PHP echo $row_note["end_secound"] ?>" style="margin-top: 5px;">น.  <br>
-                            ลักษณะงานที่ปฎิบัติ <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
+                            <div align="center"> ลักษณะงานที่ปฎิบัติ </div>
+                            <textarea  data-onload="set_size($(this),550)"  style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row_note["job_work"] ?>
                             </textarea>
-                            ปัญหาที่พบ <br>
+                            <div align="center"> ปัญหาที่พบ </div>
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["problem"] ?>
                             </textarea>
-                            แนวทางการแก้ไขปัญหา <br>
+                            <div align="center"> แนวทางการแก้ไขปัญหา </div>
                             <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["work_fix"] ?>
                             </textarea>
-                            หมายเหต <br>
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
+                            <div align="center"> หมายเหต </div>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["note"] ?>
                             </textarea>
 
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page">
-                    <div class="subpage">
-                        <div align="center"> บันทึกเพิ่มเติม</div>
-                        <div style="border: solid 1px">
-
-                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="15" readonly>
+                            <div align="center"> บันทึกเพิ่มเติม</div>
+                            <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                                 <?PHP echo $row_note["save_note"] ?>
                             </textarea>
-
-
                         </div>
                     </div>
-
                 </div>
-                <?PHP
-            }
+            <?PHP  }
             ?>
 
             <div class="page">
@@ -444,20 +428,19 @@ include '../php/config.php';
 
                     </div>
                     <div style="border: solid 1px">
-
-                        ลักษณะงานที่ปฎิบัติ <br>
+                        <div align="center"> ลักษณะงานที่ปฎิบัติ </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["job_work"] ?>
                         </textarea>
-                        ปัญหาที่พบ <br>
+                        <div align="center"> ปัญหาที่พบ </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["problem"] ?>
                         </textarea>
-                        แนวทางการแก้ไขปัญหา <br>
+                        <div align="center"> แนวทางการแก้ไขปัญหา </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="3" readonly>
                             <?PHP echo $row["work_fix"] ?>
                         </textarea>
-                        หมายเหต <br>
+                        <div align="center"> หมายเหต </div>
                         <textarea data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="2" readonly>
                             <?PHP echo $row["note"] ?>
                         </textarea>
@@ -474,21 +457,25 @@ include '../php/config.php';
                             <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                             <font style="5"><u><b>ข้อเสนอแนะจากพนักงานที่ปรึกษา /
                                         ผู้ควบคุมการปฏิบัติงานสหกิจศึกษา</b></u></font>
-                            <textarea name="offer"  data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4" required="required"> <?= $row['offer'] ?> </textarea>
+                            <textarea name="offer"  data-onload="set_size($(this),550)" style="margin-top: 5px;" rows="4" readonly="readonly""> <?= $row['offer'] ?> </textarea>
                         </div><br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         ลงชื่อ <input type="text" name="name_leder" value="<?= $row['name_leder'] ?>" data-onload="set_size($(this),150)"
-                                      style="margin-top: 5px;" required="required"> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
+                                      style="margin-top: 5px;" readonly="readonly""> พนักงานที่ปรึกษา / ผู้ควบคุมการปฏิบัติงาน <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         (<input type="text" value="<?= $row['name_leder'] ?>" data-onload="set_size($(this),150)"
-                                style="margin-top: 5px;" required="required">)<br>
+                                style="margin-top: 5px;" readonly="readonly"">)<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         ตำแหน่ง <input type="text" name="rank_leder" value="<?= $row['rank_leder'] ?>" data-onload="set_size($(this),175)"
-                                       style="margin-top: 5px;" required="required">
+                                       style="margin-top: 5px;" readonly="readonly">
 
 
-                        <br><br><br><br>
-                        <div class="text-right">
+
+                        <br><br><br>
+                        <div class="btn" align="center" style="margin-bottom: 20px;">
+                            <a href="conclude_show_teacher_print.php?id=<?= $id ?>" class="fa fa-print" data-toggle="tooltip" data-placement="top" title="ปริ้น" style="font-size: 50px;cursor: pointer;margin-left: 220px; margin-right: 200px;" ></a>
+
+
                             <a href="list_conclude_teacher.php?id=<?= $row['uid'] ?>" class="btn  btn-primary" > ย้อนกลับ </a>
                         </div>
 
