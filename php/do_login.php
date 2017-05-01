@@ -27,10 +27,30 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['ln_st'] = $row['ln_st'];
     $_SESSION['number_id'] = $row['number_id'];
     $_SESSION['status'] = $row['status'];
-    if ($log == null) {
-        echo "<script type='text/javascript'>window.location='../pages/profile_student.php'</script>";
-    } else {
-        echo "<script type='text/javascript'>window.location='../pages/Webboard.php'</script>";
+
+    $exe = "SELECT date_now FROM execute where uid = '".$row['sid']."' 
+     order by id desc limit 1";
+    $queryexe = mysqli_query($link,$exe);
+    $isexe = mysqli_fetch_array($queryexe);
+    if($isexe['date_now'] != date('Y-m-d')){
+        $insert = "INSERT INTO execute SET
+         uid  = ".$row['sid'].",
+         date_now = now(),
+         status_work = 'ยังไม่ได้ทำรายงาน' ";
+        if ($log == null) {
+            echo "<script type='text/javascript'>window.location='../pages/profile_student.php'</script>";
+        } else {
+            echo "<script type='text/javascript'>window.location='../pages/Webboard.php'</script>";
+        }
+    }else{
+        $db = mysqli_query($link,$insert)or die (mysqli_error($link));
+        if($db){
+            if ($log == null) {
+                echo "<script type='text/javascript'>window.location='../pages/profile_student.php'</script>";
+            } else {
+                echo "<script type='text/javascript'>window.location='../pages/Webboard.php'</script>";
+            }
+        }
     }
 
 } elseif ($sql = "SELECT * FROM teacher
@@ -97,7 +117,7 @@ if (mysqli_num_rows($result) > 0) {
 
             } else {
 
-                echo "<script type='text/javascript'>window.location='../pages/login.html'</script> ";
+                echo "<script type='text/javascript'>window.location='../pages/login.php'</script> ";
             }
 
         }

@@ -1,4 +1,3 @@
-
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -24,30 +23,52 @@
                     </li>
                 </ul>
             </li>
+
         </ul>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <?php if ($tid == $tid && $result['cid'] == null) { ?>
-                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a></li>
-                    <?php }else{
+                        <li class="active"><a href="timeline.php"><i class="fa fa-search "></i>ค้นหาบริษัทฝึกงาน </a>
+                        </li>
+                    <?php } else {
                         //
-                    } if ($result['status_work'] == 3) { ?>
+                    }
+                    if ($result['status_work'] == 3) { ?>
                         <li><a href="#"> ฝึกงาน <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
-                                <li><a href="add_note_form.php">สมุดบันทึกประจำวันสำหรับนักศึกษา</a></li>
-                                <li><a href="add_conclude_form.php">สมุดบันทึกการฝึกงาน</a></li>
-                                <li><a href="list_note.php">ดูประวัติสมุดบันทึกประจำวัน</a> </li>
-                                <li><a href="list_conclude.php">ดูสมุดบันทึกการฝึกงาน</a> </li>
+                                <li><a href="add_note_form.php">บันทักประจำวัน</a></li>
+                                <li><a href="add_conclude_form.php">บันทึกประจำสัปดาห์</a></li>
+                                <li><a href="list_note.php">ดูประวัติบันทึกประจำวัน</a></li>
+                                <li><a href="list_conclude.php">ดูบบันทึกประจำสัปดาห์</a></li>
                             </ul>
                         </li>
-                    <?php }else{
+                    <?php } else {
                         //
-                    } if ($result['status_work'] == 4){ ?>
-                            <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
-                      <?php  }else{
-                          //
-                    }    ?>
+                    }
+                    if ($result['status_work'] == 4) { ?>
+                        <li><a href="show_grade_student.php"><i class="fa fa-list-ol  "></i> เกรดฝึกงาน / คะแนน</a></li>
+                    <?php } else {
+                        //
+                    } ?>
+
+
+                    <?php
+                    $exe = "SELECT * FROM execute where uid = '" . $sid . "' AND status_work ='ยังไม่ได้ทำรายงาน' 
+                        order by id desc ";
+                    $queryexe = mysqli_query($link, $exe);
+
+                    $csql ="SELECT status_work,uid FROM execute JOIN student ON execute.uid = student.sid WHERE status_work ='ยังไม่ได้ทำรายงาน' AND execute.uid = '" . $sid . "' ";
+                    $querycsql = mysqli_query($link,$csql);
+                    $rowcsql = mysqli_num_rows($querycsql);
+                    ?>
+                        <li><a href="#"> รายงาน <span class="badge"><?= $rowcsql ?></span> <i class="fa arrow"></i></a>
+                            <ul class="nav nav-second-level">
+                                <?php while ($isexe = mysqli_fetch_array($queryexe)) { ?>
+                                    <li>ยังไม่เขียนรายงาน <?= $isexe['date'] ?></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
 
                 </ul>
             </div>

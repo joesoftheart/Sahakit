@@ -377,41 +377,31 @@ include '../php/config.php';
             <tr>
             <td>ลักษณะงานที่ปฎิบัติ/หมายเหตุ </td>
             <td>
-                <textarea name="job_work" cols="50" rows="5" >
-
-                </textarea>
+                <textarea name="job_work" cols="50" rows="5" ></textarea>
             </td>
         </tr>
         <tr>
             <td>ปัญหาที่พบ  </td>
             <td>
-                <textarea name="problem" cols="50" rows="5" >
-
-                </textarea>
+                <textarea name="problem" cols="50" rows="5" ></textarea>
             </td>
         </tr>
         <tr>
             <td>แนวทางการแก้ไขปัญหา  </td>
             <td>
-                <textarea name="work_fix" cols="50" rows="5" >
-
-                </textarea>
+                <textarea name="work_fix" cols="50" rows="5" ></textarea>
             </td>
         </tr>
         <tr>
             <td>หมายเหตุ  </td>
             <td>
-                <textarea name="note" cols="50" rows="5" >
-
-                </textarea>
+                <textarea name="note" cols="50" rows="5" ></textarea>
             </td>
         </tr>
         <tr>
             <td>บันทึกเพิ่มเติม  </td>
             <td>
-                <textarea name="save_note" cols="50" rows="10" >
-
-                </textarea>
+                <textarea name="save_note" cols="50" rows="10" ></textarea>
             </td>
         </tr>
         <tr>

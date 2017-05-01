@@ -34,6 +34,38 @@ include '../php/config.php';
 </head>
 <body>
 <?php include 'menu_company.php'?>
+<?php
+$student = "SELECT * FROM execute
+JOIN student ON (execute.uid=student.sid)
+JOIN company ON (execute.cid = company.cid)
+WHERE status_work   = 'ยังไม่ได้ทำรายงาน' AND company.cid = '".$cid."' ";
+$query2 = mysqli_query($link,$student);
+?>
+
+
+<div id="page-wrapper">
+    <div class="col-md-12">
+        <table class="table table-striped table-condensed">
+            <thead>
+            <tr>
+                <td>ชื่อ</td>
+                <td>วัน / เดือน / ปี</td>
+                <td>สถานะ</td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php while($dt = mysqli_fetch_array($query2)){ ?>
+                <tr>
+                    <td><?php echo $dt['fn_st'] ?> <?php echo $dt['ln_st'] ?></td>
+                    <td><?php echo $dt['date'] ?></td>
+                    <td><span class="label label-danger">ยังไม่ได้เขียนรายงาน</span></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>
 
 
         <script src="../vendor/jquery/jquery.min.js"></script>

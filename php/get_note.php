@@ -79,12 +79,13 @@ include 'config.php';
     $minute = $diff->format("%i%");
 
 
+$exe = "SELECT id FROM execute  order by id desc limit 1";
+$queryexe = mysqli_query($link,$exe);
+$isexe = mysqli_fetch_array($queryexe);
 
 
 
-
-$sql = "INSERT INTO execute (uid,cid,tid,type,date,week,start_minute,start_secound,end_minute,end_secound,job_work,problem,work_fix,note,save_note,date_now,hour_amount,minute_amount)
-VALUES ('$user_id','$cid','$tid','$type','$date_thai','$week_number','$start_minute','$start_secound','$end_minute','$end_secound','$job_work','$problem','$work_fix','$note','$save_note','$date_now','$hour','$minute') ";
+$sql = "UPDATE execute SET cid ='$cid',tid ='$tid',type = '$type',date = '$date_thai',week ='$week_number',start_minute ='$start_minute',start_secound = '$start_secound',end_minute ='$end_minute',end_secound ='$end_secound',job_work='$job_work',problem='$problem',work_fix='$work_fix',note='$note',save_note='$save_note',hour_amount='$hour',minute_amount='$minute',status_work ='ทำรายงานแล้ว' WHERE id = '".$isexe['id']."' ";
    $result = mysqli_query($link,$sql)or die(mysqli_error($link));
 
 echo "<script type='text/javascript'>window.location='../pages/list_note.php'</script>";

@@ -4,6 +4,18 @@ include '../php/config.php';
 date_default_timezone_set('Asia/Bangkok');
 include_once('../vendor/Thaidate/Thaidate.php');
 include_once('../vendor/Thaidate/thaidate-functions.php');
+function DateDiff($strDate1,$strDate2)
+{
+    return (strtotime($strDate2) - strtotime($strDate1))/  ( 60 * 60 * 24 );  // 1 day = 60*60*24
+}
+function TimeDiff($strTime1,$strTime2)
+{
+    return (strtotime($strTime2) - strtotime($strTime1))/  ( 60 * 60 ); // 1 Hour =  60*60
+}
+function DateTimeDiff($strDateTime1,$strDateTime2)
+{
+    return (strtotime($strDateTime2) - strtotime($strDateTime1))/  ( 60 * 60 ); // 1 Hour =  60*60
+}
 ?>
 
 
@@ -36,6 +48,12 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
     $query = mysqli_query($link, $SQL);
     $row = mysqli_fetch_array($query);
 
+    $student = "SELECT * FROM execute 
+            JOIN student ON (execute.uid=student.sid) 
+            JOIN teacher ON (execute.tid = teacher.tid)
+            WHERE status_work   = 'ยังไม่ได้ทำรายงาน' AND teacher.tid = '".$tid."' ";
+    $query2 = mysqli_query($link,$student);
+
     ?>
 
 
@@ -44,6 +62,26 @@ include_once('../vendor/Thaidate/thaidate-functions.php');
 <?php include 'menu_teacher.php'?>
 
 <div id="page-wrapper">
+    <div class="col-md-12">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <td>ชื่อ - นามสกุล</td>
+                    <td>วัน / เดือน / ปี</td>
+                    <td>สถานะ</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($dt = mysqli_fetch_array($query2)){ ?>
+                    <tr>
+                        <td><?php echo $dt['fn_st'] ?> <?php echo $dt['ln_st'] ?></td>
+                        <td><?php echo $dt['date'] ?></td>
+                        <td><span class="label label-danger">ยังไม่ได้เขียนรายงาน</span></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
