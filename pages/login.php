@@ -42,10 +42,10 @@ if (isset($_SESSION['mylog'])) {
                         <form role="form" action="../php/do_login.php" method="post" enctype="multipart/form-data">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="ไอดีผู้ใช้" name="username" type="text" autofocus>
+                                    <input class="form-control" placeholder="ไอดีผู้ใช้" name="username" type="text" autofocus required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="รหัสผ่าน" name="passwd" type="password" value="">
+                                    <input class="form-control" placeholder="รหัสผ่าน" name="passwd" type="password" value="" required="required">
                                 </div>
                                 <div class="col-md-12">
                                 <input type="submit" class="btn btn-success btn-block" value="เข้าสู่ระบบ">

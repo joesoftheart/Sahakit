@@ -89,47 +89,47 @@ $query1 = mysqli_query($link, $sql1);
 
         </h5>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel-heading">
-                บริษัทที่นักศึกษาสมัครฝึกงาน
-            </div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>ชื่อ</th>
-                    <th>นามสกุล</th>
-                    <th>สาขา</th>
-                </tr>
-                </thead>
-                <?php $i = 1;
-                while ($row = mysqli_fetch_array($query)) { ?>
-                    <tbody>
-                    <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $row['fn_st'] ?></td>
-                        <td><?= $row['ln_st'] ?></td>
-                        <td>วิทยาการคอมพิวเตอร์</td>
-                    </tr>
-                    </tbody>
-                    <?php $i++;
-                } ?>
-            </table>
-        </div>
-        <div class="col-md-6">
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="flot-chart">
-                    <div class="flot-chart-content" id="flot-pie-chart"></div>
-                </div>
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-
-
-    </div>
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="panel-heading">-->
+<!--                บริษัทที่นักศึกษาสมัครฝึกงาน-->
+<!--            </div>-->
+<!--            <table class="table">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>#</th>-->
+<!--                    <th>ชื่อ</th>-->
+<!--                    <th>นามสกุล</th>-->
+<!--                    <th>สาขา</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                --><?php //$i = 1;
+//                while ($row = mysqli_fetch_array($query)) { ?>
+<!--                    <tbody>-->
+<!--                    <tr>-->
+<!--                        <td>--><?//= $i; ?><!--</td>-->
+<!--                        <td>--><?//= $row['fn_st'] ?><!--</td>-->
+<!--                        <td>--><?//= $row['ln_st'] ?><!--</td>-->
+<!--                        <td>วิทยาการคอมพิวเตอร์</td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                    --><?php //$i++;
+//                } ?>
+<!--            </table>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--            <!-- /.panel-heading -->
+<!--            <div class="panel-body">-->
+<!--                <div class="flot-chart">-->
+<!--                    <div class="flot-chart-content" id="flot-pie-chart"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <!-- /.panel-body -->
+<!--        </div>-->
+<!--        <!-- /.panel -->
+<!---->
+<!---->
+<!--    </div>-->
 </div>
 <footer class="panel-footer">
     <div class="container">
@@ -159,8 +159,7 @@ while ($result = mysqli_fetch_array($query)) {
 }
 
 
-echo count($count_status);
-echo count($status_work);
+
 if(count($count_status) == 4){
     $count_status[4] = 0;
 }
