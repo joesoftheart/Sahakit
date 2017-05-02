@@ -54,18 +54,18 @@
 
 
                     <?php
-                    $exe = "SELECT * FROM execute where uid = '" . $sid . "' AND status_work ='ยังไม่ได้ทำรายงาน' 
-                        order by id desc ";
+                    $exe = "SELECT * FROM execute JOIN student ON execute.uid = student.sid WHERE uid = '" . $sid . "' AND status_work ='ยังไม่ได้ทำรายงาน'";
                     $queryexe = mysqli_query($link, $exe);
 
-                    $csql ="SELECT status_work,uid FROM execute JOIN student ON execute.uid = student.sid WHERE status_work ='ยังไม่ได้ทำรายงาน' AND execute.uid = '" . $sid . "' ";
+                    $csql ="SELECT status_work FROM execute JOIN student ON execute.uid = student.sid WHERE status_work ='ยังไม่ได้ทำรายงาน' AND execute.uid = '" . $sid . "' ";
                     $querycsql = mysqli_query($link,$csql);
                     $rowcsql = mysqli_num_rows($querycsql);
+
                     ?>
                         <li><a href="#"> รายงาน <span class="badge"><?= $rowcsql ?></span> <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <?php while ($isexe = mysqli_fetch_array($queryexe)) { ?>
-                                    <li>ยังไม่เขียนรายงาน <?= $isexe['date'] ?></li>
+                                    <li>ยังไม่เขียนรายงาน <?= $isexe['date_now'] ?></li>
                                 <?php } ?>
                             </ul>
                         </li>
