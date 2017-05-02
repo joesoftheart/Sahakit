@@ -62,13 +62,15 @@
                     $rowcsql = mysqli_num_rows($querycsql);
 
                     ?>
+                   <?php if ($result['status_work'] == 3) { ?>
                         <li><a href="#"> รายงาน <span class="badge"><?= $rowcsql ?></span> <i class="fa arrow"></i></a>
                             <ul class="nav nav-second-level">
                                 <?php while ($isexe = mysqli_fetch_array($queryexe)) { ?>
-                                    <li>ยังไม่เขียนรายงาน <?= $isexe['date_now'] ?></li>
+                                    <li>ยังไม่เขียนรายงาน <?= $isexe['date'] ?></li>
                                 <?php } ?>
                             </ul>
                         </li>
+                    <?php } ?>
 
                 </ul>
             </div>

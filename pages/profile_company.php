@@ -26,7 +26,7 @@ include '../php/config.php';
         $c_name = $_SESSION['c_name'];
         $cid = $_SESSION['cid'];
 
-        $sql3 = "SELECT * FROM company WHERE cid= $cid AND c_status_join = 1";
+        $sql3 = "SELECT * FROM company WHERE cid= '$cid' AND c_status_join = 1";
         $qquery = mysqli_query($link,$sql3);
         $result = mysqli_fetch_array($qquery);
 
@@ -38,7 +38,7 @@ include '../php/config.php';
 $student = "SELECT * FROM execute
 JOIN student ON (execute.uid=student.sid)
 JOIN company ON (execute.cid = company.cid)
-WHERE status_work   = 'ยังไม่ได้ทำรายงาน' AND company.cid = '".$cid."' ";
+WHERE status_work   = 'ยังไม่ได้ทำรายงาน' AND company.cid = '$cid'";
 $query2 = mysqli_query($link,$student);
 ?>
 
@@ -49,7 +49,7 @@ $query2 = mysqli_query($link,$student);
             <thead>
             <tr>
                 <td>ชื่อ</td>
-                <td>วัน / เดือน / ปี</td>
+                <td>ปี / เดือน / วัน</td>
                 <td>สถานะ</td>
             </tr>
             </thead>
@@ -57,7 +57,7 @@ $query2 = mysqli_query($link,$student);
             <?php while($dt = mysqli_fetch_array($query2)){ ?>
                 <tr>
                     <td><?php echo $dt['fn_st'] ?> <?php echo $dt['ln_st'] ?></td>
-                    <td><?php echo $dt['date'] ?></td>
+                    <td><?php echo $dt['date_now'] ?></td>
                     <td><span class="label label-danger">ยังไม่ได้เขียนรายงาน</span></td>
                 </tr>
             <?php } ?>

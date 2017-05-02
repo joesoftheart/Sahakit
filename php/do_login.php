@@ -28,6 +28,13 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['number_id'] = $row['number_id'];
     $_SESSION['status'] = $row['status'];
 
+    $company = "SELECT * FROM execute JOIN company ON execute.cid = company.cid JOIN student ON execute.uid = student.sid WHERE execute.uid = 001 ORDER BY id DESC LIMIT 1";
+    $query_company = mysqli_query($link,$company);
+    $row_company = mysqli_fetch_array($query_company);
+
+    $cid =  $row_company['cid'];
+        $tid =  $row_company['tid'];
+
     $exe = "SELECT * FROM execute JOIN student ON execute.uid = student.sid order by id desc limit 1";
     $queryexe = mysqli_query($link,$exe);
     $isexe = mysqli_fetch_array($queryexe);
@@ -36,6 +43,8 @@ if (mysqli_num_rows($result) > 0) {
         print_r(date('Y-m-d'));
         $insert = "INSERT INTO execute SET
          uid  = '".$row['sid']."',
+         cid = '".$cid."',
+         tid = '".$tid."',
          date_now = now(),
          status_work = 'ยังไม่ได้ทำรายงาน' ";
         $success = mysqli_query($link,$insert);

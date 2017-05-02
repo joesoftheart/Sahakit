@@ -67,7 +67,7 @@ function DateTimeDiff($strDateTime1,$strDateTime2)
             <thead>
                 <tr>
                     <td>ชื่อ - นามสกุล</td>
-                    <td>วัน / เดือน / ปี</td>
+                    <td>ปี / เดือน / วัน</td>
                     <td>สถานะ</td>
                 </tr>
             </thead>
@@ -75,7 +75,7 @@ function DateTimeDiff($strDateTime1,$strDateTime2)
                 <?php while($dt = mysqli_fetch_array($query2)){ ?>
                     <tr>
                         <td><?php echo $dt['fn_st'] ?> <?php echo $dt['ln_st'] ?></td>
-                        <td><?php echo $dt['date'] ?></td>
+                        <td><?php echo $dt['date_now'] ?></td>
                         <td><span class="label label-danger">ยังไม่ได้เขียนรายงาน</span></td>
                     </tr>
                 <?php } ?>
